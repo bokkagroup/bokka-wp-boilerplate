@@ -1,0 +1,85 @@
+var Slider = Backbone.View.extend({
+    current: 0,
+    events: {
+        'click .previous'       : 'previousSlide',
+        'click .next'           : 'nextSlide',
+        'click .pagination a'   : 'paginate'
+    },
+    initialize : function(){
+        this.slides = this.$el.find('.slide')
+        this.render()
+    },
+    render : function(){
+        var self = this
+        this.setHeight()
+        $(window).on('resize', function(){
+            self.setHeight()
+        })
+    },
+
+    setHeight : function(){
+        var maxHeight = 0
+        var heights = []
+        _.each(this.slides, function(item){
+            heights.push($(item).outerHeight() )
+        })
+        maxHeight = Math.max.apply(Math, heights)
+
+        this.$el.find('.slides').height(maxHeight)
+    },
+    changeSlide : function(slide, old, direction){
+
+        var old = this.slides[old]
+        var newer = this.slides[slide]
+        this.current = slide
+
+        direction = direction === 'forward' ? 100: -100;
+
+        $(newer).stop().css({
+            left: ( direction + '%'),
+            top: 0
+        })
+        $(old).stop().animate({
+            left: ( direction * -1) + '%',
+            opacity: 0
+        })
+        $(newer).stop().animate({
+            left: 0,
+            opacity: 1
+        })
+        this.$el.find('.pagination li').removeClass('current').eq(slide).addClass('current')
+    },
+    previousSlide : function(event){
+        event.preventDefault()
+        var old = this.current
+        if(this.current > 0){
+            this.current--
+            slide = this.current
+        } else {
+            slide = this.slides.length - 1
+        }
+        this.changeSlide(slide, old, 'backwards')
+    },
+    nextSlide : function(event){
+        event.preventDefault()
+        var old = this.current
+        if(this.current < this.slides.length - 1){
+            this.current++
+            slide = this.current
+        } else {
+            slide = 0
+        }
+
+        this.changeSlide(slide, old, 'forward')
+    },
+    paginate : function(event){
+        event.preventDefault()
+        var index = $(event.target).parent().index()
+        if(index !== this.current) {
+            this.changeSlide(index, this.current, 'forward')
+        }
+
+    }
+})
+
+module.exports = Slider

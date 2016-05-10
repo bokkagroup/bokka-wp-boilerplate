@@ -1,0 +1,32 @@
+<div class="page-wrapper">
+    {{#each organisms }}
+        {{#if brand-window}}
+            {{> organisms/brand-window }}
+        {{/if}}
+        {{#if intro-text}}
+            {{> molecules/blocks/intro-text }}
+        {{/if}}
+        {{#if cta-w-image}}
+            {{> organisms/cta-w-image }}
+        {{/if}}
+        {{#if cta-w-gallery}}
+            {{> organisms/cta-w-gallery }}
+        {{/if}}
+        {{#if cards}}
+            {{> organisms/cards }}
+        {{/if}}
+        {{#if feature-slider}}
+            {{> organisms/feature-slider }}
+        {{/if}}
+        {{#if testimonial}}
+            {{> organisms/testimonial }}
+        {{/if}}
+        {{#if form-w-text}}
+            {{> organisms/form-w-text }}
+        {{/if}}
+        {{#if icon-grid}}
+            {{> organisms/icon-grid }}
+        {{/if}}
+    {{/each}}
+</div>
+

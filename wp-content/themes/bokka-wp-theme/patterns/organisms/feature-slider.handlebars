@@ -1,0 +1,38 @@
+<div id="{{id}}" class="section featured-slider">
+    <section>
+        <div class="container">
+            <div class="slider">
+                <ul class="slides">
+                    {{#each item}}
+                        <li class="slide" >
+                            <a href="{{link}}">
+                                <div class="background" style="background:url({{image}});"></div>
+
+                                    <div class="overlay">
+                                        <i class="icon sprite {{icon}}"></i>
+                                        {{> molecules/blocks/cta-nolink}}
+                                    </div>
+
+                                <div class="color-overlay"></div>
+                            </a>
+                        </li>
+                    {{/each}}
+                </ul>
+                {{#if controls}}
+                    <ul class="controls">
+                        <li class="previous">
+                            <a href="">
+                                <span class="icon icon-slider-previous"></span>
+                            </a>
+                        </li>
+                        <li class="next">
+                            <a href="">
+                                <span class="icon icon-slider-next"> </span>
+                            </a>
+                        </li>
+                    </ul>
+                {{/if}}
+            </div><!--/slider-->
+        </div><!--/container-->
+    </section>
+</div><!--/featured-slider-->

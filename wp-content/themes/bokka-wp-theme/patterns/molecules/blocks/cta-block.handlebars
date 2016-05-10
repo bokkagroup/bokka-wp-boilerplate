@@ -1,0 +1,27 @@
+<div class="text cta-block">
+
+    <div class="title">
+        <a href="{{link}}" >
+            <h2>
+                {{title}}
+            </h2>
+        </a>
+    </div><!--/title-->
+    <div class="body">
+        {{#if description}}
+            {{{description}}}
+        {{/if}}
+        {{#if sub_title}}
+            <div class="subtitle">
+                <span>
+                    {{{sub_title}}}
+                </span>
+            </div>
+        {{/if}}
+        {{#if button}}
+            <a href="{{link}}" class="button">
+                {{button_text}}
+            </a>
+        {{/if}}
+    </div><!--/body-->
+</div><!--/cta-block-->

@@ -1,0 +1,27 @@
+<div class="mini-gallery">
+    <div class="slider">
+        <ul class="slides">
+            {{#each gallery}}
+                <li class="slide">
+                    <div class="image">
+                        <figure>
+                            <img src="{{url}}" alt="">
+                        </figure>
+                    </div><!--/image-->
+                </li><!--/slide-->
+            {{/each}}
+        </ul><!--/slides-->
+
+        <div class="pagination simple">
+            {{#if controls}}
+                <ul>
+                {{#each gallery}}
+                    {{#if @first}}<li class="current"><a href=""></a></li>{{/if}}
+                    {{#unless @first}}<li><a href=""></a></li>{{/unless}}
+
+                {{/each}}
+                </ul>
+            {{/if}}
+        </div><!--/pagination-->
+    </div>
+</div><!--/mini-gallery-->

@@ -1,0 +1,195 @@
+<?php
+        $writer = new XMLWriter();
+        $writer->openURI('php://output');
+        $writer->startDocument('1.0','UTF-8');
+        $writer->setIndent(4);
+
+        $writer->startElement('Builders');
+        $writer->writeAttribute('DateGenerated', date("l") );
+        $writer->writeAttribute('upperLimit', '100');
+        $writer->writeAttribute('caption', 'Revenue');
+        $writer->writeAttribute('subcaption', 'US $ (1,000s)');
+        $writer->writeAttribute('numberPrefix', '$');
+        $writer->writeAttribute('numberSuffix', 'K');
+        $writer->writeAttribute('showValue', '1');
+        $writer->startElement('colorRange');
+        $writer->startElement('color');
+        $writer->writeAttribute('minValue', '0');
+        $writer->writeAttribute('maxValue', '50');
+        $writer->writeAttribute('color', 'A6A6A6');
+        $writer->endElement();
+        $writer->startElement('color');
+        $writer->writeAttribute('minValue', '50');
+        $writer->writeAttribute('maxValue', '75');
+        $writer->writeAttribute('color', 'CCCCCC');
+        $writer->endElement();
+        $writer->startElement('color');
+        $writer->writeAttribute('minValue', '75');
+        $writer->writeAttribute('maxValue', '100');
+        $writer->writeAttribute('color', 'E1E1E1');
+        $writer->endElement();
+        $writer->endElement();
+        $writer->writeElement('value','78.9');
+        $writer->writeElement('target','78.9');
+        $writer->endElement();
+        $writer->endDocument();
+        $writer->flush();
+        ?>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Builders DateGenerated="2016-02-25T17:24:37+00:00">
+    <Corporation>
+        <CorporateBuilderNumber>CONSORTHOMES</CorporateBuilderNumber>
+        <CorporateState>MO</CorporateState>
+        <CorporateName>Consort Homes</CorporateName>
+        <Builder>
+            <BuilderNumber>1</BuilderNumber>
+            <BrandName>Consort Homes</BrandName>
+            <ReportingName>Consort Homes</ReportingName>
+            <DefaultLeadsEmail LeadsPerMessage="All">smoore@consort-homes.com</DefaultLeadsEmail>
+            <BuilderWebsite>http://consort-homes.com</BuilderWebsite>
+            <Subdivision>
+                <SubdivisionNumber>21589</SubdivisionNumber>
+                <SubdivisionName>Carlton Glen</SubdivisionName>
+                <SubLeadsEmail LeadsPerMessage="All">onlinesales@consort-homes.com</SubLeadsEmail>
+                <CommunityStyle>MasterPlanned</CommunityStyle>
+                <SalesOffice>
+                    <Address OutOfCommunity="false">
+                        <Street1>202 Glenfarm Drive</Street1>
+                        <Street2/>
+                        <County/>
+                        <City>Wentzville</City>
+                        <State>MO</State>
+                        <ZIP>63385</ZIP>
+                        <Country/>
+                        <Geocode>
+                            <Latitude>38.7907436</Latitude>
+                            <Longitude>-90.8388467</Longitude>
+                        </Geocode>
+                    </Address>
+                    <Phone>
+                        <AreaCode>636</AreaCode>
+                        <Prefix>327</Prefix>
+                        <Suffix>4390</Suffix>
+                        <Extension>false</Extension>
+                    </Phone>
+                    <Email>gtate@consort-homes.com</Email>
+                </SalesOffice>
+                <DrivingDirections>
+                    Highway 70 west to exit 209
+                    Church Street/Highway Z
+                    Turn left on Hwy Z
+                    Follow Hwy Z 1.1 miles
+                    Turn left on Carlton Glen Pkwy
+
+                </DrivingDirections>
+                <SubDescription>Welcome to Carlton Glen &amp;#8211; Wentzville&amp;#8217;s best kept secret!
+                    Carlton Glen offers the best of both worlds, minutes from all of the modern amenities that meet all your families needs and wants, yet, quietly tucked away with all the natural elements and beauty of nature with its wooded common ground.
+                    This most sought after community is nestled 1.1 miles off of highway 70 to highway Z. Carlton Glen is less than 20 minutes from Chesterfield Valley, close to the shopping at the forever growing Hawks Ridge Plaza, The Meadows Mall and Wentzville Parkway.
+                    Highly acclaimed AAA rated and most desirable Wentzville School District. Our schools are within minutes of the community. South Middle and Timberland High School are within 2.5 miles and Duello Elementary is less than 5 miles.
+                    This family friendly new home community in Wentzville offers something for everyone! Our welcoming home sites offer large level back yards, cul-de-sacs/circles and private wooded lots. Carlton Glen is featuring two of our most popular collection. The Hometown and Heritage Collections range in size from 1,518 to over 3,000 square feet, which include spacious open floor plans, bonus rooms, ranches and two story plans!
+                    Family friendly amenities include a community swimming pool, play ground, side walks and a serene pond.
+                    Come visit Carlton Glen today! A place you&amp;#8217;ll be excited to call home!
+                    View Plat Map Download Community Information Brochure
+                </SubDescription>
+                <SubImage Type="Standard" SequencePosition="1" Title="202gfd_01" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_011.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="2" Title="202gfd_02" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_021.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="3" Title="202gfd_03" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_031.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="4" Title="202gfd_04" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_04.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="5" Title="202gfd_05" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_05.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="6" Title="202gfd_06" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_06.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="7" Title="202gfd_07" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_07.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="8" Title="202gfd_08" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_08.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="9" Title="202gfd_09" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_09.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="10" Title="202gfd_10" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_10.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="11" Title="202gfd_11" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_11.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="12" Title="202gfd_12" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_12.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="13" Title="202gfd_13" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_13.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="14" Title="202gfd_14" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_14.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="15" Title="202gfd_15" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_15.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="16" Title="202gfd_16" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_16.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="17" Title="202gfd_17" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_17.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="18" Title="202gfd_18" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_18.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="19" Title="202gfd_19" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_19.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="20" Title="202gfd_20" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_20.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="21" Title="202gfd_21" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_21.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="22" Title="202gfd_22" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_22.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="23" Title="202gfd_23" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_23.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="24" Title="202gfd_24" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_24.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="25" Title="202gfd_25" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_25.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="26" Title="202gfd_26" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_26.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="27" Title="202gfd_27" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_27.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="28" Title="202gfd_28" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_28.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="29" Title="202gfd_29" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_29.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="30" Title="202gfd_30" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_30.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="31" Title="202gfd_31" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_31.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="32" Title="202gfd_32" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_32.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="33" Title="202gfd_33" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_33.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="34" Title="202gfd_34" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_34.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="35" Title="202gfd_35" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_35.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="36" Title="202gfd_36" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_36.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="37" Title="202gfd_37" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_37.jpg</SubImage>
+                <SubImage Type="Standard" SequencePosition="38" Title="202gfd_39" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/04/202gfd_39.jpg</SubImage>
+                <SubWebsite>http://consort-homes.com/communities/carlton-glen</SubWebsite>
+                <Plan Type="SingleFamily">
+                    <PlanNumber>21794</PlanNumber>
+                    <PlanName>Braxton</PlanName>
+                    <PlanTypeName>Single Family</PlanTypeName>
+                    <BasePrice ExcludesLand="false">281900</BasePrice>
+                    <BaseSqft>3546</BaseSqft>
+                    <Stories>2</Stories>
+                    <Baths>3</Baths>
+                    <HalfBaths>0</HalfBaths>
+                    <Bedrooms MasterBedLocation="Down">4</Bedrooms>
+                    <Garage>3</Garage>
+                    <DiningAreas>0</DiningAreas>
+                    <Basement>0</Basement>
+                    <MarketingHeadline/>
+                    <Description/>
+                    <PlanImages>
+                        <FloorPlanImage SequencePosition="1" Title="Braxton-SFFand-Opt.-Study" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/11/Braxton-SFFand-Opt.-Study.jpg</FloorPlanImage>
+                    </PlanImages>
+                    <PlanWebsite>http://consort-homes.com/plans/braxton-2</PlanWebsite>
+                </Plan>
+                <Plan Type="SingleFamily">
+                    <PlanNumber>21795</PlanNumber>
+                    <PlanName>Bridgeport</PlanName>
+                    <PlanTypeName>Single Family</PlanTypeName>
+                    <BasePrice ExcludesLand="false">273900</BasePrice>
+                    <BaseSqft>3204</BaseSqft>
+                    <Stories>2</Stories>
+                    <Baths>2</Baths>
+                    <HalfBaths>1</HalfBaths>
+                    <Bedrooms MasterBedLocation="Down">4</Bedrooms>
+                    <Garage>3</Garage>
+                    <DiningAreas>0</DiningAreas>
+                    <Basement>0</Basement>
+                    <MarketingHeadline/>
+                    <Description/>
+                    <PlanImages>
+                        <FloorPlanImage SequencePosition="1" Title="Bridgeport-SFF" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgeport-SFF.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="2" Title="Bridgeport-SSF&amp;Opt.SF" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgeport-SSFOpt.SF_.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="3" Title="Bridgeport-Opt.Butlers-Pant" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgeport-Opt.Butlers-Pant.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="4" Title="Bridgeport-Opt.LivingRoom" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgeport-Opt.LivingRoom.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="5" Title="Bridgeport-Opt.LMB" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgeport-Opt.LMB_.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="6" Title="Bridgeport-Sunroom-Options" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgeport-Sunroom-Options.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="7" Title="Bridgetport-Finished-LL1" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgetport-Finished-LL1.jpg</FloorPlanImage>
+                        <FloorPlanImage SequencePosition="8" Title="Bridgetport-Finished-LL2" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/01/Bridgetport-Finished-LL2.jpg</FloorPlanImage>
+                        <ElevationImage SequencePosition="1" Title="Bridgeport Elevation 8" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/05/Bridgeport8.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="2" Title="Bridgeport Elevation 1" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/05/Bridgeport1.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="3" Title="Bridgeport Elevation 2" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/05/Bridgeport2.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="4" Title="Bridgeport Elevation 3" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/05/Bridgeport3.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="5" Title="Bridgeport Elevation 4" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/05/Bridgeport4.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="6" Title="Bridgeport Elevation 6" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2015/05/Bridgeport6.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="7" Title="A40455 The Jones Co - Consort Homes - Bridgeport 1" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/02/A40455-The-Jones-Co-Consort-Homes-Bridgeport-10.jpg</ElevationImage>
+                        <ElevationImage SequencePosition="8" Title="A40455 The Jones Co - Consort Homes - Bridgeport 1" ReferenceType="URL">http://consort-homes.com/wp-content/uploads/2016/02/A40455-The-Jones-Co-Consort-Homes-Bridgeport-11.jpg</ElevationImage>
+                    </PlanImages>
+                    <PlanWebsite>http://consort-homes.com/plans/bridgeport</PlanWebsite>
+                </Plan>
+                <PlanCount>22</PlanCount>
+            </Subdivision>
+            <SubsCount>10</SubsCount>
+        </Builder>
+    </Corporation>
+</Builders>

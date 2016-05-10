@@ -1,0 +1,35 @@
+.slider {
+    position:relative;
+    width:100%;
+    .pagination {
+        display:none;
+        @mixin desktop {
+            display:block;
+        }
+    }
+}
+.slides {
+    width:100%;
+    position:relative;
+    .slide {
+        left:100%;
+        position:absolute;
+        width:100%;
+        align-items: center;
+        justify-content: center;
+        opacity:0;
+
+        &:nth-child(1){
+            left:0;
+            opacity:1;
+            position:relative;
+            @mixin desktop {
+                position:absolute;
+            }
+        }
+
+
+    }
+
+
+}

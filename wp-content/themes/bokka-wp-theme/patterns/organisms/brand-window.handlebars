@@ -1,0 +1,24 @@
+<div id="{{id}}" class="section brand-window">
+    <section>
+        <div class="container">
+            <div class="image">
+                <figure>
+                    <img src="{{image}}" alt="" />
+                </figure>
+            </div><!--/image-->
+            <div class="text">
+                <h1>
+                    {{title}}
+                </h1><!--/text-->
+                <div class="body">
+                   {{{description}}}
+                    {{#if button}}
+                        <a href="{{link}}" class="button">
+                            {{button_text}}
+                        </a>
+                    {{/if}}
+                </div><!--/body-->
+            </div><!--/text-->
+        </div><!--/container-->
+    </section>
+</div><!--/brand-window-->
