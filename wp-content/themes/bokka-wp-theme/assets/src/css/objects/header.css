@@ -17,10 +17,10 @@
         align-items: center;
         justify-content: center;
         @mixin desktop-large {
-            padding:20px 0px;
+            padding:15px 0px;
         }
         @mixin desktop {
-            padding:20px 30px;
+            padding:15px 30px;
         }
 
 
