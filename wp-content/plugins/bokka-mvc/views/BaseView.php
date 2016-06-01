@@ -5,7 +5,7 @@ Class View {
     public function render($template = false, $data = array())
     {
         global $Handlebars  ;
-        if($template !== false && $data !== false) {
+        if ($template !== false && $data !== false) {
             $template = $Handlebars->render($template, $data);
         }
        return $template;
@@ -13,7 +13,7 @@ Class View {
 
     public function display($data = array())
     {
-        if(isset($this->template)) {
+        if (isset($this->template)) {
             echo $this->render($this->template, $data);
         }
     }

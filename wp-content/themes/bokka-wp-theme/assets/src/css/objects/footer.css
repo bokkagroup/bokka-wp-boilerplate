@@ -190,14 +190,17 @@
                     width:200px;
                     height:200px;
                 }
-
+                figure {
+                    width:100%;
+                    height:100%;
+                }
                 img {
-                    height:250px;
-                    width:250px;
+                    height:100%;
+                    width:100%;
                     object-fit: cover;
-                    object-position: 120% 75%;
+                    object-position:center center;
                     @mixin desktop {
-                        object-position: 50% 50%;
+                        object-position:center center;
                     }
                 }
             }

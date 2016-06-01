@@ -133,6 +133,9 @@
     }
 }
 
+.fancybox-inner .modal-content {
+    display:block !important;
+}
 .modal-content{
     display:none !important;
 }

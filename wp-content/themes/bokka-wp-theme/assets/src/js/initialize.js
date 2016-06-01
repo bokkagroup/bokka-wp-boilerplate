@@ -1,5 +1,24 @@
-require('./vendor/mlpushmenu.js');
-$(document).ready(function() {
+
+require('./vendor/mlpushmenu.js')
+require('./vendor/mousewheel.js')
+require('./vendor/fancybox.js')
+require('./vendor/tipr.js')
+jQuery( document ).ready(function( $ ) {
+    window.$ = jQuery
+
+    $(".fancybox").fancybox();
+    $(".modal-trigger").fancybox({
+
+        autoSize: false,
+        maxWidth: '85%',
+        maxHeight: '90%',
+        helpers: {
+            overlay: {
+                locked: false
+            }
+        },
+
+    });
     window.bokka_breakpoint = {
         refreshValue : function () {
             window.bokka_breakpoint.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
@@ -41,11 +60,12 @@ $(document).ready(function() {
      */
     //Event Tracking
     require('./helpers/eventTracking.js')
+    require('./helpers/maps.js')
 
     /**
      * Modals
      */
-    require('./helpers/modals.js')
+    //require('./helpers/modals.js')
 
     /**
      * Menu Instantiation
@@ -56,7 +76,22 @@ $(document).ready(function() {
         push._determineNav()
     });
 
-    require('./vendor/opentip.js')
+    $('.tooltip').tipr();
+
+    /**
+     * Map instatiation
+     */
+    if($('.google-map').length > 0){
+        loadMapsAPI(function() {
+            $('.google-map').each(function () {
+                if ($(this).hasClass('js-model-map')) {
+                    var modelMapView = require('./views/model-map.js')
+                    new modelMapView({el: $(this)})
+                }
+            })
+        })
+    }
+
 
 
 });

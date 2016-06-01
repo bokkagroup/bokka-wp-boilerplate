@@ -5,7 +5,6 @@ module.exports = {
     entry: {
         initialize: "./assets/src/js/initialize.js",
         common: [
-            'jquery',
             'lodash',
             'backbone'
         ]
@@ -32,10 +31,6 @@ module.exports = {
         new webpack.ProvidePlugin({
             _               : 'lodash',
             backbone        : 'backbone',
-            $               : "jquery",
-            jquery          : "jquery",
-            jQuery          : "jquery",
-            "window.jQuery" : "jquery"
 
         }),
         new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),

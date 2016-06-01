@@ -6,7 +6,7 @@ class BreadcrumbsModel extends \BokkaWP\MVC\Model
 {
     public function initialize()
     {
-        if(is_singular(array('plans'))){
+        if (is_singular(array('plans'))) {
             $this->data = $this->breadcrumbs();
         }
     }
@@ -19,12 +19,12 @@ class BreadcrumbsModel extends \BokkaWP\MVC\Model
     {
         global $post;
         $crumbs = [];
-        $crumbs[0]['title'] = 'home';
+        $crumbs[0]['title'] = 'Home';
         $crumbs[0]['link'] = '/';
         $crumbs[1]['title'] = get_the_title($post->neighborhood);
         $crumbs[1]['link'] = get_permalink($post->neighborhood);
         $crumbs[1]['class'] = 'icon icon-our-neighborhoods';
-        $crumbs[2]['title'] = $post->post_title;
+        $crumbs[2]['title'] = $post->post_title .' Plan';
         $crumbs[2]['link'] = '#';
         $crumbs[2]['class'] = 'icon icon-our-homes';
         return $crumbs;

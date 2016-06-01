@@ -87,6 +87,7 @@
 @import "objects/tooltip";
 @import "objects/accordion";
 @import "objects/tabs";
+@import "objects/maps";
 @import "objects/sections";
 @import "objects/article";
 @import "objects/alerts";
@@ -95,3 +96,8 @@
 @import "objects/floorplan";
 
 
+/*------------------------------------*\
+   Vendor
+\*------------------------------------*/
+@import "vendor/fancybox";
+@import "vendor/tipr";

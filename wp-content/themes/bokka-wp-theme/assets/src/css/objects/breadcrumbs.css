@@ -1,5 +1,7 @@
 .breadcrumb-outer-wrapper{
     background: $purple_light;
+    overflow:hidden;
+    position:relative;
     &:before {
         display:inline-block;
         content:' ';

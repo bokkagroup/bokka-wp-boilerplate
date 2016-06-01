@@ -60,6 +60,7 @@ if (!function_exists('bokka_wp_theme_setup')) :
 
         #require various actions
         require_once('actions/permalinks.php');
+        require_once('actions/footer.php');
         require_once('lib/scripts.php');
     }
 endif;

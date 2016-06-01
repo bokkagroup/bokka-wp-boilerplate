@@ -91,6 +91,9 @@
                 @mixin offset -1, 12;
                 @mixin column 10, 12;
             }
+            img {
+                max-width:100%;
+            }
         }
         h2 {
             color: $blue;
@@ -339,10 +342,16 @@
                     .color-overlay {
                         opacity:0;
                     }
+                    .text {
+
+                        .title {
+                            text-shadow: 0px 0px 20px #000 !important;
+                        }
+                    }
                     .subtitle span {
-                        background:$blue;
-                        box-shadow:15px 0 0 $blue,-15px 0 0 $blue;
-                        text-shadow:none !important;
+                        background: $blue;
+                        box-shadow: 15px 0 0 $blue, -15px 0 0 $blue;
+                        text-shadow: none !important;
                     }
                     .button {
                         @mixin hover_reversed $blue;
@@ -421,6 +430,7 @@
                     .title, .subtitle span {
                         letter-spacing:3px;
                         text-shadow: 1px 1px 0px #333;
+                        transition:text-shadow 0.25s;
                         @mixin desktop {
                             margin-bottom: 20px;
                         }
@@ -745,16 +755,52 @@
             }
         }
     }
+    &.coming-soon-get-updates {
+        background:url('/wp-content/themes/bokka-wp-theme/assets/build/images/floorplan-background-faded.jpg') no-repeat;
+        background-size:cover;
+        background-position:center center;
+        .container {
+            align-items: center;
+            text-align:center;
+            padding:60px 0;
+            @mixin tablet {
+                padding: 120px;
+            }
+
+        }
+        .title {
+            margin-bottom:30px;
+        }
+        .text {
+            margin:0 auto;
+            @mixin desktop {
+                width: 50%;
+            }
+        }
+    }
+    &.map-with-info {
+         position:relative;
+        .google-map {
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .text {
+            position:relative;
+            background:$white;
+            z-index:2;
+        }
+    }
 }
 
 
-.modal {
-    .modal-body .email-signup {
+
+.modal-content {
 
         p, .title {
             font-family: 'Open Sans';
         }
-    }
+
 
     .title {
         @mixin clear;
@@ -766,7 +812,10 @@
     .text {
         float:left;
         order:1;
-        @mixin column 7,12;
+        margin-bottom:15px;
+        @mixin desktop {
+            @mixin column 7,12;
+        }
         p {
             font-size:14px;
             line-height:normal;
@@ -774,9 +823,12 @@
     }
     .image {
         order:2;
-        @mixin column 5,12;
+        @mixin desktop{
+            @mixin column 5,12;
+        }
         float:right;
         margin-right:0px;
+
         img {
             width:100%;
         }
@@ -848,18 +900,25 @@
         }
         .plan-meta-name{
             font-size: 30px;
-            font-weight: bold;
+            font-weight: 700;
+            margin-bottom:5px;
         }
         .plan-meta-plan-name{
             text-transform: none;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             padding: 5px 0;
+            letter-spacing:1px;
         }
         .plan-meta-community-name{
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 18px;
+            color:$white;
+            text-decoration:none;
+            &:hover {
+                text-decoration:underline;
+            }
         }
     }
     .plan-meta-bottom{
@@ -899,13 +958,17 @@
     }
     .plan-amenities {
         li{
-            font-weight: bold;
+            font-weight: normal;
             font-family: Open Sans;
             text-transform: uppercase;
             font-size: 16px;
+            display:flex;
+            align-items:center;
+
             span{
-                font-weight: normal;
+                font-weight: bold;
                 text-transform: uppercase;
+                margin-right:5px;
             }
             .icon:before{
                 font-size: 40px;
@@ -921,7 +984,7 @@
     }
 
     .plan-amenities .icon.icon-help:before{
-        font-size: 14px;
+        font-size: 16px;
         vertical-align: super;
     }
 

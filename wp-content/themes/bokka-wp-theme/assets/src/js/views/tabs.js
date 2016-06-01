@@ -4,6 +4,7 @@ var Tabs = Backbone.View.extend({
         'click .tab-links a'   : 'handleClick'
     },
     initialize : function(){
+
         var self = this
         this.options = this.$el.data('options')
         this.tabs = this.$el.find('.tab-body')
@@ -12,16 +13,25 @@ var Tabs = Backbone.View.extend({
         var imageCount = this.images.length
         var loadedImages = 0
 
-        this.$el.find('img').on('load',function() {
+        //broload images before resize
+        this.$el.find('img').on('load', function() {
             if( loadedImages === (imageCount - 1)){
                 self.render()
             } else {
                 loadedImages++
             }
-        }).each(function() {
-            if(this.complete) $(this).load()
-        })
 
+        //resize for cached images too!
+        }).each(function() {
+            if(this.complete) {
+                if( loadedImages === (imageCount - 1)){
+                    self.render()
+                } else {
+                    loadedImages++
+                }
+            }
+
+        })
     },
     render : function(){
         var self = this

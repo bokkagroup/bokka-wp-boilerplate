@@ -18,13 +18,5 @@
         ga('create', 'UA-5740821-5', 'auto');
         ga('send', 'pageview');
     </script>
-<div class="modal" id="modal">
-    <div class="modal-body"><a href='#' class="modal-close icon icon-exit-circle"></a>
-        <div class="modal-body-inner">
-            
-        </div>
-    </div>
-</div>
-
 </body>
 </html>

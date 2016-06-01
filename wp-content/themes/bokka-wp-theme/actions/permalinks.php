@@ -8,8 +8,7 @@ function available_homes_permalink($post_link, $post, $leavename, $sample)
     // global $post;
     if (strpos($post_link, '%location%') ||
         strpos($post_link, '%community%')) {
-
-        if ($post_type === 'home' || $post_type === 'plans') {
+        if ($post_type === 'home' || $post_type === 'plans' || $post_type === 'model') {
             $id = get_post_meta($post->ID, 'neighborhood')[0];
             $community = get_post($id, 'community');
         } else {
@@ -36,6 +35,13 @@ function custom_rewrite_basic()
         'top'
     );
 
+    #plans permalink
+    add_rewrite_rule(
+        'homes/(.*)/(.*)/models/(.*)',
+        'index.php?post_type=model&name=$matches[3]',
+        'top'
+    );
+
     #homes permalink
     add_rewrite_rule(
         'homes/(.*)/(.*)/(.*)',
@@ -48,8 +54,6 @@ function custom_rewrite_basic()
         'index.php?post_type=communities&name=$matches[2]',
         'top'
     );
-
-
 
 }
 add_action('init', 'custom_rewrite_basic');

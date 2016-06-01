@@ -58,7 +58,7 @@ class OrganismModel extends \BokkaWP\MVC\Model
             $name = get_post_meta($organism['testimonial_id'], 'name');
             $organism['testimonial'] = get_object_vars(get_post($organism['testimonial_id']));
             $organism['testimonial']['name'] = count($name) > 0 ? $name[0] : false;
-            $organism['testimonial']['image'] = wp_get_attachment_image_src( get_post_thumbnail_id( $organism['testimonial_id'] ), 'full' )[0];
+            $organism['testimonial']['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($organism['testimonial_id']), 'full')[0];
         }
 
         //map children through this function

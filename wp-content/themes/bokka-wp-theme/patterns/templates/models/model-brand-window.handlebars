@@ -1,0 +1,95 @@
+<div class="section floorplan-brand-window">
+    <section>
+        <div class="container">
+            <div class="plan-window-right">
+                <div class="gallery-wrapper slider" data-options='{"height":"container"}'>
+                    <ul class="image-gallery slides">
+                        {{#each elevations_gallery}}
+                            <li class="slide">
+                                <img src="{{url.full}}" />
+                                <div class="overlay"></div>
+                                {{#if caption}}
+                                    <p class="image-gallery-caption">{{caption}}</p>
+                                {{/if}}
+                            </li>
+                        {{/each}}
+                    </ul>
+
+                    <ul class="image-thumbnails pagination">
+                        {{#each elevations_gallery}}
+                            <li class=" {{#if @first}}current{{/if}}"><a href="#"><img src="{{url.thumbnail}}" /></a></li>
+                        {{/each}}
+                    </ul>
+                </div> <!-- gallery-wrapper -->
+            </div> <!-- plan-window-right -->
+            <div class="plan-window-left">
+                <div class="plan-meta">
+                    <div class="plan-meta-top">
+                        <h2 class="plan-meta-name">{{post_title}} Plan</h2>
+                        <h3 class="plan-meta-plan-name">{{type}}</h3>
+
+                        <a class="plan-meta-community-name" href="{{neighborhood_link}}">
+                            <h3 class="plan-meta-community-name">{{neighborhood_title}} &raquo;</h3>
+                        </a>
+                    </div> <!-- plan-meta-top -->
+                    <div class="plan-meta-bottom">
+                        <ul class="plan-amenities">
+                            {{#if bedrooms_min}}
+                                <li>
+                                    <i class="icon icon-beds"></i>
+                                    <span>
+                                        {{bedrooms_min}}
+                                        {{#if bedroom_max}}
+                                            &ndash; {{bedrooms_max}}
+                                        {{/if}}
+                                    </span>Bedrooms
+                                </li>
+                            {{/if}}
+                            {{#if bathrooms_min}}
+                                <li>
+                                    <i class="icon icon-baths"></i>
+                                    <span>
+                                        {{bathrooms_min}}
+                                        {{#if bathrooms_max}}
+                                            &ndash; {{bathrooms_max}}
+                                        {{/if}}
+                                    </span>Baths
+                                </li>
+                            {{/if}}
+                            {{#if garage_min}}
+                                <li>
+                                    <i class="icon icon-garage"></i>
+                                    <span>
+                                        {{garage_min}}
+                                        {{#if garage_max}}
+                                            &ndash; {{garage_max}}
+                                        {{/if}}
+                                    </span>Car Garage
+                                </li>
+                            {{/if}}
+                            {{#if finished_sqr_ft}}
+                                <li>
+                                    <i class="icon icon-sq-ft-total"></i>Starts at
+                                    <span>{{finished_sqr_ft}} sq. ft</span>
+                                    <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
+                                </li>
+                            {{/if}}
+                            {{#if main_sqr_ft}}
+                                <li>
+                                    <i class="icon icon-sq-ft-main-floor"></i>Main Floor
+                                    <span>{{main_sqr_ft}} sq. ft.</span>
+                                </li>
+                            {{/if}}
+                            {{#if base_price}}
+                                <li><i class="icon icon-price"></i><span>Priced From </span> ${{base_price}}k
+                                    <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
+                                </li>
+                            {{/if}}
+                        </ul>
+                        <a class="button blue modal-trigger"  href="#gform_wrapper_2">Get More Info</a>
+                    </div> <!-- plan-meta-bottom -->
+                </div> <!-- plan-meta -->
+            </div><!-- plan-window-left -->
+        </div> <!-- plan-window-wrapper -->
+    </section>
+</div>

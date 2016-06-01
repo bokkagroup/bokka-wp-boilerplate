@@ -12,27 +12,24 @@ function get_feature_description($title){
             break;
         case 'Loft':
         case 'Open Great Room':
+        case 'Outdoor Living Space':
+        case 'Formal Dining Room':
+        case 'Finished Lower Level':
+        case 'Loft':
             return 'For Entertaining Guests';
             break;
-        case 'Outdoor Living Space':
-            return 'Enjoy Colorado\'s Landscapes';
-            break;
-        case 'Formal Dining Room':
-            return 'No Need for Steps';
-            break;
-        case 'Finished Lower Level':
-            return 'Plenty of Room for Toys';
-            break;
         case 'Lower Level Storage Space':
+        case '3 Car Garage':
             return 'Plenty of Room for Toys';
             break;
         case 'Dual Master Suites':
         case 'Flex Room or Study':
-            return 'You Choose How to Use Your Space';
-            break;
         case 'Two Main Floor Bedroom Suites':
-            return 'No Need for Steps';
+            return 'Personalize your Space';
             break;
     }
 }
+
+
+
 

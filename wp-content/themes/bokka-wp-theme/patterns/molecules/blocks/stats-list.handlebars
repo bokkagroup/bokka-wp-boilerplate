@@ -1,0 +1,53 @@
+<ul class="plan-amenities">
+    {{#if bedrooms_min}}
+        <li>
+            <i class="icon icon-beds"></i>
+                                    <span>
+                                        {{bedrooms_min}}
+                                        {{#if bedroom_max}}
+                                            &ndash; {{bedrooms_max}}
+                                        {{/if}}
+                                    </span>Bedrooms
+        </li>
+    {{/if}}
+    {{#if bathrooms_min}}
+        <li>
+            <i class="icon icon-baths"></i>
+                                    <span>
+                                        {{bathrooms_min}}
+                                        {{#if bathrooms_max}}
+                                            &ndash; {{bathrooms_max}}
+                                        {{/if}}
+                                    </span>Baths
+        </li>
+    {{/if}}
+    {{#if garage_min}}
+        <li>
+            <i class="icon icon-garage"></i>
+                                    <span>
+                                        {{garage_min}}
+                                        {{#if garage_max}}
+                                            &ndash; {{garage_max}}
+                                        {{/if}}
+                                    </span>Car Garage
+        </li>
+    {{/if}}
+    {{#if finished_sqr_ft}}
+        <li>
+            <i class="icon icon-sq-ft-total"></i>Starts at
+            <span>{{finished_sqr_ft}} sq. ft</span>
+            <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
+        </li>
+    {{/if}}
+    {{#if main_sqr_ft}}
+        <li>
+            <i class="icon icon-sq-ft-main-floor"></i>Main Floor
+            <span>{{main_sqr_ft}} sq. ft.</span>
+        </li>
+    {{/if}}
+    {{#if base_price}}
+        <li><i class="icon icon-price"></i><span>Priced From </span> ${{base_price}}k
+            <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
+        </li>
+    {{/if}}
+</ul>
