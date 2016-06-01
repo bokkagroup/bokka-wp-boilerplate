@@ -38,7 +38,6 @@ var Slider = Backbone.View.extend({
         }
     },
     changeSlide : function(slide, old, direction){
-        console.log('display')
         var old = this.slides[old]
         var newer = this.slides[slide]
         this.current = slide

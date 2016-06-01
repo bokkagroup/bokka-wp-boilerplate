@@ -265,8 +265,23 @@
                 $(".menu-trigger").toggleClass('open');
                 $("body").toggleClass('menu-open')
                 $("html, body").animate({ scrollTop: 0 });
+                if($('body').hasClass('menu-open')){
+                    document.addEventListener( self.eventtype, function( ev ) {
+                        if( !hasParent( ev.target, self.el.id ) ) {
+                            bodyClickFn( this );
+                        }
+                    } );
+                }
 
             })
+
+            // the menu should close if clicking somewhere on the body
+            var bodyClickFn = function( el ) {
+                self._resetMenu();
+                el.removeEventListener( self.eventtype, bodyClickFn );
+            };
+
+
             $(document).on(this.eventtype, '#site-wrapper .menu-open', function (event) {
                 event.preventDefault()
                 if(event.target.id == "mp-menu")
