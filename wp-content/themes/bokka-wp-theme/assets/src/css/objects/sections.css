@@ -6,6 +6,9 @@
             opacity:0;
         }
         & + .section .container {
+            @mixin tablet {
+                padding-top:75px;
+            }
             @mixin desktop {
                 padding-top: 150px;
             }
@@ -21,14 +24,17 @@
         .image {
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            position:absolute;
+
+
             left:0px;
             img {
+                width:100%;
                 min-height:100%;
 
             }
-            @mixin desktop {
+            @mixin tablet {
+                overflow: hidden;
+                position:absolute;
                 height:calc(100% + 100px);
                 img {
                     width:100%;
@@ -47,10 +53,14 @@
             }
 
             h1 {
-                font-size:36px;
-                color:$white;
-                text-shadow:2px 0px 0px $black;
+                font-size:32px;
                 margin-bottom:15px;
+                color:$blue_light;
+                @mixin tablet {
+                    font-size:36px;
+                    text-shadow:2px 0px 0px $black;
+                    color:$white;
+                }
                 @mixin desktop {
                     font-size:46px;
                 }
@@ -61,12 +71,16 @@
                 margin:20px 0;
             }
             .body, p {
-                color:$white;
                 font-family:"Open Sans";
-                font-size:24px;
-                text-shadow:1px 0px 0px $black;
+                font-size:18px;
+                color:$gray_dark1;
                 line-height:36px;
                 font-weight:600;
+                @mixin tablet {
+                    font-size:24px;
+                    color:$white;
+                    text-shadow:1px 0px 0px $black;
+                }
 
             }
         }
