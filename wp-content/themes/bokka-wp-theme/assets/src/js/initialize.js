@@ -10,7 +10,7 @@ jQuery( document ).ready(function( $ ) {
     $(".modal-trigger").fancybox({
         autoSize:false,
         autoHeight: true,
-        maxWidth: '85%',
+        maxWidth: "600px",
         maxHeight: '90%',
         helpers: {
             overlay: {
