@@ -616,7 +616,14 @@
                 }
 
             }
+            .button {
+                display:inline-block;
+                clear:both;
+                width:200px;
+                margin:10px auto;
+            }
             .form {
+                display:none;
                 width:100%;
                 @mixin desktop{
                     @mixin column 10,12;

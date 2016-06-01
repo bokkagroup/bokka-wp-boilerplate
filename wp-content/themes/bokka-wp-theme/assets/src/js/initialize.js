@@ -8,8 +8,8 @@ jQuery( document ).ready(function( $ ) {
 
     $(".fancybox").fancybox();
     $(".modal-trigger").fancybox({
-
-        autoSize: false,
+        autoSize:false,
+        autoHeight: true,
         maxWidth: '85%',
         maxHeight: '90%',
         helpers: {
