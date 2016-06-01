@@ -1,0 +1,139 @@
+{{> organisms/floorplan-brand-window }}
+<div class="section feature-bar">
+    <div class="container">
+        <div class="feature-bar-title">
+                <h2>Included Lifestyle Features</h2>
+            </div> <!-- feature-bar-title -->
+        <div class="feature-bar-wrapper group">
+            {{#each features}}
+                <div class="feature-bar-item">
+
+                    <div class="feature-bar-image">
+                        <img src="{{image}}" alt="" />
+                    </div> <!-- feature-bar-image -->
+                    <div class="feature-bar-body">
+                        <h3>{{feature}}</h3>
+                        <p>{{description}}</p>
+                    </div> <!-- feature-bar-body -->
+
+                </div> <!-- feature-bar-item -->
+            {{/each}}
+         </div><!-- feature-bar-wrapper group-->
+    </div>
+</div> <!-- feature-bar -->
+{{#if tabs}}
+    <div class="tab-gallery-wrapper">
+        <div class="container">
+            <div class="tabs">
+                <div class="tab-gallery-tabs tab-links">
+                    <ul>
+                        {{#each tabs}}
+                            <li class="{{#if @first}}active{{/if}} tab"><a  href="#">{{title}}</a></li>
+                        {{/each}}
+                     </ul>
+                </div> <!-- tab-gallery-tabs -->
+                <ul class="tab-gallery-images tab-bodies">
+                    {{#each tabs}}
+                        <li class="tab-gallery-images-wrapper tab-body">
+                            <div class="title">
+                                <h3>{{title}}</h3>
+                            </div>
+                            <!--<img src="/wp-content/themes/bokka-wp-theme/assets/src/images/floorplan-upper.png" />-->
+                            <img src="{{image}}" />
+                            <!--<img src="/wp-content/themes/bokka-wp-theme/assets/src/images/floorplan-lower.png" />-->
+                        </li> <!-- tab-gallery-images-wrapper -->
+                    {{/each}}
+
+                </ul> <!-- tab-gallery-images -->
+                <div class="tab-gallery-button-wrapper">
+                    <a class="button" target="_blank" href="{{pdf}}">Download &amp; Print</a>
+                </div> <!-- tab-gallery-button-wrapper -->
+            </div><!--/tabs-->
+        </div><!--/container-->
+    </div> <!-- tab-gallery-wrapper -->
+{{else}}
+{{/if}}
+<!--
+
+     THE HTML BELOW IS FOR FEATURES TO BE ADDED ON ANOTHER SPRINT
+
+    -->
+
+
+    <!--<div class="container group">-->
+        <!--<h2>See completed [Plan Name] Homes</h2>-->
+
+        <!--<img src="http://placekitten.com/g/400/400" alt="">-->
+
+        <!--<img src="http://placekitten.com/g/200/200" alt="">-->
+        <!--<img src="http://placekitten.com/g/200/200" alt="">-->
+        <!--<img src="http://placekitten.com/g/400/200" alt="">-->
+
+
+    <!--</div> &lt;!&ndash; container group &ndash;&gt;-->
+
+
+
+<!--<section>-->
+    <!--<div class="container group">-->
+        <!--<h2>Share this Floorplan</h2>-->
+    <!--</div> &lt;!&ndash; container group &ndash;&gt;-->
+    <!--<div class="container group">-->
+        <!--<a class="button" href="">Share via Email</a>-->
+        <!--<a class="button" href="">Share via Facebook</a>-->
+        <!--<a class="button" href="">Share via Pinterest</a>-->
+    <!--</div> &lt;!&ndash; container group &ndash;&gt;-->
+<!--</section>-->
+
+
+
+    <!--<div class="container">-->
+
+        <!--<h2>Walk Through The [Plan Name]</h2>-->
+        <!--<div class="card">-->
+            <!--<a href="http://link.com">-->
+                <!--<div class="image">-->
+                    <!--<figure>-->
+                        <!--<img src="http://placekitten.com/g/400/400" alt="">-->
+                    <!--</figure>-->
+                <!--</div>&lt;!&ndash;/image&ndash;&gt;-->
+                <!--<div class="text cta-block">-->
+
+                    <!--<div class="title">-->
+                        <!--<h2>-->
+                            <!--Tour The Model-->
+                        <!--</h2>-->
+                    <!--</div>&lt;!&ndash;/title&ndash;&gt;-->
+                    <!--<div class="body">-->
+
+                        <!--<div class="button">-->
+                            <!--Learn More-->
+                        <!--</div>-->
+                    <!--</div>&lt;!&ndash;/body&ndash;&gt;-->
+                <!--</div>&lt;!&ndash;/cta-block&ndash;&gt;-->
+            <!--</a>-->
+        <!--</div>&lt;!&ndash;/card&ndash;&gt;-->
+        <!--<div class="card">-->
+            <!--<a href="">-->
+                <!--<div class="image">-->
+                    <!--<figure>-->
+                        <!--<img src="http://placekitten.com/g/400/400" alt="">-->
+                    <!--</figure>-->
+                <!--</div>&lt;!&ndash;/image&ndash;&gt;-->
+                <!--<div class="text cta-block">-->
+
+                    <!--<div class="title">-->
+                        <!--<h2>-->
+                            <!--Quick Move-In Homes-->
+                        <!--</h2>-->
+                    <!--</div>&lt;!&ndash;/title&ndash;&gt;-->
+                    <!--<div class="body">-->
+
+                        <!--<div class="button">-->
+                            <!--Learn More-->
+                        <!--</div>-->
+                    <!--</div>&lt;!&ndash;/body&ndash;&gt;-->
+                <!--</div>&lt;!&ndash;/cta-block&ndash;&gt;-->
+            <!--</a>-->
+        <!--</div>&lt;!&ndash;/card&ndash;&gt;-->
+    <!--</div>&lt;!&ndash;/container&ndash;&gt;-->

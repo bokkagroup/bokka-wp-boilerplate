@@ -5,27 +5,32 @@
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .sprite {
     background-image: url('../images/sprite@2x.png');
-    background-size: 212px 218px;
+    background-size: 232px 395px;
   }
 }
 
-.sprite-email-signup-icon {
+.sprite-breadcrumb_seperator {
   background-position: -0px -0px;
-  width: 36px;
-  height: 36px;
+  width: 22px;
+  height: 44px;
+}
+.sprite-bcn-logo-mobile {
+  background-position: -0px -44px;
+  width: 55px;
+  height: 63px;
 }
 .sprite-bcn-logo {
-  background-position: -0px -36px;
-  width: 107px;
-  height: 38px;
-}
-.sprite-BCN_Logo@2x {
-  background-position: -0px -74px;
+  background-position: -0px -107px;
   width: 212px;
   height: 72px;
 }
+.sprite-email-signup-icon {
+  background-position: -0px -179px;
+  width: 76px;
+  height: 76px;
+}
 .sprite-TheLakes {
-  background-position: -0px -146px;
-  width: 118px;
-  height: 72px;
+  background-position: -0px -255px;
+  width: 232px;
+  height: 140px;
 }

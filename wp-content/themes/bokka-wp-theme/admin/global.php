@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Sets admin color scheme based on environment
  * @param $color_scheme

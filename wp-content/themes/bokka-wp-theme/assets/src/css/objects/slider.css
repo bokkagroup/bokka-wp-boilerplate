@@ -6,6 +6,9 @@
         @mixin desktop {
             display:block;
         }
+        a {
+            display:block;
+        }
     }
 }
 .slides {
@@ -18,7 +21,14 @@
         align-items: center;
         justify-content: center;
         opacity:0;
-
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        img {
+            width:100%;
+            height:100%;
+            object-fit:none;
+            object-position:bottom;
+        }
         &:nth-child(1){
             left:0;
             opacity:1;

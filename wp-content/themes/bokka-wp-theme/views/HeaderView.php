@@ -8,5 +8,4 @@ class HeaderView extends \BokkaWP\MVC\View
     {
         $this->template = "organisms/header";
     }
-
 }

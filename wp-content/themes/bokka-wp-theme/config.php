@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Define theme location
  */
@@ -18,3 +17,9 @@ if (isset($_SERVER) && $_SERVER['HTTP_HOST']) {
         define('BOKKA_ENV', "production");
     }
 }
+
+
+/**
+ * Image sizes
+ */
+add_image_size('medium', 675, 500, array( 'center', 'center' ));

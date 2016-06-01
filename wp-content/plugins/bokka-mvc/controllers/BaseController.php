@@ -41,7 +41,7 @@ Class Controller {
 
         return 0;
 	}
-	
+
 
 	public function __construct(){
         $this->model = $this->loadModel();

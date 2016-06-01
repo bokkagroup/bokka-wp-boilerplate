@@ -8,5 +8,4 @@ class FooterView extends \BokkaWP\MVC\View
     {
         $this->template = "organisms/footer";
     }
-
 }

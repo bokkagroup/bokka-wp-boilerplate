@@ -46,14 +46,13 @@ LOST GRID MIXINS
 BREAKPOINT MIXINS
 
 -----------------------------------------------------------*/
-@define-mixin desktop {
-    @media (min-width: $(desktop)) {
+@define-mixin desktop-large {
+    @media (min-width: $desktop-large) {
         @mixin-content;
     }
 }
 
-
-@define-mixin desktop-large {
+@define-mixin desktop {
     @media (min-width: $(desktop)) {
         @mixin-content;
     }
@@ -118,7 +117,7 @@ LOST GRID MIXINS
         width: 0;
         height: 0;
         border-style: solid;
-        margin-left: -13px;
+        margin-left: -26px;
         border-width: 26px 26px 0 26px;
         border-color: $light_gray transparent transparent transparent;
         position: absolute;

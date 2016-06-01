@@ -9,6 +9,4 @@ class HomeModel extends \BokkaWP\MVC\Model
         $organisms = new \BokkaWP\Theme\models\OrganismModel();
         $this->data['organisms'] = $organisms->data;
     }
-
-
 }

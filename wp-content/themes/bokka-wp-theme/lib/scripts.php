@@ -13,13 +13,13 @@ function catalyst_register_scripts() {
             get_stylesheet_directory_uri() . '/assets/build/js/common.js',
             array(),
             null,
-            true
+            false
         );
 
         wp_register_script(
             'initialize',
             get_stylesheet_directory_uri() . '/assets/build/js/initialize.min.js',
-            array('common'),
+            array('theme-common'),
             null,
             true
         );
@@ -28,7 +28,6 @@ function catalyst_register_scripts() {
             'theme',
             get_stylesheet_directory_uri() . '/assets/build/css/main.css'
         );
-
 
 
     } // End if !is_admin()

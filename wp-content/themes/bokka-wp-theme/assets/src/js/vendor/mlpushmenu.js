@@ -69,6 +69,7 @@
     }
 
     mlPushMenu.prototype = {
+
         defaults : {
             // overlap: there will be a gap between open levels
             // cover: the open levels will be on top of any previous open level
@@ -102,13 +103,8 @@
             this._determineNav()
         },
         _determineNav : function(){
-            var breakpoint = {
-                refreshValue : function () {
-                    breakpoint.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
-                }
-            }
-            breakpoint.refreshValue();
-            if (breakpoint.value == "desktop") {
+            bokka_breakpoint.refreshValue();
+            if (bokka_breakpoint.value == "desktop") {
                 this._resetEvents( this._desktopEvents );
 
             } else {
@@ -244,7 +240,7 @@
                 $("#mp-pusher").toggleClass('mp-pushed')
 
             })
-            $(document).off(this.eventtype, '#mp-pusher.mp-pushed', function (event) {
+            $(document).on(this.eventtype, '#site-wrapper .menu-open', function (event) {
                 event.preventDefault()
                 if(event.target.id == "mp-menu")
                     return;
@@ -271,16 +267,19 @@
                 $("html, body").animate({ scrollTop: 0 });
 
             })
-            $(document).on(this.eventtype, '#mp-pusher.mp-pushed', function (event) {
+            $(document).on(this.eventtype, '#site-wrapper .menu-open', function (event) {
                 event.preventDefault()
                 if(event.target.id == "mp-menu")
                     return;
                 //For descendants of menu_content being clicked, remove this check if you do not want to put constraint on descendants.
                 if($(event.target).closest('#mp-menu').length)
                     return;
-                $("body").toggleClass('menu-open')
-                $(".menu-trigger").toggleClass('open');
+
+
+                $("#mp-menu").toggleClass('open')
                 $("#site-wrapper").toggleClass('menu-open')
+                $(".menu-trigger").toggleClass('open');
+                $("body").toggleClass('menu-open')
             })
         },
         _openMenu : function( subLevel ) {
@@ -290,7 +289,7 @@
             // move the main wrapper
             var levelFactor = ( this.level - 1 ) * this.options.levelSpacing,
                 translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + levelFactor : this.el.offsetWidth;
-
+            $('body').addClass('menu-open')
             this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
 
             if( subLevel ) {
@@ -324,6 +323,7 @@
             $("body").removeClass('menu-open')
             $(".menu-trigger").removeClass('open');
             // remove class menu-open from main wrapper
+            $('#mp-menu').removeClass('open');
             $(this.wrapper).removeClass('menu-open open' );
             this._toggleLevels();
             this.open = false;
@@ -356,6 +356,7 @@
                 if( levelEl.getAttribute( 'data-level' ) >= this.level + 1 ) {
                     $(levelEl).removeClass('mp-level-open' );
                     $(levelEl).removeClass( 'mp-level-overlay' );
+                    $(levelEl).scrollTop(0);
                 }
                 else if( Number( levelEl.getAttribute( 'data-level' ) ) == this.level ) {
                     $(levelEl).removeClass( 'mp-level-overlay' );

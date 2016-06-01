@@ -6,20 +6,15 @@
     box-sizing: border-box;
 }
 
-
-
 html, body, .scroller {
     height: 100%;
 }
-
-
 
 .mp-pusher {
     position: relative;
     left: 0;
     height: 100%;
 }
-
 
 /* overlays for pusher and for level that gets covered */
 #site-wrapper::after,
@@ -76,7 +71,7 @@ Mobile Styles
     z-index: 1;
     width: 300px;
     height:100%;
-    padding-top:148px;
+    padding-top:108px;
     backface-visibility: hidden;
 
     .icon-back {
@@ -113,6 +108,7 @@ Mobile Styles
     .icon:before {
         font-size:42px;
         float:left;
+        margin-right:3px;
     }
     nav {
         position:relative;
@@ -124,9 +120,9 @@ Mobile Styles
         left:0;
         width:100%;
         background:$white;
-        padding:20px;
+        padding:10px;
         display:flex;
-        height:147px;
+        height:110px;
         transition:all 0.5s;
         align-items: center;
 
@@ -151,7 +147,9 @@ Mobile Styles
         display:none;
     }
 
-
+    .mp-level-open {
+        overflow-x:visible;
+    }
     [data-level="2"] {
         overflow-y:scroll;
     }
@@ -404,12 +402,14 @@ Desktop Styles
         opacity:0;
         left:0;
         z-index:101;
-        top:155px;
-        padding:50px 0 20px;
+        top:135px;
+        padding:20px 0 20px;
         transform:none;
         transition:all 300ms;
         visibility:hidden;
         transform:translateY(-35px);
+        border-top:10px solid $purple;
+        margin-top:-10px;
         &.open{
              visibility: visible;
             transform:translateY(0px);
@@ -442,7 +442,7 @@ Desktop Styles
             & > ul > li {
                 @mixin column 1,4;
                 @mixin cycle 2;
-                margin-bottom:30px;
+                margin-bottom:15px;
                 &.our-neighborhoods {
                     display:flex;
                     @mixin column 3,4;
@@ -555,7 +555,7 @@ Desktop Styles
         .about-us,
         .contact-us {
             .title {
-                margin-bottom:20px;
+                margin-bottom:10px;
             }
             h2 {
                 font-size:22px;

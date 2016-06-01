@@ -1,17 +1,28 @@
 require('./vendor/mlpushmenu.js');
 $(document).ready(function() {
+    window.bokka_breakpoint = {
+        refreshValue : function () {
+            window.bokka_breakpoint.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
+        }
+    }
+    window.bokka_breakpoint.refreshValue();
 
     $('.slider').each(function(){
         var Slider = require('./views/slider.js')
         var slider = new Slider({el:$(this)})
     })
 
-    var breakpoint = {
-        refreshValue : function () {
-            breakpoint.value = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content').replace(/\"/g, '');
-        }
-    }
-    breakpoint.refreshValue();
+    $('.tabs').each(function(){
+        var Tabs = require('./views/tabs.js')
+        var Tabs = new Tabs({el:$(this)})
+    })
+
+    $('.alert .close').on('click', function(event){
+        event.preventDefault()
+        $(this).closest('.alert').fadeOut()
+    })
+
+
 
     $(".menu-trigger").on('click', function ( event ) {
         event.preventDefault()
@@ -25,8 +36,27 @@ $(document).ready(function() {
         });
     });
 
+    /**
+     * Global Helpers
+     */
+    //Event Tracking
+    require('./helpers/eventTracking.js')
+
+    /**
+     * Modals
+     */
+    require('./helpers/modals.js')
+
+    /**
+     * Menu Instantiation
+     * @type {*|mlPushMenu}
+     */
     var push = new mlPushMenu(document.getElementById('mp-menu'), $('.menu-trigger'))
     $(window).on('resize', function(){
         push._determineNav()
-    })
+    });
+
+    require('./vendor/opentip.js')
+
+
 });

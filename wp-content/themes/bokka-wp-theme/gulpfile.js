@@ -124,11 +124,11 @@ gulp.task('sprites', function () {
 });
 
 
-gulp.task('watch', ['build-webpack', 'css', 'phpcs', 'copyfonts', 'image', 'sprites'], function () {
+gulp.task('watch', ['build-webpack', 'css', 'phpcs', 'copyfonts', 'image'], function () {
     gulp.watch(['assets/src/js/**/*.js', 'assets/src/js/**/*.html'], ['build-webpack'])
     gulp.watch(['assets/src/css/**/*.css'], ['css'])
     gulp.watch(['assets/src/images/**/*'], ['image'])
-    gulp.watch(['assets/src/images/icons/**/*'], ['sprites'])
+    //gulp.watch(['assets/src/images/icons/**/*'], ['sprites'])
     gulp.watch(['assets/src/fonts/**/*.{ttf,woff,woff2,eof,svg}'], ['copyfonts'])
     gulp.watch(['**/*.php', '!**/*.css.map'], ['phpcs', 'phplint'])
 })

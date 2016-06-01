@@ -8,5 +8,4 @@ class HomesView extends \BokkaWP\MVC\View
     {
         $this->template = "templates/homes/home-detail";
     }
-
 }

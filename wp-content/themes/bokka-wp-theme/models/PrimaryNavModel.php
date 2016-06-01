@@ -24,24 +24,23 @@ class PrimaryNavModel extends \BokkaWP\MVC\Model
                 $menu_object['links'][$item->ID]['class'] = $slug;
 
             }
-            if($slug === 'our-neighborhoods'){
+            if ($slug === 'our-neighborhoods') {
                 $menu_object['links'][$item->ID]['overview']['url'] = '/our-neighborhoods';
                 $menu_object['links'][$item->ID]['overview']['title'] = '+ See all neighborhoods';
                 $menu_object['links'][  $item->ID ]['subnav'][0]['link'] = '/our-neighborhoods';
                 $menu_object['links'][  $item->ID ]['subnav'][0]['title'] = '+ See all neighborhoods';
             }
-            if ($parent_id == $item->menu_item_parent) :
-
-                $menu_object['links'][  $item->menu_item_parent ]['subnav'][$item->ID]['link'] = $link;
-                $menu_object['links'][  $item->menu_item_parent ]['subnav'][$item->ID]['title'] = $title;
-                if($post_type === 'communities') {
+            if ($parent_id == $item->menu_item_parent) {
+                $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['link'] = $link;
+                $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['title'] = $title;
+                if ($post_type === 'communities') {
                     $city = get_post_meta($item->object_id, 'city');
                     if ($city) {
                         $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['city'] = $city[0];
                     }
                     $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['price'] = 400;
                 }
-            endif;
+            }
             $count++;
         }//foreach
         $menu_object['content'] = apply_filters('the_content', get_the_content());

@@ -1,7 +1,10 @@
 .footer#footer {
     background:$blue;
     .container {
-        padding:50px 15px;
+        padding:25px 15px;
+        @mixin desktop {
+            padding:50px 15px;
+        }
     }
     .container:nth-child(3) {
         @mixin clear;
@@ -93,17 +96,22 @@
         }
         li {
             margin-bottom:15px;
-            @mixin cycle 2;
+            width:100%;
+            &:nth-child(even){
+                margin-right:0;
+            }
 
             @mixin tablet {
                 @mixin column 1,2;
             }
             @mixin desktop {
+
                 &:nth-child(odd){
-                    @mixin column 2.5, 6;
+                    @mixin column 3, 6;
                 }
                 &:nth-child(even){
-                    @mixin column 3.15, 6;
+                    @mixin column 3, 6;
+                    margin-right:0 !important;
                 }
             }
         }
@@ -166,6 +174,7 @@
             position:relative;
             max-width:360px;
             margin:0 auto;
+            margin-bottom:30px;
             @mixin desktop{
                 max-width:100%;
             }
@@ -223,6 +232,10 @@
                     display:inline-block;
                     text-decoration:underline;
                     font-weight:bold;
+                    font-size:14px;
+                    @mixin desktop {
+                        font-size:16px;
+                    }
                 }
                 &:after {
                     content:" ";

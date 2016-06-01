@@ -8,21 +8,36 @@
     }
     div.header-body{
         background: $white;
-        border-bottom:10px solid $purple;
         position:relative;
         z-index:3;
     }
     div.container {
 
-        padding:30px;
+        padding:10px;
         align-items: center;
         justify-content: center;
-        @mixin desktop {
-            padding:50px 0;
+        @mixin desktop-large {
+            padding:20px 0px;
         }
+        @mixin desktop {
+            padding:20px 30px;
+        }
+
+
     }
 }
 
+.home, .page-id-181 {
+    div.header-body {
+        border-bottom: 10px solid $ purple;
+    }
+}
+/*style guide & homepage hide breadcrumbs*/
+.home, .page-id-181 {
+    .breadcrumb-outer-wrapper {
+        display:none;
+    }
+}
 #logo {
 
     margin: 0.4rem;

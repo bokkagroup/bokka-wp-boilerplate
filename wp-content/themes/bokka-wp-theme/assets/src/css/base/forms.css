@@ -141,7 +141,11 @@
         height:15px;
         border:solid 1px $gray;
     } /* unchecked icon */
-
+    .gfield_radio li label {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
     input[type=radio] + label:before {
         margin-right:5px;
         content:' ';
@@ -150,10 +154,23 @@
         height:5px;
         display:inline-block;
         border-radius:50%;
-        outline: 2px solid #CCC;
-        outline-offset:10px;
-        box-shadow: 7px 7px 0 2px $gray;
+        border:1px solid $gray_dark1;
+        padding:10px;
+        box-shadow:inset 0px 0px 0 7px $white;
     } /* unchecked icon */
+    input[type=radio]:disabled + label:before {
+        border-color:$gray_medium1;
+    }
+    input[type=radio]:checked:disabled + label:before {
+        background:$gray_medium1;
+        border-color:$gray_medium1;
+        box-shadow:inset 0px 0px 0 7px $white;
+    }
+    input[type=radio]:checked + label:before {
+
+        background:$blue_light;
+        border-color:$blue_light;
+    } /* checked icon */
     input[type=checkbox]:checked + label:before {
         content:'\e914';
         background:$blue_light;

@@ -34,6 +34,7 @@ module.exports = {
             backbone        : 'backbone',
             $               : "jquery",
             jquery          : "jquery",
+            jQuery          : "jquery",
             "window.jQuery" : "jquery"
 
         }),

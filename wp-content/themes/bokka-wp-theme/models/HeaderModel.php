@@ -7,6 +7,8 @@ class HeaderModel extends \BokkaWP\MVC\Model
     public function initialize()
     {
         $primarynav = new \BokkaWP\Theme\models\PrimaryNavModel();
-        $this->data["primary_nav"] = $primarynav->data;
+        $breadcrumbs = new \BokkaWP\Theme\models\BreadcrumbsModel();
+        $this->data['primary_nav'] = $primarynav->data;
+        $this->data['breadcrumbs'] = $breadcrumbs->data;
     }
 }

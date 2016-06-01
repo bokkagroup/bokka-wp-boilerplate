@@ -35,14 +35,7 @@ class MVC {
 
 		//load mustache if nobody else has
 		if( !class_exists('Mustache_Autoloader') && !class_exists('Mustache_Engine')){
-
-
-
-
-
-
             global $Handlebars;
-
             require_once( BGMVC_DIR . 'lib/Handlebars/Autoloader.php' );
             \Handlebars\Autoloader::register();
 
@@ -68,6 +61,7 @@ class MVC {
 		if( !is_admin() ){
 			$this->autoLoad();
 		}
+        $this->loadFile( 'config.php' );
 	}
 
 	/**
@@ -84,9 +78,12 @@ class MVC {
 
 
 	public function autoLoad(){
+
+        $this->loadFiles( 'helpers' );
 		$this->loadFiles( 'controllers' );
         $this->loadFiles( 'models' );
         $this->loadFiles( 'views' );
+
 		return;
 	}
 
@@ -144,8 +141,8 @@ class MVC {
 	 * @param  [sting] $type     [a MVC file type i.e. "controllers", "models", "templates"]
 	 * @return [void]           [description]
 	 */
-	public function loadFile( $fileName, $type ){
-		$typeURI = strtolower( '/' . $type . '/');
+	public function loadFile( $fileName, $type = "" ){
+		$typeURI = $type ? strtolower( '/' . $type . '/') : '/';
 		$childFileURI = $this->childThemeDir . $typeURI . $fileName;
 		$parentFileURI = $this->parentThemeDir . $typeURI . $fileName;
 

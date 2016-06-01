@@ -9,10 +9,11 @@ html, body {
     height: 100%;
     min-height: 100%;
 
+
 }
 
 body {
-
+    overflow:visible;
     overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
     &.menu-open {
@@ -50,7 +51,7 @@ body {
 }
 
 .icon {
-    display:block;
+    display:inline-block;
 }
 /*----------------------------------------------------------
 

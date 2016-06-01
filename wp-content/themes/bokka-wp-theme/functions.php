@@ -17,7 +17,6 @@ if (!function_exists('bokka_wp_theme_setup')) :
     
     function bokka_wp_theme_setup()
     {
-        include_once 'config.php';
         include_once 'admin/global.php';
         /*
          * Make theme available for translation.

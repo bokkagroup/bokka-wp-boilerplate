@@ -14,6 +14,7 @@ button, .button {
     position: relative;
     z-index: 1;
     color: #fff;
+    appearance: none;
     @mixin button $purple;
     &.reversed {
         @mixin button_reversed $purple;

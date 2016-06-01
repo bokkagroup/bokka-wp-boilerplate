@@ -91,5 +91,7 @@
 @import "objects/article";
 @import "objects/alerts";
 @import "objects/slider";
+@import "objects/breadcrumbs";
+@import "objects/floorplan";
 
 
