@@ -16,9 +16,7 @@ body {
     overflow:visible;
     overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
-    &.menu-open {
-        overflow-y:hidden;
-    }
+
 }
 
 #site-wrapper {
