@@ -265,21 +265,26 @@
                 $(".menu-trigger").toggleClass('open');
                 $("body").toggleClass('menu-open')
                 $("html, body").animate({ scrollTop: 0 });
-                if($('body').hasClass('menu-open')){
-                    document.addEventListener( self.eventtype, function( ev ) {
-                        if( !hasParent( ev.target, self.el.id ) ) {
-                            bodyClickFn( this );
-                        }
-                    } );
-                }
+
 
             })
 
-            // the menu should close if clicking somewhere on the body
-            var bodyClickFn = function( el ) {
-                self._resetMenu();
-                el.removeEventListener( self.eventtype, bodyClickFn );
-            };
+
+            $(document).on('click', function(){
+
+                if($(event.target).hasClass('modal-body'))
+                    return
+
+                if($(event.target).closest('#mp-menu').length || $(event.target).closest('#header').length)
+                    return
+
+
+                $("#mp-menu").removeClass('open')
+                $("#site-wrapper").removeClass('menu-open')
+                $(".menu-trigger").removeClass('open');
+                $("body").removeClass('menu-open')
+
+            })
 
 
             $(document).on(this.eventtype, '#site-wrapper .menu-open', function (event) {
