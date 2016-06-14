@@ -85,6 +85,7 @@
 @import "objects/blocks";
 @import "objects/lists";
 @import "objects/tooltip";
+@import "objects/images";
 @import "objects/accordion";
 @import "objects/tabs";
 @import "objects/maps";

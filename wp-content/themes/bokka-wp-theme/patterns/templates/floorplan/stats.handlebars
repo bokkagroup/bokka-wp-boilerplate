@@ -1,0 +1,12 @@
+{{#if floorplan}}
+    <div class="section floorplan-stats">
+        <section>
+            <div class="container">
+                {{#with floorplan}}
+                    {{> molecules/blocks/stats-list}}
+                    <a href="{{permalink}}">View the {{post_title}} floorlan &raquo;</a>
+                {{/with}}
+            </div>
+        </section>
+    </div>
+{{/if}}

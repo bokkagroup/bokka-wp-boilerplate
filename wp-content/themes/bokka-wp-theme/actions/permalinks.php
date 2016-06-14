@@ -44,7 +44,7 @@ function custom_rewrite_basic()
 
     #homes permalink
     add_rewrite_rule(
-        'homes/(.*)/(.*)/(.*)',
+        'homes/(.*)/(.*)/qmi/(.*)',
         'index.php?post_type=home&name=$matches[3]',
         'top'
     );

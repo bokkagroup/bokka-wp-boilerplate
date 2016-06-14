@@ -42,6 +42,7 @@
         width:50%;
     }
     @mixin desktop {
+
         @mixin column 1,3;
         float: left;
     }
@@ -179,12 +180,14 @@
 }
 
 .tab-gallery{
+    overflow:hidden;
+    padding:5px 0;
     margin-top: 50px;
     margin-bottom: 50px;
     img{
         margin: 0 auto;
         display: block;
-        max-width:100%;
+
         @mixin desktop {
             height: calc(100vh - 100px);
         }

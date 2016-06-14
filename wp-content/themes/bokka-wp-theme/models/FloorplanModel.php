@@ -13,7 +13,7 @@ class FloorplanModel extends \BokkaWP\MVC\Model
         $post->base_price = number_format($post->base_price / 1000, 0);
         $post->features = array_map('prepare_feature_bar_data', get_field('features'));
         $form = gravity_form(2, false, false, false, null, $ajax = true, 0, false);
-        $post->brand_window_form = array('modal_content'=> $form);
+        $post->brand_window_form =  $form;
         if ($tabs = get_field('tabs')) {
             $post->tabs =  array_map('prepare_tabbed_data', $tabs);
         }

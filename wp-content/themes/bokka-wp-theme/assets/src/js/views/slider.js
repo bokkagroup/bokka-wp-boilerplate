@@ -23,7 +23,7 @@ var Slider = Backbone.View.extend({
         this.$el.find('.slides').get(0).style.height = 'auto'
         if(this.options && this.options.height){
             if(this.options.height === 'container'){
-                var height = self.$el.parent().height()
+                var height = self.$el.parent().outerHeight()
                 this.$el.find('.slides').height(height)
             }
         } else {

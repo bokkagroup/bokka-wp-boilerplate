@@ -1,29 +1,41 @@
-<div class="section map-with-info">
-    <section>
-        <div class="google-map-wrapper">
-            <div class="google-map js-model-map"></div>
-        </div>
-        <div class="container">
-            <div class="text">
-                <div class="title">
-                    <h3>Stop By For A Visit</h3>
+{{#if latitude}}
+    {{#if longitude}}
+        <div class="section map-with-info">
+            <section>
+                <div class="google-map-wrapper" >
+                    <div class="google-map js-model-map"
+                         data-options='{"center":{ "lat": {{latitude}}, "lng": {{longitude }} }, "zoom": {{zoom}} }'
+                         data-mappins='{"markers":[{"position": {"lat":{{latitude}}, "lng":{{longitude}} }, "link":"http://www.google.com/maps/place/{{latitude}},{{longitude}}" }]}'></div>
                 </div>
-                <h4>Address</h4>
-                <a href="">
-                    2792 Club Lake Dr
-                    Loveland, CO 80538
-                </a>
-                <h4>Hours</h4>
-                <p>
-                    Monday - Thursday: 10am - 6pm
-                    Friday 1pm - 6pm
-                    Sat 10pm - 6pm
-                    Sun 11am - 6pm
-                </p>
-                <h4>Phone</h4>
-                <a href="tel:">720-863-6850</a>
-                <a href="" class="button"></a>
-            </div>
+                <div class="container">
+                    <div class="text">
+                        <div class="title">
+                            <h3>Stop By For A Visit</h3>
+                        </div>
+                        <div class="body">
+                            <div class="section">
+                                <h4>Address</h4>
+                                <a class="directions" href="http://www.google.com/maps/place/{{latitude}},{{longitude}}">
+                                    {{address_1}}<br>
+                                    {{#if address_2}}{{address_2}}<br>{{/if}}
+                                    {{city}}, {{state}} {{zip}}
+                                </a>
+                            </div>
+                            <div class="section">
+                                <h4>Hours</h4>
+                                <p>
+                                   {{hours}}
+                                </p>
+                            </div>
+                            <div class="section">
+                                <h4>Phone</h4>
+                                <a class="phone" href="tel:{{phone}}">{{phone}}</a>
+                            </div>
+                            <a class="directions button" href="http://www.google.com/maps/place/{{latitude}},{{longitude}}" >Get Directions</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
-</div>
+    {{/if}}
+{{/if}}

@@ -112,22 +112,22 @@ html, body {
 LOST GRID MIXINS
 
 -----------------------------------------------------------*/
-@define-mixin arrow {
+@define-mixin arrow $color {
     &:after {
         width: 0;
         height: 0;
         border-style: solid;
         margin-left: -26px;
         border-width: 26px 26px 0 26px;
-        border-color: $light_gray transparent transparent transparent;
+        border-color: $color transparent transparent transparent;
         position: absolute;
         top: 100%;
         left: 50%;
         display: block;
         content: " ";
+        z-index:2;
     }
 }
-
 /*----------------------------------------------------------
 
 BUTTON / HOVER MIXINS

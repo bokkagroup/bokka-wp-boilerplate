@@ -1,1 +1,21 @@
-<div class="homepage">This is static content</div>
+{{> templates/homes/brand-window }}
+{{> organisms/feature-bar}}
+{{#if tabs}}
+    {{> organisms/tabbed-gallery}}
+{{else}}
+    {{#with coming_soon}}
+        {{>organisms/coming-soon-get-updates}}
+    {{/with}}
+{{/if}}
+
+{{#if virtual_tour}}
+    {{> organisms/virtual-tour}}
+{{else}}
+    {{#if tabs}}{{>organisms/coming-soon-get-updates}}
+    {{else}}
+    {{/if}}
+{{/if}}
+{{>organisms/osc-request-info}}
+{{#with map}}
+    {{> organisms/map-with-info }}
+{{/with}}

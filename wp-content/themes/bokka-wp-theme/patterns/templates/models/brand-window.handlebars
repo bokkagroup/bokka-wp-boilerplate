@@ -1,0 +1,28 @@
+<div class="section detail-brand-window model">
+    <section>
+        <div class="container">
+            <div class="right">
+                {{>molecules/blocks/elevations-gallery}}
+            </div> <!-- plan-window-right -->
+            <div class="left">
+                <div class="text">
+                    <div class="title">
+                        <header>
+                            <h1>{{post_title}} Model</h1>
+                        </header>
+                        <h3>{{floorplan.type}}</h3>
+
+                        <a class="plan-meta-community-name" href="{{neighborhood.link}}">
+                            <h3 class="community-name">{{neighborhood.title}} &raquo;</h3>
+                        </a>
+                    </div> <!-- plan-meta-top -->
+                    <div class="body">
+                        <p>
+                           {{description}}</p>
+                        <a class="button blue js-page-jump"  href=".virtual-tour">Take Virtual Tour</a>
+                    </div> <!-- plan-meta-bottom -->
+                </div> <!-- text -->
+            </div><!-- plan-window-left -->
+        </div> <!-- plan-window-wrapper -->
+    </section>
+</div>

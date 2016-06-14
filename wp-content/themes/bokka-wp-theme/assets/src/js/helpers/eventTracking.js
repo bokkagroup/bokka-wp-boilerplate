@@ -13,6 +13,8 @@ $('.section').each(function(){
         category = 'Homepage'
     }if(body.hasClass('single-plans')){
         category = 'Floorplan Detail'
+    } if(body.hasClass('single-model')){
+        category = 'Model Detail'
     }
 
     /**
@@ -81,14 +83,22 @@ $('.section').each(function(){
         })
 
     //floorplan brandwindow
-    } else if (el.hasClass('floorplan-brand-window')) {
+    } else if (el.hasClass('detail-brand-window') && el.hasClass('floorplan')) {
         el.on('click', '.button.modal-trigger', function(event){
             var text = el.find('.button').text().trim()
-            label = ('FP-BRand-Window-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            label = ('FP-Brand-Window-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label)
         })
 
-    //tab gallery
+    //model brandwindow
+    } else if (el.hasClass('detail-brand-window') && el.hasClass('model')) {
+        el.on('click', '.button.modal-trigger', function(event){
+            var text = el.find('.button').text().trim()
+            label = ('Model-Brand-Window-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            eventTrack(category, action, label)
+        })
+
+        //tab gallery
     } else if (el.hasClass('tab-gallery')) {
         el.on('click', '.tab', function(event){
             var text = $(this).find('a').text().trim()
@@ -105,7 +115,18 @@ $('.section').each(function(){
     } else if (el.hasClass('coming-soon-get-updates')) {
         el.on('click', '.button', function(event){
             var text = el.find('.button').text().trim()
-            label = (' Coming-soon-get-updates-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            label = ('Coming-soon-get-updates-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            eventTrack(category, action, label)
+        })
+    } else if (el.hasClass('map-with-info')) {
+        el.on('click', '.phone', function(event){
+            var text = $(this).text().trim()
+            label = ('Map-With-Info-Phone-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            eventTrack(category, action, label)
+        })
+        el.on('click', '.directions', function(event){
+            var text = $(this).text().trim()
+            label = ('Map-With-Info-Get-Directions').replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label)
         })
     }

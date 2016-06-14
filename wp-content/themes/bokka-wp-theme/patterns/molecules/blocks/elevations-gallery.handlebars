@@ -1,0 +1,19 @@
+<div class="gallery-wrapper slider" data-options='{"height":"container"}'>
+    <ul class="image-gallery slides">
+        {{#each elevations_gallery}}
+            <li class="slide">
+                <img src="{{url.full}}" />
+                <div class="overlay"></div>
+                {{#if caption}}
+                    <p class="image-gallery-caption">{{caption}}</p>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+
+    <ul class="image-thumbnails pagination">
+        {{#each elevations_gallery}}
+            <li class=" {{#if @first}}current{{/if}}"><a href="#"><img src="{{url.thumbnail}}" /></a></li>
+        {{/each}}
+    </ul>
+</div> <!-- gallery-wrapper -->
