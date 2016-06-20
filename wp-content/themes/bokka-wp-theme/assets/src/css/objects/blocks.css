@@ -139,3 +139,45 @@
 .modal-content{
     display:none !important;
 }
+
+.brand-window-fallback{
+
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background:url('../images/home-background-faded.jpg');
+    background-size:cover;
+    display:flex;
+    flex-wrap:wrap;
+    align-items: center;
+    @mixin desktop{
+        position:absolute;
+    }
+
+    .text {
+        text-align:center;
+        width:100%;
+        font-family:'Open Sans';
+        margin:60px 30px;
+
+        @mixin desktop {
+            margin:0 100px;
+        }
+        p {
+            font-family:'Open Sans';
+        }
+    }
+    .button {
+        margin:0 auto;
+    }
+    .title {
+        font-size:32px;
+        font-weight:bold;
+        color:$purple;
+        margin-bottom:15px;
+    }
+    .body {
+        margin-bottom:30px;
+    }
+}

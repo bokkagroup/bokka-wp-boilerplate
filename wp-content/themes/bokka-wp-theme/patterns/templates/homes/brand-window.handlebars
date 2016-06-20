@@ -2,13 +2,18 @@
     <section>
         <div class="container">
             <div class="right">
-                {{>molecules/blocks/elevations-gallery}}
+                {{#if elevations}}
+                    {{>molecules/blocks/elevations-gallery}}
+                {{else}}
+                    {{>molecules/blocks/brand-window-fallback}}
+                {{/if}}
             </div> <!-- plan-window-right -->
             <div class="left">
                 <div class="text">
                     <div class="title">
-                        <h1 class="plan-meta-name">{{post_title}} Home</h1>
-                        <h3 class="plan-meta-plan-name">{{type}}</h3>
+                        <h1 class="plan-meta-name">{{floorplan.post_title}} Home</h1>
+                        <h3 class="location">{{post_title}}, {{neighborhood.city}},{{neighborhood.state}}</h3>
+                        <h3 class="product-type">{{type}}</h3>
 
                         <a class="plan-meta-community-name" href="{{neighborhood.link}}">
                             <h3 class="community-name">{{neighborhood.title}} &raquo;</h3>
@@ -44,24 +49,24 @@
                             {{/if}}
                             {{#if finished_sqr_ft}}
                                 <li>
-                                    <i class="icon icon-sq-ft-total"></i>Starts at
+                                    <i class="icon icon-sq-ft-total"></i>Total &nbsp;
                                     <span>{{finished_sqr_ft}} sq. ft</span>
-                                    <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
                                 </li>
                             {{/if}}
                             {{#if main_sqr_ft}}
                                 <li>
-                                    <i class="icon icon-sq-ft-main-floor"></i>Main Floor
+                                    <i class="icon icon-sq-ft-main-floor"></i>Main Floor &nbsp;
                                     <span>{{main_sqr_ft}} sq. ft.</span>
                                 </li>
                             {{/if}}
                             {{#if price}}
-                                <li><i class="icon icon-price"></i><span>Priced From </span> ${{price}}
-                                    <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
+                                <li><i class="icon icon-price"></i><span>Priced at </span> ${{price}}
                                 </li>
                             {{/if}}
                         </ul>
-                        <a class="button blue"  href="{{floorplan.permalink}}">View floorplan</a>
+                        {{#if tabs}}
+                            <a class="button blue"  href="#tab-gallery">View floorplan</a>
+                        {{/if}}
                     </div> <!-- plan-meta-bottom -->
                 </div> <!-- plan-meta -->
             </div><!-- plan-window-left -->

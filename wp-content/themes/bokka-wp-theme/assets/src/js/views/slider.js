@@ -12,7 +12,9 @@ var Slider = Backbone.View.extend({
     },
     render : function(){
         var self = this
-        this.setHeight()
+        $(window).load(function () {
+            self.setHeight()
+        })
         $(window).on('resize', function(){
             self.setHeight()
         })

@@ -1,5 +1,7 @@
 {{> templates/models/brand-window }}
-{{> organisms/feature-bar}}
+{{#with floorplan}}
+    {{> organisms/feature-bar}}
+{{/with}}
 {{> organisms/virtual-tour}}
 {{> templates/floorplan/stats}}
 {{#with map}}

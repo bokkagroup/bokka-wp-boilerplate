@@ -6,6 +6,7 @@ Class View {
     {
         global $Handlebars  ;
         if ($template !== false && $data !== false) {
+            apply_filters( 'filter_before_render', $data);
             $template = $Handlebars->render($template, $data);
         }
        return $template;

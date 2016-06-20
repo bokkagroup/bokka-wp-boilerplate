@@ -37,7 +37,7 @@
     margin: 30px auto;
     display:flex;
     align-items: center;
-    justify-content: center;
+    overflow:hidden;
     @mixin tablet {
         width:50%;
     }
@@ -68,6 +68,7 @@
 }
 
 .feature-bar-body{
+        max-width:calc(99.99% - 145px);
         h2 {
             font-size: 18px;
 
@@ -187,7 +188,7 @@
     img{
         margin: 0 auto;
         display: block;
-
+        max-width:100%;
         @mixin desktop {
             height: calc(100vh - 100px);
         }

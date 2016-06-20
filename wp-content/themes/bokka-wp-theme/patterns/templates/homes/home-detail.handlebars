@@ -1,5 +1,9 @@
 {{> templates/homes/brand-window }}
-{{> organisms/feature-bar}}
+
+{{#with floorplan}}
+    {{> organisms/feature-bar}}
+{{/with}}
+
 {{#if tabs}}
     {{> organisms/tabbed-gallery}}
 {{else}}

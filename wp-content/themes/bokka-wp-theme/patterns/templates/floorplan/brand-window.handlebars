@@ -2,7 +2,11 @@
     <section>
         <div class="container">
             <div class="right">
-                 {{>molecules/blocks/elevations-gallery}}
+                {{#if elevations}}
+                    {{>molecules/blocks/elevations-gallery}}
+                {{else}}
+                    {{>molecules/blocks/brand-window-fallback}}
+                {{/if}}
 
             </div> <!-- plan-window-right -->
             <div class="left">

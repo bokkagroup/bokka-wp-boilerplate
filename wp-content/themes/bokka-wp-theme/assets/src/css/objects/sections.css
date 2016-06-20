@@ -1074,6 +1074,7 @@
         max-width: none;
         margin-right:0 !important;
         width:100%;
+        position:relative;
         @mixin desktop{
             max-width:100%;
             @mixin column 2,3;
@@ -1083,7 +1084,8 @@
             .slider{
                 overflow:hidden;
             }
-        }
+    }
+    .left {
         .text{
             color: black;
             background: white;
@@ -1109,6 +1111,15 @@
                 font-weight: 600;
                 padding: 5px 0;
                 letter-spacing:1px;
+                text-transform:none;
+            }
+            .location {
+                font-size:14px;
+                text-transform:uppercase;
+                opacity:0.75;
+            }
+            .product-type {
+                text-transform:none;
             }
             .community-name{
                 text-transform: uppercase;
@@ -1136,6 +1147,7 @@
 
             }
         }
+    }
     .slider {
         .overlay{
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+75,0.7+100 */
@@ -1244,7 +1256,8 @@
 
     &.floorplan {
         background: #F0F0F0;
-        .title{
+
+        .left .title{
             background: #3F7F9D;
         }
 
@@ -1256,7 +1269,7 @@
         }
     }
     &.model {
-        .title{
+        .left .title{
             background: $green;
         }
 
@@ -1269,7 +1282,7 @@
     }
 
     &.qmi {
-        .title{
+        .left .title{
             background:#B8801C;
         }
 
