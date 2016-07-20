@@ -1,0 +1,52 @@
+<li class="product-item">
+    <a href="{{permalink}}">
+        <div class="image">
+            {{#if featured_image}}
+                <img src="{{featured_image}}" alt="">
+            {{else}}
+                <img src="/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded.jpg" alt="">
+            {{/if}}
+            <div class="overlay"></div>
+            <div class="title">
+                {{post_title}}
+            </div>
+
+        </div>
+        <div class="stats">
+            <ul>
+                {{#if bedrooms_min}}
+                    <li>{{bedrooms_min}}
+                        {{#if bedroom_max}}
+                            &dash; {{bedrooms_max}}
+                        {{/if}}
+                        <div class="label">Beds</div>
+                    </li>
+                {{/if}}
+                {{#if bedrooms}}
+                    <li>{{bedrooms}}
+                        <div class="label">Beds</div>
+                    </li>
+                {{/if}}
+                {{#if bathrooms}}
+                    <li>{{bathrooms}}
+                        <div class="label">Baths</div>
+                    </li>
+                {{/if}}
+                {{#if bathrooms_min}}
+                    <li>{{bathrooms_min}}
+                        {{#if bathrooms_max}}
+                            &dash; {{bathrooms_max}}
+                        {{/if}}
+                        <div class="label">Baths</div>
+                    </li>
+                {{/if}}
+                {{#if main_sqr_ft}}
+                    <li>{{main_sqr_ft}}
+                        <div class="label">SQ.FT.</div>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </a>
+</li>
+

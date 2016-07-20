@@ -1,0 +1,35 @@
+<div class="section neighborhood-brandwindow">
+    <section>
+        <div class="container">
+            <div class="image">
+                <img src="{{featured_image}}" alt="">
+            </div>
+            <div class="text">
+                <div class="header">
+                    <span>Patio Homes & Townhomes From the $300</span><span class="lowercase">s</span>
+                    <header>
+                        <h1>
+                            {{post_title}}
+                        </h1>
+                        <h3>{{city}},{{state}}</h3>
+                    </header>
+                </div>
+                <div class="nav">
+                    {{#if coming_soon}}
+                        <div class="status">Floorplans Are Coming Soon</div>
+                    {{else}}
+                        <ul>
+                            <li><a href="#product-listings" class="button">See Homes</a></li>
+                            <li><a href="#get_updates_form" class="button modal-trigger">Get Updates</a></li>
+                            <li><a href="#map-with-info" class="button">View Location</a></li>
+                        </ul>
+                    {{/if}}
+
+                </div>
+                {{#if coming_soon}}
+                    <a href="#request_info_form" class="coming-soon button modal-trigger">Sign Up For Updates Now</a>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+</div>

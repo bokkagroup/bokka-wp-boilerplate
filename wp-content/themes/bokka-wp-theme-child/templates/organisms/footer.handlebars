@@ -1,0 +1,56 @@
+<div class="footer" id="footer">
+    <div class="container">
+        <div class="contact-us">
+            <div class="title">
+                <h4>Contact Us</h4>
+            </div>
+            <div class="buttons">
+                <a href="#" class="icon icon-footer-locations">Visit Us</a>
+                <a href="#" class="icon icon-footer-email">Send an Email</a>
+                <a href="#" class="icon icon-footer-phone">720-333-3333</a>
+            </div>
+            <div class="chat">
+                {{>molecules/blocks/osc-image}}
+                <div class="text">
+                    <h4>Questions?</h4>
+                    <p>We're here to help</p>
+                    <a href="">Chat with us now &raquo;</a>
+                </div>
+            </div>
+
+        </div><!--/contact-us-->
+        <div class="neighborhoods">
+            <div class="title">
+                <h4>Explore our Colorado Neighborhoods</h4>
+            </div>
+            <ul>
+                {{#each communities}}
+                    <li>
+                        <a href="{{link}}">
+                            {{title}}  {{#if city}}in {{city}}{{/if}}
+                            <span>Townhomes from the ${{price}}s</span>
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+
+        </div><!--neighborhoods-->
+    </div><!--/container-->
+    <hr/>
+    <div class="container">
+        <div class="image">
+            <figure><img src="" alt=""></figure>
+        </div>
+        <div class="copyright">&copy; 2016 - Boulder Creek Neighborhoods</div>
+        <ul class="subnav">
+            <li><i class="icon icon-equal-housing"></i></li>
+            <li>
+                <a href="">Privacy/Terms</a>
+            </li>
+        </ul>
+        <div class="facebook">
+            Find Us
+            <a href="https://www.facebook.com/bouldercreeklifeandhome" class="icon icon-footer-facebook">On Facebook</a>
+        </div>
+    </div><!--/container-->
+</div><!--/footer-->

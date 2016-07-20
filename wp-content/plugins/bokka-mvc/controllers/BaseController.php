@@ -12,14 +12,14 @@ Class Controller {
 		global $BGMVC;
 		//parse model class name
         $controllerName = basename(str_replace('\\', '/', get_class($this)));
-        $modelClass = explode("Controller",  $controllerName )[0] . 'Model';
+        $modelClass = explode("Controller",  $controllerName )[0];
 
 		//load the model file
 		$BGMVC->loadFile( $modelClass . '.php', 'models' );
         $modelClass = '\BokkaWP\theme\models\\'.$modelClass;
 		//instantiate the model
 
-		if( class_exists( $modelClass ) )
+		if (class_exists($modelClass))
             return new $modelClass();
 
 

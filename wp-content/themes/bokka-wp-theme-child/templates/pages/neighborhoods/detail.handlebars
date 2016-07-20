@@ -1,0 +1,39 @@
+<article>
+    {{>pages/neighborhoods/brandwindow}}
+    {{#if neighborhood_features}}
+        {{>organisms/mega-features}}
+    {{/if}}
+    {{#with alternating_content}}
+        {{>organisms/alternating-content}}
+    {{/with}}
+    {{#unless coming_soon}}
+        {{#with product}}
+            {{>organisms/tabbed-product-listings}}
+        {{/with}}
+    {{/unless}}
+    {{#unless coming_soon}}
+        {{#if site_map_pdf}}
+            {{>organisms/site-map}}
+        {{/if}}
+    {{/unless}}
+    {{>organisms/masonry-gallery}}
+    {{>organisms/osc-request-info-neighborhood}}
+    {{#if coming_soon}}
+        {{>organisms/coming-soon-map}}
+    {{/if}}
+    {{#unless coming_soon}}
+        {{#with map}}
+            {{> organisms/map-with-info }}
+        {{/with}}
+    {{/unless}}
+    {{#unless coming_soon}}
+        {{#if testimonial}}
+            {{> organisms/testimonial }}
+        {{/if}}
+    {{/unless}}
+    {{> molecules/blocks/forms}}
+</article>
+
+
+
+

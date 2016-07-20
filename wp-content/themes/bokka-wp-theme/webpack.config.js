@@ -1,9 +1,9 @@
 var webpack = require('webpack');
-
-
 module.exports = {
+    watch:true,
     entry: {
         initialize: "./assets/src/js/initialize.js",
+        depend: "./assets/src/js/depend.js",
         common: [
             'lodash',
             'backbone'
@@ -17,21 +17,16 @@ module.exports = {
         loaders: [ {
             test: /\.html$/,
             loader: 'mustache'
-            // loader: 'mustache?minify'
-            // loader: 'mustache?{ minify: { removeComments: false } }'
-            // loader: 'mustache?noShortcut'
         } ]
-
     },
     resolve: {
-      // you can now require('file') instead of require('file.coffee')
-      extensions: ['', '.html', '.js', '.json', '.coffee'] 
+        // you can now require('file') instead of require('file.coffee')
+        extensions: ['', '.html', '.js', '.json', '.coffee']
     },
     plugins: [
         new webpack.ProvidePlugin({
             _               : 'lodash',
             backbone        : 'backbone',
-
         }),
         new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
         new webpack.optimize.UglifyJsPlugin({

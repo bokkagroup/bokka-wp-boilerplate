@@ -6,7 +6,6 @@
  */
 function update_user_option_admin_color($color_scheme)
 {
-
     if (BOKKA_ENV == 'local') {
         $color_scheme = 'ocean';
     }

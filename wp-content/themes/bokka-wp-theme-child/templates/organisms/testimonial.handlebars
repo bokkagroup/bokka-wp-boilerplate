@@ -1,0 +1,20 @@
+<div id="{{id}}" class="section testimonial">
+    <section>
+        <div class="container">
+            {{#with testimonial}}
+            <div class="text">
+
+                    {{{post_content}}}
+                    <span class="name">{{name}}</span>
+
+            </div><!--/text-->
+            <div class="image">
+                <figure>
+                    <img src="{{image}}" alt="" />
+                </figure>
+                <div class="color-overlay"></div>
+            </div><!--/image-->
+            {{/with}}
+        </div><!--/container-->
+    </section>
+</div><!--/testimonial-->

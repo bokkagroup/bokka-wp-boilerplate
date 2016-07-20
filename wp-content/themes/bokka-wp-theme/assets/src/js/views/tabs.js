@@ -1,4 +1,4 @@
-var Tabs = Backbone.View.extend({
+module.exports = Backbone.View.extend({
     current: 0,
     events: {
         'click .tab-links a'   : 'handleClick'
@@ -44,7 +44,7 @@ var Tabs = Backbone.View.extend({
     setHeight : function(){
         var self = this
 
-        if(bokka_breakpoint.value == "desktop") {
+        if(bokkaBreakpoint.value == "desktop") {
             this.$el.find('.tab-bodies').get(0).style.height = 'auto'
             this.$el.find('.tab-body').css('display','none')
             this.$el.find('.tab-body').eq(this.current).css('display','block')
@@ -92,5 +92,3 @@ var Tabs = Backbone.View.extend({
 
     }
 })
-
-module.exports = Tabs

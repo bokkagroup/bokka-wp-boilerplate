@@ -1,0 +1,25 @@
+{{> pages/homes/brand-window }}
+
+{{#with floorplan}}
+    {{> organisms/feature-bar}}
+{{/with}}
+
+{{#if tabs}}
+    {{> organisms/tabbed-gallery}}
+{{else}}
+    {{#with coming_soon}}
+        {{>organisms/coming-soon-get-updates}}
+    {{/with}}
+{{/if}}
+
+{{#if virtual_tour}}
+    {{> organisms/virtual-tour}}
+{{else}}
+    {{#if tabs}}{{>organisms/coming-soon-get-updates}}
+    {{else}}
+    {{/if}}
+{{/if}}
+{{>organisms/osc-request-info}}
+{{#with map}}
+    {{> organisms/map-with-info }}
+{{/with}}

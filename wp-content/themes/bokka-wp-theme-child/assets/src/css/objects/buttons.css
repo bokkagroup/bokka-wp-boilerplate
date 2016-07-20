@@ -1,0 +1,39 @@
+button, .button {
+    padding:13px 30px;
+    background:$purple;
+    border:none;
+    color:$white;
+    margin:15px 0;
+    font-size:16px;
+    display:inline-block;
+    text-decoration:none;
+    font-weight:600;
+    font-family:"Open Sans";
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    appearance: none;
+    @mixin button $purple;
+    &.reversed {
+        @mixin button_reversed $purple;
+    }
+    &.blue {
+        background:$blue;
+        @mixin button $blue;
+        &.reversed {
+            @mixin button_reversed $blue;
+        }
+    }
+    &.gold {
+        background:$gold;
+        @mixin button $gold;
+    }
+    &.green {
+        background:$green;
+        @mixin button $green;
+    }
+
+}
+

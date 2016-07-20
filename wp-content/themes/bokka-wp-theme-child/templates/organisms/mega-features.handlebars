@@ -1,0 +1,25 @@
+<div class="section mega-features">
+    <section>
+        <div class="container">
+            <div class="header">
+                <header>
+                    <h2>
+                        Northern Colorado's Premier Master-Planned Community
+                    </h2>
+                    <span class="subtitle">Unmatched location featuring:</span>
+                </header>
+            </div>
+            <ul class="features">
+                {{#each neighborhood_features}}
+                    <li>
+                        <div class="icon {{icon}}"></div>
+                        <div class="title">{{title}}</div>
+                        <div class="body">
+                            {{description}}
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+</div>

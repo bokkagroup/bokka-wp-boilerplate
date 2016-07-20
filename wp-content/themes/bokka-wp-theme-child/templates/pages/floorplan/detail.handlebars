@@ -1,0 +1,9 @@
+{{> pages/floorplan/brand-window }}
+{{> organisms/feature-bar}}
+{{#if tabs}}
+    {{> organisms/tabbed-gallery}}
+{{else}}
+    {{#with coming_soon}}
+        {{>organisms/coming-soon-get-updates}}
+    {{/with}}
+{{/if}}

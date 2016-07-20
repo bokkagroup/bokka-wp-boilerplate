@@ -8,8 +8,6 @@ html, body {
     color:$gray;
     height: 100%;
     min-height: 100%;
-
-
 }
 
 body {
@@ -25,42 +23,15 @@ body {
     @mixin clear;
     overflow: visible;
     position:relative;
-    transition:transform 0.5s;
-    backface-visibility: hidden;
-
 }
 
 .section.container {
     position:relative;
 }
-.container {
-    lost-center:100%;
 
-    @mixin tablet {
-        lost-center:740px;
-    }
-    @mixin desktop {
-        lost-center:960px;
-    }
-    @mixin desktop-large {
-        lost-center:1160px;
-    }
-}
 
 .icon {
     display:inline-block;
 }
-/*----------------------------------------------------------
 
-COLORS
-
------------------------------------------------------------*/
-
-.purple {
-    color:$purple;
-}
-
-.dark_blue {
-    color:$dark_blue;
-}
 

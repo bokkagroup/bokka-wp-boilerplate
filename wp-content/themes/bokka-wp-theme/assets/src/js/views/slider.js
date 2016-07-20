@@ -1,4 +1,4 @@
-var Slider = Backbone.View.extend({
+module.exports = Backbone.View.extend({
     current: 0,
     events: {
         'click .previous'       : 'previousSlide',
@@ -92,5 +92,3 @@ var Slider = Backbone.View.extend({
 
     }
 })
-
-module.exports = Slider

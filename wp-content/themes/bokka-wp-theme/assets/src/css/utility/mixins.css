@@ -1,4 +1,16 @@
 /*----------------------------------------------------------
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+--------------- CHILD (custom) THEME MIXINS ----------------
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+-----------------------------------------------------------*/
+
+
+/*----------------------------------------------------------
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+------------------- PARENT THEME MIXINS --------------------
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+-----------------------------------------------------------*/
+/*----------------------------------------------------------
 
 LOST GRID MIXINS
 
@@ -64,6 +76,7 @@ BREAKPOINT MIXINS
     }
 }
 
+/** breakpoints for js **/
 html, body {
     &:before {
         display:none;
@@ -76,104 +89,12 @@ html, body {
         }
     }
 }
-.desktop{
-    display:none;
-    @mixin tablet {
-        display:none;
-    }
-    @mixin desktop {
-        display:block;
-    }
-}
-.tablet{
-    display:none;
-    @mixin tablet {
-        display:block;
-    }
-
-}
-.mobile{
-    display:block;
-    @mixin tablet{
-        display:none;
-    }
-}
-
-.portables {
-    display:block;
-    @mixin desktop {
-        display:none;
-    }
-}
-
 
 /*----------------------------------------------------------
 
-LOST GRID MIXINS
+Utility Mixins
 
 -----------------------------------------------------------*/
-@define-mixin arrow $color {
-    &:after {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        margin-left: -26px;
-        border-width: 26px 26px 0 26px;
-        border-color: $color transparent transparent transparent;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        display: block;
-        content: " ";
-        z-index:2;
-    }
-}
-/*----------------------------------------------------------
-
-BUTTON / HOVER MIXINS
-
------------------------------------------------------------*/
-
-
-@define-mixin button $color {
-    transition: box-shadow 0.2s;
-    &:hover {
-        box-shadow: 0 0 0 4px $(color),
-        inset 0 0 0 3px $white;
-        color: #fff;
-    }
-    &:active {
-    }
-}
-
-@define-mixin button_reversed $color {
-    transition: box-shadow 0.2s;
-    background:$white;
-    color:$color;
-    &:hover {
-         box-shadow: 0 0 0 4px $white,
-         inset 0 0 0 3px $(color);
-         color: $color;
-    }
-    &:active {
-    }
-}
-
-@define-mixin hover $color {
-    transition: box-shadow 0.2s;
-     box-shadow: 0 0 0 4px $(color),
-     inset 0 0 0 3px $white;
-     color: #fff;
-}
-
-@define-mixin hover_reversed $color {
-    transition: box-shadow 0.2s;
-    box-shadow: 0 0 0 4px $white,
-    inset 0 0 0 3px $color;
-    color: $color;
-}
-
-
 @define-mixin placeholder {
     &::-webkit-input-placeholder {
         @mixin-content;
@@ -188,3 +109,4 @@ BUTTON / HOVER MIXINS
         @mixin-content;
     }
 }
+

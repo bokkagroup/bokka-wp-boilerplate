@@ -26,12 +26,9 @@
  */
 
 @import "utility/variables";
-@import "utility/config";
 @import "utility/mixins";
+@import "utility/config";
 @import "utility/reset";
-
-
-
 
 /*------------------------------------*\
     $GLOBAL ELEMENTS
@@ -41,16 +38,7 @@
 @import "base/styleguide";
 @import "base/sprite";
 @import "base/forms";
-/*@import "base/main";
-@import "base/links";
-@import "base/headings";
 
-@import "base/lists";
-@import "base/media";
-
-@import "base/tables";
-@import "base/animation";
-*/
 
 
 /*------------------------------------*\
@@ -94,11 +82,8 @@
 @import "objects/alerts";
 @import "objects/slider";
 @import "objects/breadcrumbs";
-@import "objects/floorplan";
 
 
 /*------------------------------------*\
    Vendor
 \*------------------------------------*/
-@import "vendor/fancybox";
-@import "vendor/tipr";

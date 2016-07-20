@@ -6,7 +6,7 @@
  *
  * @package bokka_wp_theme
  */
-if (!function_exists('bokka_wp_theme_setup')) :
+add_action('after_setup_theme',
     /**
      * Sets up theme defaults and registers support for various WordPress features and loads our various actions.
      *
@@ -14,10 +14,11 @@ if (!function_exists('bokka_wp_theme_setup')) :
      * runs before the init hook. The init hook is too late for some features, such
      * as indicating support for post thumbnails.
      */
-    
-    function bokka_wp_theme_setup()
+
+    function()
     {
-        include_once 'admin/global.php';
+
+        include_once 'config.php';
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
@@ -58,12 +59,20 @@ if (!function_exists('bokka_wp_theme_setup')) :
             'primary' => esc_html__('Primary', 'bokka_wp_theme'),
         ));
 
-        #require various actions
-        require_once('actions/viewFilters.php');
-        require_once('actions/permalinks.php');
-        require_once('actions/footer.php');
-        require_once('lib/scripts.php');
-    }
-endif;
-add_action('after_setup_theme', 'bokka_wp_theme_setup');
+        //auto load scripts
+        //change to get_stylesheet_directory for child theme
+        foreach (glob( get_template_directory() . "/config/*.php") as $filename)
+        {
+            require_once($filename);
+        }
+        foreach (glob(get_template_directory() . "/hooks/*.php") as $filename)
+        {
+            require_once($filename);
+        }
+
+        /**---------------------
+         * CUSTOM INCLUDES BELOW *
+         ------------------------*/
+    },
+1);
 remove_filter('template_redirect', 'redirect_canonical');
