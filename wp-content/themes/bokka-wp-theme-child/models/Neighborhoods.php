@@ -7,12 +7,14 @@ class Neighborhoods extends \BokkaWP\MVC\Model
     public function initialize()
     {
         global $post;
+
         $post->featured_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
         $post->alternating_content = array('items' => get_field('alternating_content'));
         $post->product = tabbedProductData($post->ID);
         $post->site_map_thumbnail = wp_get_attachment_image_src($post->site_map_thumbnail, 'thumbnail')[0];
         $post->site_map_pdf = wp_get_attachment_url($post->site_map_pdf);
-
+        $post->types = explode(',',get_post_meta($post->ID, 'types')[0]);
+        var_dump(get_post_meta($post->ID, 'types')[0]);
         //prepare testimonial
         $testimonialID = $post->testimonial;
         $post->testimonial = get_post($testimonialID);
@@ -56,7 +58,6 @@ class Neighborhoods extends \BokkaWP\MVC\Model
             $status = $post->status;
             $post->{$status} = true;
         }
-
         $this->data = $post;
     }
 }

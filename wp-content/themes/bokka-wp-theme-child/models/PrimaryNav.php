@@ -47,11 +47,14 @@ class PrimaryNav extends \BokkaWP\MVC\Model
                 //add extra data for neighborhoods
                 if ($post_type === 'communities') {
                     $city = get_post_meta($item->object_id, 'city');
+                    $price = get_post_meta($item->object_id, 'base_price');
                     if ($city) {
                         $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['city'] = $city[0];
 
                     }
-                    $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['price'] = getNeighborhoodPrice($item->object_id);
+                    if (isset($price[0])) {
+                        $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['price'] = $price[0];
+                    }
                 }
             }
             $count++;

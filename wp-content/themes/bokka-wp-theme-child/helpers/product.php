@@ -1,7 +1,9 @@
 <?php
 
-function getProductType($post)
+function getProductType($post_id)
 {
+
+    $post = get_post($post_id);
     $post_type = $post->post_type;
 
     if ($post_type == 'home' ||
@@ -22,4 +24,12 @@ function getProductPrice($post)
         $price = $post->base_price;
     }
     return $price;
+}
+
+function getDefaultType($type){
+    if (strpos ( $type, 'Townhome')) {
+        return "Townhomes";
+    } elseif (strpos($type, 'Patio')) {
+        return "Patio Homes";
+    }
 }

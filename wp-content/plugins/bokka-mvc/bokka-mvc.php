@@ -42,9 +42,7 @@ class MVC {
         require_once(BGMVC_DIR . 'autoloader.php');
 
 		//auto load controllers
-		if (!is_admin()) {
-			$this->autoLoad();
-		}
+        add_action('init', array($this, 'autoLoad'));
 	}
 
     /**
@@ -111,10 +109,8 @@ class MVC {
 	public function autoLoad()
     {
         $this->loadFile('config.php');
-
-        new \BokkaWP\MVC\autoloader();
-
         $this->loadFiles( 'helpers' );
+        new \BokkaWP\MVC\autoloader();
 
 		return;
 	}

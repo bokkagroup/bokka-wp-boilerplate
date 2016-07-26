@@ -1,4 +1,4 @@
-<li class="product-item">
+<li class="product-item {{post_type}}">
     <a href="{{permalink}}">
         <div class="image">
             {{#if featured_image}}
@@ -7,10 +7,31 @@
                 <img src="/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded.jpg" alt="">
             {{/if}}
             <div class="overlay"></div>
-            <div class="title">
-                {{post_title}}
+        </div>
+        {{#if price}}
+            <div class="price">
+                ${{price}}
             </div>
-
+        {{/if}}
+        <div class="title">
+            {{post_title}}
+            <br>
+            <span>
+                {{!-- if it's a floorplan show it's features --}}
+                {{#each features}}
+                    {{#if @first}}
+                        <span>{{feature}}</span>
+                    {{/if}}
+                {{/each}}
+                {{!-- if it's a model or QMI get it's features from it's floorplan --}}
+                {{#if floorplan.features}}
+                    {{#each floorplan.features}}
+                        {{#if @first}}
+                            <span>{{feature}}</span>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            </span>
         </div>
         <div class="stats">
             <ul>

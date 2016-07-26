@@ -1135,14 +1135,6 @@
         @mixin desktop {
             padding:60px 0 20px;
         }
-        &:nth-child(odd){
-            background:#F1F1F1;
-            .product-item {
-                .stats {
-                    background:$green;
-                }
-            }
-        }
     }
     .tab-links {
         border-bottom:solid 4px $purple;
@@ -1197,9 +1189,7 @@
                 @mixin column 1,4;
             }
         }
-        .stats {
-            background:$gold;
-        }
+
     }
     .product-item {
         font-family:'Open Sans';
@@ -1207,13 +1197,7 @@
         a {
             text-decoration:none;
         }
-        .title {
 
-            font-size: 22px;
-            font-weight: bold;
-            text-align: center;
-            color: #ffffff;
-        }
         .image {
             width:100%;
             position:relative;

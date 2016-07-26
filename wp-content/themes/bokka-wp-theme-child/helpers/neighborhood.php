@@ -65,12 +65,8 @@ function sortProductByType($posts)
     $types = array();
     //get our products and their types in a basic array structure
     foreach ($posts as $post) {
-        $type = getProductType($post);
-        if (strpos ( $type, 'Townhome')) {
-            $type = "Townhomes";
-        } elseif (strpos($type, 'Patio')) {
-            $type = "Patio Homes";
-        }
+        $type = getProductType($post->ID);
+        $type = getDefaultType($type);
         $price = round(number_format(getProductPrice($post) / 1000, 0), -1);
         if (isset($types[$type]['price']) &&
             $types[$type]['price'] < $price) {

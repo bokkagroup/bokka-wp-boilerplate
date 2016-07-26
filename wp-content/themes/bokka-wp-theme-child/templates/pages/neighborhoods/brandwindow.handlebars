@@ -6,7 +6,18 @@
             </div>
             <div class="text">
                 <div class="header">
-                    <span>Patio Homes & Townhomes From the $300</span><span class="lowercase">s</span>
+                    <span>
+                        {{#each types}}
+                            {{#if @first}}
+                              {{this}}
+                            {{/if}}
+                            {{#if @last}}
+                                {{#unless @first}}
+                                    & {{this}}
+                                {{/unless}}
+                            {{/if}}
+                        {{/each}}
+                        From the ${{base_price}}</span><span class="lowercase">s</span>
                     <header>
                         <h1>
                             {{post_title}}
