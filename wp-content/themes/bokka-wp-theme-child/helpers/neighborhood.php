@@ -19,9 +19,9 @@ function tabbedProductData($id)
 
     //plans
     $plans = get_posts(
-        array('post_type' => 'plans', 'meta_query' => $metaQuery)
+        array('post_type' => 'plans', 'meta_query' => $metaQuery, 'suppress_filters' => false)
     );
-    apply_filters('bokkamvc_filter_before_render', $plans);
+
     if (count($plans) > 0) {
         $data['tabs'][] = array(
             'title' => 'Floorplans',
@@ -31,9 +31,9 @@ function tabbedProductData($id)
 
     //homes (qmi)
     $homes = get_posts(
-        array('post_type' => 'home', 'meta_query' => $metaQuery)
+        array('post_type' => 'home', 'meta_query' => $metaQuery, 'suppress_filters' => false)
     );
-    apply_filters('bokkamvc_filter_before_render', $homes);
+
     if (count($homes) > 0) {
         $data['tabs'][] = array(
             'title' => 'Quick Move-In Homes',
@@ -43,9 +43,9 @@ function tabbedProductData($id)
 
     //models
     $models = get_posts(
-        array('post_type' => 'model', 'meta_query' => $metaQuery)
+        array('post_type' => 'model', 'meta_query' => $metaQuery, 'suppress_filters' => false)
     );
-    apply_filters('bokkamvc_filter_before_render', $models);
+    
     if (count($models) > 0) {
         $data['tabs'][] = array(
             'title' => 'Model Homes',
@@ -101,6 +101,127 @@ function sortProductByType($posts)
     return $types;
 }
 
+/**
+ * take a list of products and sort them in an array based neighborhood
+ * @param $posts
+ * @return array
+ */
+function sortProductByNeighborhood($posts)
+{
+    $neighborhoods = array();
+    
+    // get our products and their types in a basic array structure
+    foreach ($posts as $post) {
+        $neighborhood = $post->neighborhood;
+        $neighborhoods[$neighborhood]['title'] = get_the_title($neighborhood);
+        $neighborhoods[$neighborhood]['products'][] = $post;
+    }
+    
+    // attach additional data to post objects
+    $neighborhoods = array_map(function ($item) {
+        // attach neighborhood_name propery to each product
+        iterateNeighborhoodData($item, 'addNeighborhoodNameToProducts');
+        return $item;
+    }, $neighborhoods);
+
+    return $neighborhoods;
+}
+
+/**
+ * Format the floorplan types associated with a neighborhood as "Patio Homes & Townhomes"
+ * @param $data
+ * @return array
+ */
+function formatNeighborhoodTypes($data)
+{
+    $data = array_map(function ($item) {
+        iterateNeighborhoodData($item, function ($item) {
+            $types = explode(',', get_post_meta($item->ID, 'types')[0]);
+            $item->types = implode(' & ', $types);
+        });
+        return $item;
+    }, $data);
+    return $data;
+}
+
+/**
+ * Call iterateNeighborhoodData to apply Bokka filters on each post object in $data
+ * @param $WP_Post object
+ * @return array
+ */
+function applyFiltersToProducts($data)
+{
+    $data = array_map(function ($item) {
+        iterateNeighborhoodData($item, 'applyBokkaFilters');
+        return $item;
+    }, $data);
+    return $data;
+}
+
+/**
+ * Callback function passed into iterateNeighborhoodData
+ * @param $data (WP_Post object)
+ * @return null
+ */
+function addNeighborhoodNameToProducts($data)
+{
+    if (isset($data->neighborhood) && $data->neighborhood) {
+        $data->neighborhood_name = get_the_title($data->neighborhood);
+    }
+}
+
+/**
+ * Attach the post type = true as a property key for use in templates
+ * @param $posts
+ * @return array
+ */
+function addPostTypeBoolean($data)
+{
+    if (isset($data) && $data) {
+        $data = array_map(function ($item) {
+            iterateNeighborhoodData($item, function ($item) {
+                $post_type = get_post_type($item->ID);
+                $item->$post_type = true;
+            });
+            return $item;
+        }, $data);
+    }
+    return $data;
+}
+
+/**
+ * Callback function passed into iterateNeighborhoodData
+ * @param $data (WP_Post object)
+ * @return null
+ */
+function applyBokkaFilters($data)
+{
+    if (isset($data) && $data) {
+        apply_filters('bokkamvc_filter_before_render', $data);
+    }
+}
+
+/**
+ * Recursively iterate over nested array of product data and apply a callback function to each post object
+ * @param $data, $callback
+ * @return
+ */
+function iterateNeighborhoodData($data, $callback)
+{
+    if (is_object($data) && is_a($data, 'WP_Post')) {
+        $callback($data);
+        return $data;
+    }
+    if (is_array($data)) {
+        foreach ($data as $item) {
+            iterateNeighborhoodData($item, $callback);
+        }
+    }
+    if (!is_array($data)) {
+        return;
+    }
+}
+
 function convertCategoryToIcon($category)
 {
     switch ($category) {
@@ -120,36 +241,4 @@ function convertCategoryToIcon($category)
             return 'icon-amenities-low-maint';
             break;
     }
-}
-
-/**
- * @param $id
- * @return float
- * gets a base price from all floorplans associated to a neighborhood
- */
-function getNeighborhoodPrice($id)
-{
-
-    $plans = get_posts(array(
-        'post_type'         => 'plans',
-        'meta_query'        => array(
-            array(
-                'key'       => 'neighborhood',
-                'value'     => $id,
-                'compare'   => 'LIKE',
-            )
-        )
-    ));
-
-    $price = 0;
-
-    foreach ($plans as $plan) {
-        if ($price === 0) {
-            $price = $plan->base_price;
-        } elseif ($plan->base_price < $price) {
-
-            $price = $plan->base_price;
-        }
-    }
-    return round(number_format($price / 1000, 0), -1);
 }

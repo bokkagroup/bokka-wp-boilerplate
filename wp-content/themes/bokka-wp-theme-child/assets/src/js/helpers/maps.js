@@ -8,5 +8,7 @@ window.loadMapsAPI = function(callback){
             script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAcTFXfdY2MgwZqfpDxD_FQ-jcm6HepHjU&v=3&callback=mapsCallback'
             document.body.appendChild(script)
         })
+    } else {
+        callback()
     }
 }

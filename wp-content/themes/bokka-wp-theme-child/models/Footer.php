@@ -14,6 +14,8 @@ class Footer extends \BokkaWP\MVC\Model
             $link = $item->url;
             $title = $item->title;
             $city = get_post_meta($item->object_id, 'city');
+            $price = get_post_meta($item->object_id, 'base_price');
+            $types = get_post_meta($item->object_id, 'types');
             if (!$item->menu_item_parent) {
                 $parent_id = $item->ID;
                 $menu_object['communities'][$item->ID]['link'] = $link;
@@ -21,7 +23,13 @@ class Footer extends \BokkaWP\MVC\Model
                 if ($city) {
                     $menu_object['communities'][$item->ID]['city'] = $city[0];
                 }
-                $menu_object['communities'][$item->ID]['price'] = getNeighborhoodPrice($item->object_id);
+                if (isset($price[0])) {
+                    $menu_object['communities'][$item->ID]['price'] = round(number_format($price[0] / 1000, 0), -1);
+                }
+                if (isset($types[0])) {
+                    $types = explode(',', $types[0]);
+                    $menu_object['communities'][$item->ID]['types'] = $types;
+                }
             }
             if ($parent_id == $item->menu_item_parent) {
                 $menu_object['communities'][$item->menu_item_parent]['subnav'][$item->ID]['link'] = $link;

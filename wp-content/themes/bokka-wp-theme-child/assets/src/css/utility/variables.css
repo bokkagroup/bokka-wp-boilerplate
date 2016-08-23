@@ -3,11 +3,13 @@
 -------------------*/
 $blue:#3F7F9D;
 $blue_light:#559CBE;
+$blue_dark:#336b85;
 $teal:#7DD1E1;
 $teal_light: #64B6CS;
-$purple_light:#852e73;
+$purple_light:#852e72;
 $purple:#6D235D;
 $purple_rgb:109, 35, 93;
+$purple_dark: #5a194c;
 $gold:#b7801b;
 $gold_dark:#9F6E15;
 $cream:#F2EFCD;
@@ -30,6 +32,6 @@ $gray_dark2:#434A54;
 /*------------------------
 ------ Breakpoints -------
 ------------------------*/
-$tablet:768px;
-$desktop:992px;
-$desktop-large:1200px;
+$tablet:            768px;
+$desktop:           992px;
+$desktop-large:     1200px;

@@ -20,14 +20,15 @@ function getProductPrice($post)
     $price = 0;
     if (isset($post->price)) {
         $price = $post->price;
-    } elseif ($post->base_price) {
+    } elseif (isset($post->base_price)) {
         $price = $post->base_price;
     }
     return $price;
 }
 
-function getDefaultType($type){
-    if (strpos ( $type, 'Townhome')) {
+function getDefaultType($type)
+{
+    if (strpos($type, 'Townhome')) {
         return "Townhomes";
     } elseif (strpos($type, 'Patio')) {
         return "Patio Homes";

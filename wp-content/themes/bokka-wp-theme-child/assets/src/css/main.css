@@ -93,6 +93,8 @@
 @import "objects/slider";
 @import "objects/breadcrumbs";
 @import "objects/floorplan";
+@import "objects/filters";
+@import "objects/product-listings";
 
 /*------------------------------------*\
    Vendor

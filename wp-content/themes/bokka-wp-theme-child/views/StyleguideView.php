@@ -6,6 +6,6 @@ class StyleguideView extends \BokkaWP\MVC\View
 {
     public function initialize()
     {
-        $this->template = "templates/styleguide";
+        $this->template = "pages/styleguide";
     }
 }

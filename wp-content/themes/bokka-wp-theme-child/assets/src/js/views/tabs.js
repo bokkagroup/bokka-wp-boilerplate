@@ -45,7 +45,6 @@ var Tabs = Backbone.View.extend({
         var self = this
 
         if(bokkaBreakpoint.value == "desktop") {
-            console.log("WTFFFF")
             //this.$el.find('.tab-bodies').get(0).style.height = 'auto'
             this.$el.find('.tab-body').css('display','none')
             this.$el.find('.tab-body').eq(this.current).css('display','block')

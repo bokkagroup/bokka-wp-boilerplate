@@ -9,6 +9,7 @@ function available_homes_permalink($post_link, $post, $leavename, $sample)
     if (strpos($post_link, '%location%') ||
         strpos($post_link, '%community%')) {
         if ($post_type === 'home' || $post_type === 'plans' || $post_type === 'model') {
+            // TODO: @MIKE I noticed there's a warning here if no neighborhood is set for a home
             $id = get_post_meta($post->ID, 'neighborhood')[0];
             $community = get_post($id, 'community');
         } else {
@@ -54,6 +55,5 @@ function custom_rewrite_basic()
         'index.php?post_type=communities&name=$matches[2]',
         'top'
     );
-
 }
 add_action('init', 'custom_rewrite_basic');

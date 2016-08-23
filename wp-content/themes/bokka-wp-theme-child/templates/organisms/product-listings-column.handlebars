@@ -1,0 +1,48 @@
+<div class="listings-wrap tabs">
+    <div class="tab-header">
+        <h2>Our Neighborhoods</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="tab-links">
+        <ul>
+            {{#each tabs}}
+                <li class="tab {{#if @first}}active{{/if}}"><a href="#">{{title}}</a></li>
+            {{/each}}
+
+        </ul>
+    </div>
+    <ul class="tab-bodies">
+        {{#each tabs}}
+            <li class="tab-body">
+                {{!--- THIS IS FOR NEIGHBORHOODS--}}
+                {{#if products}}
+                    <ul>
+                        {{#each products}}
+                            {{> molecules/blocks/overview-card.handlebars}}
+                        {{/each}}
+                    </ul>
+                {{/if}}
+                {{!-- THIS IS FOR QMI & MODELS --}}
+                {{#if neighborhoods}}
+                    <ul>
+                        {{#each neighborhoods}}
+                            <li>
+                                <h3><span>{{title}}</span></h3>
+                                <ul>
+                                    {{#each products}}
+                                        {{> molecules/blocks/overview-card.handlebars}}
+                                    {{/each}}
+                                </ul>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </li>
+        {{/each}}
+        {{!-- TODO: Move this out of here --}}
+        <li class="more">
+            <a href="#" class="button purple">See Quick Move-ins</a>
+            <a href="#" class="button purple">See Model Homes</a>
+        </li>
+    </ul>
+</div><!--/listings-wrapper-->

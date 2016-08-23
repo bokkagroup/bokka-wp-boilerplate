@@ -27,7 +27,7 @@ add_filter('bokkamvc_filter_before_render', 'generateElevationsGalleryData');
 function formatBasePrice($data)
 {
     if (isset($data->base_price) && $data->base_price) {
-        $data->base_price = number_format($data->base_price / 1000, 0);
+        $data->base_price = round(number_format($data->base_price / 1000, 0), -1);
     }
     return $data;
 }
@@ -120,8 +120,11 @@ add_filter('bokkamvc_filter_before_render', 'includeBrandWindowFallbackForm');
 function setupAlternatingContentData($data)
 {
 
-    if (isset($data->alternating_content) && count($data->alternating_content['items']) > 0) {
+    if (isset($data->alternating_content) &&
+        isset($data->alternating_content['items']) &&
+        count($data->alternating_content['items']) > 0) {
         $array = array();
+
         foreach ($data->alternating_content['items'] as $item) {
             $item['image'] = wp_get_attachment_url($item['image'], 'medium');
             $array[] = $item;
@@ -135,22 +138,7 @@ add_filter('bokkamvc_filter_before_render', 'setupAlternatingContentData');
 
 /**
  * @param $data
- * Sets a featured image
- */
-function setFeaturedImage($data)
-{
-    if (isset($data->ID)) {
-        if (isset($data->elevations) && isset($data->elevations[0])) {
-            $data->featured_image = wp_get_attachment_url($data->elevations[0], 'thumbnails');
-        }
-    }
-    return $data;
-}
-add_filter('bokkamvc_filter_before_render', 'setFeaturedImage');
-
-/**
- * @param $data
- * Sets a featured image
+ * Sets a permalink
  */
 function setPermalink($data)
 {
@@ -197,15 +185,15 @@ function getModelStats($data)
 {
     if (isset($data->post_type) &&
         $data->post_type == 'model') {
-        if(isset($data->floorplan->ID)){
+        if (isset($data->floorplan->ID)) {
             $floorplan = $data->floorplan->ID;
         } else {
             $floorplan = $data->floorplan;
         }
-        $data->bathrooms_min = get_field('bathrooms_min',$floorplan);
-        $data->bathrooms_max = get_field('bathrooms_max',$floorplan);
-        $data->bedrooms_min = get_field('bedrooms_min',$floorplan);
-        $data->bedrooms_max = get_field('bedrooms_max',$floorplan);
+        $data->bathrooms_min = get_field('bathrooms_min', $floorplan);
+        $data->bathrooms_max = get_field('bathrooms_max', $floorplan);
+        $data->bedrooms_min = get_field('bedrooms_min', $floorplan);
+        $data->bedrooms_max = get_field('bedrooms_max', $floorplan);
         $data->main_sqr_ft = get_field('main_sqr_ft', $floorplan);
     }
     return $data;

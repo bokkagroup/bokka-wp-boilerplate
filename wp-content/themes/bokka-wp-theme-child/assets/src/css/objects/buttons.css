@@ -34,6 +34,10 @@ button, .button {
         background:$green;
         @mixin button $green;
     }
+    &.light-green {
+        background:$green_light;
+        @mixin button $green_light;
+    }
 
 }
 

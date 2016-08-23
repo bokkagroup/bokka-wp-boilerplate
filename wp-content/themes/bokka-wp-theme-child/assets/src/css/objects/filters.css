@@ -1,0 +1,133 @@
+/* Overview map filters */
+
+.filters {
+    width:100%;
+    background-color: $blue_light;
+    padding: 0 10px;
+    height: auto;
+    text-align: center;
+    z-index: 2;
+
+    .filter-toggle {
+        display: block;
+        padding: 12px 0;
+        width: 100%;
+        font-family: "Open sans";
+        font-size: 18px;
+        text-decoration: none;
+        color: #fff;
+
+        &:before {
+            transform: rotate(45deg);
+            margin: 0 8px 0 0;
+        }
+    }
+
+    .filters-wrap {
+        display: block;
+        max-height: 0;
+        height: 100%;
+        transition: max-height .6s;
+        overflow: hidden;
+        width: 100%;
+
+        &.open {
+            max-height: 300px;
+        }
+    }
+
+    .form {
+        margin: 15px 0 0 0;
+    }
+
+    .field {
+        margin: 0 0 10px;
+    }
+
+    p {
+        display: block;
+        color: #fff;
+        font-family: "Open sans";
+        font-weight: 600;
+        font-size: 18px;
+        letter-spacing: -0.2px;
+    }
+
+    p, .field, .button {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .container-select { 
+        background-color: $blue;
+
+        &:before {
+            background-color: $blue_dark;
+            border: none;
+        }
+
+        &:after {
+            border-top-color: #fff;
+            right: 12px;
+        }
+
+        select {
+            border: none;
+            border-radius: 0;
+            color: #fff;
+            padding-left: 20px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+
+    /* media queries for .filters */
+    @mixin tablet {
+        display: flex;
+        
+        .form,
+        .field {
+            display: inline-block;
+        }
+    }
+
+    @mixin desktop {
+        padding: 20px 10px;
+
+        .filter-toggle {
+            display: none;
+        }
+
+        .filters-wrap {
+            max-height: initial;
+            overflow: visible;
+        }
+    }
+
+    @mixin desktop-large {
+        height: 67px;
+        padding: 20px 0;
+        text-align: left;
+
+        .filters-wrap {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .form {
+            margin-top: 0;
+        }
+
+        .field {
+            margin-bottom: 0;
+        }
+
+        p, .field, .button {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}

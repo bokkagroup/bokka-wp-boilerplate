@@ -11,7 +11,7 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             $this->data = $this->plansAndModels();
         } elseif (is_singular(array('home'))) {
             $this->data = $this->homes();
-        } elseif (is_singular(array('communities'))) {
+        } elseif (is_singular(array('communities')) || is_page('all-neighborhoods')) {
             $this->data = $this->neighborhoods();
         }
     }
@@ -25,44 +25,65 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
         global $post;
         $obj = get_post_type_object(get_post_type($post));
         $postfix = $obj->labels->singular_name;
-        $crumbs = [];
-        $crumbs[0]['title'] = 'Home';
-        $crumbs[0]['link'] = '/';
-        $crumbs[1]['title'] = get_the_title($post->neighborhood);
-        $crumbs[1]['link'] = get_permalink($post->neighborhood);
-        $crumbs[1]['class'] = 'icon icon-our-neighborhoods';
-        $crumbs[2]['title'] = $post->post_title .' '. $postfix;
-        $crumbs[2]['link'] = '#';
-        $crumbs[2]['class'] = 'icon icon-our-homes';
-        return $crumbs;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => get_the_title($post->neighborhood),
+                'link' => get_permalink($post->neighborhood),
+                'class' => 'icon icon-our-neighborhoods'
+            ),
+            array(
+                'title' => $post->post_title .' '. $postfix,
+                'link' => '#',
+                'class' => 'icon icon-our-homes'
+            )
+        );
     }
 
     public function homes()
     {
         global $post;
-        $crumbs = [];
-        $crumbs[0]['title'] = 'Home';
-        $crumbs[0]['link'] = '/';
-        $crumbs[1]['title'] = get_the_title($post->neighborhood);
-        $crumbs[1]['link'] = get_permalink($post->neighborhood);
-        $crumbs[1]['class'] = 'icon icon-our-neighborhoods';
-        $crumbs[2]['link'] = get_the_title($post->neighborhood)."/#quick-move-in";
-        $crumbs[2]['title'] = "Quick Move-In Homes";
-        $crumbs[3]['title'] = $post->post_title;
-        $crumbs[3]['link'] = '#';
-        $crumbs[3]['class'] = 'icon icon-our-homes';
-        return $crumbs;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => get_the_title($post->neighborhood),
+                'link' => get_permalink($post->neighborhood),
+                'class' => 'icon icon-our-neighborhoods'
+            ),
+            array(
+                'title' => 'Quick Move-In Homes',
+                'link' => get_the_title($post->neighborhood)."/#quick-move-in"
+            ),
+            array(
+                'title' => $post->post_title,
+                'link' => '#',
+                'class' => 'icon icon-our-homes'
+            )
+        );
     }
 
     public function neighborhoods()
     {
         global $post;
-        $crumbs = [];
-        $crumbs[0]['title'] = 'Home';
-        $crumbs[0]['link'] = '/';
-        $crumbs[1]['title'] = get_the_title($post->neighborhood);
-        $crumbs[1]['link'] = get_permalink($post->neighborhood);
-        $crumbs[1]['class'] = 'icon icon-our-neighborhoods';
-        return $crumbs;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => get_the_title($post->neighborhood),
+                'link' => get_permalink($post->neighborhood),
+                'class' => 'icon icon-our-neighborhoods'
+            )
+        );
     }
 }

@@ -3,8 +3,8 @@
 LOST GRID MIXINS
 
 -----------------------------------------------------------*/
-@define-mixin column $numerator, $denominator, $gutter = "", $cycle = "" {
-   lost-column: $(numerator)/$(denominator);
+@define-mixin column $numerator, $denominator, $gutter: '', $cycle: '' {
+   lost-column: $(numerator)/$(denominator) $(gutter) $(cycle);
 }
 
 @define-mixin cycle $number {
@@ -46,20 +46,20 @@ LOST GRID MIXINS
 BREAKPOINT MIXINS
 
 -----------------------------------------------------------*/
-@define-mixin desktop-large {
-    @media (min-width: $desktop-large) {
+@define-mixin desktop-large $type: min {
+    @media ($(type)-width: $desktop-large) {
         @mixin-content;
     }
 }
 
-@define-mixin desktop {
-    @media (min-width: $(desktop)) {
+@define-mixin desktop $type: min {
+    @media ($(type)-width: $(desktop)) {
         @mixin-content;
     }
 }
 
-@define-mixin tablet {
-    @media (min-width: $(tablet)) {
+@define-mixin tablet $type: min {
+    @media ($(type)-width: $(tablet)) {
         @mixin-content;
     }
 }

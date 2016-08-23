@@ -15,6 +15,10 @@ $('.section').each(function(){
         category = 'Floorplan Detail'
     } if(body.hasClass('single-model')){
         category = 'Model Detail'
+    } if(body.hasClass('single-home')){
+        category = 'Home Detail'
+    } if(body.hasClass('single-communities') || body.hasClass('single-neighborhoods')) {
+        category = 'Neighborhood Detail'
     }
 
     /**
@@ -129,6 +133,73 @@ $('.section').each(function(){
             label = ('Map-With-Info-Get-Directions').replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label)
         })
+    } else if (el.hasClass('osc-request-info')) {
+        el.on('click', 'a', function(event){
+            if (category == 'Home Detail' || category == 'Floorplan Detail' || category == 'Model Detail') {
+                label = 'OSC-Product-Detail-Curious-Get-In-Touch'//define our label
+            } else if (category == 'Neighborhood Detail') {
+                var h1 = $('h1').text()
+                label = ('OSC Get Info-'+h1.trim()).replace(/(\r\n|\n|\r)/gm,"")
+            } else {
+                label = 'OSC Get Info'
+            }
+            eventTrack(category, action, label)
+        })
+    } else if (el.hasClass('neighborhood-brandwindow')){
+
+        el.on('click', '.button', function(event){
+
+            var text = $(this).text().trim()
+
+            if (text == 'See Homes'){
+                label = 'Neighborhood Brand Window-See Homes'
+            }
+            if(text == 'Get Updates'){
+                label = 'Neighborhood Brand Window-Get Updates'
+            }
+            if(text == 'View Location'){
+                label = 'Neighborhood Brand Window-View Location'
+            }
+            if(text == 'Sign Up For Updates Now'){
+                label = 'Neighborhood Brand Window-Sign Up For Updates Now'
+            }
+            eventTrack(category, action, label)
+        })
+    } else if (category == 'Neighborhood Detail' && el.hasClass('alternating-content')){
+
+        el.on('click', '.button', function(event){
+
+            var text = $(this).text().trim()
+            label = ("Neigh Info w/ Amenities-"+text).replace(/(\r\n|\n|\r)/gm,"")
+            eventTrack(category, action, label)
+        })
+    } else if (category == 'Neighborhood Detail' && el.hasClass('site-map')){
+        el.on('click', 'a', function(event){
+            var text = $(this).text().trim()
+            label = "Neigh Info + Amenities-View Homesite Map"
+            eventTrack(category, action, label)
+        })
+    } else if (el.hasClass('tabbed-product-listings')){
+        el.on('click', '.product-item', function(event){
+            var item = $(this)
+            var name = $(this).find('.title').clone()//clone the element
+                .children() //select all the children
+                .remove()   //remove all the children
+                .end()  //again go back to selected element
+                .text().trim();
+            if(item.hasClass('plans')){
+                label = 'Tabbed Product-Floorplan '+ name
+            } else if (item.hasClass('home')){
+                label = 'Tabbed Product Display-Quick Move In Home '+ name
+            } else if (item.hasClass('model')){
+                label = 'Tabbed Product Display-Model '+ name
+            } else {
+                label = 'Tabbed Product Display-Product'
+            }
+
+            eventTrack(category, action, label)
+        })
+
     }
 })
 
@@ -139,7 +210,7 @@ function eventTrack(category, action, label){
         category,
         action,
         label
-    );
+    )
 }
 
 /**

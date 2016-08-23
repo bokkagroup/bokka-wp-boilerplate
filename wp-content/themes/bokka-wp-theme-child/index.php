@@ -21,6 +21,8 @@ do_action('bwt\before_content'); ?>
             new \BokkaWP\Theme\controllers\ModelDetailController();
         } elseif (is_singular('home')) {
             new \BokkaWP\Theme\controllers\HomesController();
+        } elseif (is_page('all-neighborhoods')) {
+            new \BokkaWP\Theme\controllers\NeighborhoodsOvController();
         } elseif (is_tax()) {
         } elseif (is_archive()) {
         } elseif (is_single()) {

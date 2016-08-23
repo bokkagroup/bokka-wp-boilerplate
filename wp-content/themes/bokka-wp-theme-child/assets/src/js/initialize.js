@@ -60,6 +60,12 @@ jQuery( document ).ready(function( $ ) {
         });
     });
 
+    // Toggle overview map filters
+    $('.filter-toggle').on('click', function(event) {
+        event.preventDefault();
+        $(this).siblings('.filters-wrap').toggleClass('open');
+    });
+
 
     /**
      * Menu Instantiation
@@ -82,6 +88,10 @@ jQuery( document ).ready(function( $ ) {
                 if ($(this).hasClass('coming-soon')) {
                     var comingSoonMapView = require('./views/coming-soon-map.js')
                     new comingSoonMapView({el: $(this)})
+                } else if ($(this).hasClass('overview-map')) {
+                    var wrapper = $(this).closest('.section')
+                    var overviewMapView = require('./views/overview-map.js')
+                    new overviewMapView({el: wrapper})
                 } else if ($(this).hasClass('google-map-wrapper')) {
                     var modelMapView = require('./views/model-map.js')
                     new modelMapView({el: $(this)})
@@ -99,7 +109,7 @@ jQuery( document ).ready(function( $ ) {
         if(!a.test(this.href)) {
             $(this).click(function(event) {
                 event.preventDefault();
-                event.stopPropagation();
+
                 window.open(this.href, '_blank');
             });
         }

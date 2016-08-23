@@ -48,12 +48,17 @@ class PrimaryNav extends \BokkaWP\MVC\Model
                 if ($post_type === 'communities') {
                     $city = get_post_meta($item->object_id, 'city');
                     $price = get_post_meta($item->object_id, 'base_price');
+                    $types = get_post_meta($item->object_id, 'types');
                     if ($city) {
                         $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['city'] = $city[0];
 
                     }
                     if (isset($price[0])) {
-                        $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['price'] = $price[0];
+                        $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['price'] = round(number_format($price[0] / 1000, 0), -1);
+                    }
+                    if (isset($types[0])) {
+                        $types = explode(',', $types[0]);
+                        $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['types'] = $types;
                     }
                 }
             }

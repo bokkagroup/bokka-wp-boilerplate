@@ -1,0 +1,383 @@
+.neighborhood-overview {
+
+    .product-listings-container {
+        @mixin tablet {
+            max-width: 100%;
+        }
+
+        @mixin desktop {
+            @mixin container;
+        }
+    }
+
+    .listings-wrap {
+        background-color: $purple_light;
+        height: calc(100% - 67px);
+        position: relative;
+
+        @mixin desktop {
+            @mixin column 1, 2;
+            @mixin cycle 1;
+            
+            margin: 30px 0;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        @mixin desktop-large {
+            margin-top: 30px;
+        }
+    }
+
+    .tab-header {
+        background-color: $purple_light;
+
+        padding: 30px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+
+        @mixin arrow $purple_light, 26px;
+
+        h2 {
+            color: #fff;
+            font-size: 32px;
+            line-height: 1.3;
+            letter-spacing: -0.9px;
+            margin: 0 0 8px;
+        }
+
+        p {
+            font-family: "Open sans";
+            color: #fff;
+        }
+
+        @mixin tablet {
+            p {
+                max-width: 65%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @mixin desktop {
+            height: $tabHeaderHeight;
+            padding: 40px 30px;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+
+            &:after {
+                display: none;
+            }
+
+            h2 {
+                font-size: 40px;
+            }
+
+            p {
+                max-width: initial;
+            }
+        }
+    }
+
+    .tabs {
+        position: relative;
+    }
+
+    .tab-links {
+        display: none;
+        border-bottom: 4px solid $blue;
+
+        ul {
+            text-align: center;
+        }
+
+        li {
+            font-family: "Open sans";
+            background-color: $purple_dark;
+            text-align: center;
+
+            display: inline-block;
+            position: relative;
+            padding: 0;
+            margin: 0 3px;
+
+            &.active {
+                background-color: $blue;
+
+                &:before{
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    top:100%;
+                    border-left: 14px solid transparent;
+                    border-right: 14px solid transparent;
+                    border-top: 14px solid $blue;
+                    left: 50%;
+                    margin-left: -14px;
+                    z-index: 1;
+                }
+            }
+        }
+
+        a {
+            display: block;
+            height: 50px;
+            padding: 14px 12px;
+            color: #fff;
+            font-size: 18px;
+            line-height: 1.2;
+            letter-spacing: -0.4px;
+            text-decoration: none;
+        }
+
+        /* media query for .tab-links */
+        @mixin desktop {
+            display: block;
+        }
+    }
+
+    .tab-bodies-wrap {
+        max-height: 100%;
+    }
+
+    .tab-bodies {
+        background-color: #fff;
+        text-align: center;
+
+        @mixin desktop {
+            padding: 30px;
+            text-align: left;
+        }
+
+        .more {
+            padding: 15px 15px 0 15px;
+            background-color: $gray_light1;
+
+            .button {
+                margin-top: 0;
+                width: 100%;
+            }
+
+            @mixin tablet {
+                .button {
+                    width: auto;
+                }
+            }
+
+            @mixin desktop {
+                display: none;
+            }
+        }
+
+        .tab-body {
+            padding: 45px 0 0 0;
+            position: relative;
+
+            @mixin desktop {
+                padding: 0;
+            }
+
+            &:not(:first-child) {
+                @mixin desktop max {
+                    display: none !important;
+                }
+            }
+
+            & > ul {
+                @mixin tablet {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                @mixin desktop {
+                    display: block;
+                }
+            }
+
+            & > ul > li > h3 {
+                position: relative;
+                margin: 25px 0 50px;
+                font-size: 24px;
+                line-height: 0;
+                letter-spacing: 0;
+                text-transform: none;
+                text-align: center;
+                width: 100%;
+                border-top: 2px solid $gray_dark1;
+
+                span {
+                    background-color: #fff;
+                    padding: 0 10px;
+                }
+            }
+
+            & > .title {
+                position:relative;
+                background:$purple;
+                margin:0;
+                padding:30px 0;
+                text-align: center;
+                
+                @mixin arrow $purple, 26px;
+                
+                @mixin desktop {
+                    display:none;
+                }
+
+                h3 {
+                    color:$white;
+                    margin:0;
+                    padding:0;
+                }
+            }
+        }
+
+        .item {
+            margin: 0 0 35px;
+            padding: 0 15px;
+
+            &:after {
+                border-bottom: 2px solid #9b9b9b;
+                content: '';
+                display: block;
+            }
+
+            @mixin tablet {
+                flex: 1 0 50%;
+                padding: 0 30px;
+                max-width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            @mixin desktop {
+                padding: 0;
+                max-width: initial;
+            }    
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                
+                &:after {
+                    border-bottom: 0;
+                }
+            }      
+
+            .header {
+                align-items: center;
+                margin: 0 0 15px;
+                text-align: center;
+
+                .image {
+                    margin: 0 0 15px;
+                    text-align: center;
+
+                    img {
+                        display: block;
+                        margin: 0 auto;
+                        height: auto;
+                        max-width: 100%;
+                    }
+                }
+
+                .title {
+                    width: 100%;
+
+                    h4 {
+                        color: $purple;
+                        line-height: 1;
+                        margin-bottom: 4px;
+
+                        a {
+                            color: $purple;
+                            text-decoration: none;
+                        }
+                    }
+
+                    .location,
+                    .details {
+                        color: $purple;
+                        font-family: "Open sans";
+                        font-weight: 600;
+                        line-height: 1.4;
+                    }
+
+                    .location {
+                        font-size: 16px;
+                        margin-bottom: 9px;
+                    }
+
+                    .details {
+                        font-size: 14px;
+                    }
+                }
+
+                /* media queries for .header */
+                @mixin desktop {
+                    text-align: left;
+                }
+
+                @mixin desktop-large {
+                    display: flex;
+                    margin: 0 0 25px;
+                    
+                    .image {
+                        @mixin column 7,12,0,0;
+                        margin: 0;
+
+                        img {
+                            margin: 0;
+                        }
+                    }
+
+                    .title {
+                        @mixin column 5,12,0,0;
+                    }
+                }
+            }
+
+            .body {
+                padding: 0 0 20px;
+                text-align: center;
+
+                p {
+                    font-family: "Open sans";
+                    font-size: 15px;
+                    line-height: 1.5;
+                    margin: 0 0 10px;
+                }
+
+                a.button {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                .features ul {
+                    list-style: disc;
+                    list-style-position: inside;
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                }
+
+                .features ul li {
+                    color: #000;
+                    font-family: "Open sans";
+                    font-size: 15px;
+                    line-height: 1.5;
+                }
+
+                @mixin desktop {
+
+                    p {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}

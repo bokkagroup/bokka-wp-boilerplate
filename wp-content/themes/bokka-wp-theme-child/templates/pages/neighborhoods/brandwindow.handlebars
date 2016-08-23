@@ -9,12 +9,8 @@
                     <span>
                         {{#each types}}
                             {{#if @first}}
-                              {{this}}
-                            {{/if}}
-                            {{#if @last}}
-                                {{#unless @first}}
-                                    & {{this}}
-                                {{/unless}}
+                              {{! the below line is a little crazy but formats a list into the following style "x, y & z"}}
+                              {{this}}{{else}}{{#if @last}}{{#unless @first}} & {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
                             {{/if}}
                         {{/each}}
                         From the ${{base_price}}</span><span class="lowercase">s</span>

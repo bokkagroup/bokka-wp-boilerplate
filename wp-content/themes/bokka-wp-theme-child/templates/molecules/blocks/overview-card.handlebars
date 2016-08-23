@@ -1,0 +1,56 @@
+<li class="item">
+    <article >
+        <header>
+            <div class="header">
+                <figure class="image">
+                    {{#if featured_image}}
+                        <img src="{{featured_image}}" alt=" " width="268" height="123">
+                    {{else}}
+                        <img src="/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded_536x246.jpg" alt=" " width="268" height="123">
+                    {{/if}}
+                </figure>
+                <div class="title">
+                    <h4><a href="{{permalink}}">{{post_title}}</a></h4>
+                    {{#if city state}}
+                    <p class="location">in {{city}}, {{state}}</p>
+                    {{/if}}
+                    {{#if neighborhood_name}}
+                    <p class="location">at {{neighborhood_name}}</p>
+                    {{/if}}
+                    {{#if home}}
+                    <p class="details">{{type}}</p>
+                    <p class="details">{{#if bedrooms}}{{bedrooms}} bed{{/if}}{{#if bathrooms}}, {{bathrooms}} bath{{/if}}{{#if finished_sqr_ft}}, {{finished_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
+                    {{/if}}
+                    {{#if model}}
+                    {{#if floorplan}}
+                    {{#with floorplan}}
+                    <p class="details">{{type}}</p>
+                    {{/with}}
+                    {{/if}}
+                    <p class="details">{{#if bedrooms_min}}{{bedrooms_min}}{{#if bedrooms_max}}-{{bedrooms_max}}{{/if}} bed{{/if}}{{#if bathrooms_min}}, {{bathrooms_min}}{{#if bathrooms_max}}-{{bathrooms_max}}{{/if}} bath{{/if}}{{#if main_sqr_ft}}, {{main_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
+                    {{/if}}
+                    {{#if communities}}
+                    <p class="details">{{types}} <br>from the ${{base_price}}s</p>
+                    {{/if}}
+                </div>
+            </div>
+        </header>
+        <div class="body">
+            {{#if floorplan}}
+            <div class="features">
+            {{#with floorplan}}
+            <ul>
+                {{#each features}}
+                <li>{{feature}}</li>
+                {{/each}}
+            </ul>
+            {{/with}}
+            </div>
+            {{/if}}
+            {{#if communities description}}
+            <p>{{description}}</p>
+            {{/if}}
+            <a href="{{permalink}}" class="button green">{{#if communities}}See Neighborhood{{/if}}{{#if model}}See Model Home{{/if}}{{#if home}}Get Home Details{{/if}}</a>
+        </div>
+    </article>
+</li>
