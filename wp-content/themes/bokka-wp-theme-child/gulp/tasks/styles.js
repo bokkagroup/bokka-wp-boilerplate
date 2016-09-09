@@ -16,7 +16,19 @@ var nano            = require('gulp-cssnano')
 var colorFunction   = require("postcss-color-function")
 var livereload      = require("gulp-livereload")
 
-gulp.task('css', function () {
+
+gulp.task('style-lint', function () {
+
+    return gulp.src(['assets/src/css/**/*.css', '!assets/src/css/utility/reset.css', '!assets/src/css/vendor/*.css'])
+        .pipe( postcss([
+            // See .stylelintrc for configuration options
+            require('stylelint'),
+            require('postcss-reporter')({ clearMessages: true })
+        ]));
+
+});
+
+gulp.task('css', ['style-lint'], function () {
 
     return gulp.src(['assets/src/css/**/*.css'])
         .pipe( sourcemaps.init() )

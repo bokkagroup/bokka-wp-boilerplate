@@ -69,6 +69,14 @@ class Neighborhoods extends \BokkaWP\MVC\Model
             }, $post->neighborhood_features);
         }
 
+        $mason_items = get_field('gallery_items', $post->ID);
+
+        $post->gallery_items = array_map(function ($item) {
+            if ($item['type'] === 'image') {
+                $item['image'] =  wp_get_attachment_image_src($item['image'], 'medium')[0];
+                return $item;
+            }
+        }, $mason_items);
 
 
         //forms

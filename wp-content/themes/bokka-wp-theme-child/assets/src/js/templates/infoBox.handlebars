@@ -1,0 +1,15 @@
+<div class="info-window">
+    <a href="#" class="infowindow-close icon icon-exit-circle"></a>
+    <div class="contents">
+    {{#if image}}
+        <a href="{{permalink}}"><img src="{{image}}" class="logo" /></a>
+    {{/if}}
+
+    <h5>{{title}}</h5>
+    {{#if secondary}}
+        <p>{{{secondary}}}</p>
+    {{/if}}
+    <a href="{{directions}}" target="_blank" class="map-directions icon icon-directions"><span>Get Directions</span></a>
+    </div>
+    <a href="{{permalink}}" class="more">Explore {{button_label}}&nbsp;&raquo;</a>
+</div>

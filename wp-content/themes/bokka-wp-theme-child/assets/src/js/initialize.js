@@ -14,6 +14,23 @@ jQuery( document ).ready(function( $ ) {
     require('./helpers/eventTracking.js')
     require('./helpers/maps.js')
 
+    $(".fancybox-masonry").fancybox({
+        openEffect	: 'none',
+        closeEffect	: 'none',
+        autoSize: false,
+        maxWidth: '85%',
+        maxHeight: '90%',
+        helpers: {
+            overlay: {
+                locked: false
+            }
+        },
+        tpl : {
+            closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
+        }
+    });
+
+
     //activate fancybox
     $(".fancybox-class").fancybox();
     $(".modal-trigger").fancybox({
@@ -25,6 +42,9 @@ jQuery( document ).ready(function( $ ) {
                 locked: false
             }
         },
+        tpl : {
+            closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
+        }
     });
 
     $('.js-page-jump').on('click', function(event){
@@ -73,7 +93,7 @@ jQuery( document ).ready(function( $ ) {
      */
     var push = new mlPushMenu(document.getElementById('mp-menu'), $('.menu-trigger'))
     $(window).on('resize', function(){
-        push._determineNav()
+        push._determineNav();
     });
 
     /**
@@ -86,20 +106,19 @@ jQuery( document ).ready(function( $ ) {
 
             $('.google-map-wrapper').each(function () {
                 if ($(this).hasClass('coming-soon')) {
-                    var comingSoonMapView = require('./views/coming-soon-map.js')
-                    new comingSoonMapView({el: $(this)})
+                    var comingSoonMapView = require('./views/coming-soon-map.js');
+                    new comingSoonMapView({el: $(this)});
                 } else if ($(this).hasClass('overview-map')) {
-                    var wrapper = $(this).closest('.section')
-                    var overviewMapView = require('./views/overview-map.js')
+                    var wrapper = $(this).closest('.section');
+                    var overviewMapView = require('./views/overview-map.js');
                     new overviewMapView({el: wrapper})
                 } else if ($(this).hasClass('google-map-wrapper')) {
-                    var modelMapView = require('./views/model-map.js')
-                    new modelMapView({el: $(this)})
+                    var modelMapView = require('./views/model-map.js');
+                    new modelMapView({el: $(this)});
                 }
-            })
-        })
+            });
+        });
     }
-
 
     /**
      * Open external links in new tab
@@ -114,4 +133,15 @@ jQuery( document ).ready(function( $ ) {
             });
         }
     });
+
+    /**
+     * Init Masonry Gallery
+     */
+    if ($('.masonry-gallery').length > 0) {
+        var MasonView = require('./views/masonry-gallery');
+        $('.masonry-gallery').each(function(){
+            new MasonView({el: $(this)});
+        });
+    }
+
 });

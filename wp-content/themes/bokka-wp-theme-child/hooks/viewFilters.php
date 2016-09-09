@@ -199,3 +199,38 @@ function getModelStats($data)
     return $data;
 }
 add_filter('bokkamvc_filter_before_render', 'getModelStats');
+
+/**
+ * @param $data
+ * Attaches the 'city' property to homes and models
+ */
+function getNeighborhoodCity($data)
+{
+    if (isset($data->post_type) && (
+        $data->post_type == 'model' ||
+        $data->post_type == 'home')) {
+        $city_name = get_post_meta($data->neighborhood, 'city');
+        if (isset($city_name) && $city_name[0]) {
+            $data->city = $city_name[0];
+        }
+    }
+    return $data;
+}
+add_filter('bokkamvc_filter_before_render', 'getNeighborhoodCity');
+
+/**
+ * @param $data
+ * Attaches the neighborhood logo image source to neighborhood posts
+ */
+function getNeighborhoodLogo($data)
+{
+    if (isset($data->post_type) && (
+        $data->post_type == 'communities')) {
+        $logo_id = get_field('logo', $data->ID);
+        if ($logo_id) {
+            $data->logo_src = wp_get_attachment_image_src($logo_id, 'full')[0];
+        }
+    }
+    return $data;
+}
+add_filter('bokkamvc_filter_before_render', 'getNeighborhoodLogo');

@@ -1,0 +1,201 @@
+.section.form-w-text {
+    .container {
+        background: $light_gray;
+        padding: 25px 15px;
+        font-family: 'Open Sans';
+
+        @mixin desktop {
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        .text {
+            margin: 0 auto !important;
+
+            @mixin desktop {
+                @mixin column 10,12;
+
+                margin: 0 auto !important;
+            }
+
+            p {
+                font-family: 'Open Sans';
+            }
+        }
+
+        .button {
+            display: inline-block;
+            clear: both;
+            width: 200px;
+            margin: 10px auto;
+        }
+
+        .form {
+            display: none;
+            width: 100%;
+
+            @mixin desktop {
+                @mixin column 10, 12;
+
+                margin: 0 auto !important;
+
+                & > div {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        h2 {
+            font-size: 19px;
+            color: $black;
+
+            @mixin desktop {
+                font-size: 24px;
+            }
+        }
+
+        .description {
+            color: $black;
+        }
+
+        .gform_wrapper {
+            margin: 0;
+        }
+
+        .gform_wrapper div.validation_error {
+            border: none;
+        }
+
+        .icon {
+            float: left;
+            margin-right: 15px;
+            display: none;
+
+            @mixin desktop {
+                display: inline-block;
+            }
+        }
+
+        .form {
+            margin: 0 auto;
+
+            .gfield_error {
+                background: none;
+                border: none;
+                margin: 0;
+
+                .ginput_container {
+                    margin-top: 0.375em;
+                }
+            }
+        }
+
+        form {
+            ul {
+                @mixin desktop {
+                    display: flex;
+                }
+
+                li {
+                    @mixin column 12,12;
+                    @mixin cycle 1;
+
+                    margin: 0 auto;
+
+                    .ginput_container {
+                        background: $white;
+                        border-bottom: 3px solid $gray_medium2;
+                    }
+
+                    @mixin desktop {
+                        &:first-child,
+                        &:nth-child(2n) {
+                            @mixin column 3,12;
+                        }
+
+                        &:nth-child(3n) {
+                            @mixin column 3.5,12;
+                        }
+                    }
+                }
+
+                label {
+                    font-size: 14px;
+                    position: relative;
+                    text-transform: none;
+                }
+
+                input,
+                select {
+                    width: 100%;
+                    border: none;
+                    color: $gray_dark1;
+                    min-height: 40px;
+                    line-height: 28px;
+                    padding: 0.313em 0;
+                }
+
+                .ginput_container_select {
+                    position: relative;
+
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
+
+                    select {
+                        padding: 5px;
+                        padding-right: 50px;
+                        height: 40px;
+                        appearance: normal;
+                        position: relative;
+                        z-index: 3;
+                        box-sizing: border-box;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: ' ';
+                        display: block;
+                        width: 0;
+                        height: 0;
+                        top: 17px;
+                        right: 14px;
+                        text-decoration: none;
+                        border-bottom: none;
+                        border-left: 7px solid transparent;
+                        border-right: 7px solid transparent;
+                        border-top: 7px solid $white;
+                        z-index: 2;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: ' ';
+                        display: block;
+                        width: 40px;
+                        height: 100%;
+                        top: 0;
+                        right: 0;
+                        background: $gray_medium1;
+                        text-decoration: none;
+                        border: none;
+                        z-index: 1;
+                        margin: 0;
+                    }
+                }
+            }
+
+            input[type='submit'] {
+                margin: 10px auto;
+                display: block;
+                width: 100% !important;
+
+                @mixin desktop {
+                    width: auto !important;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

@@ -110,7 +110,7 @@
     text-decoration:none;
     &:before {
          font-family: 'icomoon';
-         content: "\e901";
+
         font-size:38px;
         color:$white;
          background:rgba(0,0,0,0.75);

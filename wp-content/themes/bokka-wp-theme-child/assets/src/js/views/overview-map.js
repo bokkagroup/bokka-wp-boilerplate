@@ -1,43 +1,186 @@
-
- var LayoutView = Backbone.View.extend({
+var ProductView = require('./map-overview/productItem');
+var scrollMonitor = require('../vendor/scrollMonitor');
+var InfoBox = require('../vendor/infobox')
+var LayoutView = Backbone.View.extend({
     events: {
-        "click .map-view": "handleClick"
+        'click .product-tab-links a' : 'handleClick'
     },
     initialize : function(){
         var self = this
-
+        
+        // Map and marker options/data
         this.options = this.$el.find('.js-model-map').data('options')
-        this.markers = this.$el.find('.js-model-map').data('mappins').markers
-        this.googleMarkers = [];
-        this.render()
+        this.locations = []
+        this.markerIndex = 0
+        this.currentMarkerIndex = null
+
+        this.bounds = new google.maps.LatLngBounds()
+        this.tabs = this.$el.find('.tab-body');
+        this.current = 0;
+        this.scrolled = false
+
+        this.render();
+        this.createInfobox();
+
+
+        // Check if user has scrolled the page
+        var bodyWatcher = scrollMonitor.create($('body'));
+        bodyWatcher.partiallyExitViewport(function () {
+            self.scrolled = true;
+        });
+        
     },
-    styles : [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"lightness":33}]},{"featureType":"administrative","elementType":"labels","stylers":[{"saturation":"-100"}]},{"featureType":"administrative","elementType":"labels.text","stylers":[{"gamma":"0.75"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"lightness":"-37"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f9f9f9"}]},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"saturation":"-100"},{"lightness":"40"},{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"labels.text.fill","stylers":[{"saturation":"-100"},{"lightness":"-37"}]},{"featureType":"landscape.natural","elementType":"labels.text.stroke","stylers":[{"saturation":"-100"},{"lightness":"100"},{"weight":"2"}]},{"featureType":"landscape.natural","elementType":"labels.icon","stylers":[{"saturation":"-100"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"saturation":"-100"},{"lightness":"80"}]},{"featureType":"poi","elementType":"labels","stylers":[{"saturation":"-100"},{"lightness":"0"}]},{"featureType":"poi.attraction","elementType":"geometry","stylers":[{"lightness":"-4"},{"saturation":"-100"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#c5dac6"},{"visibility":"on"},{"saturation":"-95"},{"lightness":"62"}]},{"featureType":"poi.park","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"lightness":20}]},{"featureType":"road","elementType":"labels","stylers":[{"saturation":"-100"},{"gamma":"1.00"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"gamma":"0.50"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"saturation":"-100"},{"gamma":"0.50"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"color":"#c5c6c6"},{"saturation":"-100"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"lightness":"-13"}]},{"featureType":"road.highway","elementType":"labels.icon","stylers":[{"lightness":"0"},{"gamma":"1.09"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#e4d7c6"},{"saturation":"-100"},{"lightness":"47"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"lightness":"-12"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"saturation":"-100"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#fbfaf7"},{"lightness":"77"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"lightness":"-5"},{"saturation":"-100"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"saturation":"-100"},{"lightness":"-15"}]},{"featureType":"transit.station.airport","elementType":"geometry","stylers":[{"lightness":"47"},{"saturation":"-100"}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"color":"#acbcc9"}]},{"featureType":"water","elementType":"geometry","stylers":[{"saturation":"53"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"lightness":"-42"},{"saturation":"17"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"lightness":"61"}]}],
-    zoom: 14,
+    styles : require('../config/mapStyles'),
     render : function(){
         var self = this
-        window.overviewMap = self.map = new google.maps.Map(self.$el.find('.js-model-map').get(0), {
+        self.initializeMap();
+	// Tab column heights
+        self.setTabHeight();
+
+        $(window).on('resize', function(){
+            self.setTabHeight();
+        });
+    },
+    initializeMap: function(){
+        var self = this;
+        // Instantiate Google map
+        var mapSettings = {
             center: {
-                lat: self.options.center.lat,
-                lng: self.options.center.lng
+                lat: 40.4076112,
+                lng: -105.0960272
             },
-            zoom: this.zoom,
+            zoom: 5,
             styles: this.styles,
             disableDoubleClickZoom: true,
-            draggable: false,
+            draggable: true,
             scrollwheel: false,
             panControl: false,
             disableDefaultUI: (bokkaBreakpoint.value == 'mobile') ? true : false
-        })
+        }
+        self.map = new google.maps.Map(self.$el.find('.js-model-map').get(0), mapSettings);
 
-        google.maps.event.addListenerOnce(self.map, 'projection_changed', function() {
-            self.setCenter()
+        setTimeout(function () {
+            if (self.map) {
+                self.setFixedPosition();
+            }
+        }, 500);
+
+        // Map event listeners
+        google.maps.event.addListenerOnce(self.map, 'idle', function(){
+            self.setCenter(self.map.getCenter(), -350, -105)
+        });
+        google.maps.event.addListenerOnce(self.map,'projection_changed', function() {
+            self.initializeProduct();
+            self.setCenter(self.map.getCenter(), -600, -105)
         })
-        google.maps.event.addListenerOnce(self.map, 'idle', function() {
-            self.setCenter();
+    },
+    initializeProduct: function(){
+        var self = this
+        self.$el.find('.tab-body .item').each(function(){
+            var index = self.locations.push(new ProductView({el: $(this), parent: self}))
+            self.markerIndex++;
         })
-        google.maps.event.addDomListener(window, 'resize', function() {
-            self.setCenter()
+    },
+    resetProduct: function(){
+        var self = this
+        self.bounds = new google.maps.LatLngBounds()
+        _.each(self.locations, function(item){
+            if(item.marker) {
+                item.marker.setMap(null)
+                this.currentMarkerIndex = null
+                self.resetInfobox();
+                self.bounds.extend(item.marker.getPosition())
+                self.map.fitBounds(self.bounds)
+                self.setCenter(self.map.getCenter(), -350, -105)
+                setTimeout(function(){
+                    if (item.isVisible()) {
+                        item.marker.setMap(self.map)
+                    }
+                },500)
+            }
         })
+    },
+    setFixedPosition: function(){
+        var self = this
+        var elementWatcher = scrollMonitor.create($('.breadcrumb-outer-wrapper'), 30)
+
+        elementWatcher.enterViewport(function() {
+            self.$el.find('.map-wrap, .tab-header-wrap, .product-tab-bodies').removeClass('fixed');
+            
+            // Return map to original state
+            if (self.scrolled) {            
+                self.resetInfobox();
+                self.map.fitBounds(self.bounds);
+                self.setCenter(self.map.getCenter(), -350, -105);
+            }
+        });
+        elementWatcher.exitViewport(function() {
+            self.$el.find('.map-wrap, .tab-header-wrap, .product-tab-bodies').addClass('fixed');
+        });
+    },
+    setCenter: function(coordinates, offsetx, offsety){
+        var self = this
+        var scale = Math.pow(2, self.map.getZoom())
+
+        var worldCoordinateCenter = self.map.getProjection().fromLatLngToPoint(coordinates)
+        var pixelOffset = new google.maps.Point( (offsetx/scale) || 0, (offsety/scale) || 0 )
+
+        var worldCoordinateNewCenter = new google.maps.Point(
+            worldCoordinateCenter.x - pixelOffset.x,
+            worldCoordinateCenter.y + pixelOffset.y
+        )
+
+        var newCenter = self.map.getProjection().fromPointToLatLng(worldCoordinateNewCenter)
+
+        self.map.panTo(newCenter);
+
+    },
+
+    setTabHeight: function () {
+        var self = this;
+
+        if (bokkaBreakpoint.value == 'desktop') {
+            var height = this.$el.find('.tab-body').eq(this.current).innerHeight();
+            this.$el.find('.product-tab-bodies').height(height);
+        } else {
+            self.tabs.fadeIn();
+        }
+    },
+    changeTab: function (index) {
+        var self = this;
+
+        var nextTab = self.$el.find('.tab-body').eq(index);
+        var prevTab = self.$el.find('.tab-body').eq(this.current);
+
+        var nextTabHeader = self.$el.find('.product-tab-header').eq(index);
+        var prevTabHeader = self.$el.find('.product-tab-header').eq(this.current);
+
+        this.current = index;
+
+        $(nextTab).fadeIn();
+        $(nextTabHeader).fadeIn();
+        $(prevTab).fadeOut();
+        $(prevTabHeader).fadeOut();
+    },
+    handleClick: function (event) {
+        var self = this;
+
+        event.preventDefault();
+
+        var index = $(event.target).closest('li').index();
+
+        if (index !== this.current) {
+            self.resetProduct();
+            $(event.target).closest('ul').find('.active').removeClass('active');
+            $(event.target).closest('li').addClass('active');
+            self.changeTab(index);
+            self.setTabHeight();
+        }
+    },
+    createInfobox: function(){
+        var self = this;
+        // Create infobox instance
+        self.infoBoxTemplate = require('../templates/infoBox.handlebars');
 
         var boxOptions = {
             content: null
@@ -45,137 +188,45 @@
             ,maxWidth: 310
             ,zIndex: null
             ,boxStyle: {
-                width: "310px",
+                width: '310px',
             }
             ,isHidden: false
-            ,pane: "floatPane"
+            ,pane: 'floatPane'
             ,enableEventPropagation: false
         };
-        var InfoBox = require('../vendor/infobox')
 
-        self.ib = new InfoBox();
-        self.ib.setOptions(boxOptions);
-
-        var bounds = new google.maps.LatLngBounds();
-
-        _.each(self.markers, function(item){
-
-            var marker = self.googleMarkers[item.id] = new google.maps.Marker({
-                position: item.position,
-                map: self.map,
-                clickable: (bokkaBreakpoint.value == 'mobile') ? false : true,
-                data: {
-                    title: item.title,
-                    description: item.description
-                },
-                icon: '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-purple.png'
-            });
-
-            bounds.extend(marker.position);
-
-            // Event handler when clicking map pin on map
-            marker.addListener('click', function() {
-                self.openInfoWindow(item.id);
-            });
-        });
-
-        self.map.fitBounds(bounds);
-
-        google.maps.event.addListener(self.map, 'bounds_changed', function() {
-            if (!self.initBounds) {
-                self.options.bounds = self.map.getBounds();
-                self.options.boundsCenter = {
-                    lat: (self.options.bounds.H.H + self.options.bounds.H.j) / 2,
-                    lng: (self.options.bounds.j.H + self.options.bounds.j.j) / 2,
-                }
-                self.setCenter();
-                self.initBounds = true;
-            }
-        });
+        self.infoBox = new InfoBox();
+        self.infoBox.setOptions(boxOptions);
 
     },
-
-    initBounds: false,
-    currentFocus: false,
-
-    // Event handler for the "View on map" button
-    handleClick: function (event) {
-        event.preventDefault();
-    
+    openInfoWindow: function (info, marker) {
         var self = this;
-        var id = $(event.currentTarget).data('marker-id');
+        self.infoBox.setContent(self.infoBoxTemplate(info));
+        self.infoBox.open(self.map, marker);
 
-        self.openInfoWindow(id);
-    },
+        self.currentMarkerIndex = self.index
 
-    // Open the infowindow, call focusMarker
-    openInfoWindow: function (markerId) {
-        var self = this;
-        var marker = self.googleMarkers[markerId];
-        var template = _.template($('#info-window-template').html());
-
-        self.focusMarker(marker);
-        self.ib.setOptions({content: template(marker.data)});
-        self.ib.open(self.map, self.googleMarkers[markerId]);
-
-        // Bind event handler for close button
-        self.ib.addListener('domready', function () {
+        // Bind event handler for close buttoninfoBoxelf.ib.addListener('domready', function () {
+        self.infoBox.addListener('domready', function () {
             $('.infowindow-close').on('click', function(event) {
                 event.preventDefault();
-
-                self.ib.close();
+                self.infoBox.close();
             });
         });
     },
-
-    // Focus and zoom map, call setCenter for marker location
-    focusMarker: function (marker) {
+    closeInfoWindow: function () {
         var self = this;
-        var latlng = marker.position;
 
-        self.map.setZoom(self.zoom);
-        self.currentFocus = latlng;
-        self.setCenter();
-    },
-
-    // Center map (Initial page load = center map on bounds of all markers. Infowindow open = center/pan map per that marker position)
-    setCenter: function () {
-        var self = this;
-        var latlng = (typeof self.currentFocus !== 'undefined' && self.currentFocus instanceof google.maps.LatLng) ? self.currentFocus : new google.maps.LatLng(self.options.boundsCenter);
-        
-        // TODO: Clean this up
-        var offsetx = 1;
-        var offsety = 1;
-        var offsetxFactor;
-        var offsetyFactor;
-
-        if (bokkaBreakpoint.value == 'mobile') {
-            offsetxFactor = offsetx = 1;
-        } else if (bokkaBreakpoint.value == 'tablet') {
-            offsetx = -(self.$el.innerWidth() / offsetxFactor);
-        } else if (bokkaBreakpoint.value == 'desktop') {
-            offsetxFactor = offsetyFactor = 4;
-            offsetx = -(self.$el.innerWidth() / offsetxFactor);
+        if (self.infoBox && (self.currentMarkerIndex === self.index)) {
+            self.infoBox.setContent('');
+            self.infoBox.close();
         }
+    },
+    resetInfobox: function () {
+        var self = this;
+        self.infoBox.setContent('');
+        self.infoBox.close();
+    },
+});
 
-        offsety = self.currentFocus ? (self.$el.innerHeight() / offsetyFactor) : 0;
-
-        var point1 = self.map.getProjection().fromLatLngToPoint(latlng);
-        var point2 = new google.maps.Point(
-            ( (typeof(offsetx) == 'number' ? offsetx : 0) / Math.pow(2, self.map.getZoom()) ) || 0,
-            ( (typeof(offsety) == 'number' ? offsety : 0) / Math.pow(2, self.map.getZoom()) ) || 0
-        );
-        var newPoint = self.map.getProjection().fromPointToLatLng(new google.maps.Point(
-            point1.x - point2.x,
-            point1.y + point2.y
-        ));
-
-        if (self.currentFocus)
-            self.map.panTo(newPoint);
-        else
-            self.map.setCenter(newPoint);
-    }
-
-})
-
-module.exports = LayoutView
+module.exports = LayoutView;

@@ -1,5 +1,4 @@
 .neighborhood-overview {
-
     .product-listings-container {
         @mixin tablet {
             max-width: 100%;
@@ -18,7 +17,7 @@
         @mixin desktop {
             @mixin column 1, 2;
             @mixin cycle 1;
-            
+
             margin: 30px 0;
             box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
         }
@@ -28,11 +27,41 @@
         }
     }
 
+    /* Tabs */
+    .product-tabs {
+        .product-tab-header,
+        .tab-body {
+            position: relative;
+
+            @mixin desktop {
+                display: none;
+                position: absolute;
+            }
+
+            &:first-child {
+                display: block;
+            }
+        }
+    }
+
+    .tab-header-wrap {
+        position: relative;
+
+        &.fixed {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            width: 50%;
+            max-width: 565px;
+            margin-left: 15px;
+            z-index: 2;
+        }
+    }
+
     .tab-header {
         background-color: $purple_light;
-
-        padding: 30px;
         position: relative;
+        overflow: hidden;
         text-align: center;
         width: 100%;
 
@@ -47,7 +76,7 @@
         }
 
         p {
-            font-family: "Open sans";
+            font-family: 'Open sans';
             color: #fff;
         }
 
@@ -61,13 +90,8 @@
 
         @mixin desktop {
             height: $tabHeaderHeight;
-            padding: 40px 30px;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 2;
 
-            &:after {
+            &::after {
                 display: none;
             }
 
@@ -81,23 +105,28 @@
         }
     }
 
-    .tabs {
-        position: relative;
+    .product-tab-header {
+        padding: 30px;
+
+        @mixin desktop {
+            padding: 40px 30px;
+        }
     }
 
-    .tab-links {
+    .product-tab-links {
         display: none;
+        position: relative;
         border-bottom: 4px solid $blue;
+        background-color: $purple_light;
 
         ul {
             text-align: center;
         }
 
         li {
-            font-family: "Open sans";
+            font-family: 'Open sans';
             background-color: $purple_dark;
             text-align: center;
-
             display: inline-block;
             position: relative;
             padding: 0;
@@ -106,12 +135,12 @@
             &.active {
                 background-color: $blue;
 
-                &:before{
+                &::before {
                     content: '';
                     position: absolute;
                     width: 0;
                     height: 0;
-                    top:100%;
+                    top: 100%;
                     border-left: 14px solid transparent;
                     border-right: 14px solid transparent;
                     border-top: 14px solid $blue;
@@ -133,7 +162,7 @@
             text-decoration: none;
         }
 
-        /* media query for .tab-links */
+        /* media query for .product-tab-links */
         @mixin desktop {
             display: block;
         }
@@ -143,17 +172,20 @@
         max-height: 100%;
     }
 
-    .tab-bodies {
+    .product-tab-bodies {
         background-color: #fff;
         text-align: center;
 
+        &.fixed {
+            margin-top: 254px;
+        }
+
         @mixin desktop {
-            padding: 30px;
             text-align: left;
         }
 
         .more {
-            padding: 15px 15px 0 15px;
+            padding: 15px 15px 0;
             background-color: $gray_light1;
 
             .button {
@@ -173,8 +205,8 @@
         }
 
         .tab-body {
-            padding: 45px 0 0 0;
-            position: relative;
+            padding: 45px 0 0;
+            width: 100%;
 
             @mixin desktop {
                 padding: 0;
@@ -187,6 +219,8 @@
             }
 
             & > ul {
+                padding-top: 30px;
+
                 @mixin tablet {
                     display: flex;
                     flex-wrap: wrap;
@@ -199,13 +233,13 @@
 
             & > ul > li > h3 {
                 position: relative;
-                margin: 25px 0 50px;
+                margin: 25px 30px 50px;
                 font-size: 24px;
                 line-height: 0;
                 letter-spacing: 0;
                 text-transform: none;
                 text-align: center;
-                width: 100%;
+                width: auto%;
                 border-top: 2px solid $gray_dark1;
 
                 span {
@@ -215,22 +249,22 @@
             }
 
             & > .title {
-                position:relative;
-                background:$purple;
-                margin:0;
-                padding:30px 0;
+                position: relative;
+                background: $purple;
+                margin: 0;
+                padding: 30px 0;
                 text-align: center;
-                
+
                 @mixin arrow $purple, 26px;
-                
+
                 @mixin desktop {
-                    display:none;
+                    display: none;
                 }
 
                 h3 {
-                    color:$white;
-                    margin:0;
-                    padding:0;
+                    color: $white;
+                    margin: 0;
+                    padding: 0;
                 }
             }
         }
@@ -239,7 +273,7 @@
             margin: 0 0 35px;
             padding: 0 15px;
 
-            &:after {
+            &::after {
                 border-bottom: 2px solid #9b9b9b;
                 content: '';
                 display: block;
@@ -254,18 +288,19 @@
             }
 
             @mixin desktop {
+                margin: 30px;
                 padding: 0;
                 max-width: initial;
-            }    
+            }
 
             &:last-child {
                 margin-bottom: 0;
                 padding-bottom: 0;
-                
-                &:after {
+
+                &::after {
                     border-bottom: 0;
                 }
-            }      
+            }
 
             .header {
                 align-items: center;
@@ -301,7 +336,7 @@
                     .location,
                     .details {
                         color: $purple;
-                        font-family: "Open sans";
+                        font-family: 'Open sans';
                         font-weight: 600;
                         line-height: 1.4;
                     }
@@ -324,9 +359,10 @@
                 @mixin desktop-large {
                     display: flex;
                     margin: 0 0 25px;
-                    
+
                     .image {
                         @mixin column 7,12,0,0;
+
                         margin: 0;
 
                         img {
@@ -345,7 +381,7 @@
                 text-align: center;
 
                 p {
-                    font-family: "Open sans";
+                    font-family: 'Open sans';
                     font-size: 15px;
                     line-height: 1.5;
                     margin: 0 0 10px;
@@ -366,13 +402,12 @@
 
                 .features ul li {
                     color: #000;
-                    font-family: "Open sans";
+                    font-family: 'Open sans';
                     font-size: 15px;
                     line-height: 1.5;
                 }
 
                 @mixin desktop {
-
                     p {
                         text-align: left;
                     }

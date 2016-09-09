@@ -1,37 +1,40 @@
-/*-------------------
------- Colors -------
--------------------*/
-$blue:#3F7F9D;
-$blue_light:#559CBE;
-$blue_dark:#336b85;
-$teal:#7DD1E1;
-$teal_light: #64B6CS;
-$purple_light:#852e72;
-$purple:#6D235D;
-$purple_rgb:109, 35, 93;
+/* -------------------
+------ Colors --------
+------------------- */
+$blue: #3f7f9d;
+$blue_light: #559cbe;
+$blue_dark: #336b85;
+$teal: #7dd1e1;
+
+/* this is in invalid hex value */
+/* $teal_light: #64b6cs; */
+
+$purple_light: #852e72;
+$purple: #6d235d;
+$purple_rgb: 109, 35, 93;
 $purple_dark: #5a194c;
-$gold:#b7801b;
-$gold_dark:#9F6E15;
-$cream:#F2EFCD;
+$gold: #b7801b;
+$gold_dark: #9f6e15;
+$cream: #f2efcd;
 $green: #898731;
-$green_light:#A8A63E;
+$green_light: #a8a63e;
 
-$gray:#726558;
-$light_gray:#f0f0f0;
+$gray: #726558;
+$light_gray: #f0f0f0;
 
-$white: #ffffff;
-$black: #000000;
+$white: #fff;
+$black: #000;
 
-$gray_light1:#F5F7FA;
-$gray_light2:#E6E9ED;
-$gray_medium1:#CCD1D9;
-$gray_medium2:#AAB2BD;
-$gray_dark1:#656D78;
-$gray_dark2:#434A54;
+$gray_light1: #f5f7fa;
+$gray_light2: #e6e9ed;
+$gray_medium1: #ccd1d9;
+$gray_medium2: #aab2bd;
+$gray_dark1: #656d78;
+$gray_dark2: #434a54;
 
-/*------------------------
------- Breakpoints -------
-------------------------*/
+/* ------------------------
+------ Breakpoints --------
+------------------------ */
 $tablet:            768px;
 $desktop:           992px;
 $desktop-large:     1200px;

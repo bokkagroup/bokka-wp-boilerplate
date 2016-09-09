@@ -1,0 +1,104 @@
+.section.alternating-content {
+    .item {
+        width: 100%;
+        padding: 70px 30px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+
+        @mixin desktop {
+            padding: 70px 60px;
+        }
+
+        .title {
+            h2 {
+                font-size: 29px;
+                font-weight: bold;
+                line-height: 1.17;
+            }
+        }
+
+        .body,
+        .body p {
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 1.75;
+        }
+
+        .text {
+            @mixin column 1, 1;
+
+            @mixin desktop {
+                @mixin column 2,5;
+            }
+        }
+
+        .image {
+            @mixin column 1, 1;
+
+            @mixin desktop {
+                @mixin column 3,5;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        &:nth-child(odd) {
+            background: $white;
+
+            @mixin arrow $white, 26 px;
+
+            .text {
+                order: 1;
+
+                .title h2,
+                .body,
+                .body p {
+                    color: $black;
+                }
+            }
+
+            .image {
+                @mixin desktop {
+                    order: 2;
+                }
+            }
+
+            .button {
+                @mixin button $blue_light;
+            }
+        }
+
+        &:nth-child(even) {
+            background: $blue_light;
+
+            @mixin arrow $blue_light, 26 px;
+
+            .text {
+                order: 2;
+                margin-right: 0;
+
+                .title h2,
+                .body,
+                .body p {
+                    color: $white;
+                }
+            }
+
+            .image {
+                margin-right: 30px;
+                order: 1;
+            }
+
+            .button {
+                @mixin button_reversed $blue_light;
+            }
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.section.cards {
+    background: $light_gray;
+    padding: 75px 0 0;
+
+    @mixin arrow $light_gray, 26px;
+
+    .card {
+        .text {
+            background: $light_gray;
+
+            .body {
+                font-size: 16px;
+            }
+        }
+
+        &:nth-child(odd) {
+            .text,
+            .text h2 {
+                color: $white;
+                background: $blue;
+            }
+
+            .button {
+                background: $white;
+                color: $blue;
+            }
+        }
+
+        &:nth-child(even) {
+            .text,
+            .text h2 {
+                background: $purple;
+                color: $white;
+            }
+
+            .button {
+                background: $white;
+                color: $purple;
+            }
+        }
+
+        &:hover {
+            &:nth-child(even) {
+                .button {
+                    @mixin hover_reversed $purple;
+                }
+            }
+
+            &:nth-child(odd) {
+                .button {
+                    @mixin hover_reversed $blue;
+                }
+            }
+        }
+    }
+}

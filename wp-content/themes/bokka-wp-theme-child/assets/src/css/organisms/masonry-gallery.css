@@ -1,0 +1,71 @@
+.section.masonry-gallery {
+    padding: 100px 0;
+    lost-masonry-wrap: no-flex;
+
+    .masonry-items {
+        li {
+            float: left;
+            overflow: hidden;
+            position: relative;
+            font-size: 52px;
+            margin-bottom: 15px;
+            lost-masonry-column: 1/2;
+
+            @mixin desktop {
+                lost-masonry-column: 1/4;
+            }
+
+            &:first-child,
+            &:nth-child(5n + 6) {
+                margin-bottom: 15px;
+
+                @mixin desktop {
+                    lost-masonry-column: 1/2;
+                }
+            }
+
+            &:nth-child(5n + 6) {
+                float: right;
+            }
+
+            &:nth-child(10n + 11) {
+                float: left;
+            }
+
+            &.image {
+                &:hover {
+                    img {
+                        display: block;
+                        opacity: 0.5;
+                    }
+
+                    .icon {
+                        opacity: 1;
+                        transform: scale(1.05);
+                    }
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-position: 50% 50%;
+                object-fit: cover;
+                transition: all 0.25s;
+                display: block;
+            }
+
+            .icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                color: $white;
+                display: block;
+                margin-top: -30px;
+                margin-left: -20px;
+                opacity: 0;
+                transition: all 0.25s;
+            }
+        }
+    }
+}

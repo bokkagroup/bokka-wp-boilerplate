@@ -1,7 +1,7 @@
-/*------------------------------------*\
+/* ------------------------------------ *\
     $TABLE OF CONTENTS
     based generally on Harry Roberts excellent CSS Guidelines https://github.com/csswizardry/CSS-Guidelines
-\*------------------------------------*/
+\* ------------------------------------ */
 /**
  * VARIABLES..............................Declarations of Sass variables
  * .....Colors
@@ -25,79 +25,98 @@
  * TOC To Be Continued
  */
 
-@import "utility/variables";
-@import "utility/mixins";
-@import "utility/config";
-@import "utility/reset";
+@import 'utility/variables';
+@import 'utility/mixins';
+@import 'utility/config';
+@import 'utility/reset';
 
-/*------------------------------------*\
+/* ------------------------------------ *\
     $GLOBAL ELEMENTS
-\*------------------------------------*/
+\* ------------------------------------ */
+@import 'base/global-classes';
+@import 'base/styleguide';
+@import 'base/sprite';
+@import 'base/forms';
 
-@import "base/global-classes";
-@import "base/styleguide";
-@import "base/sprite";
-@import "base/forms";
-/*@import "base/main";
-@import "base/links";
-@import "base/headings";
+/* @import 'base/main';
+@import 'base/links';
+@import 'base/headings';
 
-@import "base/lists";
-@import "base/media";
+@import 'base/lists';
+@import 'base/media';
 
-@import "base/tables";
-@import "base/animation";
+@import 'base/tables';
+@import 'base/animation';
 */
 
-
-/*------------------------------------*\
+/* ------------------------------------ *\
     $LAYOUT
-\*------------------------------------*/
-@import "objects/layout";
+\* ------------------------------------ */
+@import 'objects/layout';
 
-
-/*------------------------------------*\
+/* ------------------------------------ *\
     $PAGE STRUCTURE
-\*------------------------------------*/
-@import "objects/header";
-@import "objects/navigation";
-@import "objects/main";
-@import "objects/footer";
+\* ------------------------------------ */
+@import 'objects/header';
+@import 'objects/navigation';
+@import 'objects/main';
+@import 'objects/footer';
 
-
-
-/*------------------------------------*\
+/* ------------------------------------ *\
     $TEXT Styles
-\*------------------------------------*/
-@import "objects/text";
+\* ------------------------------------ */
+@import 'objects/text';
 
+/* ------------------------------------ *\
+    Organism Styles
+\* ------------------------------------ */
+@import 'organisms/alternating-content';
+@import 'organisms/cards';
+@import 'organisms/coming-soon-get-updates';
+@import 'organisms/coming-soon-map';
+@import 'organisms/cta-w-gallery';
+@import 'organisms/cta-w-image';
+@import 'organisms/feature-slider';
+@import 'organisms/floorplan-stats';
+@import 'organisms/form-with-text';
+@import 'organisms/icon-grid';
+@import 'organisms/intro-text';
+@import 'organisms/map-with-info';
+@import 'organisms/masonry-gallery';
+@import 'organisms/mega-features';
+@import 'organisms/modal-content';
+@import 'organisms/neighborhood-overview';
+@import 'organisms/osc-request-info';
+@import 'organisms/site-map';
+@import 'organisms/tabbed-product-listings';
+@import 'organisms/testimonial';
+@import 'organisms/virtual-tour';
 
-/*------------------------------------*\
+/* ------------------------------------ *\
     $COMPONENTS
-\*------------------------------------*/
-@import "objects/icons";
-@import "objects/pagination";
-@import "objects/icons";
-@import "objects/buttons";
-@import "objects/blocks";
-@import "objects/lists";
-@import "objects/tooltip";
-@import "objects/images";
-@import "objects/accordion";
-@import "objects/tabs";
-@import "objects/maps";
-@import "objects/sections";
-@import "objects/brandwindows";
-@import "objects/article";
-@import "objects/alerts";
-@import "objects/slider";
-@import "objects/breadcrumbs";
-@import "objects/floorplan";
-@import "objects/filters";
-@import "objects/product-listings";
+\* ------------------------------------ */
+@import 'objects/icons';
+@import 'objects/pagination';
+@import 'objects/icons';
+@import 'objects/buttons';
+@import 'objects/blocks';
+@import 'objects/lists';
+@import 'objects/tooltip';
+@import 'objects/images';
+@import 'objects/accordion';
+@import 'objects/tabs';
+@import 'objects/maps';
+@import 'objects/brandwindows';
+@import 'objects/article';
+@import 'objects/alerts';
+@import 'objects/slider';
+@import 'objects/breadcrumbs';
+@import 'objects/floorplan';
+@import 'objects/filters';
+@import 'objects/product-listings';
 
-/*------------------------------------*\
+/* ------------------------------------ *\
    Vendor
-\*------------------------------------*/
-@import "vendor/fancybox";
-@import "vendor/tipr";
+\* ------------------------------------ */
+@import 'vendor/fancybox';
+@import 'vendor/tipr';

@@ -5,7 +5,6 @@
   "main": "webpack.config.js",
   "dependencies": {
     "hogan.js": "^3.0.2",
-    "lodash": "^3.10.1",
     "mustache-loader": "^0.3.1",
     "webpack": "^1.12.9"
   },
@@ -21,9 +20,11 @@
     "gulp-postcss": "^6.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gutil": "^1.6.4",
+    "handlebars-loader": "^1.4.0",
     "imagemin-pngquant": "^4.2.2",
     "jquery": "^2.1.4",
     "jquery-ui": "^1.10.5",
+    "lodash": "^3.10.1",
     "lost": "^6.7.2",
     "phplint": "^1.7.1",
     "postcss-color-function": "^2.0.1",
@@ -31,9 +32,12 @@
     "postcss-import": "^8.0.2",
     "postcss-mixins": "^4.0.1",
     "postcss-nested": "^1.0.0",
+    "postcss-reporter": "^1.4.1",
     "postcss-simple-vars": "^1.2.0",
+    "postcss-sorting": "^1.6.1",
     "run-sequence": "^1.1.5",
     "sprity": "^1.0.8",
+    "stylelint": "^7.1.0",
     "webpack": "^1.12.9",
     "webpack-stream": "^3.2.0"
   },

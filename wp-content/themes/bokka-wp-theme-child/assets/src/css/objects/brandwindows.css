@@ -1,98 +1,115 @@
 .section.detail-brand-window {
-    background: #F0F0F0;
-    overflow:hidden;
-    .container{
+    background: #f0f0f0;
+    overflow: hidden;
+
+    .container {
         @mixin tablet {
             padding-top: 40px;
             padding-bottom: 40px;
         }
-        margin: 0 auto;
-        @media only screen and (max-width: 1080px) {
 
+        margin: 0 auto;
+
+        @media only screen and (max-width: 1080px) {
             @media only screen and (max-width: 904px) {
                 max-width: 686px;
             }
         }
     }
-    .left{
-        float: none;
-        width: auto;
-        max-width: none;
-        width:100%;
-        background:$white;
 
-        @mixin desktop{
-        @mixin column 1,3;
-            order:1;
-            margin-right:30px !important;
-        }
-    }
-    .right{
+    .left {
         float: none;
         width: auto;
         max-width: none;
-        margin-right:0 !important;
-        width:100%;
-        position:relative;
-        @mixin desktop{
-            max-width:100%;
-        @mixin column 2,3;
-            order:2;
-            height:auto;
-        }
-        .slider{
-            overflow:hidden;
+        width: 100%;
+        background: $white;
+
+        @mixin desktop {
+            order: 1;
+            margin-right: 30px !important;
+
+            @mixin column 1, 3;
         }
     }
+
+    .right {
+        float: none;
+        width: auto;
+        max-width: none;
+        margin-right: 0 !important;
+        width: 100%;
+        position: relative;
+
+        @mixin desktop {
+            @mixin column 2,3;
+
+            max-width: 100%;
+            order: 2;
+            height: auto;
+        }
+
+        .slider {
+            overflow: hidden;
+        }
+    }
+
     .left {
-        .text{
+        .text {
             color: black;
             background: white;
-
         }
 
-        .title{
-            padding:5% 7.5%;
-            h1{
+        .title {
+            padding: 5% 7.5%;
+
+            h1 {
                 color: white;
                 text-transform: uppercase;
                 font-size: 30px;
                 font-weight: 700;
-                margin-bottom:5px;
-                line-height:33px;
+                margin-bottom: 5px;
+                line-height: 33px;
             }
+
             a {
-                text-decoration:none;
+                text-decoration: none;
             }
+
             h3 {
                 color: white;
                 font-size: 16px;
                 font-weight: 600;
                 padding: 5px 0;
-                letter-spacing:1px;
-                text-transform:none;
+                letter-spacing: 1px;
+                text-transform: none;
             }
+
             .location {
-                font-size:14px;
-                text-transform:uppercase;
-                opacity:0.75;
+                font-size: 14px;
+                text-transform: uppercase;
+                opacity: 0.75;
             }
+
             .product-type {
-                text-transform:none;
+                text-transform: none;
             }
-            .community-name{
+
+            .community-name {
                 text-transform: uppercase;
                 font-weight: 500;
                 font-size: 18px;
-                color:$white;
-                text-decoration:none;
+                color: $white;
+                text-decoration: none;
+
                 &:hover {
-                     text-decoration:underline;
-                 }
+                    text-decoration: underline;
+                }
             }
         }
+
         .body {
             padding: 5% 5% 5% 10%;
+
             .button {
                 display: block;
                 margin: 30px auto;
@@ -100,39 +117,44 @@
                 padding: 6px 30px;
                 text-transform: uppercase;
                 font-weight: 600;
+
                 @media only screen and (max-width: 904px) {
-                    margin: 20px 0 0 0;
+                    margin: 20px 0 0;
                 }
-
             }
         }
     }
+
     .slider {
-        .overlay{
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+75,0.7+100 */
-            background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.7) 100%); /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 65%,rgba(0,0,0,0.7) 100%); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 65%,rgba(0,0,0,0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#b3000000',GradientType=0 ); /* IE6-9 */
-            position:absolute;
-            top:0;
-            left:0;
-            height:100%;
-            width:100%;
+        .overlay {
+            /* Permalink - use to edit and share this gradient: http: //colorzilla.com/gradient-editor/#000000+0, 000000+100&0+75, 0.7+100 */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+            /* stylelint-disable */
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#b3000000', GradientType=0); /* IE6-9 */
+            /* stylelint-enable */
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
         }
+
         .slide {
-            height:100%;
+            height: 100%;
+
             img {
-                object-fit:cover;
+                object-fit: cover;
             }
         }
     }
 
-    .gallery-wrapper{
+    .gallery-wrapper {
         position: relative;
     }
 
-    .image-gallery li{
+    .image-gallery li {
         overflow: hidden;
     }
 
@@ -145,313 +167,368 @@
         li {
             border: 1px solid transparent;
             margin-right: 5px;
-            width:75px;
-            height:58px;
-            overflow:hidden;
-            display:inline-block;
+            width: 75px;
+            height: 58px;
+            overflow: hidden;
+            display: inline-block;
+
             &:hover {
-                 border: 1px solid white;
-             }
+                border: 1px solid white;
+            }
 
             a {
-                display:block;
-                width:100%;
-                height:100%;
+                display: block;
+                width: 100%;
+                height: 100%;
             }
+
             img {
-                object-fit:none;
-                object-fit:cover;
+                object-fit: none;
+                object-fit: cover;
                 object-position: bottom center;
-                width:100%;
-                height:100%;
+                width: 100%;
+                height: 100%;
             }
         }
     }
-    .image-thumbnails li.current{
-        border: 2px solid #7DD1E1;
+
+    .image-thumbnails li.current {
+        border: 2px solid #7dd1e1;
     }
+
     .image-gallery-caption {
         padding: 1% 4%;
-        background: #559CBE;
+        background: #559cbe;
         color: white;
         font-size: 16px;
-        font-family: "Open sans";
-        font-weight:600;
+        font-family: 'Open sans';
+        font-weight: 600;
         margin-top: -5px;
         width: 99.9%;
-        position:absolute;
-        bottom:0;
+        position: absolute;
+        bottom: 0;
     }
 
     .plan-amenities {
-        li{
+        li {
             font-weight: normal;
             font-family: Open Sans;
             text-transform: uppercase;
             font-size: 16px;
-            display:flex;
-            align-items:center;
+            display: flex;
+            align-items: center;
 
-            span{
+            span {
                 font-weight: bold;
                 text-transform: uppercase;
-                margin-right:5px;
+                margin-right: 5px;
             }
-            .icon:before{
+
+            .icon::before {
                 font-size: 40px;
                 padding-right: 10px;
                 vertical-align: sub;
-                color: #3F7F9D;
+                color: #3f7f9d;
             }
         }
     }
-    .plan-amenities .icon.icon-help{
+
+    .plan-amenities .icon.icon-help {
         text-decoration: none;
     }
-    .plan-amenities .icon.icon-help:before{
+
+    .plan-amenities .icon.icon-help::before {
         font-size: 16px;
         vertical-align: super;
     }
 
     &.floorplan {
-         background: #F0F0F0;
+        background: #f0f0f0;
 
-        .left .title{
-            background: #3F7F9D;
+        .left .title {
+            background: #3f7f9d;
         }
 
-        .image-thumbnails li.current{
-            border: 2px solid #7DD1E1;
+        .image-thumbnails li.current {
+            border: 2px solid #7dd1e1;
         }
+
         .image-gallery-caption {
-            background: #559CBE;
+            background: #559cbe;
         }
     }
+
     &.model {
-        .left .title{
+        .left .title {
             background: $green;
         }
 
-        .image-thumbnails li.current{
+        .image-thumbnails li.current {
             border: 2px solid $green_light;
         }
+
         .image-gallery-caption {
             background: $green;
         }
     }
 
     &.qmi {
-        .left .title{
-            background:#B8801C;
+        .left .title {
+            background: #b8801c;
         }
 
-        .image-thumbnails li.current{
+        .image-thumbnails li.current {
             border: 2px solid $green_light;
         }
+
         .image-gallery-caption {
-            background:#B8801C;
+            background: #b8801c;
         }
     }
-
-
 }
+
 .section.neighborhood-brandwindow {
     .container {
-        position:relative;
-        display:flex;
-        align-item:center;
+        position: relative;
+        display: flex;
+        align-item: center;
         justify-content: center;
+
         @mixin desktop {
             padding: 100px;
             margin-top: 40px;
         }
     }
+
     .image {
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        &, img {
-            width:100%;
-            height:100%;
-            object-position:center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &,
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
             object-fit: cover;
         }
     }
+
     .text {
-        position:relative;
-        background:rgba($purple_rgb, 0.85);
-        text-align:center;
-        width:100%;
+        position: relative;
+        background: rgba($purple_rgb, 0.85);
+        text-align: center;
+        width: 100%;
+
         @mixin desktop {
-            max-width:612px;
+            max-width: 612px;
         }
+
         h1 {
-            font-family:"Open sans";
+            font-family: 'Open sans';
             font-size: 48px;
             font-weight: bold;
             line-height: 0.98;
             letter-spacing: -1.2px;
             text-align: center;
-            color: #ffffff;
+            color: #fff;
+
             @mixin desktop {
                 font-size: 56px;
             }
         }
+
         h3 {
             font-size: 18px;
             font-weight: bold;
             text-align: center;
-            color: #ffffff;
+            color: #fff;
         }
+
         span {
-            font-family:"Open sans";
+            font-family: 'Open sans';
             font-size: 16px;
             font-weight: bold;
             text-align: center;
-            color: #ffffff;
-            text-transform:uppercase;
+            color: #fff;
+            text-transform: uppercase;
         }
+
         .status {
-            font-family:'Open sans';
+            font-family: 'Open sans';
             font-size: 22px;
             font-weight: 600;
             letter-spacing: 3.5px;
             text-align: center;
             color: $white;
-            text-transform:uppercase;
+            text-transform: uppercase;
         }
+
         .button {
             text-shadow: 1px 1px 0 #7d5d25;
+
             @mixin button #eeb34a;
         }
     }
+
     .header {
-        padding:30px;
+        padding: 30px;
+
         @mixin desktop {
             padding: 40px 80px;
         }
     }
+
     .nav {
         background: #95317f;
-        padding:25px 40px;
-        @mixin clear;
-        ul {
-            list-style:none;
+        padding: 25px 40px;
 
-            margin:0;
+        @mixin clear;
+
+        ul {
+            list-style: none;
+            margin: 0;
+
             @mixin desktop {
                 display: flex;
                 justify-content: center;
             }
+
             li {
-                margin:0 10px 10px;
+                margin: 0 10px 10px;
+
                 @mixin desktop {
-                    margin:0;
+                    margin: 0;
                     margin-right: 10px;
                 }
 
                 a.button {
-                    margin:0;
-                    width:100%;
+                    margin: 0;
+                    width: 100%;
+
                     @mixin button #eeb34a;
                 }
-                &:last-child{
+
+                &:last-child {
                     @mixin desktop {
-                        margin:0;
+                        margin: 0;
                         margin-right: 0;
                     }
                 }
             }
         }
     }
+
     .button.coming-soon {
-        position:absolute;
-        top:100%;
-        margin:0 auto;
-        margin-top:-11px;
-        left:50%;
-        margin-left:-127px;
+        position: absolute;
+        top: 100%;
+        margin: 0 auto;
+        margin-top: -11px;
+        left: 50%;
+        margin-left: -127px;
         text-shadow: 1px 1px 0 #7d5d25;
     }
 }
 
 .section.brand-window {
-    z-index:1;
-    .image,.title,h1,.body,.button {
-        opacity:0;
+    z-index: 1;
+
+    .image,
+    .title,
+    h1,
+    .body,
+    .button {
+        opacity: 0;
     }
+
     & + .section .container {
         @mixin tablet {
-            padding-top:75px;
+            padding-top: 75px;
         }
+
         @mixin desktop {
             padding-top: 150px;
         }
     }
+
     .container {
-        position:relative;
-        max-width:100%;
+        position: relative;
+        max-width: 100%;
+
         @mixin desktop {
             @mixin container;
+
             height: 415px;
         }
     }
+
     .image {
         width: 100%;
         height: 100%;
-        left:0px;
+        left: 0;
+
         img {
-            width:100%;
+            width: 100%;
         }
+
         @mixin tablet {
             overflow: hidden;
-            position:absolute;
-            height:calc(100% + 100px);
+            position: absolute;
+            height: calc(100% + 100px);
+
             img {
-                width:100%;
+                width: 100%;
             }
         }
     }
+
     .text {
-        left:auto;
-        z-index:1;
-        padding:20px 15px;
-            @mixin desktop {
+        left: auto;
+        z-index: 1;
+        padding: 20px 15px;
+
+        @mixin desktop {
             @mixin column 18, 24;
             @mixin offset -1, 12;
             @mixin offset -1, 24, column;
         }
 
         h1 {
-            font-size:32px;
-            margin-bottom:15px;
-            color:$blue_light;
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: $blue_light;
+
             @mixin tablet {
-                font-size:36px;
-                text-shadow:2px 0px 0px $black;
-                color:$white;
+                font-size: 36px;
+                text-shadow: 2px 0 0 $black;
+                color: $white;
             }
+
             @mixin desktop {
-                font-size:46px;
+                font-size: 46px;
             }
         }
+
         button {
-            clear:both;
-            display:block;
-            margin:20px 0;
+            clear: both;
+            display: block;
+            margin: 20px 0;
         }
-        .body, p {
-            font-family:"Open Sans";
-            font-size:18px;
-            color:$gray_dark1;
-            line-height:36px;
-            font-weight:600;
+
+        .body,
+        p {
+            font-family: 'Open Sans';
+            font-size: 18px;
+            color: $gray_dark1;
+            line-height: 36px;
+            font-weight: 600;
+
             @mixin tablet {
-                font-size:24px;
-                color:$white;
-                text-shadow:1px 0px 0px $black;
+                font-size: 24px;
+                color: $white;
+                text-shadow: 1px 0 0 $black;
             }
         }
     }

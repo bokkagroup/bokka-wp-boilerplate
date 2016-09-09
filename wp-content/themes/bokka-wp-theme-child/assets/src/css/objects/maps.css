@@ -1,16 +1,16 @@
 .google-map-wrapper {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+
     .google-map {
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
     }
 }
-
 
 .coming-soon-map {
     .infoBox {
@@ -19,19 +19,17 @@
         line-height: 1.09;
         letter-spacing: -0.4px;
         text-align: center;
-        color: #ffffff;
+        color: #fff;
         width: 350px;
-        background:$gold;
+        background: $gold;
         padding: 15px 30px;
-        margin-left:-150px;
-        margin-top:-75px;
+        margin-left: -150px;
+        margin-top: -75px;
 
         img {
-            display:none;
+            display: none;
         }
+
         @mixin arrow $gold, 12px;
     }
 }
-
-
-

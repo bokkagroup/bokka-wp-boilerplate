@@ -16,7 +16,9 @@
             {{>organisms/site-map}}
         {{/if}}
     {{/unless}}
-    {{>organisms/masonry-gallery}}
+    {{#if gallery_items}}
+        {{>organisms/masonry-gallery items=gallery_items }}
+    {{/if}}
     {{>organisms/osc-request-info-neighborhood}}
     {{#if coming_soon}}
         {{>organisms/coming-soon-map}}

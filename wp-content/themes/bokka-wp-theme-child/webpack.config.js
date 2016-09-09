@@ -14,10 +14,7 @@ module.exports = {
         filename: "[name].min.js"
     },
     module: {
-        loaders: [ {
-            test: /\.html$/,
-            loader: 'mustache'
-        } ]
+        loaders: [ { test: /\.handlebars$/, loader: "handlebars-loader" } ]
     },
     resolve: {
       // you can now require('file') instead of require('file.coffee')

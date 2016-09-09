@@ -1,23 +1,24 @@
 /* Overview map filters */
 
 .filters {
-    width:100%;
+    width: 100%;
     background-color: $blue_light;
     padding: 0 10px;
     height: auto;
     text-align: center;
-    z-index: 2;
+    z-index: 3;
+    top: 0;
 
     .filter-toggle {
         display: block;
         padding: 12px 0;
         width: 100%;
-        font-family: "Open sans";
+        font-family: 'Open sans';
         font-size: 18px;
         text-decoration: none;
         color: #fff;
 
-        &:before {
+        &::before {
             transform: rotate(45deg);
             margin: 0 8px 0 0;
         }
@@ -27,7 +28,7 @@
         display: block;
         max-height: 0;
         height: 100%;
-        transition: max-height .6s;
+        transition: max-height 0.6s;
         overflow: hidden;
         width: 100%;
 
@@ -37,7 +38,7 @@
     }
 
     .form {
-        margin: 15px 0 0 0;
+        margin: 15px 0 0;
     }
 
     .field {
@@ -47,26 +48,28 @@
     p {
         display: block;
         color: #fff;
-        font-family: "Open sans";
+        font-family: 'Open sans';
         font-weight: 600;
         font-size: 18px;
         letter-spacing: -0.2px;
     }
 
-    p, .field, .button {
+    p,
+    .field,
+    .button {
         margin-left: 5px;
         margin-right: 5px;
     }
 
-    .container-select { 
+    .container-select {
         background-color: $blue;
 
-        &:before {
+        &::before {
             background-color: $blue_dark;
             border: none;
         }
 
-        &:after {
+        &::after {
             border-top-color: #fff;
             right: 12px;
         }
@@ -84,7 +87,7 @@
     /* media queries for .filters */
     @mixin tablet {
         display: flex;
-        
+
         .form,
         .field {
             display: inline-block;
@@ -125,7 +128,9 @@
             margin-bottom: 0;
         }
 
-        p, .field, .button {
+        p,
+        .field,
+        .button {
             margin-left: 10px;
             margin-right: 10px;
         }

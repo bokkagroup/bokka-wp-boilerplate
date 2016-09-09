@@ -1,0 +1,35 @@
+.section.virtual-tour {
+    background: $purple_light;
+    text-align: center;
+
+    iframe {
+        width: 100%;
+        height: 225px;
+
+        @mixin desktop {
+            height: 500px;
+        }
+    }
+
+    .container {
+        padding: 30px;
+
+        @mixin tablet {
+            padding: 60px;
+        }
+    }
+
+    h2 {
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+        text-align: center;
+        color: $white;
+    }
+
+    & + .floorplan-stats {
+        .container {
+            padding-top: 0;
+        }
+    }
+}

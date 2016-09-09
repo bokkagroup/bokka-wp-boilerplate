@@ -1,0 +1,47 @@
+.section.osc-request-info {
+    background: $purple;
+
+    .container {
+        padding: 60px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .osc {
+        margin-right: 30px;
+    }
+
+    .text {
+        color: $white;
+        font-family: 'Open Sans';
+
+        @mixin tablet {
+            @mixin column 8, 12;
+        }
+
+        @mixin desktop {
+            @mixin column 5, 12;
+        }
+
+        a,
+        p {
+            color: $white;
+            font-family: 'Open Sans';
+        }
+
+        .title h3 {
+            font-size: 24px;
+            color: $white;
+            text-transform: none;
+            margin-bottom: 10px;
+        }
+
+        a {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+.section.intro-text {
+    background: $light_gray;
+    text-align: center;
+
+    @mixin arrow $light_gray, 26px;
+
+    .title,
+    .body,
+    .button {
+        opacity: 0;
+    }
+
+    .container {
+        padding: 50px 15px;
+
+        @mixin desktop {
+            padding: 100px 0;
+        }
+    }
+
+    .text {
+        @mixin desktop {
+            @mixin offset -1, 12;
+            @mixin column 10, 12;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    h2 {
+        color: $blue;
+        margin-bottom: 25px;
+        text-transform: capitalize;
+        font-size: 24px;
+
+        @mixin desktop {
+            line-height: 68px;
+            font-size: 48px;
+        }
+    }
+
+    .body {
+        font-family: 'Merriweather';
+        line-height: 30px;
+        font-size: 18px;
+
+        @mixin desktop {
+            padding: 0 150px;
+        }
+    }
+}

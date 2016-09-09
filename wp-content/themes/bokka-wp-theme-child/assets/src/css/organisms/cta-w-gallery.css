@@ -1,0 +1,49 @@
+.section.cta-w-gallery {
+    overflow: hidden;
+
+    .container {
+        align-items: center;
+        justify-content: center;
+
+        @mixin desktop {
+            padding: 25px 50px;
+        }
+    }
+
+    .text {
+        text-align: left;
+        padding: 0 15px;
+
+        @mixin tablet {
+            @mixin column 8,12;
+
+            float: left;
+            order: 1;
+        }
+
+        @mixin desktop {
+            text-align: left;
+
+            @mixin column 1,2;
+        }
+    }
+
+    .mini-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+
+        @mixin tablet {
+            @mixin column 4, 12;
+
+            float: right;
+            order: 2;
+        }
+
+        @mixin desktop {
+            @mixin offset -1, 24;
+        }
+    }
+}

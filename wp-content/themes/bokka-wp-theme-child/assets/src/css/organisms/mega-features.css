@@ -1,0 +1,80 @@
+.section.mega-features {
+    @mixin arrow $blue, 26px;
+
+    .container {
+        text-align: center;
+        background: $blue;
+        padding: 75px 50px;
+    }
+
+    .header {
+        width: 100%;
+        text-align: center;
+
+        h2 {
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 1.25;
+            text-align: center;
+            color: $white;
+
+            @mixin desktop {
+                font-size: 32px;
+            }
+        }
+
+        .subtitle {
+            font-size: 21px;
+            font-weight: 600;
+            font-style: italic;
+            line-height: 1.9;
+            letter-spacing: -0.2px;
+            text-align: center;
+            color: $white;
+        }
+    }
+
+    .features {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 30px 0;
+
+        li {
+            @mixin column 1, 1;
+
+            padding: 0 20px;
+
+            @mixin desktop {
+                @mixin column 1,3;
+            }
+
+            .icon {
+                color: $white;
+                font-size: 60px;
+            }
+
+            .title {
+                font-family: 'Open Sans';
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 1.5;
+                letter-spacing: 0.7px;
+                text-align: center;
+                color: $white;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+            }
+
+            .body {
+                font-family: 'Open Sans';
+                font-size: 15px;
+                font-weight: 600;
+                line-height: 1.33;
+                text-align: center;
+                color: $white;
+            }
+        }
+    }
+}
+

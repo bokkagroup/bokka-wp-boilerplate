@@ -1,0 +1,235 @@
+.section.featured-slider {
+    overflow: hidden;
+
+    .container {
+        position: relative;
+        padding: 0;
+        max-width: none;
+
+        @mixin desktop {
+            @mixin container;
+
+            padding: 100px 0;
+        }
+    }
+
+    .controls {
+        display: none;
+
+        @mixin desktop {
+            display: block;
+        }
+
+        .previous,
+        .next {
+            position: absolute;
+            top: 50%;
+            overflow: hidden;
+            margin-top: -48px;
+            z-index: 11;
+
+            a {
+                color: $white;
+                font-size: 48px;
+                display: inline-block;
+                box-sizing: border-box;
+                text-align: center;
+                text-decoration: none;
+                text-shadow: 1px 0 3px $black;
+                transition: all 250ms;
+
+                &:hover {
+                    text-shadow: 0 0 5px $black;
+                }
+
+                .icon {
+                    display: block;
+                    height: auto;
+                    width: auto;
+                    padding: 20px;
+                    margin: 0;
+                }
+            }
+        }
+
+        .previous {
+            left: 25px;
+        }
+
+        .next {
+            right: 25px;
+        }
+    }
+
+    .slider {
+        position: relative;
+        width: 100%;
+    }
+
+    .slides {
+        width: 100%;
+        position: relative;
+
+        .slide {
+            background-color: $blue;
+            display: flex;
+            left: 100%;
+            position: absolute;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+            opacity: 0;
+
+            @mixin desktop {
+                padding: 25px 50px;
+            }
+
+            &:nth-child(1) {
+                left: 0;
+                opacity: 1;
+                position: relative;
+
+                @mixin desktop {
+                    position: absolute;
+                }
+            }
+
+            &:hover {
+                .background {
+                    filter: blur(0) grayscale(0%) brightness(100%);
+                }
+
+                .color-overlay {
+                    opacity: 0;
+                }
+
+                .text {
+                    .title {
+                        text-shadow: 0 0 20px #000 !important;
+                    }
+                }
+
+                .subtitle span {
+                    background: $blue;
+                    box-shadow: 15px 0 0 $blue, -15px 0 0 $blue;
+                    text-shadow: none !important;
+                }
+
+                .button {
+                    @mixin hover_reversed $blue;
+                }
+            }
+
+            .color-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background: $blue_light;
+                opacity: 0.6;
+                transition: opacity 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            }
+
+            .background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                background-size: cover !important;
+                background-position: center !important;
+                filter: blur(5px) grayscale(100%) brightness(40%);
+                width: calc(100% + 20px);
+                height: calc(100% + 20px);
+                margin: -10px -10px;
+                backface-visibility: hidden;
+                transform: translateZ(0) scale(1, 1);
+                transition: filter 0.25s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+            }
+
+            a {
+                text-decoration: none;
+                display: block;
+                with: 100%;
+                color: $white;
+
+                &.full-width {
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 3;
+                }
+            }
+
+            .text {
+                width: 100%;
+                color: $white;
+
+                .subtitle {
+                    font-family: 'Open Sans';
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+
+                    @mixin desktop {
+                        font-size: 32px;
+                    }
+
+                    span {
+                        padding: 10px 0;
+                        transition: background 0.25s linear, box-shadow 0.25s linear;
+                    }
+                }
+
+                .title {
+                    h2 {
+                        color: $white;
+                        display: block;
+                        font-size: 18px;
+
+                        @mixin desktop {
+                            font-size: 42px;
+                        }
+                    }
+                }
+
+                .title,
+                .subtitle span {
+                    letter-spacing: 3px;
+                    text-shadow: 1px 1px 0 #333;
+                    transition: text-shadow 0.25s;
+
+                    @mixin desktop {
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .button {
+                    background: $white;
+                    color: $blue;
+                    display: inline-block;
+                }
+            }
+
+            .overlay {
+                width: 100%;
+                text-align: center;
+                position: relative;
+                z-index: 3;
+
+                .icon {
+                    text-shadow: 2px 0 0 #333;
+                    display: block;
+                    margin: 0 auto;
+                    font-size: 48px;
+                    transform: scale(0.65);
+                }
+            }
+        }
+    }
+}

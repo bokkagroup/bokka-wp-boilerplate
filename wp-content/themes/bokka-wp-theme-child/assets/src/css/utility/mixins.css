@@ -1,10 +1,9 @@
-/*----------------------------------------------------------
-
+/* ----------------------------------------------------------
 LOST GRID MIXINS
+----------------------------------------------------------- */
 
------------------------------------------------------------*/
 @define-mixin column $numerator, $denominator, $gutter: '', $cycle: '' {
-   lost-column: $(numerator)/$(denominator) $(gutter) $(cycle);
+    lost-column: $(numerator)/$(denominator) $(gutter) $(cycle);
 }
 
 @define-mixin cycle $number {
@@ -16,13 +15,15 @@ LOST GRID MIXINS
 }
 
 @define-mixin clear {
-    &:before, &:after {
-        content:" ";
-        clear:both;
-        display:block;
-    }
-    clear:both;
+    clear: both;
     lost-utility: clearfix;
+
+    &::before,
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
 }
 
 @define-mixin offset $numerator, $denominator, $direction {
@@ -30,22 +31,25 @@ LOST GRID MIXINS
 }
 
 @define-mixin container {
-    lost-center:100%;
+    lost-center: 100%;
+
     @mixin tablet {
-        lost-center:740px;
+        lost-center: 740px;
     }
+
     @mixin desktop {
-        lost-center:960px;
+        lost-center: 960px;
     }
+
     @mixin desktop-large {
-        lost-center:1160px;
+        lost-center: 1160px;
     }
 }
-/*----------------------------------------------------------
 
+/* ----------------------------------------------------------
 BREAKPOINT MIXINS
+----------------------------------------------------------- */
 
------------------------------------------------------------*/
 @define-mixin desktop-large $type: min {
     @media ($(type)-width: $desktop-large) {
         @mixin-content;
@@ -64,56 +68,64 @@ BREAKPOINT MIXINS
     }
 }
 
-html, body {
-    &:before {
-        display:none;
-        content: "mobile";
+html,
+body {
+    &::before {
+        display: none;
+        content: 'mobile';
+
         @mixin tablet {
-            content:"tablet";
+            content: 'tablet';
         }
+
         @mixin desktop {
-            content:"desktop";
+            content: 'desktop';
         }
     }
 }
-.desktop{
-    display:none;
+
+.desktop {
+    display: none;
+
     @mixin tablet {
-        display:none;
-    }
-    @mixin desktop {
-        display:block;
-    }
-}
-.tablet{
-    display:none;
-    @mixin tablet {
-        display:block;
+        display: none;
     }
 
+    @mixin desktop {
+        display: block;
+    }
 }
-.mobile{
-    display:block;
-    @mixin tablet{
-        display:none;
+
+.tablet {
+    display: none;
+
+    @mixin tablet {
+        display: block;
+    }
+}
+
+.mobile {
+    display: block;
+
+    @mixin tablet {
+        display: none;
     }
 }
 
 .portables {
-    display:block;
+    display: block;
+
     @mixin desktop {
-        display:none;
+        display: none;
     }
 }
 
-
-/*----------------------------------------------------------
-
+/* ----------------------------------------------------------
 LOST GRID MIXINS
+----------------------------------------------------------- */
 
------------------------------------------------------------*/
 @define-mixin arrow $color, $size {
-    &:after {
+    &::after {
         width: 0;
         height: 0;
         border-style: solid;
@@ -124,65 +136,69 @@ LOST GRID MIXINS
         top: 100%;
         left: 50%;
         display: block;
-        content: " ";
-        z-index:2;
+        content: ' ';
+        z-index: 2;
     }
 }
-/*----------------------------------------------------------
 
+/* ----------------------------------------------------------
 BUTTON / HOVER MIXINS
+----------------------------------------------------------- */
 
------------------------------------------------------------*/
 @define-mixin button $color {
     transition: box-shadow 0.2s;
-    background:$color;
+    background: $color;
+
     &:hover {
-        box-shadow: 0 0 0 4px $(color),
-        inset 0 0 0 3px $white;
+        box-shadow:
+            0 0 0 4px $(color),
+            inset 0 0 0 3px $white;
         color: #fff;
-    }
-    &:active {
     }
 }
 
 @define-mixin button_reversed $color {
     transition: box-shadow 0.2s;
-    background:$white;
-    color:$color;
+    background: $white;
+    color: $color;
+
     &:hover {
-         box-shadow: 0 0 0 4px $white,
-         inset 0 0 0 3px $(color);
-         color: $color;
-    }
-    &:active {
+        box-shadow:
+            0 0 0 4px $white,
+            inset 0 0 0 3px $(color);
+        color: $color;
     }
 }
 
 @define-mixin hover $color {
     transition: box-shadow 0.2s;
-     box-shadow: 0 0 0 4px $(color),
-     inset 0 0 0 3px $white;
-     color: #fff;
+    box-shadow:
+        0 0 0 4px $(color),
+        inset 0 0 0 3px $white;
+    color: #fff;
 }
 
 @define-mixin hover_reversed $color {
     transition: box-shadow 0.2s;
-    box-shadow: 0 0 0 4px $white,
-    inset 0 0 0 3px $color;
+    box-shadow:
+        0 0 0 4px $white,
+        inset 0 0 0 3px $color;
     color: $color;
 }
-
 
 @define-mixin placeholder {
     &::-webkit-input-placeholder {
         @mixin-content;
     }
-    &:-moz-placeholder { /* older Firefox*/
+
+    &:-moz-placeholder { /* older Firefox */
         @mixin-content;
     }
+
     &::-moz-placeholder { /* Firefox 19+ */
         @mixin-content;
     }
+
     &:-ms-input-placeholder {
         @mixin-content;
     }

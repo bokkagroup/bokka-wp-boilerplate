@@ -1,17 +1,22 @@
-<div class="listings-wrap tabs">
-    <div class="tab-header">
-        <h2>Our Neighborhoods</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="tab-links">
-        <ul>
+<div class="listings-wrap product-tabs">
+    <div class="tab-header-wrap">
+        <div class="tab-header">
             {{#each tabs}}
-                <li class="tab {{#if @first}}active{{/if}}"><a href="#">{{title}}</a></li>
+            <div class="product-tab-header">
+                <h2>{{title}}</h2>
+                <p>{{copy}}</p>
+            </div>
             {{/each}}
-
-        </ul>
+        </div>
+        <div class="product-tab-links">
+            <ul>
+                {{#each tabs}}
+                    <li class="tab {{#if @first}}active{{/if}}"><a href="#">{{tab_title}}</a></li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
-    <ul class="tab-bodies">
+    <ul class="product-tab-bodies">
         {{#each tabs}}
             <li class="tab-body">
                 {{!--- THIS IS FOR NEIGHBORHOODS--}}

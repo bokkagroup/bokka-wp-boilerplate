@@ -1,4 +1,4 @@
-<li class="item">
+<li class="item" id="item-{{ID}}" data-map-info='{"position": {"lat": {{latitude}},"lng": {{longitude}}},"image": "{{#if communities logo_src}}{{logo_src}}{{/if}}{{#unless communities}}{{#if featured_image}}{{featured_image}}{{else}}/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded_536x246.jpg{{/if}}{{/unless}}","title": "{{post_title}}","permalink": "{{permalink}}","directions": "https://www.google.com/maps/dir/Current+Location/{{latitude}},{{longitude}}","secondary": "{{#if communities}}{{types}} <br>from the ${{base_price}}s{{/if}}{{#unless communities}}{{#if floorplan}}{{#with floorplan}}{{type}}{{/with}}{{/if}} <br>{{neighborhood_name}} in {{city}}{{/unless}}","button_label": "{{#unless home}}{{post_title}}{{/unless}}{{#if home}}this home{{/if}}"}'> <!-- end li.item -->
     <article >
         <header>
             <div class="header">
@@ -11,26 +11,29 @@
                 </figure>
                 <div class="title">
                     <h4><a href="{{permalink}}">{{post_title}}</a></h4>
-                    {{#if city state}}
-                    <p class="location">in {{city}}, {{state}}</p>
+                    {{#if communities}}
+                        {{#if city state}}
+                            <p class="location">in {{city}}, {{state}}</p>
+                        {{/if}}
                     {{/if}}
                     {{#if neighborhood_name}}
-                    <p class="location">at {{neighborhood_name}}</p>
+                        <p class="location">at {{neighborhood_name}}</p>
                     {{/if}}
                     {{#if home}}
-                    <p class="details">{{type}}</p>
-                    <p class="details">{{#if bedrooms}}{{bedrooms}} bed{{/if}}{{#if bathrooms}}, {{bathrooms}} bath{{/if}}{{#if finished_sqr_ft}}, {{finished_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
+                        <p class="details">{{type}}</p>
+                        <p class="details">{{#if bedrooms}}{{bedrooms}} bed{{/if}}{{#if bathrooms}}, {{bathrooms}} bath{{/if}}{{#if finished_sqr_ft}}, {{finished_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
                     {{/if}}
                     {{#if model}}
-                    {{#if floorplan}}
-                    {{#with floorplan}}
-                    <p class="details">{{type}}</p>
-                    {{/with}}
-                    {{/if}}
-                    <p class="details">{{#if bedrooms_min}}{{bedrooms_min}}{{#if bedrooms_max}}-{{bedrooms_max}}{{/if}} bed{{/if}}{{#if bathrooms_min}}, {{bathrooms_min}}{{#if bathrooms_max}}-{{bathrooms_max}}{{/if}} bath{{/if}}{{#if main_sqr_ft}}, {{main_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
+                        {{#if floorplan}}
+                            {{#with floorplan}}
+                                <p class="details">{{type}}</p>
+                            {{/with}}
+                        {{/if}}
+                        {{!-- The following must be formatted as a single line - adding line breaks/indentation causes spaces --}}
+                        <p class="details">{{#if bedrooms_min}}{{bedrooms_min}}{{#if bedrooms_max}}-{{bedrooms_max}}{{/if}} bed{{/if}}{{#if bathrooms_min}}, {{bathrooms_min}}{{#if bathrooms_max}}-{{bathrooms_max}}{{/if}} bath{{/if}}{{#if main_sqr_ft}}, {{main_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
                     {{/if}}
                     {{#if communities}}
-                    <p class="details">{{types}} <br>from the ${{base_price}}s</p>
+                        <p class="details">{{types}} <br>from the ${{base_price}}s</p>
                     {{/if}}
                 </div>
             </div>

@@ -338,7 +338,11 @@
         },
         // close the menu
         _resetMenu : function() {
-            this._setTransform('translate3d(0,0,0)');
+            bokkaBreakpoint.refreshValue();
+            if (bokkaBreakpoint.value != "desktop") {
+                this._setTransform('translate3d(0,0,0)');
+
+            }
             this.level = 0;
             $("body").removeClass('menu-open')
             $(".menu-trigger").removeClass('open');

@@ -1,1 +1,1 @@
-{"version":3,"sources":["accordion.css"],"names":[],"mappings":"AAAA,QACI,WAAY,CAEf","file":"objects/accordion.css","sourcesContent":[".alerts {\n    content:\" \";\n\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["accordion.css"],"names":[],"mappings":"AAAA,UACI,aAAe,CAClB","file":"objects/accordion.css","sourcesContent":[".acordion {\n    display: block;\n}\n"],"sourceRoot":"/source/"}

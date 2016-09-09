@@ -8,7 +8,7 @@ function setFeaturedImage($data)
 {
 
     $post_type = get_post_type();
-    
+
     $data = array_map(function ($post) {
 
         global $post_type;

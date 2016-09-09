@@ -1,11 +1,11 @@
 <?php
 
-    namespace BokkaWP\Theme\views;
+namespace BokkaWP\Theme\views;
 
-    class NeighborhoodsOvView extends \BokkaWP\MVC\View
+class NeighborhoodsOvView extends \BokkaWP\MVC\View
+{
+    public function initialize()
     {
-        public function initialize()
-        {
-            $this->template = 'pages/neighborhoods/overview';
-        }
+        $this->template = 'pages/neighborhoods/overview';
     }
+}

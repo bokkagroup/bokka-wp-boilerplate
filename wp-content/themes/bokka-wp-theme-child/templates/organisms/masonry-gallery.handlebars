@@ -1,14 +1,18 @@
 <div class="section masonry-gallery">
-    <ul class="masonry-items">
-        <li class="masonry-item image">
-            <a href="">
-                <img src="" alt="">
-            </a>
-        </li>
-        <li class="masonry-item video">
-            <a href="">
-                <img src="" alt="">
-            </a>
-        </li>
-    </ul>
+    <section>
+        <div class="container">
+            {{#if items}}
+                <ul class="masonry-items">
+                    {{#each items}}
+                        <li class="masonry-item image">
+                            <a class="fancybox-masonry" rel="masonry-gallery" href="{{image}}">
+                                <img src="{{image}}" alt="">
+                                <span class="icon icon-zoom-in"></span>
+                            </a>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </section>
 </div>

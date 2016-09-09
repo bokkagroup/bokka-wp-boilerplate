@@ -1,0 +1,86 @@
+.section.floorplan-stats {
+    background: $purple_light;
+
+    @mixin arrow $purple_light, 26px;
+
+    .container {
+        padding: 30px;
+
+        @mixin tablet {
+            padding: 60px;
+        }
+    }
+
+    ul {
+        @mixin clear;
+
+        background: $white;
+        display: block;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+
+        @mixin desktop {
+            padding: 30px 60px;
+        }
+
+        li {
+            font-size: 18px;
+            font-family: 'Open Sans';
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: $black;
+
+            @mixin tablet {
+                @mixin column 1,2;
+                @mixin cycle 2;
+            }
+
+            @mixin desktop {
+                @mixin column 1,3;
+                @mixin cycle 3;
+            }
+
+            &,
+            span {
+                text-align: left;
+            }
+
+            span {
+                display: inline-block;
+                font-weight: bold;
+                float: left;
+            }
+
+            i::before {
+                color: $purple;
+                font-size: 32px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    a {
+        display: block;
+        background: $purple;
+        width: 100%;
+        color: $white;
+        text-align: center;
+        padding: 15px 30px;
+        font-family: 'Open Sans';
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.25s;
+        border-top: 1px solid $purple;
+
+        &:hover {
+            color: $purple;
+            background: $white;
+        }
+    }
+}
