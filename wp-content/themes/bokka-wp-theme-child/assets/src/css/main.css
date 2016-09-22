@@ -91,6 +91,9 @@
 @import 'organisms/tabbed-product-listings';
 @import 'organisms/testimonial';
 @import 'organisms/virtual-tour';
+@import 'organisms/contact-us-modules';
+@import 'organisms/wysiwyg-block';
+@import 'organisms/form-basic';
 
 /* ------------------------------------ *\
     $COMPONENTS

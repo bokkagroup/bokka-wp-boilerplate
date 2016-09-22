@@ -1,1 +1,0 @@
-{"version":3,"sources":["lists.css"],"names":[],"mappings":"AAAA,QACI,WAAa,CAChB","file":"objects/lists.css","sourcesContent":[".alerts {\n    content: ' ';\n}\n"],"sourceRoot":"/source/"}

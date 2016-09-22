@@ -3,6 +3,9 @@
         {{#if brand-window}}
             {{> organisms/brand-window }}
         {{/if}}
+        {{#if brand-window-w-gradient}}
+            {{> organisms/brand-window-w-gradient }}
+        {{/if}}
         {{#if intro-text}}
             {{> molecules/blocks/intro-text }}
         {{/if}}
@@ -21,11 +24,20 @@
         {{#if testimonial}}
             {{> organisms/testimonial }}
         {{/if}}
+        {{#if contact-us-modules}}
+            {{> organisms/contact-us-modules }}
+        {{/if}}
+        {{#if form}}
+            {{> organisms/form }}
+        {{/if}}
         {{#if form-w-text}}
             {{> organisms/form-w-text }}
         {{/if}}
         {{#if icon-grid}}
             {{> organisms/icon-grid }}
+        {{/if}}
+        {{#if wysiwyg-block}}
+            {{> organisms/wysiwyg-block }}
         {{/if}}
     {{/each}}
 </div>

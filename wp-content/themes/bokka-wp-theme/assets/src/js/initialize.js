@@ -1,9 +1,10 @@
-
-require('./helpers/breakpoint')
-
+window.bokka = require('./helpers/bokka');
 
 jQuery( document ).ready(function( $ ) {
     window.$ = jQuery
+
+    // Initialize bokka helper functions
+    bokka.init();
 
     if($('.slider').length > 0) {
         var Slider = require('./views/slider.js')
@@ -21,6 +22,4 @@ jQuery( document ).ready(function( $ ) {
             new Tabs({el: $(this)})
         })
     }
-})
-
-
+});

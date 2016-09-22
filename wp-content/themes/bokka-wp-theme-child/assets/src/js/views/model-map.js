@@ -59,7 +59,7 @@
     setCenter: function(){
         var self = this
         var offset
-        if(bokkaBreakpoint.value == "desktop"){
+        if(bokka.breakpoint.value == "desktop"){
             offset = {x:200}
         } else {
             offset = {y: (self.$el.height() / 3 )}

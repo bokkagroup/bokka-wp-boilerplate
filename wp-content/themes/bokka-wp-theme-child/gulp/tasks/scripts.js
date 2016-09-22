@@ -10,11 +10,20 @@
 var gulp    = require('gulp')
 var webpack = require('webpack')
 var webpack = require('webpack-stream')
+var webpackConfig = require('../../webpack.config.js')
 var livereload = require('gulp-livereload')
 
 gulp.task('build-webpack', [], function () {
     return gulp.src(['../../assets/src/js/initialize.js', '!node_modules/**/*', '!gulp/**/*', '!build/**/*'])
-        .pipe(webpack(require('../../webpack.config.js') ))
+        .pipe(webpack(webpackConfig))
+        .pipe(gulp.dest('./assets/build/js/'))
+        .pipe(livereload())
+})
+
+gulp.task('watch-webpack', [], function () {
+    webpackConfig.watch = true
+    return gulp.src(['../../assets/src/js/initialize.js', '!node_modules/**/*', '!gulp/**/*', '!build/**/*'])
+        .pipe(webpack(webpackConfig))
         .pipe(gulp.dest('./assets/build/js/'))
         .pipe(livereload())
 })

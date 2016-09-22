@@ -2,6 +2,7 @@
     background: $blue;
     position: relative;
     width: 100%;
+    z-index: 3;
 
     .container {
         padding: 25px 15px;

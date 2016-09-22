@@ -1,1 +1,0 @@
-{"version":3,"sources":["accordion.css"],"names":[],"mappings":"AAAA,UACI,aAAe,CAClB","file":"objects/accordion.css","sourcesContent":[".acordion {\n    display: block;\n}\n"],"sourceRoot":"/source/"}

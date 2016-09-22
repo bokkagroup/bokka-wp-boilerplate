@@ -11,8 +11,13 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             $this->data = $this->plansAndModels();
         } elseif (is_singular(array('home'))) {
             $this->data = $this->homes();
-        } elseif (is_singular(array('communities')) || is_page('all-neighborhoods')) {
+        } elseif (is_singular(array('communities')) ||
+            is_page('our-neighborhoods') ||
+            is_page('quick-move-in-homes') ||
+            is_page('model-homes')) {
             $this->data = $this->neighborhoods();
+        } elseif (is_page('contact-us-ask-a-question')) {
+            $this->data = $this->contactus();
         }
     }
 
@@ -83,6 +88,23 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
                 'title' => get_the_title($post->neighborhood),
                 'link' => get_permalink($post->neighborhood),
                 'class' => 'icon icon-our-neighborhoods'
+            )
+        );
+    }
+
+    public function contactus()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Contact Us',
+                'link' => '#',
+                'class' => 'icon icon-contact-us'
             )
         );
     }

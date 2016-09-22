@@ -10,7 +10,7 @@
     }
 
     .listings-wrap {
-        background-color: $purple_light;
+        background-color: #fff;
         height: calc(100% - 67px);
         position: relative;
 
@@ -27,7 +27,56 @@
         }
     }
 
-    /* Tabs */
+    /* Fixed product column adjustments */
+    .product-listings-container {
+        @define-mixin override-listings-container {
+            margin-left: 0;
+            margin-right: 0;
+            max-width: none;
+            width: 100%;
+
+            .listings-wrap {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+        }
+
+        &.fixed {
+            @mixin desktop {
+                .tab-header-wrap {
+                    position: fixed;
+                    left: 50%;
+                    top: 0;
+                    width: 50%;
+                    max-width: 565px;
+                    margin-left: 15px;
+                    z-index: 2;
+                }
+
+                .product-tab-bodies {
+                    left: 50%;
+                    top: 0;
+                    width: 100%;
+                    max-width: 565px;
+                    margin: 254px -15px 0 0;
+                }
+            }
+
+            @mixin desktop-large max {
+                @mixin override-listings-container;
+
+                .tab-header-wrap {
+                    max-width: none;
+                }
+            }
+        }
+
+        @mixin desktop-large max {
+            @mixin override-listings-container;
+        }
+    }
+
+    /* Tab display */
     .product-tabs {
         .product-tab-header,
         .tab-body {
@@ -38,23 +87,9 @@
                 position: absolute;
             }
 
-            &:first-child {
+            &:nth-child(2) {
                 display: block;
             }
-        }
-    }
-
-    .tab-header-wrap {
-        position: relative;
-
-        &.fixed {
-            position: fixed;
-            left: 50%;
-            top: 0;
-            width: 50%;
-            max-width: 565px;
-            margin-left: 15px;
-            z-index: 2;
         }
     }
 
@@ -66,6 +101,14 @@
         width: 100%;
 
         @mixin arrow $purple_light, 26px;
+
+        & > div {
+            display: none;
+        }
+
+        & > div:nth-child(2) {
+            display: block;
+        }
 
         h2 {
             color: #fff;
@@ -95,6 +138,10 @@
                 display: none;
             }
 
+            & > div {
+                display: block;
+            }
+
             h2 {
                 font-size: 40px;
             }
@@ -107,6 +154,7 @@
 
     .product-tab-header {
         padding: 30px;
+        width: 100%;
 
         @mixin desktop {
             padding: 40px 30px;
@@ -176,32 +224,8 @@
         background-color: #fff;
         text-align: center;
 
-        &.fixed {
-            margin-top: 254px;
-        }
-
         @mixin desktop {
             text-align: left;
-        }
-
-        .more {
-            padding: 15px 15px 0;
-            background-color: $gray_light1;
-
-            .button {
-                margin-top: 0;
-                width: 100%;
-            }
-
-            @mixin tablet {
-                .button {
-                    width: auto;
-                }
-            }
-
-            @mixin desktop {
-                display: none;
-            }
         }
 
         .tab-body {
@@ -212,7 +236,7 @@
                 padding: 0;
             }
 
-            &:not(:first-child) {
+            &:not(:nth-child(2)) {
                 @mixin desktop max {
                     display: none !important;
                 }
@@ -294,9 +318,6 @@
             }
 
             &:last-child {
-                margin-bottom: 0;
-                padding-bottom: 0;
-
                 &::after {
                     border-bottom: 0;
                 }
@@ -320,6 +341,7 @@
                 }
 
                 .title {
+                    text-align: center;
                     width: 100%;
 
                     h4 {
@@ -372,6 +394,8 @@
 
                     .title {
                         @mixin column 5,12,0,0;
+
+                        text-align: left;
                     }
                 }
             }
@@ -413,6 +437,29 @@
                     }
                 }
             }
+        }
+    }
+
+    .more {
+        padding: 15px 15px 0;
+        background-color: $gray_light1;
+        text-align: center;
+
+        .button {
+            margin-top: 0;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+
+        @mixin tablet {
+            .button {
+                width: auto;
+            }
+        }
+
+        @mixin desktop {
+            display: none;
         }
     }
 }

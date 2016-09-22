@@ -11,7 +11,7 @@
         <div class="product-tab-links">
             <ul>
                 {{#each tabs}}
-                    <li class="tab {{#if @first}}active{{/if}}"><a href="#">{{tab_title}}</a></li>
+                    <li class="tab {{class}} {{#if products}}active{{/if}}"><a href="#">{{tab_title}}</a></li>
                 {{/each}}
             </ul>
         </div>
@@ -44,10 +44,9 @@
                 {{/if}}
             </li>
         {{/each}}
-        {{!-- TODO: Move this out of here --}}
-        <li class="more">
-            <a href="#" class="button purple">See Quick Move-ins</a>
-            <a href="#" class="button purple">See Model Homes</a>
-        </li>
     </ul>
+    <div class="more">
+        <a href="/our-homes/view-homes/" class="button purple">See Quick Move-ins</a>
+        <a href="/our-homes/view-model-homes/" class="button purple">See Model Homes</a>
+    </div>
 </div><!--/listings-wrapper-->

@@ -1,0 +1,23 @@
+<div class="section contact-us-modules">
+    <section>
+        <div class="container">
+            <div class="modules">
+                {{#each contact_module}}
+                <div class="module {{class}}">
+                    <div class="title">{{title}}</div>
+                    {{#if give-us-a-call}}
+                    <div class="icon icon-contact-mobile-phone"></div>
+                    {{/if}}
+                    {{#if home-office}}
+                    <div class="icon icon-contact-office"></div>
+                    {{/if}}
+                    {{#if sales-offices}}
+                    <div class="icon icon-models"></div>
+                    {{/if}}
+                    <p>{{{description}}}</p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+</div>

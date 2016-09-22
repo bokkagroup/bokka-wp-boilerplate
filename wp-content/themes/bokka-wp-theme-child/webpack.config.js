@@ -1,6 +1,7 @@
 var webpack = require('webpack');
+var path = require('path');
 module.exports = {
-    watch:true,
+
     entry: {
         initialize: "./assets/src/js/initialize.js",
         depend: "./assets/src/js/depend.js",
@@ -17,9 +18,19 @@ module.exports = {
         loaders: [ { test: /\.handlebars$/, loader: "handlebars-loader" } ]
     },
     resolve: {
-      // you can now require('file') instead of require('file.coffee')
-      extensions: ['', '.html', '.js', '.json', '.coffee']
+        // you can now require('file') instead of require('file.coffee')
+        extensions: ['', '.html', '.js', '.json', '.coffee'],
+
+        modulesDirectories: [
+            path.join(__dirname, "node_modules"),
+        ],
+
+        alias: {
+            'underscore': 'lodash'
+        }
+
     },
+
     plugins: [
         new webpack.ProvidePlugin({
             _               : 'lodash',

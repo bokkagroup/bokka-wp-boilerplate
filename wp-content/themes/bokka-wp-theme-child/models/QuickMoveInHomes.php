@@ -2,7 +2,7 @@
 
 namespace BokkaWP\Theme\models;
 
-class NeighborhoodsOv extends \BokkaWP\MVC\Model
+class QuickMoveInHomes extends \BokkaWP\MVC\Model
 {
     public function initialize()
     {

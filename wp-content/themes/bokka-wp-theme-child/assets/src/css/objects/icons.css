@@ -27,6 +27,14 @@
 }
 
 .icon {
+    &.icon-contact-mobile-phone::before {
+        content: '\e927';
+    }
+
+    &.icon-contact-office::before {
+        content: '\e926';
+    }
+
     &.icon-directions::before {
         content: '\e925';
     }

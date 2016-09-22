@@ -103,8 +103,8 @@
             this._determineNav()
         },
         _determineNav : function(){
-            bokkaBreakpoint.refreshValue();
-            if (bokkaBreakpoint.value == "desktop") {
+            bokka.breakpoint.refreshValue();
+            if (bokka.breakpoint.value == "desktop") {
                 this._resetEvents( this._desktopEvents );
 
             } else {
@@ -338,8 +338,8 @@
         },
         // close the menu
         _resetMenu : function() {
-            bokkaBreakpoint.refreshValue();
-            if (bokkaBreakpoint.value != "desktop") {
+            bokka.breakpoint.refreshValue();
+            if (bokka.breakpoint.value != "desktop") {
                 this._setTransform('translate3d(0,0,0)');
 
             }

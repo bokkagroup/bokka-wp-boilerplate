@@ -533,3 +533,83 @@
         }
     }
 }
+
+.section.brand-window-w-gradient {
+    background-image: linear-gradient(to bottom, #dbdbd8, $light_gray);
+    margin-bottom: 60px;
+
+    @mixin arrow $light_gray, 26px;
+
+    @mixin desktop {
+        margin-bottom: 90px;
+    }
+
+    .container {
+        position: relative;
+        padding: 45px 15px;
+        max-width: 100%;
+
+        @mixin tablet {
+            padding: 90px 0;
+        }
+
+        @mixin desktop {
+            @mixin container;
+
+            align-items: center;
+        }
+
+        @mixin desktop-large {
+            height: 580px;
+        }
+    }
+
+    .text {
+        margin: 0 auto;
+        text-align: center;
+
+        h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            letter-spacing: -1.2px;
+            margin: 0 0 15px;
+        }
+
+        .body,
+        p {
+            font-family: 'Merriweather';
+            font-size: 18px;
+            font-style: italic;
+            line-height: 1.5;
+            letter-spacing: -0.4px;
+            color: $gray_dark2;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .secondary {
+            font-family: 'Open Sans';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: $purple;
+            text-transform: uppercase;
+        }
+
+        @mixin tablet {
+            max-width: 660px;
+
+            h1 {
+                font-size: 57px;
+            }
+
+            .body,
+            p {
+                font-size: 20px;
+            }
+        }
+    }
+}

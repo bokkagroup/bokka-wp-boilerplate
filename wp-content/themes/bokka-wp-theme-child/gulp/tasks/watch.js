@@ -17,7 +17,7 @@ gulp.task('watch-styles', ['css', 'copyfonts', 'image'], function () {
     livereload.listen();
 })
 
-gulp.task('watch-js', ['build-webpack'], function () {
+gulp.task('watch-js', ['watch-webpack'], function () {
     gulp.watch(['assets/src/js/**/*.js', 'assets/src/js/**/*.html'], ['build-webpack'])
     livereload.listen()
 })

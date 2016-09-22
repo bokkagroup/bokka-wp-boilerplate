@@ -1,2 +1,0 @@
-.section.virtual-tour{background:$purple_light;text-align:center}.section.virtual-tour iframe{width:100%;height:225px}@media (min-width:$(desktop)){.section.virtual-tour iframe{height:500px}}.section.virtual-tour .container{padding:30px}@media (min-width:$(tablet)){.section.virtual-tour .container{padding:60px}}.section.virtual-tour h2{display:block;width:100%;margin-bottom:30px;text-align:center;color:$white}.section.virtual-tour+.floorplan-stats .container{padding-top:0}
-/*# sourceMappingURL=../assets/build/css/organisms/virtual-tour.css.map */

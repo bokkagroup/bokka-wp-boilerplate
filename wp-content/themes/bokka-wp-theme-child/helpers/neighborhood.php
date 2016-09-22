@@ -56,6 +56,73 @@ function tabbedProductData($id)
 }
 
 /**
+ * gather all data for Neighborhood Overview (and QMI/Model Homes) tabs
+ * @param none
+ * @return array
+ */
+function neighborhoodOverviewData()
+{
+    // Get post ID for neighborhood overview page in order to get
+    // ACF tab header descriptions
+    $neighborhoodOV_page_id = get_id_by_slug('our-neighborhoods');
+
+    $products = get_posts(
+        array(
+            'post_type'         => array('communities', 'model', 'home'),
+            'posts_per_page'    => 500,
+            'suppress_filters'  => false,
+            'orderby'           => 'title',
+            'order'             => 'ASC',
+        )
+    );
+
+    apply_filters( 'bokkamvc_filter_before_render', $products);
+
+    $neighborhoods = array();
+    $models = array();
+    $homes = array();
+
+    foreach ($products as $product) {
+        if ($product->post_type == 'communities') {
+            $neighborhoods[] = $product;
+        } elseif ($product->post_type == 'model') {
+            $models[] = $product;
+        } else {
+            $homes[] = $product;
+        }
+    }
+
+    $tabs = array(
+        'models' => array(
+            'title' => 'Model Homes',
+            'copy' => get_field('model_homes_overview', $neighborhoodOV_page_id),
+            'tab_title' => 'Model Homes',
+            'neighborhoods' => sortProductByNeighborhood($models),
+            'class' => 'model-homes'
+        ),
+        'neighborhoods' => array(
+            'title' => 'Our Neighborhoods',
+            'copy' => get_field('our_neighborhoods_overview', $neighborhoodOV_page_id),
+            'tab_title' => 'Neighborhoods',
+            'products' => formatNeighborhoodTypes($neighborhoods),
+            'class' => 'our-neighborhoods'
+        ),
+        'homes' => array(
+            'title' => 'Quick Move-In Homes',
+            'copy' => get_field('quick_move-ins_overview', $neighborhoodOV_page_id),
+            'tab_title' => 'Quick Move-in',
+            'neighborhoods' => sortProductByNeighborhood($homes),
+            'class' => 'quick-move-in-homes'
+        )
+    );
+
+    $tabs = addPostTypeBoolean($tabs);
+    $tabs = applyFiltersToProducts($tabs);
+
+    return $tabs;
+}
+
+/**
  * take a list of products and sort them in an array based on type
  * @param $posts
  * @return array

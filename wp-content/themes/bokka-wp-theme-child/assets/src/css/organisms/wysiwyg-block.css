@@ -1,0 +1,50 @@
+.section.wysiwyg-block {
+    padding: 30px 0;
+
+    /* If this organism directly follows a form, remove top padding */
+    .section.form-basic + & {
+        padding-top: 0;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .text,
+    p,
+    a {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .text {
+        width: 100%;
+
+        a[href^=tel] {
+            display: block;
+            font-size: 20px;
+            color: $blue;
+        }
+    }
+
+    @mixin desktop {
+        padding: 90px 0;
+
+        .container {
+            padding: 0;
+        }
+
+        .text,
+        p,
+        a {
+            font-size: 18px;
+            line-height: 2.3;
+        }
+
+        .text {
+            a[href^=tel] {
+                font-size: 23px;
+            }
+        }
+    }
+}

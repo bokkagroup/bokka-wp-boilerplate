@@ -11,8 +11,8 @@ do_action('bwt\before_content'); ?>
             new \BokkaWP\Theme\controllers\HomeController();
         } elseif (is_page(181)) {
             new \BokkaWP\Theme\controllers\StyleguideController();
-        } elseif (is_page('contact-us')) {
-            new \BokkaWP\Theme\controllers\ContactusController();
+        } elseif (is_page('contact-us-ask-a-question')) {
+            new \BokkaWP\Theme\controllers\ContactUsController();
         } elseif (is_singular('communities')) {
             new \BokkaWP\Theme\controllers\NeighborhoodsController();
         } elseif (is_singular('plans')) {
@@ -21,8 +21,12 @@ do_action('bwt\before_content'); ?>
             new \BokkaWP\Theme\controllers\ModelDetailController();
         } elseif (is_singular('home')) {
             new \BokkaWP\Theme\controllers\HomesController();
-        } elseif (is_page('all-neighborhoods')) {
+        } elseif (is_page('our-neighborhoods')) {
             new \BokkaWP\Theme\controllers\NeighborhoodsOvController();
+        } elseif (is_page('quick-move-in-homes')) {
+            new \BokkaWP\Theme\controllers\QuickMoveInHomesController();
+        } elseif (is_page('model-homes')) {
+            new \BokkaWP\Theme\controllers\ModelHomesController();
         } elseif (is_tax()) {
         } elseif (is_archive()) {
         } elseif (is_single()) {

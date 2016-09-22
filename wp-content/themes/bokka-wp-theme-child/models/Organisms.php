@@ -24,9 +24,16 @@ class Organisms extends \BokkaWP\MVC\Model
      */
     public function mapData($organism)
     {
+
         //setup boolean for basic handlebars if statement
         if (isset($organism['type'])) {
             $type = $organism['type'];
+
+            // Reassign form data to $organism['gform']
+            if ($type == 'form') {
+                $organism['gform'] = $organism['form'];
+            }
+
             $organism[$type] = true;
         }
 
@@ -73,9 +80,19 @@ class Organisms extends \BokkaWP\MVC\Model
         }
 
         //get gravity forms
-        if (isset($organism['form']) && $organism['form']) {
-            $form = gravity_form($organism['form']['id'], false, false, false, null, $ajax = true, 0, false);
-            $organism['form'] = $form;
+        if (isset($organism['gform']) && $organism['gform']) {
+            $form = gravity_form($organism['gform']['id'], false, false, false, null, $ajax = true, 0, false);
+            $organism['gform'] = $form;
+        }
+
+        // get class name and boolean for modules
+        if (isset($organism['contact_module']) && $organism['contact_module']) {
+            $organism['contact_module'] = array_map(function ($module) {
+                $class = strtolower(implode('-', explode(' ', $module['title'])));
+                $module['class'] = $class;
+                $module[$class] = true;
+                return $module;
+            }, $organism['contact_module']);
         }
 
         return $organism;

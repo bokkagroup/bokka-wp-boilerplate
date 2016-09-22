@@ -5,10 +5,7 @@ $blue: #3f7f9d;
 $blue_light: #559cbe;
 $blue_dark: #336b85;
 $teal: #7dd1e1;
-
-/* this is in invalid hex value */
-/* $teal_light: #64b6cs; */
-
+$teal_light: #64b6c5;
 $purple_light: #852e72;
 $purple: #6d235d;
 $purple_rgb: 109, 35, 93;
@@ -18,6 +15,7 @@ $gold_dark: #9f6e15;
 $cream: #f2efcd;
 $green: #898731;
 $green_light: #a8a63e;
+$red: #cc2b3f;
 
 $gray: #726558;
 $light_gray: #f0f0f0;

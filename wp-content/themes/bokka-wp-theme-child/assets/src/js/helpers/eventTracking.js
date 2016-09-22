@@ -2,6 +2,9 @@
  * Organism Events
  */
 $('.section').each(function(){
+    // Get eventTrack function from global window.bokka object
+    var eventTrack = window.bokka.eventTrack;
+    
     var el = $(this)
     var body = $('body')
     var category = ''
@@ -19,6 +22,10 @@ $('.section').each(function(){
         category = 'Home Detail'
     } if(body.hasClass('single-communities') || body.hasClass('single-neighborhoods')) {
         category = 'Neighborhood Detail'
+    } if(body.hasClass('page-our-neighborhoods')) {
+        category = 'Neighborhood Overview'
+    } if(body.hasClass('page-contact-us-ask-a-question')) {
+        category = 'Contact Page'
     }
 
     /**
@@ -33,6 +40,7 @@ $('.section').each(function(){
             label = ('Brand Window-'+title+'-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label)
         })
+
     //cta-w-image
     } else if (el.hasClass('cta-w-image')) {
         el.on('click', '.button', function(event){
@@ -41,6 +49,27 @@ $('.section').each(function(){
             label = ('CTA w/ Image-'+title+'-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label) //define our label
         })
+
+    // wysiwyg-block -- tel link/OSC
+    } else if (el.hasClass('wysiwyg-block')) {
+        el.on('click', 'a[href^=tel]', function(event) {
+            label = ('Click to call-OSC Phone Number')
+            eventTrack(category, action, label)
+        });
+
+    // form-basic -- gform submit
+    } else if (el.hasClass('form-basic')) {
+        el.on('click', 'input[type=submit].gform_button', function(event) {
+            label = ('Contact Us Form-Contact Us')
+            eventTrack(category, action, label)
+        });
+
+    // contact-us-modules
+    } else if (el.hasClass('contact-us-modules')) {
+        el.on('click', '.sales-offices a', function(event) {
+            label = ('Contact Us Modules-Sales Offices-View All')
+            eventTrack(category, action, label)
+        });
 
     //cta-w-gallery
     } else if (el.hasClass('cta-w-gallery')) {
@@ -112,6 +141,30 @@ $('.section').each(function(){
         el.on('click', '.button', function(event){
             var text = el.find('.button').text().trim()
             label = ('Tab-Gallery-with-Button-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            eventTrack(category, action, label)
+        })
+
+    // neighborhood overview page
+    } else if (el.hasClass('neighborhood-overview')) {
+        el.on('click', '.tab', function(event) {
+            var text = $(this).find('a').text().trim()
+
+            if (text == 'Model Homes') {
+                label = 'Listing Column-Floorplans'
+            }
+            if (text == 'Neighborhoods') {
+                label = 'Listing Column-Neighborhoods'
+            }
+            if (text == 'Quick Move-in') {
+                label = 'Listing Column-Quick Move Ins'
+            }
+
+            eventTrack(category, action, label)
+        });
+        el.on('click', '.button.more-details', function(event) {
+            var text = $(this).text().trim();
+            var context = $(this).closest('.item').find('.header .title h4').text().trim();
+            label = ('Listing Column-'+context+'-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label)
         })
 
@@ -202,16 +255,6 @@ $('.section').each(function(){
 
     }
 })
-
-function eventTrack(category, action, label){
-    ga(
-        'send',
-        'event',
-        category,
-        action,
-        label
-    )
-}
 
 /**
  * Virtual Page Views for Gravity forms

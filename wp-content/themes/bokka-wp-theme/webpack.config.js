@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 module.exports = {
     watch:true,
     entry: {
@@ -14,15 +15,18 @@ module.exports = {
         filename: "[name].min.js"
     },
     module: {
-        loaders: [ {
-            test: /\.html$/,
-            loader: 'mustache'
-        } ]
+        loaders: [ { test: /\.handlebars$/, loader: "handlebars-loader" } ]
     },
     resolve: {
         // you can now require('file') instead of require('file.coffee')
-        extensions: ['', '.html', '.js', '.json', '.coffee']
+        extensions: ['', '.html', '.js', '.json', '.coffee'],
+
+        modulesDirectories: [
+            path.join(__dirname, "node_modules"),
+        ],
+
     },
+
     plugins: [
         new webpack.ProvidePlugin({
             _               : 'lodash',
