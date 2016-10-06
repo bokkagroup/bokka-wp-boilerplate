@@ -24,7 +24,7 @@ $('.section').each(function(){
         category = 'Neighborhood Detail'
     } if(body.hasClass('page-our-neighborhoods')) {
         category = 'Neighborhood Overview'
-    } if(body.hasClass('page-contact-us-ask-a-question')) {
+    } if(body.hasClass('ask-a-question')) {
         category = 'Contact Page'
     }
 

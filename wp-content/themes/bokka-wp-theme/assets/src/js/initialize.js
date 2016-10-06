@@ -8,7 +8,6 @@ jQuery( document ).ready(function( $ ) {
 
     if($('.slider').length > 0) {
         var Slider = require('./views/slider.js')
-        console.log(Slider);
         //initialize sliders
         $('.slider').each(function () {
             new Slider({el: $(this)})
@@ -17,7 +16,6 @@ jQuery( document ).ready(function( $ ) {
 
     if($('.tabs').length > 0) {
         var Tabs = require('./views/tabs.js')
-        console.log(Tabs);
         $('.tabs').each(function () {
             new Tabs({el: $(this)})
         })

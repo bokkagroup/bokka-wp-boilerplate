@@ -26,6 +26,12 @@ body {
     position: relative;
     transition: transform 0.5s;
     backface-visibility: hidden;
+
+    @mixin desktop {
+        /* Remove translate3d(0px, 0px, 0px) set by mobile menu plugin
+            that interferes with fixed positioning on desktop */
+        transform: none !important;
+    }
 }
 
 .section.container {

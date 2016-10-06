@@ -16,8 +16,8 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             is_page('quick-move-in-homes') ||
             is_page('model-homes')) {
             $this->data = $this->neighborhoods();
-        } elseif (is_page('contact-us-ask-a-question')) {
-            $this->data = $this->contactus();
+        } elseif (is_page('ask-a-question')) {
+            $this->data = $this->askAQuestion();
         }
     }
 
@@ -92,7 +92,7 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
         );
     }
 
-    public function contactus()
+    public function askAQuestion()
     {
         global $post;
 
@@ -103,8 +103,12 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             ),
             array(
                 'title' => 'Contact Us',
-                'link' => '#',
+                'link' => get_permalink($post),
                 'class' => 'icon icon-contact-us'
+            ),
+            array(
+                'title' => $post->post_title,
+                'link' => get_permalink($post)
             )
         );
     }

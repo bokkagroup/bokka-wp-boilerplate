@@ -43,3 +43,26 @@
         }
     }
 }
+
+/* Modal forms */
+.fancybox-wrap {
+    .gform_fields {
+        textarea {
+            max-height: 150px;
+        }
+
+        @mixin tablet {
+            .first-name,
+            .last-name {
+                display: inline-block;
+                margin-right: 10px;
+                width: calc(50% - 10px);
+            }
+
+            .last-name {
+                margin-right: 0;
+                margin-left: 10px;
+            }
+        }
+    }
+}

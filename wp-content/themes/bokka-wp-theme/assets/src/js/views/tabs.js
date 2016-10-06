@@ -13,25 +13,31 @@ module.exports = Backbone.View.extend({
         var imageCount = this.images.length
         var loadedImages = 0
 
-        //broload images before resize
-        this.$el.find('img').on('load', function() {
-            if( loadedImages === (imageCount - 1)){
-                self.render()
-            } else {
-                loadedImages++
-            }
+        if (navigator.userAgent.indexOf('MSIE 10.0') > -1) {
+            this.images.each(function () {
+                $(this).attr('src', this.src + '?' + new Date().getTime());
+            });
+        }
 
-        //resize for cached images too!
-        }).each(function() {
-            if(this.complete) {
+        //broload images before resize
+        this.images
+            .on('load', function() {
                 if( loadedImages === (imageCount - 1)){
                     self.render()
                 } else {
                     loadedImages++
                 }
-            }
-
-        })
+            })
+            //resize for cached images too!
+            .each(function() {
+                if(this.complete) {
+                    if( loadedImages === (imageCount - 1)){
+                        self.render()
+                    } else {
+                        loadedImages++
+                    }
+                }
+            })
     },
     render : function(){
         var self = this

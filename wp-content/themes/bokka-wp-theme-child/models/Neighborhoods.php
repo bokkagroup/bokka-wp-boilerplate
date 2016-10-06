@@ -71,13 +71,21 @@ class Neighborhoods extends \BokkaWP\MVC\Model
 
         $mason_items = get_field('gallery_items', $post->ID);
 
-        $post->gallery_items = array_map(function ($item) {
-            if ($item['type'] === 'image') {
-                $item['image'] =  wp_get_attachment_image_src($item['image'], 'medium')[0];
-                return $item;
-            }
-        }, $mason_items);
-
+        if (isset($mason_items) && is_array($mason_items)) {
+		$post->gallery_items = array_map(function ($item) {
+            		if ($item['type'] === 'image') {
+                	$item['caption'] = get_the_excerpt($item['image']);
+                	$item['image'] =  wp_get_attachment_image_src($item['image'], 'medium')[0];
+                	return $item;
+            	}
+            	if ($item['type'] === 'video') {
+                	$item['video'] = true;
+                	$item['embed_url'] = get_video_embed_url($item['video_url']);
+                	$item['thumbnail'] =  wp_get_attachment_image_src($item['thumbnail'], 'medium')[0];
+                	return $item;
+            	}
+        	}, $mason_items);
+	}
 
         //forms
         $post->request_info_form = gravity_form(6, false, false, false, null, $ajax = true, 0, false);

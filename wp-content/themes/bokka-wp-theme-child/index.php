@@ -11,7 +11,7 @@ do_action('bwt\before_content'); ?>
             new \BokkaWP\Theme\controllers\HomeController();
         } elseif (is_page(181)) {
             new \BokkaWP\Theme\controllers\StyleguideController();
-        } elseif (is_page('contact-us-ask-a-question')) {
+        } elseif (is_page('ask-a-question')) {
             new \BokkaWP\Theme\controllers\ContactUsController();
         } elseif (is_singular('communities')) {
             new \BokkaWP\Theme\controllers\NeighborhoodsController();

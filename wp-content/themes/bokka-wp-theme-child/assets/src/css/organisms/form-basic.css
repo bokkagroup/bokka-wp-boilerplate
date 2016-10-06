@@ -30,6 +30,10 @@
                 margin: 10px 0 15px;
                 left: 0;
             }
+
+            &.gfield_error .gfield_label {
+                top: 0;
+            }
         }
 
         .neighborhood-list {

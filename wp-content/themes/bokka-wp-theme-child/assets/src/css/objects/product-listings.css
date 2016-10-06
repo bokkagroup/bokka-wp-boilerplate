@@ -1,14 +1,4 @@
 .neighborhood-overview {
-    .product-listings-container {
-        @mixin tablet {
-            max-width: 100%;
-        }
-
-        @mixin desktop {
-            @mixin container;
-        }
-    }
-
     .listings-wrap {
         background-color: #fff;
         height: calc(100% - 67px);
@@ -73,6 +63,12 @@
 
         @mixin desktop-large max {
             @mixin override-listings-container;
+        }
+
+        @mixin desktop-large {
+            @mixin container;
+
+            max-width: 1160px;
         }
     }
 
@@ -236,12 +232,6 @@
                 padding: 0;
             }
 
-            &:not(:nth-child(2)) {
-                @mixin desktop max {
-                    display: none !important;
-                }
-            }
-
             & > ul {
                 padding-top: 30px;
 
@@ -289,6 +279,33 @@
                     color: $white;
                     margin: 0;
                     padding: 0;
+                }
+            }
+        }
+
+        .item-group {
+            width: 100%;
+
+            & > ul {
+                @mixin tablet {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                @mixin desktop {
+                    display: block;
+                }
+            }
+
+            .item {
+                &::after {
+                    @mixin tablet {
+                        border-bottom: none;
+                    }
+
+                    @mixin desktop {
+                        border-bottom: 2px solid #9b9b9b;
+                    }
                 }
             }
         }
@@ -446,6 +463,7 @@
         text-align: center;
 
         .button {
+            display: none;
             margin-top: 0;
             margin-left: auto;
             margin-right: auto;
@@ -460,6 +478,66 @@
 
         @mixin desktop {
             display: none;
+        }
+    }
+}
+
+/* Show/hide tab bodies based on page body slug */
+@mixin desktop max {
+    .page-our-neighborhoods {
+        .neighborhood-overview {
+            .tab-header-our-neighborhoods,
+            .tab-body-our-neighborhoods {
+                display: block !important;
+            }
+
+            .product-tab-header:not(.tab-header-our-neighborhoods),
+            .tab-body:not(.tab-body-our-neighborhoods) {
+                display: none !important;
+            }
+
+            .see-models,
+            .see-qmi {
+                display: block;
+            }
+        }
+    }
+
+    .page-quick-move-in-homes {
+        .neighborhood-overview {
+            .tab-header-quick-move-in-homes,
+            .tab-body-quick-move-in-homes {
+                display: block !important;
+            }
+
+            .product-tab-header:not(.tab-header-quick-move-in-homes),
+            .tab-body:not(.tab-body-quick-move-in-homes) {
+                display: none !important;
+            }
+
+            .see-neighborhoods,
+            .see-models {
+                display: block;
+            }
+        }
+    }
+
+    .page-model-homes {
+        .neighborhood-overview {
+            .tab-header-model-homes,
+            .tab-body-model-homes {
+                display: block !important;
+            }
+
+            .product-tab-header:not(.tab-header-model-homes),
+            .tab-body:not(.tab-body-model-homes) {
+                display: none !important;
+            }
+
+            .see-neighborhoods,
+            .see-qmi {
+                display: block;
+            }
         }
     }
 }

@@ -9,7 +9,9 @@ module.exports = Backbone.View.extend({
         self.initializeWatcher();
 
         $(window).on('resize', function(){
-            if (bokka.breakpoint.value != 'desktop') {
+            if (bokka.breakpoint.value == 'desktop') {
+                self.initializeWatcher();
+            } else {
                 self.destroyWatcher();
             }
         });
@@ -47,25 +49,27 @@ module.exports = Backbone.View.extend({
     initializeWatcher: function() {
         var self = this;
 
-        var scrollMonitor = require("../../vendor/scrollMonitor") // if you're not using require, you can use the scrollMonitor global.
-        self.elementWatcher = scrollMonitor.create(this.$el, { top: ($('.tab-header-wrap').innerHeight() + 180), bottom: ($(window).height() / 2) });
+        if (bokka.breakpoint.value == 'desktop') {
+            var scrollMonitor = require("../../vendor/scrollMonitor") // if you're not using require, you can use the scrollMonitor global.
+            self.elementWatcher = scrollMonitor.create(this.$el, { top: ($('.tab-header-wrap').innerHeight() + 180), bottom: ($(window).height() / 2) });
 
-        self.elementWatcher.fullyEnterViewport(function() {
-            if (self.$el.is(':visible')) {
-                if (self.marker) {
-                    $('.item.visible').removeClass('visible')
-                    self.$el.addClass("visible");
-                    self.parent.map.setZoom(10)
-                    self.parent.setCenter(self.marker.getPosition(), -350, -75)
-                    self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, false);
+            self.elementWatcher.fullyEnterViewport(function() {
+                if (self.$el.is(':visible')) {
+                    if (self.marker) {
+                        $('.item.visible').removeClass('visible')
+                        self.$el.addClass("visible");
+                        self.parent.map.setZoom(10)
+                        self.parent.setCenter(self.marker.getPosition(), -350, -75)
+                        self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, false);
+                    }
                 }
-            }
-        });
-        self.elementWatcher.exitViewport(function() {
-            if (self.marker) {
-                self.parent.closeInfoWindow(self.index);
-            }
-        });
+            });
+            self.elementWatcher.exitViewport(function() {
+                if (self.marker) {
+                    self.parent.closeInfoWindow(self.index);
+                }
+            });
+        }
     },
     destroyWatcher: function () {
         var self = this;

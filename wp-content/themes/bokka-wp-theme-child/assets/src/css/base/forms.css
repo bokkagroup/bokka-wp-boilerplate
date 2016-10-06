@@ -30,6 +30,7 @@
         margin: 5px;
         font-family: 'Open Sans';
         color: $gray_medium2;
+        z-index: 1;
     }
 
     .ginput_container {
@@ -97,6 +98,10 @@
             padding-right: 50px;
             background: none;
             z-index: 1;
+
+            &::-ms-expand {
+                display: none;
+            }
         }
 
         &::after {

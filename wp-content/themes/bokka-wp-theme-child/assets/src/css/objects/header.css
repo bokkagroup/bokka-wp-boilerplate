@@ -16,8 +16,8 @@
 
     div.container {
         padding: 10px;
+        justify-content: space-between;
         align-items: center;
-        justify-content: center;
 
         @mixin desktop-large {
             padding: 15px 0;

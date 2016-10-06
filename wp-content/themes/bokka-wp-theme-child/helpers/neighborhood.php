@@ -76,7 +76,7 @@ function neighborhoodOverviewData()
         )
     );
 
-    apply_filters( 'bokkamvc_filter_before_render', $products);
+    apply_filters('bokkamvc_filter_before_render', $products);
 
     $neighborhoods = array();
     $models = array();

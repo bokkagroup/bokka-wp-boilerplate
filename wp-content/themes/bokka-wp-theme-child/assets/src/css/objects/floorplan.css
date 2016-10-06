@@ -1,5 +1,10 @@
 .feature-bar {
     background: #f7f7f7;
+    padding-top: 20px;
+
+    @mixin desktop {
+        padding-top: 0;
+    }
 
     @media only screen and (max-width: 904px) {
         padding-right: 2%;
@@ -10,12 +15,15 @@
 .feature-bar-wrapper {
     margin: 0 auto;
     width: 1048px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 15px;
+
+    @mixin desktop {
+        padding: 10px 0;
+    }
 }
 
 .feature-bar-title {
-    padding: 20px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.7);
 
     h2 {
@@ -25,6 +33,10 @@
         font-size: 20px;
         text-transform: uppercase;
         letter-spacing: 1.3px;
+    }
+
+    @mixin tablet {
+        padding: 20px;
     }
 }
 
@@ -62,14 +74,19 @@
 .feature-bar-image {
     margin-right: 15px;
     border-radius: 50%;
-    height: 130px;
-    width: 130px;
+    height: 110px;
+    width: 110px;
 
     img {
         height: 100%;
         width: 100%;
         object-fit: cover;
         object-position: center center;
+    }
+
+    @mixin desktop {
+        height: 130px;
+        width: 130px;
     }
 }
 
@@ -85,8 +102,15 @@
     p {
         font-family: 'Merriweather';
         color: $black;
-        font-size: 16px;
-        line-height: 26px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    @mixin desktop {
+        p {
+            font-size: 16px;
+            line-height: 26px;
+        }
     }
 }
 

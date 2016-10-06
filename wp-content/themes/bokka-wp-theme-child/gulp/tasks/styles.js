@@ -19,7 +19,7 @@ var livereload      = require("gulp-livereload")
 
 gulp.task('style-lint', function () {
 
-    return gulp.src(['assets/src/css/**/*.css', '!assets/src/css/utility/reset.css', '!assets/src/css/vendor/*.css'])
+    return gulp.src(['assets/src/css/**/*.css', '!assets/src/css/utility/reset.css', '!assets/src/css/vendor/*.css', '!assets/src/css/base/sprite.css'])
         .pipe( postcss([
             // See .stylelintrc for configuration options
             require('stylelint'),

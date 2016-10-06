@@ -1,41 +1,67 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
 
-.sprite {
-    background-image: url('../images/sprite.png');
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .sprite {
-        background-image: url('../images/sprite@2x.png');
-        background-size: 247px 407px;
-    }
+// HTML
+<i class="icon icon-home"></i>
+*/.sprite-bcn-logo-mobile {
+  background-image: url(../images/sprite.png);
+  background-position: -72px -136px;
+  width: 51px;
+  height: 59px;
+}.sprite-bcn-logo {
+  background-image: url(../images/sprite.png);
+  background-position: -228px 0px;
+  width: 245px;
+  height: 80px;
+}.sprite-breadcrumb-seperator {
+  background-image: url(../images/sprite.png);
+  background-position: -228px -80px;
+  width: 18px;
+  height: 40px;
+}.sprite-email-signup-icon {
+  background-image: url(../images/sprite.png);
+  background-position: 0px -136px;
+  width: 72px;
+  height: 72px;
+}.sprite-the-lakes {
+  background-image: url(../images/sprite.png);
+  background-position: 0px 0px;
+  width: 228px;
+  height: 136px;
 }
 
-.sprite-breadcrumb_seperator {
-    background-position: -0 -0;
-    width: 22px;
-    height: 44px;
-}
-
-.sprite-bcn-logo-mobile {
-    background-position: -0 -44px;
-    width: 55px;
-    height: 63px;
-}
-
-.sprite-email-signup-icon {
-    background-position: -0 -107px;
-    width: 76px;
-    height: 76px;
-}
-
-.sprite-bcn-logo {
-    background-position: -0 -183px;
-    width: 247px;
-    height: 84px;
-}
-
-.sprite-TheLakes {
-    background-position: -0 -267px;
-    width: 232px;
-    height: 140px;
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+ .sprite-bcn-logo-mobile {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 208px;
+  }
+ .sprite-bcn-logo {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 208px;
+  }
+ .sprite-breadcrumb-seperator {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 208px;
+  }
+ .sprite-email-signup-icon {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 208px;
+  }
+ .sprite-the-lakes {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 208px;
+  }
 }

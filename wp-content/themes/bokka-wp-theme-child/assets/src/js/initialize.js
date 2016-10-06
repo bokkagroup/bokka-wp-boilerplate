@@ -35,6 +35,7 @@ jQuery( document ).ready(function( $ ) {
     $(".fancybox-class").fancybox();
     $(".modal-trigger").fancybox({
         autoSize: false,
+        height: 'auto',
         maxWidth: '85%',
         maxHeight: '90%',
         helpers: {
@@ -55,6 +56,8 @@ jQuery( document ).ready(function( $ ) {
         }, 250)
     })
 
+    // Add "What's this?" link to VIP signup Gravity Form label
+    $('.vip-list-signup .ginput_container > ul > li label').append('&nbsp;<span><a href="#email-signup-modal" data-modal="email-signup" class="modal-trigger">what\'s this?</a></span>');
 
     //Initialize tooltips
     $('.tooltip').tipr();
@@ -124,13 +127,15 @@ jQuery( document ).ready(function( $ ) {
      * Open external links in new tab
      */
     $('a').each(function() {
-        var a = new RegExp('/' + window.location.host + '/');
-        if(!a.test(this.href)) {
-            $(this).click(function(event) {
-                event.preventDefault();
+        if (!$(this).hasClass('fancybox-masonry')) {
+            var a = new RegExp('/' + window.location.host + '/');
+            if(!a.test(this.href)) {
+                $(this).click(function(event) {
+                    event.preventDefault();
 
-                window.open(this.href, '_blank');
-            });
+                    window.open(this.href, '_blank');
+                });
+            }
         }
     });
 

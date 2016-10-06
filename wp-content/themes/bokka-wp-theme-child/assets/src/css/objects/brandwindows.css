@@ -198,6 +198,7 @@
 
     .image-gallery-caption {
         padding: 1% 4%;
+        padding-right: 110px;
         background: #559cbe;
         color: white;
         font-size: 16px;
@@ -207,6 +208,10 @@
         width: 99.9%;
         position: absolute;
         bottom: 0;
+
+        @mixin tablet {
+            padding-right: 4%;
+        }
     }
 
     .plan-amenities {

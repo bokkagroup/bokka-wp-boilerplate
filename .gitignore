@@ -56,7 +56,7 @@ wp-content/backups/
 ######################
 .DS_Store*
 ehthumbs.db
-Icon?
+# Icon?
 Thumbs.db
 ._*
 

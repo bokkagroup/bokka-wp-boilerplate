@@ -2,7 +2,7 @@
     <div class="tab-header-wrap">
         <div class="tab-header">
             {{#each tabs}}
-            <div class="product-tab-header">
+            <div class="product-tab-header {{#if class}}tab-header-{{class}}{{/if}}">
                 <h2>{{title}}</h2>
                 <p>{{copy}}</p>
             </div>
@@ -18,7 +18,7 @@
     </div>
     <ul class="product-tab-bodies">
         {{#each tabs}}
-            <li class="tab-body">
+            <li class="tab-body {{#if class}}tab-body-{{class}}{{/if}}">
                 {{!--- THIS IS FOR NEIGHBORHOODS--}}
                 {{#if products}}
                     <ul>
@@ -31,7 +31,7 @@
                 {{#if neighborhoods}}
                     <ul>
                         {{#each neighborhoods}}
-                            <li>
+                            <li class="item-group">
                                 <h3><span>{{title}}</span></h3>
                                 <ul>
                                     {{#each products}}
@@ -46,7 +46,8 @@
         {{/each}}
     </ul>
     <div class="more">
-        <a href="/our-homes/view-homes/" class="button purple">See Quick Move-ins</a>
-        <a href="/our-homes/view-model-homes/" class="button purple">See Model Homes</a>
+        <a href="/our-homes/model-homes/" class="button purple see-models">See Model Homes</a>
+        <a href="/our-neighborhoods" class="button purple see-neighborhoods">Our Neighborhoods</a>
+        <a href="/our-homes/quick-move-in-homes/" class="button purple see-qmi">See Quick Move-ins</a>
     </div>
 </div><!--/listings-wrapper-->

@@ -26,7 +26,7 @@
                                     <i class="icon icon-beds"></i>
                                     <span>
                                         {{bedrooms_min}}
-                                        {{#if bedroom_max}}
+                                        {{#if bedrooms_max}}
                                             &ndash; {{bedrooms_max}}
                                         {{/if}}
                                     </span>Bedrooms
@@ -58,7 +58,7 @@
                                 <li>
                                     <i class="icon icon-sq-ft-total"></i>Starts at &nbsp;
                                     <span> {{finished_sqr_ft}} sq. ft</span>
-                                    <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
+                                    <div class="tooltip icon icon-help" data-tip="Square footage varies based on floorplan options selected."></div>
                                 </li>
                             {{/if}}
                             {{#if main_sqr_ft}}
@@ -68,7 +68,8 @@
                                 </li>
                             {{/if}}
                             {{#if base_price}}
-                                <li><i class="icon icon-price"></i><span>Priced From </span> ${{base_price}}k
+                                <li><i class="icon icon-price"></i>Priced From &nbsp;
+                                    <span> ${{base_price}}k</span> 
                                     <div class="tooltip icon icon-help" data-tip="Price does not include land and varies depending on options selected."></div>
                                 </li>
                             {{/if}}

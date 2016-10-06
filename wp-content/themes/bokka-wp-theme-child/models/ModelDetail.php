@@ -7,7 +7,7 @@ class ModelDetail extends \BokkaWP\MVC\Model
     {
         global $post;
         $post->neighborhood = get_post($post->neighborhood);
-        $post->neighborhood->link = get_the_permalink($post->neiborhood);
+        $post->neighborhood->link = get_the_permalink($post->neighborhood);
         $post->neighborhood->title = get_the_title($post->neighborhood);
         $form = gravity_form(2, false, false, false, null, $ajax = true, 0, false);
         $post->brand_window_form = array('modal_content'=> $form);

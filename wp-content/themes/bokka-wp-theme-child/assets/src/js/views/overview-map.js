@@ -25,20 +25,13 @@ var LayoutView = Backbone.View.extend({
 
         this.render();
         this.createInfobox();
+        this.emulateClick();
 
         // Check if user has scrolled the page
         var bodyWatcher = scrollMonitor.create($('body'));
         bodyWatcher.partiallyExitViewport(function () {
             self.scrolled = true;
         });
-
-        // Trigger click on tabs based on page slug
-        if (window.location.href.indexOf('model-homes') > -1) {
-            self.$el.find('.tab.model-homes a').trigger('click');
-        }
-        if (window.location.href.indexOf('quick-move-in-homes') > -1) {
-            self.$el.find('.tab.quick-move-in-homes a').trigger('click');
-        }
     },
     styles : require('../config/mapStyles'),
     render : function(){
@@ -129,11 +122,13 @@ var LayoutView = Backbone.View.extend({
     },
     setFixedPosition: function(){
         var self = this
-        var elementWatcher = scrollMonitor.create($('.breadcrumb-outer-wrapper, .header'), 30);
+        
+        if (bokka.breakpoint.value == 'desktop') {
 
-        if (bokka.breakpoint.value !== 'mobile' && bokka.breakpoint.value !== 'tablet') {
-            elementWatcher.enterViewport(function() {
-                self.$el.find('.map-wrap, .product-listings-container').removeClass('fixed');
+            self.elementWatcher = scrollMonitor.create($('.breadcrumb-outer-wrapper, .header'), 30);
+
+            self.elementWatcher.enterViewport(function() {
+                self.$el.find('.product-listings-container').removeClass('fixed');
                 
                 // Return map to original state
                 if (self.scrolled) {            
@@ -142,11 +137,19 @@ var LayoutView = Backbone.View.extend({
                     self.setCenter(self.map.getCenter(), -350, -105);
                 }
             });
-            elementWatcher.exitViewport(function() {
-                self.$el.find('.map-wrap, .product-listings-container').addClass('fixed');
+            self.elementWatcher.exitViewport(function() {
+                self.$el.find('.product-listings-container').addClass('fixed');
             });
         } else {
-            elementWatcher.destroy();
+            self.destroyWatcher();
+            self.$el.find('.product-listings-container').removeClass('fixed');
+        }
+    },
+    destroyWatcher: function () {
+        var self = this;
+
+        if (self.elementWatcher) {
+            self.elementWatcher.destroy();
         }
     },
     setCenter: function(coordinates, offsetx, offsety){
@@ -173,6 +176,10 @@ var LayoutView = Backbone.View.extend({
         if (bokka.breakpoint.value == 'desktop') {
             var height = this.$el.find('.tab-body').eq(this.current).innerHeight();
             this.$el.find('.product-tab-bodies').height(height);
+
+            if (this.$el.find('.tab-body').not(':eq(' + this.current + ')')) {
+                this.$el.find('.tab-body').not(':eq(' + this.current + ')').hide();
+            }
         } else {          
             self.tabs.each(function() {
                 $(this).fadeIn();
@@ -196,6 +203,19 @@ var LayoutView = Backbone.View.extend({
         $(nextTabHeader).fadeIn();
         $(prevTab).fadeOut();
         $(prevTabHeader).fadeOut();
+    },
+    emulateClick: function () {
+        var self = this;
+
+        if (window.location.href.indexOf('our-neighborhoods') > -1) {
+            self.$el.find('.tab.our-neighborhoods a').trigger('click');
+        }
+        if (window.location.href.indexOf('model-homes') > -1) {
+            self.$el.find('.tab.model-homes a').trigger('click');
+        }
+        if (window.location.href.indexOf('quick-move-in-homes') > -1) {
+            self.$el.find('.tab.quick-move-in-homes a').trigger('click');
+        }
     },
     handleClick: function (event) {
         var self = this;
