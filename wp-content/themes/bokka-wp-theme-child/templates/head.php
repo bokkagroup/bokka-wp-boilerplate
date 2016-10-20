@@ -20,6 +20,16 @@
 
 		<?php do_action('wp_head'); ?>
 
+        <!-- BugHerd feedback -->
+        <script type='text/javascript'>
+        (function (d, t) {
+          var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          bh.type = 'text/javascript';
+          bh.src = 'https://www.bugherd.com/sidebarv2.js?apikey=cxvx4zwdaisujxj5behrng';
+          s.parentNode.insertBefore(bh, s);
+          })(document, 'script');
+        </script>
+        <!-- BugHerd feedback -->
 	</head>
 	<body <?php body_class(); ?>>
 		<div id="site-wrapper" class="site-wrapper">
