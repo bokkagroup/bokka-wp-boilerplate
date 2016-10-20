@@ -443,10 +443,12 @@ Desktop Styles
                 @mixin column 1,4;
                 @mixin cycle 2;
 
+                height: 50%;
                 margin-bottom: 15px;
 
                 &.our-neighborhoods {
                     display: flex;
+                    height: 100%;
 
                     @mixin column 3,4;
 
@@ -487,6 +489,11 @@ Desktop Styles
 
                 &:nth-child(6) {
                     margin-right: 0;
+                }
+
+                &:last-child {
+                    margin-left: auto;
+                    margin-top: -145px;
                 }
             }
         }

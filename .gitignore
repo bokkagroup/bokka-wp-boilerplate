@@ -72,6 +72,7 @@ Thumbs.db
 ##########
 .sass-cache
 node_modules
+.css.map
 
 # large/disallowed file types
 # a CDN should be used for these

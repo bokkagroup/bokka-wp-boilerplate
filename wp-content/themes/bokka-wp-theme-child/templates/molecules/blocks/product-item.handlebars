@@ -8,10 +8,13 @@
             {{/if}}
             <div class="overlay"></div>
         </div>
-        {{#if price}}
-            <div class="price">
-                ${{price}}
-            </div>
+        {{!-- only show price for QMIs --}}
+        {{#if ../home}}
+            {{#if price}}
+                <div class="price">
+                    ${{price}}
+                </div>
+            {{/if}}
         {{/if}}
         <div class="title">
             {{post_title}}
@@ -35,31 +38,39 @@
         </div>
         <div class="stats">
             <ul>
-                {{#if bedrooms_min}}
-                    <li>{{bedrooms_min}}
-                        {{#if bedroom_max}}
-                            &dash; {{bedrooms_max}}
-                        {{/if}}
-                        <div class="label">Beds</div>
-                    </li>
+                {{#unless ../home}}
+                    {{#if bedrooms_min}}
+                        <li>{{bedrooms_min}}
+                            {{#if bedroom_max}}
+                                &dash; {{bedrooms_max}}
+                            {{/if}}
+                            <div class="label">Beds</div>
+                        </li>
+                    {{/if}}
+                {{/unless}}
+                {{#if ../home}}
+                    {{#if bedrooms}}
+                        <li>{{bedrooms}}
+                            <div class="label">Beds</div>
+                        </li>
+                    {{/if}}
                 {{/if}}
-                {{#if bedrooms}}
-                    <li>{{bedrooms}}
-                        <div class="label">Beds</div>
-                    </li>
-                {{/if}}
-                {{#if bathrooms}}
-                    <li>{{bathrooms}}
-                        <div class="label">Baths</div>
-                    </li>
-                {{/if}}
-                {{#if bathrooms_min}}
-                    <li>{{bathrooms_min}}
-                        {{#if bathrooms_max}}
-                            &dash; {{bathrooms_max}}
-                        {{/if}}
-                        <div class="label">Baths</div>
-                    </li>
+                {{#unless ../home}}
+                    {{#if bathrooms_min}}
+                        <li>{{bathrooms_min}}
+                            {{#if bathrooms_max}}
+                                &dash; {{bathrooms_max}}
+                            {{/if}}
+                            <div class="label">Baths</div>
+                        </li>
+                    {{/if}}
+                {{/unless}}
+                {{#if ../home}}
+                    {{#if bathrooms}}
+                        <li>{{bathrooms}}
+                            <div class="label">Baths</div>
+                        </li>
+                    {{/if}}
                 {{/if}}
                 {{#if main_sqr_ft}}
                     <li>{{main_sqr_ft}}

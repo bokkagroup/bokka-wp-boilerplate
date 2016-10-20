@@ -67,7 +67,6 @@ add_action(
         foreach (glob(get_stylesheet_directory() . "/hooks/*.php") as $filename) {
             require_once($filename);
         }
-
     },
     1
 );

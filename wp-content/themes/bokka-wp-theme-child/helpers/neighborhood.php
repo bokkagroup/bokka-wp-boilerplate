@@ -19,36 +19,39 @@ function tabbedProductData($id)
 
     //plans
     $plans = get_posts(
-        array('post_type' => 'plans', 'meta_query' => $metaQuery, 'suppress_filters' => false)
+        array('posts_per_page' => 500, 'post_type' => 'plans', 'meta_query' => $metaQuery, 'suppress_filters' => false)
     );
 
     if (count($plans) > 0) {
         $data['tabs'][] = array(
             'title' => 'Floorplans',
+            'id' => 'floorplans',
             'types' => sortProductByType($plans)
         );
     }
 
     //homes (qmi)
     $homes = get_posts(
-        array('post_type' => 'home', 'meta_query' => $metaQuery, 'suppress_filters' => false)
+        array('posts_per_page' => 500, 'post_type' => 'home', 'meta_query' => $metaQuery, 'suppress_filters' => false)
     );
 
     if (count($homes) > 0) {
         $data['tabs'][] = array(
             'title' => 'Quick Move-In Homes',
+            'id' => 'qmi-homes',
             'types' => sortProductByType($homes)
         );
     }
 
     //models
     $models = get_posts(
-        array('post_type' => 'model', 'meta_query' => $metaQuery, 'suppress_filters' => false)
+        array('posts_per_page' => 500, 'post_type' => 'model', 'meta_query' => $metaQuery, 'suppress_filters' => false)
     );
     
     if (count($models) > 0) {
         $data['tabs'][] = array(
             'title' => 'Model Homes',
+            'id' => 'model-homes',
             'types' => sortProductByType($models)
         );
     }

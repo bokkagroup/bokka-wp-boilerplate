@@ -68,6 +68,11 @@
 @import 'objects/text';
 
 /* ------------------------------------ *\
+    Atoms
+\* ------------------------------------ */
+@import 'atoms/lists';
+
+/* ------------------------------------ *\
     Organism Styles
 \* ------------------------------------ */
 @import 'organisms/alternating-content';

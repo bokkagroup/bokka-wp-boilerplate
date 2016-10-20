@@ -164,6 +164,10 @@
         background-color: $purple_light;
 
         ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            line-height: normal;
             text-align: center;
         }
 
@@ -217,6 +221,10 @@
     }
 
     .product-tab-bodies {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+        line-height: normal;
         background-color: #fff;
         text-align: center;
 
@@ -233,6 +241,10 @@
             }
 
             & > ul {
+                list-style: none;
+                margin-bottom: 0;
+                padding-left: 0;
+                line-height: normal;
                 padding-top: 30px;
 
                 @mixin tablet {
@@ -287,6 +299,11 @@
             width: 100%;
 
             & > ul {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+                line-height: normal;
+
                 @mixin tablet {
                     display: flex;
                     flex-wrap: wrap;
@@ -354,6 +371,10 @@
                         margin: 0 auto;
                         height: auto;
                         max-width: 100%;
+                    }
+
+                    .fallback {
+                        height: 183px;
                     }
                 }
 

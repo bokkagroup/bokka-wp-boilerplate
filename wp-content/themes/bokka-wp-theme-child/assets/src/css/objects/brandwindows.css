@@ -110,6 +110,13 @@
         .body {
             padding: 5% 5% 5% 10%;
 
+            .plan-amenities {
+                list-style: none;
+                margin-bottom: 0;
+                padding: 0;
+                line-height: normal;
+            }
+
             .button {
                 display: block;
                 margin: 30px auto;
@@ -339,6 +346,7 @@
             letter-spacing: -1.2px;
             text-align: center;
             color: #fff;
+            margin: 15px 0 20px;
 
             @mixin desktop {
                 font-size: 56px;
@@ -448,7 +456,7 @@
         opacity: 0;
     }
 
-    & + .section .container {
+    & + .section:not(.contact-us-modules) .container {
         @mixin tablet {
             padding-top: 75px;
         }
@@ -534,6 +542,226 @@
                 font-size: 24px;
                 color: $white;
                 text-shadow: 1px 0 0 $black;
+            }
+        }
+    }
+}
+
+.section.brand-window-secondary {
+    margin-bottom: 60px;
+
+    .image {
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .text {
+        h1 {
+            color: #fff;
+            font-size: 46px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 15px;
+        }
+
+        p {
+            color: #fff;
+            font-family: 'Merriweather';
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 0 0 15px;
+        }
+    }
+
+    /* Begin overlay styles */
+
+    .container {
+        background-color: $blue;
+        position: relative;
+        max-width: none;
+        text-align: center;
+        width: 100%;
+    }
+
+    .image {
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+
+        /* Image overlay */
+        &::before {
+            content: '';
+            display: block;
+            background-color: $blue;
+            opacity: 0.85;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .text {
+        padding: 0 30px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto;
+
+        h1 {
+            margin: 0 0 25px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    /* End overlay styles */
+
+    &.layout-split {
+        margin-top: 45px;
+
+        @mixin desktop {
+            .container {
+                @mixin container;
+
+                background-color: transparent;
+                height: 375px;
+                display: flex;
+                align-items: center;
+            }
+
+            .image {
+                @mixin column 2,3;
+
+                height: 100%;
+                order: 2;
+                border-left: 12px solid #fff;
+
+                &::before {
+                    display: none;
+                }
+
+                figure {
+                    height: 100%;
+                }
+
+                img {
+                    object-fit: cover;
+                    object-position: 50% 50%;
+                    height: 100%;
+                }
+            }
+
+            .text {
+                @mixin column 1,3;
+
+                min-height: 100%;
+                position: relative;
+                left: initial;
+                right: initial;
+                top: initial;
+                transform: none;
+                max-width: none;
+                background-color: $blue;
+                order: 1;
+                padding: 0 15px;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                text-align: left;
+
+                h1 {
+                    font-size: 36px;
+                    text-shadow: none;
+                }
+
+                p {
+                    font-size: 16px;
+                    text-shadow: none;
+                }
+            }
+        }
+
+        @mixin desktop-large {
+            .text {
+                padding: 0 30px;
+
+                h1 {
+                    font-size: 46px;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    &.layout-overlay {
+        @mixin desktop {
+            height: auto;
+            max-height: 445px;
+
+            @mixin arrow $blue, 30px;
+
+            .image {
+                max-width: 1500px;
+
+                /* Bottom fade-out gradient */
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 45px;
+                    width: 100%;
+                    bottom: 0;
+                    position: absolute;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 1) 100%);
+                }
+
+                figure {
+                    width: 100%;
+
+                    &::before,
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 250px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                    }
+
+                    /* Left side fade-out gradient */
+                    &::before {
+                        left: -50px;
+
+                        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f7f9d+0,ffffff+100&1+0,0+100 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
+
+                        background: linear-gradient(to right, rgba(63, 127, 157, 1) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
+                    }
+
+                    /* Right side fade-out gradient */
+                    &::after {
+                        right: -50px;
+                        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(63, 127, 157, 1) 100%);
+                    }
+                }
             }
         }
     }

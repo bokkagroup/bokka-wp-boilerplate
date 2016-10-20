@@ -2,14 +2,23 @@
     background: $purple;
 
     .container {
-        padding: 60px;
+        padding: 60px 30px;
         align-items: center;
         display: flex;
         justify-content: center;
+
+        @mixin desktop {
+            padding: 60px;
+        }
     }
 
     .osc {
-        margin-right: 30px;
+        margin: 0 0 15px;
+
+        @mixin desktop {
+            margin-right: 30px;
+            margin-bottom: 0;
+        }
     }
 
     .text {

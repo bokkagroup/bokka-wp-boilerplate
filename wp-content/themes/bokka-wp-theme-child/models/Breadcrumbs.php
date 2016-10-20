@@ -6,18 +6,22 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
 {
     public function initialize()
     {
-        if (is_singular(array('plans')) ||
-            is_singular(array('model'))) {
-            $this->data = $this->plansAndModels();
+        if (is_singular(array('plans'))) {
+            $this->data = $this->floorplans();
+        } elseif (is_singular(array('model'))) {
+            $this->data = $this->modelHomes();
         } elseif (is_singular(array('home'))) {
             $this->data = $this->homes();
-        } elseif (is_singular(array('communities')) ||
-            is_page('our-neighborhoods') ||
+        } elseif (is_page('our-neighborhoods') ||
             is_page('quick-move-in-homes') ||
             is_page('model-homes')) {
+            $this->data = $this->neighborhoodOverview();
+        } elseif (is_singular(array('communities'))) {
             $this->data = $this->neighborhoods();
         } elseif (is_page('ask-a-question')) {
             $this->data = $this->askAQuestion();
+        } else {
+            $this->data = $this->singlePage();
         }
     }
 
@@ -25,7 +29,24 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
      * Generates an array of links and their title
      * @return array
      */
-    public function plansAndModels()
+    public function singlePage()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => get_the_title($post),
+                'link' => get_permalink($post)
+            )
+        );
+    }
+    
+    /* Floorplans */
+    public function floorplans()
     {
         global $post;
         $obj = get_post_type_object(get_post_type($post));
@@ -42,6 +63,10 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
                 'class' => 'icon icon-our-neighborhoods'
             ),
             array(
+                'title' => 'Floorplans',
+                'link' => get_permalink($post->neighborhood) . "#tab-floorplans"
+            ),
+            array(
                 'title' => $post->post_title .' '. $postfix,
                 'link' => '#',
                 'class' => 'icon icon-our-homes'
@@ -49,6 +74,36 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
         );
     }
 
+    /* Model Homes */
+    public function modelHomes()
+    {
+        global $post;
+        $obj = get_post_type_object(get_post_type($post));
+        $postfix = $obj->labels->singular_name;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => get_the_title($post->neighborhood),
+                'link' => get_permalink($post->neighborhood),
+                'class' => 'icon icon-our-neighborhoods'
+            ),
+            array(
+                'title' => 'Model Homes',
+                'link' => get_permalink($post->neighborhood) . "#tab-model-homes"
+            ),
+            array(
+                'title' => $post->post_title .' '. $postfix,
+                'link' => '#',
+                'class' => 'icon icon-our-homes'
+            )
+        );
+    }
+
+    /* Quick Move-in Homes */
     public function homes()
     {
         global $post;
@@ -65,12 +120,29 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             ),
             array(
                 'title' => 'Quick Move-In Homes',
-                'link' => get_the_title($post->neighborhood)."/#quick-move-in"
+                'link' => get_permalink($post->neighborhood) . "#tab-qmi-homes"
             ),
             array(
                 'title' => $post->post_title,
                 'link' => '#',
                 'class' => 'icon icon-our-homes'
+            )
+        );
+    }
+
+    public function neighborhoodOverview()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => get_the_title($post->neighborhood),
+                'link' => get_permalink($post->neighborhood),
+                'class' => 'icon icon-our-neighborhoods'
             )
         );
     }
@@ -83,6 +155,11 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             array(
                 'title' => 'Home',
                 'link' => '/'
+            ),
+            array(
+                'title' => 'Our Neighborhoods',
+                'link' => '/our-neighborhoods',
+                'class' => 'icon icon-our-neighborhoods'
             ),
             array(
                 'title' => get_the_title($post->neighborhood),

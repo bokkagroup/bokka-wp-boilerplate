@@ -27,6 +27,8 @@ do_action('bwt\before_content'); ?>
             new \BokkaWP\Theme\controllers\QuickMoveInHomesController();
         } elseif (is_page('model-homes')) {
             new \BokkaWP\Theme\controllers\ModelHomesController();
+        } elseif (is_page()) {
+            new \BokkaWP\Theme\controllers\OrganismsController();
         } elseif (is_tax()) {
         } elseif (is_archive()) {
         } elseif (is_single()) {

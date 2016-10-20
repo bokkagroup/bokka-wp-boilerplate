@@ -14,7 +14,7 @@ class Homes extends \BokkaWP\MVC\Model
 
         $form = gravity_form(2, false, false, false, null, $ajax = true, 0, false);
         $post->brand_window_form = $form;
-        $post->tabs = get_field('tabs', $post->floorplan);
+        $post->tabs = get_field('tabs');
         $post->map = array(
             'address_1' => $post->address_1,
             'address_2' => $post->address_2,
@@ -34,6 +34,5 @@ class Homes extends \BokkaWP\MVC\Model
         $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->osc_form = $form;
         $this->data = $post;
-
     }
 }

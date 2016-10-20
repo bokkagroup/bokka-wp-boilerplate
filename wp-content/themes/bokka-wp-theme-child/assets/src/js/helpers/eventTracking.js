@@ -260,13 +260,33 @@ $('.section').each(function(){
  * Virtual Page Views for Gravity forms
  */
 $(document).on("gform_confirmation_loaded", function(event, formId){
-    var page = ''
-    if(formId === 1){
-        page = '/get-updates/thank-you'
+    var page = '';
+    var body = $('body');
+
+    if (formId === 1 && body.hasClass('home')){
+        page = '/thank-you/homepage/get-updates'
+    } else if (formId === 1){
+        page = '/thank-you/get-updates'
+    } else if(formId === 2 && body.hasClass('single-plans')){
+        page = '/thank-you/floorplan-detail-page/get-more-info'
+    } else if(formId === 2 && body.hasClass('single-model')){
+        page = '/thank-you/model-detail-page/get-more-info'
+    } else if(formId === 2 && body.hasClass('single-home')){
+        page = '/thank-you/QMI-detail-page/get-more-info'
     } else if(formId === 2){
-        page = '/floorplan-get-more-info/thank-you'
+        page = '/thank-you/get-more-info'
+    } else if(formId === 3 && body.hasClass('single-plans')){
+        page = '/thank-you/floorplan-detail-page/coming-soon-get-updates'
+    } else if(formId === 3 && body.hasClass('single-model')){
+        page = '/thank-you/model-detail-page/coming-soon-get-updates'
+    } else if(formId === 3 && body.hasClass('single-home')){
+        page = '/thank-you/QMI-detail-page/coming-soon-get-updates'
     } else if(formId === 3){
-        page = '/coming-soon-get-updates/thank-you'
+        page = '/thank-you/coming-soon-get-updates'
+    } else if(formId === 6){
+        page = '/thank-you/neighborhood-detail-page/request-info'
+    } else if(formId === 9){
+        page = '/thank-you/contact-us-page/ask-a-question'
     }
     ga('send', { hitType: 'pageview', page: page })
 })

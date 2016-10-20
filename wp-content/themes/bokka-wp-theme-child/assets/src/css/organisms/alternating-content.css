@@ -36,8 +36,12 @@
         .image {
             @mixin column 1, 1;
 
+            margin-bottom: 30px;
+
             @mixin desktop {
                 @mixin column 3,5;
+
+                margin-bottom: 0;
             }
 
             img {
@@ -48,7 +52,7 @@
         &:nth-child(odd) {
             background: $white;
 
-            @mixin arrow $white, 26 px;
+            @mixin arrow $white, 26px;
 
             .text {
                 order: 1;
@@ -74,7 +78,7 @@
         &:nth-child(even) {
             background: $blue_light;
 
-            @mixin arrow $blue_light, 26 px;
+            @mixin arrow $blue_light, 26px;
 
             .text {
                 order: 2;

@@ -18,9 +18,11 @@ function getProductType($post_id)
 function getProductPrice($post)
 {
     $price = 0;
-    if (isset($post->price)) {
+    $post_type = get_post_type($post);
+    if ($post_type !== 'plans' && isset($post->price)) {
         $price = $post->price;
     } elseif (isset($post->base_price)) {
+        // Floorplans use base price
         $price = $post->base_price;
     }
     return $price;

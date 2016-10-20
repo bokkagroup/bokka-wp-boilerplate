@@ -10,4 +10,4 @@
 
 var gulp = require('gulp')
 
-gulp.task('build', ['css', 'copyfonts', 'image', 'phpcs', 'phplint', 'build-webpack'])
+gulp.task('build', ['sprites', 'css', 'copyfonts', 'image', 'phpcs', 'phplint', 'build-webpack'])

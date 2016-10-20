@@ -13,11 +13,4 @@ jQuery( document ).ready(function( $ ) {
             new Slider({el: $(this)})
         })
     }
-
-    if($('.tabs').length > 0) {
-        var Tabs = require('./views/tabs.js')
-        $('.tabs').each(function () {
-            new Tabs({el: $(this)})
-        })
-    }
 });

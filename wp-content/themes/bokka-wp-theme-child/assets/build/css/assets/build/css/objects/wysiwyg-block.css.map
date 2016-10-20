@@ -1,0 +1,1 @@
+{"version":3,"sources":["wysiwyg-block.css"],"names":[],"mappings":"AAAA,6BACI,UAAY,CACf","file":"objects/wysiwyg-block.css","sourcesContent":[".section.wysiwyg-block .text {\n    width: 100%;\n}"],"sourceRoot":"/source/"}

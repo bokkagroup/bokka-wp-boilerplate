@@ -4,6 +4,14 @@
 
 .gform_wrapper {
     margin: 0;
+
+    ul,
+    ol {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+        line-height: normal;
+    }
 }
 
 .gfield_error {
@@ -19,6 +27,38 @@
 .gfield {
     position: relative;
     margin-bottom: 20px;
+
+    &.hidden {
+        display: none !important;
+    }
+
+    @mixin tablet {
+        &.first-name,
+        &.last-name {
+            display: inline-block;
+            margin-right: 10px;
+            width: calc(50% - 10px);
+        }
+
+        &.last-name {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+    }
+
+    @mixin tablet {
+        &.first-name,
+        &.last-name {
+            display: inline-block;
+            margin-right: 10px;
+            width: calc(50% - 10px);
+        }
+
+        &.last-name {
+            margin-right: 0;
+            margin-left: 10px;
+        }
+    }
 
     .gfield_label {
         position: absolute;

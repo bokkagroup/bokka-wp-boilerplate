@@ -10,10 +10,6 @@
 
         padding: 0 15px;
         width: 100%;
-
-        @mixin tablet {
-            padding: 0;
-        }
     }
 
     .module {

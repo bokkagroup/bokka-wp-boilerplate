@@ -18,6 +18,10 @@
     backface-visibility: hidden;
 
     .slides {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+        line-height: normal;
         margin-bottom: 25px;
         backface-visibility: hidden;
     }

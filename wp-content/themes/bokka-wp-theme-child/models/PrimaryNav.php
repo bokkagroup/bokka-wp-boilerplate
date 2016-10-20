@@ -51,7 +51,6 @@ class PrimaryNav extends \BokkaWP\MVC\Model
                     $types = get_post_meta($item->object_id, 'types');
                     if ($city) {
                         $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['city'] = $city[0];
-
                     }
                     if (isset($price[0])) {
                         $menu_object['links'][$item->menu_item_parent]['subnav'][$item->ID]['price'] = round(number_format($price[0] / 1000, 0), -1);

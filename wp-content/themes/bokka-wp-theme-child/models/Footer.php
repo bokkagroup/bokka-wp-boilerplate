@@ -6,6 +6,7 @@ class Footer extends \BokkaWP\MVC\Model
 {
     public function initialize()
     {
+        $year = date("Y");
         $menu = wp_get_nav_menu_object('footer');
         $menuitems = wp_get_nav_menu_items($menu->term_id, array('order' => 'DESC'));
         $count = 0;
@@ -40,6 +41,7 @@ class Footer extends \BokkaWP\MVC\Model
 
         $menu_object['content'] = apply_filters('the_content', get_the_content());
         $this->data = $menu_object;
+        $this->data['year'] = $year;
 
         return $menu_object;
     }

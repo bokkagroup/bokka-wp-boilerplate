@@ -30,7 +30,7 @@ class Organisms extends \BokkaWP\MVC\Model
             $type = $organism['type'];
 
             // Reassign form data to $organism['gform']
-            if ($type == 'form') {
+            if ($type == 'form-basic' || $type == 'form-w-text') {
                 $organism['gform'] = $organism['form'];
             }
 
@@ -60,6 +60,15 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['gallery'] = array_map('setSizeMedium', $organism['gallery']);
         }
 
+        // get images for secondary brand window
+        if (isset($organism['type']) && $organism['type'] === "brand-window-secondary") {
+            $organism['images'] = array(
+                'full' => wp_get_attachment_image_src($organism['image'], 'full-brand-window')[0],
+                'tablet' => wp_get_attachment_image_src($organism['image'], 'tablet-brand-window')[0],
+                'mobile' => wp_get_attachment_image_src($organism['image'], 'mobile-brand-window')[0]
+            );
+        }
+
         //get image urls for image fields (id)
         if (isset($organism['image'])) {
             $size = isset($organism['image_size']) ? $organism['image_size'] : 'large';
@@ -85,7 +94,7 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['gform'] = $form;
         }
 
-        // get class name and boolean for modules
+        // get class name and boolean for contact modules
         if (isset($organism['contact_module']) && $organism['contact_module']) {
             $organism['contact_module'] = array_map(function ($module) {
                 $class = strtolower(implode('-', explode(' ', $module['title'])));

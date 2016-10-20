@@ -1,8 +1,11 @@
 .section.masonry-gallery {
     padding: 100px 0;
-    lost-masonry-wrap: no-flex;
 
     .masonry-items {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+
         li {
             float: left;
             overflow: hidden;

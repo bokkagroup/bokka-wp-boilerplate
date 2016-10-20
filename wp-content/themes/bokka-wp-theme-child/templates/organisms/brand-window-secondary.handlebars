@@ -1,0 +1,20 @@
+<div class="section brand-window-secondary {{#if brand_window_layout}}layout-{{brand_window_layout}}{{/if}}">
+    <section>
+        <div class="container">
+            <div class="image">
+                <figure>
+                    <img src="{{images.mobile}}" data-src-desktop="{{images.full}}" data-src-tablet="{{images.tablet}}" alt="" class="responsive-img" style="display:none" />
+                </figure>
+            </div><!--/image-->
+            <div class="text">
+                <div class="body">
+                    <h1>{{title}}</h1>
+                    {{{description}}}
+                    {{#if button}}
+                    <a href="{{link}}" class="button">{{button_text}}</a>
+                    {{/if}}
+                </div><!--/body-->
+            </div><!--/text-->
+        </div><!--/container-->
+    </section>
+</div><!--/brand-window-w-gradient-->

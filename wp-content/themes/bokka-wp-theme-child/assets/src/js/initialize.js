@@ -3,9 +3,16 @@ require('./vendor/mousewheel.js')
 require('./vendor/fancybox.js')
 require('./vendor/tipr.js')
 
-jQuery( document ).ready(function( $ ) {
+
+jQuery( document ).ready(function($) {
     window.$ = jQuery
 
+    if($('.tabs').length > 0) {
+        var Tabs = require('./views/tabs.js')
+        $('.tabs').each(function () {
+            new Tabs({el: $(this)})
+        })
+    }
 
     /**
      * Global Helpers
@@ -13,6 +20,7 @@ jQuery( document ).ready(function( $ ) {
     //Event Tracking
     require('./helpers/eventTracking.js')
     require('./helpers/maps.js')
+    require('./helpers/UTMStringHandler')
 
     $(".fancybox-masonry").fancybox({
         openEffect	: 'none',
@@ -146,6 +154,35 @@ jQuery( document ).ready(function( $ ) {
         var MasonView = require('./views/masonry-gallery');
         $('.masonry-gallery').each(function(){
             new MasonView({el: $(this)});
+        });
+    }
+
+    /**
+     * Swap out image source on window resize
+     */
+    if ($('.responsive-img').length > 0) {
+        $('.responsive-img').each(function(index, value) {
+            var $this = $(this);
+            var mobileSrc = $this.attr('src');
+            var tabletSrc = $this.data('src-tablet');
+            var desktopSrc = $this.data('src-desktop');
+
+            function swapSrc() {
+                if (bokka.breakpoint.value === 'tablet') {
+                    $this.attr('src', tabletSrc).show();
+                } else if (bokka.breakpoint.value === 'desktop') {
+                    $this.attr('src', desktopSrc).show();
+                } else {
+                    $this.attr('src', mobileSrc).show();
+                }
+            }
+
+            swapSrc();
+
+            $(window).on('resize', function () {
+                swapSrc();
+            });
+
         });
     }
 

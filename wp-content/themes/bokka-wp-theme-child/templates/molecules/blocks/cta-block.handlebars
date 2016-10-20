@@ -1,10 +1,10 @@
 <div class="text cta-block">
     <div class="title">
-        <a href="{{link}}" >
+        {{#if button}}<a href="{{link}}">{{/if}}
             <h2>
                 {{title}}
             </h2>
-        </a>
+        {{#if button}}</a>{{/if}}
     </div><!--/title-->
     <div class="body">
         {{#if description}}

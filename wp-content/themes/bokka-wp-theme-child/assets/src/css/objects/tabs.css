@@ -1,4 +1,11 @@
 .tabs {
+    .tab-bodies {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+        line-height: normal;
+    }
+
     .tab-body {
         position: relative;
 
