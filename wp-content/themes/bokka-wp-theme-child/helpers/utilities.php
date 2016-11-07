@@ -9,3 +9,13 @@ function get_id_by_slug($page_slug)
         return null;
     }
 }
+
+function get_relative_permalink($post_id)
+{
+    $permalink = get_permalink($post_id);
+    if ($permalink) {
+        return str_replace(home_url(), "", $permalink);
+    } else {
+        return null;
+    }
+}

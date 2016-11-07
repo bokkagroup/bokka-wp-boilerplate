@@ -36,9 +36,10 @@
     }
 }
 
-/* style guide & homepage hide breadcrumbs */
+/* style guide, homepage & 404 hide breadcrumbs */
 .home,
-.page-id-181 {
+.page-id-181,
+.error404 {
     .breadcrumb-outer-wrapper {
         display: none;
     }

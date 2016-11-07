@@ -1,3 +1,4 @@
+require("!modernizr!./.modernizrrc")
 require('./vendor/mlpushmenu.js')
 require('./vendor/mousewheel.js')
 require('./vendor/fancybox.js')
@@ -21,6 +22,8 @@ jQuery( document ).ready(function($) {
     require('./helpers/eventTracking.js')
     require('./helpers/maps.js')
     require('./helpers/UTMStringHandler')
+    require('./helpers/responsiveImages')
+    require('./helpers/forms')
 
     $(".fancybox-masonry").fancybox({
         openEffect	: 'none',
@@ -123,6 +126,7 @@ jQuery( document ).ready(function($) {
                     var wrapper = $(this).closest('.section');
                     var overviewMapView = require('./views/overview-map.js');
                     new overviewMapView({el: wrapper})
+                    Backbone.history.start({pushState: true});
                 } else if ($(this).hasClass('google-map-wrapper')) {
                     var modelMapView = require('./views/model-map.js');
                     new modelMapView({el: $(this)});
@@ -158,32 +162,9 @@ jQuery( document ).ready(function($) {
     }
 
     /**
-     * Swap out image source on window resize
+     * Accordion
      */
-    if ($('.responsive-img').length > 0) {
-        $('.responsive-img').each(function(index, value) {
-            var $this = $(this);
-            var mobileSrc = $this.attr('src');
-            var tabletSrc = $this.data('src-tablet');
-            var desktopSrc = $this.data('src-desktop');
-
-            function swapSrc() {
-                if (bokka.breakpoint.value === 'tablet') {
-                    $this.attr('src', tabletSrc).show();
-                } else if (bokka.breakpoint.value === 'desktop') {
-                    $this.attr('src', desktopSrc).show();
-                } else {
-                    $this.attr('src', mobileSrc).show();
-                }
-            }
-
-            swapSrc();
-
-            $(window).on('resize', function () {
-                swapSrc();
-            });
-
-        });
-    }
-
+    $('.accordion .title').on('click', function (event) {
+        $(this).toggleClass('active')
+    });
 });

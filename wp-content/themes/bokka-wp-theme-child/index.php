@@ -27,6 +27,9 @@ do_action('bwt\before_content'); ?>
             new \BokkaWP\Theme\controllers\QuickMoveInHomesController();
         } elseif (is_page('model-homes')) {
             new \BokkaWP\Theme\controllers\ModelHomesController();
+        } elseif (is_page('our-locations-sales-centers-models')) {
+            new \BokkaWP\Theme\controllers\OrganismsController();
+            new \BokkaWP\Theme\controllers\LocationsController();
         } elseif (is_page()) {
             new \BokkaWP\Theme\controllers\OrganismsController();
         } elseif (is_tax()) {
@@ -34,6 +37,7 @@ do_action('bwt\before_content'); ?>
         } elseif (is_single()) {
         } elseif (is_category()) {
         } elseif (is_404()) {
+            new \BokkaWP\Theme\controllers\PageNotFoundController();
         } else {
         }
         ?>

@@ -32,6 +32,24 @@
         display: none !important;
     }
 
+    &.checkbox-group {
+        margin-top: 20px;
+
+        label:not(.gfield_label) {
+            font-size: 16px;
+        }
+
+        .gfield_label {
+            position: relative;
+            margin: 10px 0 15px;
+            left: 0;
+        }
+
+        &.gfield_error .gfield_label {
+            top: 0;
+        }
+    }
+
     @mixin tablet {
         &.first-name,
         &.last-name {
@@ -93,6 +111,10 @@
         textarea {
             max-height: 200px;
             height: auto;
+
+            &.small {
+                height: 120px;
+            }
         }
 
         .gfield_checkbox,
@@ -170,6 +192,27 @@
         }
     }
 
+    /* datepicker */
+    .ginput_container_date {
+        position: relative;
+
+        &::after {
+            background: url('../images/icon-calendar.png') no-repeat center center;
+            background-size: 21px auto;
+            border-left: 1px solid $gray;
+            bottom: 0;
+            content: '';
+            display: block;
+            height: 100%;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 60px;
+        }
+    }
+
+    /* validation */
     .validation_message {
         font-family: 'Open Sans';
         font-size: 14px;
@@ -187,10 +230,71 @@
             color: $red;
             position: absolute;
             top: 0;
+            background-color: #ebebeb;
+            width: 100%;
+            z-index: 2;
+
+            &.instruction {
+                z-index: 1;
+            }
         }
     }
 }
 
+/* list field */
+.gfield_list_container {
+    width: 100%;
+
+    .gfield_label {
+        padding-right: 60px;
+    }
+
+    .gfield_list_group {
+        position: relative;
+
+        &:nth-child(n+2) {
+            textarea {
+                padding-top: 12px;
+            }
+        }
+    }
+
+    .gfield_list_cell {
+        width: 100%;
+    }
+
+    .gfield_list_icons {
+        vertical-align: top;
+        width: 58px;
+    }
+
+    .add_list_item,
+    .delete_list_item {
+        background: $purple;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 45% auto;
+        border-radius: 8px;
+        height: 33px;
+        margin: 0 5px !important;
+        opacity: 1;
+        width: 36px;
+
+        &:hover {
+            background-color: $purple_light;
+        }
+    }
+
+    .add_list_item {
+        background-image: url('../images/add.png');
+    }
+
+    .delete_list_item {
+        background-image: url('../images/remove.png');
+    }
+}
+
+/* confirmation / validation */
 .gforms_confirmation_message,
 .validation_error {
     border-radius: 4px;

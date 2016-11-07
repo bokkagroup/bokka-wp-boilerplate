@@ -242,10 +242,6 @@ class GFHatchbuck extends GFFeedAddOn {
 				'label' => 'Custom Field: Comments',
 				'name' => 'custom_ZXRmdUQzd0RxWUtKZk1rQkdSdElwNEFJb2lnamRULTlOQUEwNEtUdUo4azE1'
 			),
-			array(
-				'label' => 'Custom Field: Community',
-				'name' => 'custom_MWl4N2JraW53QmhQdXdLY1k2OGY2VkJNUVlOel9YUFBEbEFiY1YxY2N5RTE1'
-			),
             array(
                 'label' => 'Custom Field: UTM_Campaign',
                 'name' => 'c3dib1hTWmU1S0EyUGlnQ1A1ZHB0NmpYbkVlQVVsYmNBX3RWVVh6OUpKSTE1'
@@ -265,6 +261,26 @@ class GFHatchbuck extends GFFeedAddOn {
 			array(
 				'label' => 'Additional Tags',
 				'name' => 'additional_tags'
+			),
+			array(
+				'label' => 'Product Types',
+				'name' => 'product_types'
+			),
+			array(
+				'label' => 'Neighborhood Name',
+				'name' => 'neighborhood_name'
+			),
+			array(
+				'label' => 'Page Name',
+				'name' => 'page_name'
+			),
+			array(
+				'label' => 'Post Type',
+				'name' => 'post_type'
+			),
+			array(
+				'label' => 'BCN Insider',
+				'name' => 'bcn_insider'
 			)
 		);
 
@@ -485,6 +501,26 @@ class GFHatchbuck extends GFFeedAddOn {
 				$field_tags = array_merge( $field_tags, explode( ', ', $lead_data['additional_tags'] ) );
 			}
 
+			if ( ! empty( $lead_data['product_types'] ) ) {
+				$field_tags = array_merge( $field_tags, explode( ', ', $lead_data['product_types'] ) );
+			}
+
+			if ( ! empty( $lead_data['neighborhood_name'] ) ) {
+				$field_tags = array_merge( $field_tags, explode( ', ', $lead_data['neighborhood_name'] ) );
+			}
+
+			if ( ! empty( $lead_data['bcn_insider'] ) ) {
+				$field_tags = array_merge( $field_tags, explode( ', ', $lead_data['bcn_insider'] ) );
+			}
+
+			if ( ! empty( $lead_data['page_name'] ) ) {
+				$field_tags = array_merge( $field_tags, explode( ', ', $lead_data['page_name'] ) );
+			}
+
+			if ( ! empty( $lead_data['post_type'] ) ) {
+				$field_tags = array_merge( $field_tags, explode( ', ', $lead_data['post_type'] ) );
+			}
+
 			//format tags array out of unique tags
 			$field_tags = array_unique($field_tags);
 			foreach ( $field_tags as $field_tag ) {
@@ -497,6 +533,11 @@ class GFHatchbuck extends GFFeedAddOn {
 				//remove lead data fields
 				unset( $lead_data['tags'] );
 				unset( $lead_data['additional_tags'] );
+				unset( $lead_data['product_types'] );
+				unset( $lead_data['neighborhood_name'] );
+				unset( $lead_data['bcn_insider'] );
+				unset( $lead_data['page_name'] );
+				unset( $lead_data['post_type'] );
 			}
 		}
 

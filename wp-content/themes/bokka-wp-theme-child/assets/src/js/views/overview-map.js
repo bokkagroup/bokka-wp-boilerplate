@@ -1,13 +1,17 @@
 var ProductView = require('./map-overview/productItem');
 var scrollMonitor = require('../vendor/scrollMonitor');
-var InfoBox = require('../vendor/infobox')
+var InfoBox = require('../vendor/infobox');
+var Router = Backbone.Router;
+
 var LayoutView = Backbone.View.extend({
     events: {
         'click .product-tab-links a' : 'handleClick'
     },
     initialize : function(){
         var self = this
-        
+
+        self.router = new Router();
+
         // Map and marker options/data
         this.options = this.$el.find('.js-model-map').data('options')
         this.locations = []
@@ -217,6 +221,34 @@ var LayoutView = Backbone.View.extend({
             self.$el.find('.tab.quick-move-in-homes a').trigger('click');
         }
     },
+    updateBreadcrumb: function (slug) {
+        var self = this;
+
+        // Get localized breadcrumb data from WP
+        var breadcrumbEl = $('body').find('.breadcrumb-outer-wrapper');
+        var breadcrumbData = breadcrumbEl.data('overview-map-breadcrumbs');
+        var breadcrumb = '';
+
+        if (slug && breadcrumbData) {
+            for (var page in breadcrumbData) {
+                if (breadcrumbData[page].hasOwnProperty(slug)) {
+                    var data = breadcrumbData[page][slug];
+                    breadcrumb = '<li><a href="' + data['link'] + '"><span class="' + data['class'] + '">' + data['title'] + '</span></a></li>';
+                }
+            }
+        }
+
+        if (breadcrumb && breadcrumbEl.find('li')[1]) {
+            $(breadcrumbEl.find('li')[1]).replaceWith(breadcrumb);
+        }
+    },
+    updateRoute: function (target) {
+        var self = this;
+        var route = $(target).attr('href');
+        if (route && route.length > 1) {
+            self.router.navigate(route);
+        }
+    },
     handleClick: function (event) {
         var self = this;
 
@@ -230,6 +262,8 @@ var LayoutView = Backbone.View.extend({
             $(event.target).closest('li').addClass('active');
             self.changeTab(index);
             self.setTabHeight();
+            self.updateBreadcrumb($(event.target).closest('li').data('breadcrumb'));
+            self.updateRoute($(event.target));
             
             setTimeout(function() {
                 self.resetProduct();

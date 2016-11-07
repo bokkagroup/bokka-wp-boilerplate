@@ -17,6 +17,18 @@
 
     /* Contact Us / Ask a Question mega form */
     .contact-us-form_wrapper {
+        .field-additional-info {
+            p {
+                font-size: 18px;
+                line-height: 1.6;
+                text-align: center;
+
+                a {
+                    color: $blue;
+                }
+            }
+        }
+
         .neighborhood-list,
         .vip-list-signup {
             margin-top: 20px;

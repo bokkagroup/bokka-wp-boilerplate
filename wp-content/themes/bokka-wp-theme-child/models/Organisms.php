@@ -60,12 +60,19 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['gallery'] = array_map('setSizeMedium', $organism['gallery']);
         }
 
-        // get images for secondary brand window
+        // get layout type and images for secondary brand window
         if (isset($organism['type']) && $organism['type'] === "brand-window-secondary") {
+            $brand_window_layout = isset($organism['brand_window_layout']) ? $organism['brand_window_layout'] : '';
+            if ($brand_window_layout == 'split') {
+                $organism['split'] = true;
+            } else {
+                $organism['overlay'] = true;
+            }
             $organism['images'] = array(
-                'full' => wp_get_attachment_image_src($organism['image'], 'full-brand-window')[0],
-                'tablet' => wp_get_attachment_image_src($organism['image'], 'tablet-brand-window')[0],
-                'mobile' => wp_get_attachment_image_src($organism['image'], 'mobile-brand-window')[0]
+                'full' => wp_get_attachment_image_src($organism['background_image'], 'full-brand-window')[0],
+                'full-split' => wp_get_attachment_image_src($organism['background_image'], 'full-split-brand-window')[0],
+                'tablet' => wp_get_attachment_image_src($organism['background_image'], 'tablet-brand-window')[0],
+                'mobile' => wp_get_attachment_image_src($organism['background_image'], 'mobile-brand-window')[0]
             );
         }
 

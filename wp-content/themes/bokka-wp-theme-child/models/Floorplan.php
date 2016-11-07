@@ -8,10 +8,10 @@ class Floorplan extends \BokkaWP\MVC\Model
         global $post;
         $post->neighborhood_link = get_the_permalink($post->neighborhood);
         $post->neighborhood_title = get_the_title($post->neighborhood);
-        $form = gravity_form(2, false, false, false, null, $ajax = true, 0, false);
+        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->brand_window_form = $form;
         $post->pdf = wp_get_attachment_url($post->pdf);
-        $form = gravity_form(3, false, false, false, null, $ajax = true, 0, false);
+        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->coming_soon =  array('modal_content'=> $form);
         $this->data = $post;
     }

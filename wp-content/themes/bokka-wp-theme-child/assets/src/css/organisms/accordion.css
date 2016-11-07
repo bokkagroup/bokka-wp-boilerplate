@@ -1,0 +1,118 @@
+.section.accordion {
+    margin: 0 0 60px;
+
+    .item {
+        width: 100%;
+
+        .title {
+            border-bottom: 2px solid rgba(0, 0, 0, 0.13);
+            cursor: pointer;
+            padding: 10px 10px 10px 30px;
+            position: relative;
+
+            &:hover {
+                h3 {
+                    color: $blue;
+                }
+            }
+
+            &.active {
+                + .body {
+                    display: block;
+                }
+
+                .icon {
+                    &::after {
+                        opacity: 0;
+                        transform: rotate(90deg);
+                    }
+                }
+            }
+
+            @mixin tablet {
+                padding: 25px 40px;
+            }
+
+            h3 {
+                transition: color 0.3s ease;
+            }
+
+            h6 {
+                color: $gray_medium2;
+            }
+
+            .icon {
+                background: $gray_medium1;
+                display: block;
+                height: 3px;
+                left: 9px;
+                position: absolute;
+                top: 27px;
+                width: 15px;
+
+                @mixin tablet {
+                    left: 15px;
+                    top: 42px;
+                }
+
+                &::after {
+                    background: $gray_medium1;
+                    content: '';
+                    display: block;
+                    height: 15px;
+                    left: 6px;
+                    position: absolute;
+                    top: -6px;
+                    transition: transform 0.3s, opacity 0.3s;
+                    width: 3px;
+                }
+            }
+        }
+
+        .body {
+            background: rgba(0, 0, 0, 0.08);
+            color: $gray_dark2;
+            display: none;
+            padding: 10px 20px;
+
+            @mixin tablet {
+                padding: 10px 30px;
+            }
+
+            h4 {
+                margin: 1em 0 0.5em;
+            }
+
+            p {
+                color: $gray_dark2;
+                margin: 1em 0;
+            }
+
+            a {
+                color: $blue;
+            }
+
+            ul:not(.gform_fields) {
+                font-family: 'Open Sans', sans-serif;
+                margin: 1em 0 1em 40px;
+
+                li {
+                    margin: 0 0 1em;
+                }
+            }
+
+            strong {
+                font-weight: 700;
+            }
+        }
+
+        .gform_wrapper {
+            margin: 30px 0;
+            max-width: 790px;
+
+            ul {
+                margin: 0;
+            }
+        }
+    }
+}

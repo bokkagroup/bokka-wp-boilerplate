@@ -4,6 +4,26 @@ namespace BokkaWP\Theme\models;
 
 class Breadcrumbs extends \BokkaWP\MVC\Model
 {
+
+    public function localizeData($postIds)
+    {
+        $breadcrumbData = array_map(function ($postId) {
+            $post = get_post($postId);
+            $crumb["{$post->post_name}"] = array(
+                'title' => get_the_title($post),
+                'link' => get_permalink($post),
+                'class' => 'icon icon-our-neighborhoods'
+            );
+            return $crumb;
+        }, $postIds);
+
+        if (count($breadcrumbData) > 0) {
+            return json_encode($breadcrumbData);
+        } else {
+            return false;
+        }
+    }
+
     public function initialize()
     {
         if (is_singular(array('plans'))) {
@@ -16,9 +36,12 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             is_page('quick-move-in-homes') ||
             is_page('model-homes')) {
             $this->data = $this->neighborhoodOverview();
+            $this->data['productOverviewJSON'] = $this->localizeData(array(54, 58, 60));
         } elseif (is_singular(array('communities'))) {
             $this->data = $this->neighborhoods();
-        } elseif (is_page('ask-a-question')) {
+        } elseif (is_page('ask-a-question') ||
+            is_page('our-locations-sales-centers-models') ||
+            is_page('homeowner-resources')) {
             $this->data = $this->askAQuestion();
         } else {
             $this->data = $this->singlePage();

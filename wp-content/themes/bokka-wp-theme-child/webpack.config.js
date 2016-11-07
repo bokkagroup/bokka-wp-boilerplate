@@ -15,7 +15,10 @@ module.exports = {
         filename: "[name].min.js"
     },
     module: {
-        loaders: [ { test: /\.handlebars$/, loader: "handlebars-loader" } ]
+        loaders: [ 
+            { test: /\.handlebars$/, loader: "handlebars-loader" },
+            { test: /\.modernizrrc$/, loader: "modernizr" }
+        ]
     },
     resolve: {
         // you can now require('file') instead of require('file.coffee')
@@ -26,6 +29,7 @@ module.exports = {
         ],
 
         alias: {
+            modernizr$: path.resolve(__dirname, ".modernizrrc"),
             'underscore': 'lodash'
         }
 

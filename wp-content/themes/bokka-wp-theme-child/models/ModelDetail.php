@@ -9,7 +9,7 @@ class ModelDetail extends \BokkaWP\MVC\Model
         $post->neighborhood = get_post($post->neighborhood);
         $post->neighborhood->link = get_the_permalink($post->neighborhood);
         $post->neighborhood->title = get_the_title($post->neighborhood);
-        $form = gravity_form(2, false, false, false, null, $ajax = true, 0, false);
+        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->brand_window_form = array('modal_content'=> $form);
         $post->map = array(
             'address_1' => $post->address_1,
@@ -24,7 +24,7 @@ class ModelDetail extends \BokkaWP\MVC\Model
             'zoom'      => 14
         );
         $post->pdf = wp_get_attachment_url($post->pdf);
-        $form = gravity_form(3, false, false, false, null, $ajax = true, 0, false);
+        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->coming_soon =  array('modal_content'=> $form);
         $this->data = $post;
     }

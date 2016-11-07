@@ -287,6 +287,8 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
         page = '/thank-you/neighborhood-detail-page/request-info'
     } else if(formId === 9){
         page = '/thank-you/contact-us-page/ask-a-question'
+    } else if(formId === 10){
+        page = '/homeowner-resources-page/thank-you'
     }
     ga('send', { hitType: 'pageview', page: page })
 })

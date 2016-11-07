@@ -1,0 +1,21 @@
+<div class="section accordion">
+    <section>
+        <div class="container">
+            {{#each item}}
+                <div class="item">
+                    <div class="title">
+                        <span class="icon"></span>
+                        <h3>{{title}}</h3>
+                        {{#if sub_title}}
+                            <h6>{{sub_title}}</h6>
+                        {{/if}}
+                    </div>
+                    <div class="body">
+                        {{{description}}}
+                    </div>
+                </div>
+            {{/each}}
+
+        </div>
+    </section>
+</div>

@@ -89,7 +89,6 @@ class Neighborhoods extends \BokkaWP\MVC\Model
 
         //forms
         $post->request_info_form = gravity_form(6, false, false, false, null, $ajax = true, 0, false);
-        $post->get_updates_form = gravity_form(7, false, false, false, null, $ajax = true, 0, false);
 
         //legal copy (appears as part of map)
         $post->map['legal'] = get_field('legal', $post->ID);

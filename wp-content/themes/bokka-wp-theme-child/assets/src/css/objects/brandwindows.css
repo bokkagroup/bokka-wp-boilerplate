@@ -561,8 +561,8 @@
     .text {
         h1 {
             color: #fff;
-            font-size: 46px;
-            font-weight: 700;
+            font-size: 36px;
+            font-weight: 600;
             line-height: 1.2;
             margin: 0 0 15px;
         }
@@ -592,6 +592,9 @@
         margin: 0 auto;
         position: relative;
         width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
 
         /* Image overlay */
         &::before {
@@ -630,17 +633,28 @@
         }
     }
 
+    @mixin tablet {
+        .text {
+            h1 {
+                font-size: 46px;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+        }
+    }
+
     /* End overlay styles */
 
     &.layout-split {
-        margin-top: 45px;
-
         @mixin desktop {
+            margin-top: 45px;
+
             .container {
                 @mixin container;
 
                 background-color: transparent;
                 height: 375px;
+                max-width: 1160px;
                 display: flex;
                 align-items: center;
             }
@@ -660,10 +674,23 @@
                     height: 100%;
                 }
 
-                img {
-                    object-fit: cover;
-                    object-position: 50% 50%;
+                &.objectfit {
+                    img {
+                        object-fit: cover;
+                        object-position: 50% 50%;
+                        height: 100%;
+                    }
+                }
+
+                &.no-objectfit {
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    background-size: cover;
                     height: 100%;
+
+                    img {
+                        display: none;
+                    }
                 }
             }
 
@@ -695,6 +722,10 @@
                     text-shadow: none;
                 }
             }
+        }
+
+        @media only screen and (min-width: 1081px) {
+            margin-top: 45px;
         }
 
         @mixin desktop-large {
@@ -842,6 +873,67 @@
             .body,
             p {
                 font-size: 20px;
+            }
+        }
+    }
+}
+
+.section.brand-window-404 {
+    text-align: center;
+
+    .image {
+        background: url('../images/bw-404.jpg') no-repeat center center;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+
+        @mixin tablet {
+            height: 33vw;
+            max-height: 450px;
+
+            &::after {
+                background: url('../images/bw-404-arrow-purple.svg') no-repeat left center;
+                background-size: cover;
+                bottom: 0;
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 27.5%;
+            }
+        }
+    }
+
+    .text {
+        background: rgba(168, 166, 62, 0.85);
+        display: inline-block;
+        margin: 20vw 20px;
+        padding: 20px;
+
+        @mixin tablet {
+            align-items: center;
+            background: url('../images/bw-404-arrow-green.svg') no-repeat right center;
+            background-size: cover;
+            bottom: 0;
+            display: flex;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            width: 34.5%;
+        }
+
+        h1 {
+            color: $white;
+            font-size: 28px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            width: 100%;
+
+            @mixin tablet {
+                padding: 10px 3vw 0 20px;
             }
         }
     }

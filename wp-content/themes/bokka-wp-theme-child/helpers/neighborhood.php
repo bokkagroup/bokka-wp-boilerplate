@@ -101,21 +101,24 @@ function neighborhoodOverviewData()
             'copy' => get_field('model_homes_overview', $neighborhoodOV_page_id),
             'tab_title' => 'Model Homes',
             'neighborhoods' => sortProductByNeighborhood($models),
-            'class' => 'model-homes'
+            'class' => 'model-homes',
+            'permalink' => get_relative_permalink(60)
         ),
         'neighborhoods' => array(
             'title' => 'Our Neighborhoods',
             'copy' => get_field('our_neighborhoods_overview', $neighborhoodOV_page_id),
             'tab_title' => 'Neighborhoods',
             'products' => formatNeighborhoodTypes($neighborhoods),
-            'class' => 'our-neighborhoods'
+            'class' => 'our-neighborhoods',
+            'permalink' => get_relative_permalink(54)
         ),
         'homes' => array(
             'title' => 'Quick Move-In Homes',
             'copy' => get_field('quick_move-ins_overview', $neighborhoodOV_page_id),
             'tab_title' => 'Quick Move-in',
             'neighborhoods' => sortProductByNeighborhood($homes),
-            'class' => 'quick-move-in-homes'
+            'class' => 'quick-move-in-homes',
+            'permalink' => get_relative_permalink(58)
         )
     );
 
