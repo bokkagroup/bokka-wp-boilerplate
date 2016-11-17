@@ -30,9 +30,25 @@ function getProductPrice($post)
 
 function getDefaultType($type)
 {
-    if (strpos($type, 'Townhome')) {
+    if (strpos($type, 'Townhome') !== false) {
         return "Townhomes";
-    } elseif (strpos($type, 'Patio')) {
+    } elseif (strpos($type, 'Patio') !== false) {
         return "Patio Homes";
+    } elseif (strpos($type, 'Cottage') !== false) {
+        return "Cottages";
+    } else {
+        return $type;
     }
+}
+
+function getSalesTeamMembers($post_id)
+{
+    $data = get_field('sale_team_members', $post_id);
+    if (is_array($data)) {
+        $data = array_map(function ($member) {
+            $member['image'] = wp_get_attachment_image_src($member['image'], 'thumbnail')[0];
+            return $member;
+        }, $data);
+    }
+    return $data;
 }

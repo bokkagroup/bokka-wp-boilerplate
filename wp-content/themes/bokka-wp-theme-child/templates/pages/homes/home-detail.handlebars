@@ -19,7 +19,14 @@
         {{>organisms/coming-soon-get-updates}}
     {{/if}}
 {{/if}}
-{{>organisms/osc-request-info}}
+
+{{!-- crazy logic, essentially don't want to see OSC form if coming-soon form is displayed --}}
+{{#if tabs}}
+    {{#if virtual_tour}}
+        {{>organisms/osc-request-info}}
+    {{/if}}
+{{/if}}
+
 {{#with map}}
     {{> organisms/map-with-info }}
 {{/with}}

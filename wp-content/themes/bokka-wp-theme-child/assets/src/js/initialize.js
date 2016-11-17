@@ -138,7 +138,7 @@ jQuery( document ).ready(function($) {
     /**
      * Open external links in new tab
      */
-    $('a').each(function() {
+    $('a:not([href^=tel]):not([href^=mailto])').each(function() {
         if (!$(this).hasClass('fancybox-masonry')) {
             var a = new RegExp('/' + window.location.host + '/');
             if(!a.test(this.href)) {

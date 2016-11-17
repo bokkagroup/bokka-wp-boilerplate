@@ -4,10 +4,13 @@
             {{> organisms/brand-window }}
         {{/if}}
         {{#if brand-window-secondary}}
-            {{> organisms/brand-window-secondary }}
+            {{> organisms/brand-window-w-color-overlay }}
         {{/if}}
-        {{#if brand-window-w-gradient}}
-            {{> organisms/brand-window-w-gradient }}
+        {{#if brand-window-w-color-overlay}}
+            {{> organisms/brand-window-w-color-overlay }}
+        {{/if}}
+        {{#if brand-window-two-column}}
+            {{> organisms/brand-window-two-column }}
         {{/if}}
         {{#if intro-text}}
             {{> molecules/blocks/intro-text }}

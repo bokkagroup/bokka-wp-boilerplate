@@ -33,6 +33,7 @@
     }
 
     &.checkbox-group {
+        margin-bottom: 30px;
         margin-top: 20px;
 
         label:not(.gfield_label) {
@@ -40,6 +41,7 @@
         }
 
         .gfield_label {
+            color: $gray_dark1;
             position: relative;
             margin: 10px 0 15px;
             left: 0;

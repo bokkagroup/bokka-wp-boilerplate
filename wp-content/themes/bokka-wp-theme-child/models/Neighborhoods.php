@@ -44,7 +44,7 @@ class Neighborhoods extends \BokkaWP\MVC\Model
             'city'      => $post->city,
             'state'     => $post->state,
             'zip'       => $post->zip,
-            'hours'     => $post->hours,
+            'hours'     => nl2br($post->hours),
             'phone'     => $post->phone,
             'latitude'  => $post->latitude,
             'longitude' => $post->longitude,
@@ -52,13 +52,7 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         );
 
         //sales team
-        $post->map['sale_team_members'] = get_field('sale_team_members', $post->ID);
-        if (is_array($post->map['sale_team_members'])) {
-            $post->map['sale_team_members'] = array_map(function ($member) {
-                $member['image'] = wp_get_attachment_image_src($member['image'], 'thumbnail')[0];
-                return $member;
-            }, $post->map['sale_team_members']);
-        }
+        $post->map['sale_team_members'] = getSalesTeamMembers($post->ID);
 
         //Content with icons & text
         $post->neighborhood_features = get_field('neighborhood_features', $post->ID);

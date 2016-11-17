@@ -60,6 +60,10 @@
             tex-transform: uppercase;
         }
 
+        .sale_team_members {
+            list-style: none;
+        }
+
         .legal {
             font-size: 11px;
             line-height: 1;

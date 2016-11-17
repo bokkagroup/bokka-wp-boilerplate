@@ -111,7 +111,7 @@
     h3 {
         padding: 0 30px;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 0;
     }
 
     .product-listing {
@@ -199,9 +199,10 @@
             }
 
             li {
+                font-family: 'Open Sans';
                 width: 33.32999%;
                 text-align: center;
-                font-size: 19px;
+                font-size: 18px;
                 font-weight: normal;
                 line-height: 1.05;
                 color: $white;

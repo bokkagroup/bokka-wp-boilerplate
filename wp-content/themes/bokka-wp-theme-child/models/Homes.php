@@ -28,6 +28,8 @@ class Homes extends \BokkaWP\MVC\Model
             'zoom'      => 16
         );
 
+        $post->map['sale_team_members'] = getSalesTeamMembers($post->neighborhood->ID);
+
         $post->pdf = wp_get_attachment_url($post->pdf);
         $form = gravity_form(3, false, false, false, null, $ajax = true, 0, false);
         $post->coming_soon =  array('modal_content'=> $form);

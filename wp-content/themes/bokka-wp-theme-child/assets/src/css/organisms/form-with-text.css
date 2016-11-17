@@ -199,3 +199,25 @@
         }
     }
 }
+
+.home #email_form {
+    li {
+        @mixin desktop {
+            &:nth-child(2),
+            &:nth-child(3) {
+                width: calc(50% - 10px) !important;
+                float: left;
+                margin-right: 10px;
+            }
+
+            &:nth-child(3) {
+                margin-left: 10px;
+                margin-right: 0;
+            }
+
+            &:nth-child(4) {
+                @mixin clear;
+            }
+        }
+    }
+}

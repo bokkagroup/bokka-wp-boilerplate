@@ -23,6 +23,9 @@ class ModelDetail extends \BokkaWP\MVC\Model
             'longitude' => $post->longitude,
             'zoom'      => 14
         );
+
+        $post->map['sale_team_members'] = getSalesTeamMembers($post->neighborhood->ID);
+
         $post->pdf = wp_get_attachment_url($post->pdf);
         $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->coming_soon =  array('modal_content'=> $form);

@@ -2,6 +2,19 @@
 
 // Dynamically populate hidden fields based on custom parameters
 // https://www.gravityhelp.com/documentation/article/using-dynamic-population/
+function populate_neighborhood_name_field($value)
+{
+    global $post;
+    $neighborhood_name = '';
+
+    if ($post->neighborhood && isset($post->neighborhood->post_title)) {
+        $neighborhood_name = $post->neighborhood->post_title;
+    }
+
+    return $neighborhood_name;
+}
+add_filter('gform_field_value_neighborhood_name', 'populate_neighborhood_name_field');
+
 function populate_page_name_field($value)
 {
     global $post;

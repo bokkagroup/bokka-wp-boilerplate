@@ -1,0 +1,60 @@
+.section.brand-window-404 {
+    text-align: center;
+
+    .image {
+        background: url('../images/bw-404.jpg') no-repeat center center;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+
+        @mixin tablet {
+            height: 33vw;
+            max-height: 450px;
+
+            &::after {
+                background: url('../images/bw-404-arrow-purple.svg') no-repeat left center;
+                background-size: cover;
+                bottom: 0;
+                content: '';
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 27.5%;
+            }
+        }
+    }
+
+    .text {
+        background: rgba(168, 166, 62, 0.85);
+        display: inline-block;
+        margin: 20vw 20px;
+        padding: 20px;
+
+        @mixin tablet {
+            align-items: center;
+            background: url('../images/bw-404-arrow-green.svg') no-repeat right center;
+            background-size: cover;
+            bottom: 0;
+            display: flex;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            width: 34.5%;
+        }
+
+        h1 {
+            color: $white;
+            font-size: 28px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            width: 100%;
+
+            @mixin tablet {
+                padding: 10px 3vw 0 20px;
+            }
+        }
+    }
+}

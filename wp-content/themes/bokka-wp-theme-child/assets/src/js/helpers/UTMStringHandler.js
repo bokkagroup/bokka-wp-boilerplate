@@ -10,8 +10,8 @@
     }
     function setUTMCookie(name){
         var queryValue = getParameterByName(name)
-        var cookie = CookieJS.get(name)
-        if(queryValue !== "" && cookie === undefined) {
+        var cookie = CookieJS.get("BOKKAWPTHEME_"+name)
+        if (queryValue !== "" && cookie == null) {
             CookieJS.set({
                 name: "BOKKAWPTHEME_"+name,
                 value: queryValue,
@@ -31,16 +31,14 @@
                 setgField('utm_medium', $el)
             } else if($(this).hasClass('utm_campaign')){
                 setgField('utm_campaign', $el)
-
             }
         })
-
     }
 
     function setgField(name, $el){
-        var value = CookieJS.get(name)
-        if(value !== undefined){
-            $el.val(value)
+        var value = CookieJS.get("BOKKAWPTHEME_"+name)
+        if (value !== undefined){
+            $el.attr('value', value)
         }
     }
 })($);

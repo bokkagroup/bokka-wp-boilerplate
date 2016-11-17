@@ -40,7 +40,7 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
         } elseif (is_singular(array('communities'))) {
             $this->data = $this->neighborhoods();
         } elseif (is_page('ask-a-question') ||
-            is_page('our-locations-sales-centers-models') ||
+            is_page('our-locations') ||
             is_page('homeowner-resources')) {
             $this->data = $this->askAQuestion();
         } else {
@@ -187,7 +187,7 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             array(
                 'title' => get_the_title($post->neighborhood),
                 'link' => get_permalink($post->neighborhood),
-                'class' => 'icon icon-our-neighborhoods'
+                'class' => ''
             )
         );
     }

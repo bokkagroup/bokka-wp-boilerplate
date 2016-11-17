@@ -61,13 +61,7 @@ class Organisms extends \BokkaWP\MVC\Model
         }
 
         // get layout type and images for secondary brand window
-        if (isset($organism['type']) && $organism['type'] === "brand-window-secondary") {
-            $brand_window_layout = isset($organism['brand_window_layout']) ? $organism['brand_window_layout'] : '';
-            if ($brand_window_layout == 'split') {
-                $organism['split'] = true;
-            } else {
-                $organism['overlay'] = true;
-            }
+        if (isset($organism['background_image'])) {
             $organism['images'] = array(
                 'full' => wp_get_attachment_image_src($organism['background_image'], 'full-brand-window')[0],
                 'full-split' => wp_get_attachment_image_src($organism['background_image'], 'full-split-brand-window')[0],

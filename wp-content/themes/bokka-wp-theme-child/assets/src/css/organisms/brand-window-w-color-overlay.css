@@ -1,0 +1,150 @@
+.section.brand-window-w-color-overlay {
+    margin-bottom: 60px;
+
+    .image {
+        img {
+            display: block;
+            height: auto;
+            width: 100%;
+        }
+    }
+
+    .text {
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin: 0 0 15px;
+        }
+
+        p {
+            color: #fff;
+            font-family: 'Merriweather';
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 0 0 15px;
+        }
+    }
+
+    /* Begin overlay styles */
+
+    .container {
+        background-color: $blue;
+        position: relative;
+        max-width: none;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .image {
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+
+        /* Image overlay */
+        &::before {
+            content: '';
+            display: block;
+            background-color: $blue;
+            opacity: 0.85;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .text {
+        padding: 0 30px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        max-width: 620px;
+        margin: 0 auto;
+
+        h1 {
+            margin: 0 0 25px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    @mixin tablet {
+        .text {
+            h1 {
+                font-size: 46px;
+                font-weight: 700;
+                line-height: 1.2;
+            }
+        }
+    }
+
+    &.layout-overlay {
+        @mixin desktop {
+            height: auto;
+            max-height: 445px;
+
+            @mixin arrow $blue, 30px;
+
+            .image {
+                max-width: 1500px;
+
+                /* Bottom fade-out gradient */
+                &::after {
+                    content: '';
+                    display: block;
+                    height: 45px;
+                    width: 100%;
+                    bottom: 0;
+                    position: absolute;
+                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 1) 100%);
+                }
+
+                figure {
+                    width: 100%;
+
+                    &::before,
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 250px;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                    }
+
+                    /* Left side fade-out gradient */
+                    &::before {
+                        left: -50px;
+
+                        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f7f9d+0,ffffff+100&1+0,0+100 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
+                        background: linear-gradient(to right, rgba(63, 127, 157, 1) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
+                    }
+
+                    /* Right side fade-out gradient */
+                    &::after {
+                        right: -50px;
+                        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(63, 127, 157, 1) 100%);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -22,7 +22,7 @@ if (productTypeData.length > 0 && requestInfoForm.length > 0) {
             productSelect += '</ul></div>';
             productSelect += '</li>';
 
-        $(productSelect).insertBefore(hiddenInputField.prev());
+        $(productSelect).insertBefore(hiddenInputField.prev().prev());
 
         $('.gform_wrapper form input[type="submit"]').on('click', function(e) {
             e.preventDefault();

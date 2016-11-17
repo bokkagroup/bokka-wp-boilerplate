@@ -21,7 +21,7 @@
                     {{/if}}
                     {{#if home}}
                         <p class="details">{{type}}</p>
-                        <p class="details">{{#if bedrooms}}{{bedrooms}} bed{{/if}}{{#if bathrooms}}, {{bathrooms}} bath{{/if}}{{#if finished_sqr_ft}}, {{finished_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
+                        <p class="details">{{#if bedrooms}}{{bedrooms}} bed{{/if}}{{#if bathrooms}}, {{bathrooms}} bath{{/if}}{{#if finished_sqr_ft}} <br>{{finished_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}} <br>{{#if price}}${{price}}{{/if}}</p>
                     {{/if}}
                     {{#if model}}
                         {{#if floorplan}}
@@ -30,7 +30,7 @@
                             {{/with}}
                         {{/if}}
                         {{!-- The following must be formatted as a single line - adding line breaks/indentation causes spaces --}}
-                        <p class="details">{{#if bedrooms_min}}{{bedrooms_min}}{{#if bedrooms_max}}-{{bedrooms_max}}{{/if}} bed{{/if}}{{#if bathrooms_min}}, {{bathrooms_min}}{{#if bathrooms_max}}-{{bathrooms_max}}{{/if}} bath{{/if}}{{#if main_sqr_ft}}, {{main_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
+                        <p class="details">{{#if bedrooms_min}}{{bedrooms_min}}{{#if bedrooms_max}}-{{bedrooms_max}}{{/if}} bed{{/if}}{{#if bathrooms_min}}, {{bathrooms_min}}{{#if bathrooms_max}}-{{bathrooms_max}}{{/if}} bath{{/if}}{{#if main_sqr_ft}} <br>{{main_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
                     {{/if}}
                     {{#if communities}}
                         <p class="details">{{types}} <br>from the ${{base_price}}s</p>
@@ -53,7 +53,7 @@
             {{#if communities description}}
             <p>{{description}}</p>
             {{/if}}
-            <a href="{{permalink}}" class="button green more-details">{{#if communities}}See Neighborhood{{/if}}{{#if model}}See Model Home{{/if}}{{#if home}}Get Home Details{{/if}}</a>
+            <a href="{{permalink}}" class="button green more-details">{{#if communities}}Explore Neighborhood{{/if}}{{#if model}}Explore Model Home{{/if}}{{#if home}}Explore Home Details{{/if}}</a>
         </div>
     </article>
 </li>

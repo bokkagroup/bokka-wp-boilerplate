@@ -19,7 +19,14 @@ function tabbedProductData($id)
 
     //plans
     $plans = get_posts(
-        array('posts_per_page' => 500, 'post_type' => 'plans', 'meta_query' => $metaQuery, 'suppress_filters' => false)
+        array(
+            'posts_per_page' => 500,
+            'post_type' => 'plans',
+            'meta_query' => $metaQuery,
+            'suppress_filters' => false,
+            'orderby' => 'title',
+            'order' => 'ASC'
+        )
     );
 
     if (count($plans) > 0) {
@@ -32,7 +39,14 @@ function tabbedProductData($id)
 
     //homes (qmi)
     $homes = get_posts(
-        array('posts_per_page' => 500, 'post_type' => 'home', 'meta_query' => $metaQuery, 'suppress_filters' => false)
+        array(
+            'posts_per_page' => 500,
+            'post_type' => 'home',
+            'meta_query' => $metaQuery,
+            'suppress_filters' => false,
+            'orderby' => 'title',
+            'order' => 'ASC'
+        )
     );
 
     if (count($homes) > 0) {
@@ -45,7 +59,14 @@ function tabbedProductData($id)
 
     //models
     $models = get_posts(
-        array('posts_per_page' => 500, 'post_type' => 'model', 'meta_query' => $metaQuery, 'suppress_filters' => false)
+        array(
+            'posts_per_page' => 500,
+            'post_type' => 'model',
+            'meta_query' => $metaQuery,
+            'suppress_filters' => false,
+            'orderby' => 'title',
+            'order' => 'ASC'
+        )
     );
     
     if (count($models) > 0) {

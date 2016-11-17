@@ -1,0 +1,145 @@
+.section.neighborhood-brandwindow {
+    .container {
+        position: relative;
+        display: flex;
+        align-item: center;
+        justify-content: center;
+
+        @mixin desktop {
+            padding: 100px;
+            margin-top: 40px;
+        }
+    }
+
+    .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &,
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    .text {
+        position: relative;
+        background: rgba($purple_rgb, 0.85);
+        text-align: center;
+        width: 100%;
+
+        @mixin desktop {
+            max-width: 612px;
+        }
+
+        h1 {
+            font-family: 'Open sans';
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 0.98;
+            letter-spacing: -1.2px;
+            text-align: center;
+            color: #fff;
+            margin: 15px 0 20px;
+
+            @mixin desktop {
+                font-size: 56px;
+            }
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+
+        span {
+            font-family: 'Open sans';
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .status {
+            font-family: 'Open sans';
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 3.5px;
+            text-align: center;
+            color: $white;
+            text-transform: uppercase;
+        }
+
+        .button {
+            text-shadow: 1px 1px 0 #7d5d25;
+
+            @mixin button #eeb34a;
+        }
+    }
+
+    .header {
+        padding: 30px;
+
+        @mixin desktop {
+            padding: 40px 80px;
+        }
+    }
+
+    .nav {
+        background: #95317f;
+        padding: 25px 40px;
+
+        @mixin clear;
+
+        ul {
+            list-style: none;
+            margin: 0;
+
+            @mixin desktop {
+                display: flex;
+                justify-content: center;
+            }
+
+            li {
+                margin: 0 10px 10px;
+
+                @mixin desktop {
+                    margin: 0;
+                    margin-right: 10px;
+                }
+
+                a.button {
+                    margin: 0;
+                    width: 100%;
+
+                    @mixin button #eeb34a;
+                }
+
+                &:last-child {
+                    @mixin desktop {
+                        margin: 0;
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .button.coming-soon {
+        position: absolute;
+        top: 100%;
+        margin: 0 auto;
+        margin-top: -11px;
+        left: 50%;
+        margin-left: -127px;
+        text-shadow: 1px 1px 0 #7d5d25;
+    }
+}
