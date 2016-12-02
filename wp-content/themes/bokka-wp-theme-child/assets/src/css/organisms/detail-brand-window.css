@@ -50,6 +50,10 @@
 
         .slider {
             overflow: hidden;
+
+            .slides {
+                margin-bottom: 0;
+            }
         }
     }
 

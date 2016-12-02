@@ -373,6 +373,14 @@
                         max-width: 100%;
                     }
 
+                    .caption {
+                        font-size: 15px;
+                        font-weight: bold;
+                        font-family: 'Open sans';
+                        color: $purple;
+                        margin: 10px 0;
+                    }
+
                     .fallback {
                         height: 183px;
                     }
@@ -418,7 +426,7 @@
 
                 @mixin desktop-large {
                     display: flex;
-                    margin: 0 0 25px;
+                    margin: 0 0 15px;
 
                     .image {
                         @mixin column 7,12,0,0;

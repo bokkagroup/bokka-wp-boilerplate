@@ -4,7 +4,7 @@
             <i class="icon icon-beds"></i>
                                     <span>
                                         {{bedrooms_min}}
-                                        {{#if bedroom_max}}
+                                        {{#if bedrooms_max}}
                                             &ndash; {{bedrooms_max}}
                                         {{/if}}
                                     </span> &nbsp; Bedrooms
@@ -32,17 +32,17 @@
                                     </span>&nbsp; Car Garage
         </li>
     {{/if}}
+    {{#if main_sqr_ft}}
+        <li>
+            <i class="icon icon-sq-ft-main-floor"></i>Main Floor &nbsp;
+            <span>{{main_sqr_ft}} sq. ft.</span>
+        </li>
+    {{/if}}
     {{#if finished_sqr_ft}}
         <li>
             <i class="icon icon-sq-ft-total"></i>Starts at &nbsp;
             <span>{{finished_sqr_ft}} sq. ft</span>
             <div class="tooltip icon icon-help" data-tip="Final price depends on homesite and options selected."></div>
-        </li>
-    {{/if}}
-    {{#if main_sqr_ft}}
-        <li>
-            <i class="icon icon-sq-ft-main-floor"></i>Main Floor &nbsp;
-            <span>{{main_sqr_ft}} sq. ft.</span>
         </li>
     {{/if}}
     {{#if base_price}}

@@ -136,7 +136,7 @@ function neighborhoodOverviewData()
         'homes' => array(
             'title' => 'Quick Move-In Homes',
             'copy' => get_field('quick_move-ins_overview', $neighborhoodOV_page_id),
-            'tab_title' => 'Quick Move-in',
+            'tab_title' => 'Quick Move-In',
             'neighborhoods' => sortProductByNeighborhood($homes),
             'class' => 'quick-move-in-homes',
             'permalink' => get_relative_permalink(58)
@@ -217,6 +217,9 @@ function sortProductByNeighborhood($posts)
         iterateNeighborhoodData($item, 'addNeighborhoodNameToProducts');
         return $item;
     }, $neighborhoods);
+
+    // alphabetize neighborhoods
+    sort($neighborhoods);
 
     return $neighborhoods;
 }
@@ -335,4 +338,28 @@ function convertCategoryToIcon($category)
             return 'icon-amenities-low-maint';
             break;
     }
+}
+
+
+function getNeighborhoodPrices($id)
+{
+    $posts = get_posts(
+        array(
+            'post_type' =>  array('home', 'plans'),
+            'meta_key' =>   'neighborhood',
+            'meta_value' => $id
+        )
+    );
+
+    $prices = array_map(function ($post) {
+        if ($post->post_type === 'home') {
+            $price = get_post_meta($post->ID, 'price');
+        } else {
+            $price = get_post_meta($post->ID, 'base_price');
+        }
+        return $price;
+    }, $posts);
+    $min_price = min($prices);
+
+    return $min_price[0];
 }

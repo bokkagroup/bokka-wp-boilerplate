@@ -297,15 +297,6 @@
         }
     }
 
-    &:hover {
-        .image {
-            img {
-                transform: scale(1.15);
-                transition: transform 5s;
-            }
-        }
-    }
-
     &.home {
         .title {
             background: #b8801c;

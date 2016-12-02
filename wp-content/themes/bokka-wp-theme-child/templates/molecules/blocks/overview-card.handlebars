@@ -1,4 +1,4 @@
-<li class="item" id="item-{{ID}}" data-map-info='{"position": {"lat": {{latitude}},"lng": {{longitude}}},"image": "{{#if communities logo_src}}{{logo_src}}{{/if}}{{#unless communities}}{{#if featured_image}}{{featured_image}}{{else}}/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded_536x246.jpg{{/if}}{{/unless}}","title": "{{post_title}}","permalink": "{{permalink}}","directions": "https://www.google.com/maps/dir/Current+Location/{{latitude}},{{longitude}}","secondary": "{{#if communities}}{{types}} <br>from the ${{base_price}}s{{/if}}{{#unless communities}}{{#if floorplan}}{{#with floorplan}}{{type}}{{/with}}{{/if}} <br>{{neighborhood_name}} in {{city}}{{/unless}}","button_label": "{{#unless home}}{{post_title}}{{/unless}}{{#if home}}this home{{/if}}"}'> <!-- end li.item -->
+<li class="item" id="item-{{ID}}" data-map-info='{"position": {"lat": {{latitude}},"lng": {{longitude}}},"image": "{{#if communities logo_src}}{{logo_src}}{{/if}}{{#unless communities}}{{#if featured_image}}{{featured_image}}{{else}}/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded_536x246.jpg{{/if}}{{/unless}}","title": "{{post_title}}","permalink": "{{permalink}}","directions": "https://www.google.com/maps/dir/Current+Location/{{latitude}},{{longitude}}","secondary": "{{#if communities}}{{types}} <br>from the ${{base_price}}s{{/if}}{{#unless communities}}{{#if floorplan}}{{#with floorplan}}{{type}}{{/with}}{{/if}} <br>{{neighborhood_name}} in {{city}}{{/unless}}","button_label": "{{#unless home}}{{post_title}}{{/unless}}{{#if home}}this home{{/if}}","plan":"{{#if home}}{{floorplan.post_title}}{{/if}}"}'> <!-- end li.item -->
     <article >
         <header>
             <div class="header">
@@ -7,6 +7,9 @@
                         <a href="{{permalink}}"><img src="{{featured_image}}" alt=" " width="268" height="123"></a>
                     {{else}}
                         <a href="{{permalink}}"><img src="/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded_536x246.jpg" alt=" " width="268" height="123" class="fallback"></a>
+                    {{/if}}
+                    {{#if home}}
+                    <figcaption class="caption">{{floorplan.post_title}}</figcaption>
                     {{/if}}
                 </figure>
                 <div class="title">
@@ -39,7 +42,7 @@
             </div>
         </header>
         <div class="body">
-            {{#if floorplan}}
+            {{#if model floorplan}}
             <div class="features">
             {{#with floorplan}}
             <ul>

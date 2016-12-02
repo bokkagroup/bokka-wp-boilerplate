@@ -53,6 +53,19 @@
 
         .contents {
             padding: 30px 30px 0;
+
+            a {
+                text-decoration: none;
+            }
+        }
+
+        .caption {
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+            font-family: 'Open sans';
+            color: $purple;
+            margin: 0 0 10px;
         }
 
         .logo {
@@ -67,7 +80,7 @@
             font-weight: 600;
             line-height: 1.3;
             margin: 0 0 3px;
-            word-break: break-all;
+            word-break: break-word;
         }
 
         p {

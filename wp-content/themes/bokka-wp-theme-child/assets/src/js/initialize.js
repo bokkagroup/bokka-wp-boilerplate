@@ -4,7 +4,6 @@ require('./vendor/mousewheel.js')
 require('./vendor/fancybox.js')
 require('./vendor/tipr.js')
 
-
 jQuery( document ).ready(function($) {
     window.$ = jQuery
 
@@ -18,6 +17,8 @@ jQuery( document ).ready(function($) {
     /**
      * Global Helpers
      */
+    require('./utility/eventAggregator')
+    
     //Event Tracking
     require('./helpers/eventTracking.js')
     require('./helpers/maps.js')
@@ -58,6 +59,10 @@ jQuery( document ).ready(function($) {
             closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
         }
     });
+
+    $(document).on('gform_confirmation_loaded', function(event, formId) {
+        $.fancybox.update();
+    })
 
     $('.js-page-jump').on('click', function(event){
         event.preventDefault()

@@ -72,6 +72,12 @@ var LayoutView = Backbone.View.extend({
         }, 500);
 
         // Map/DOM event listeners
+        google.maps.event.addListener(self.map, 'bounds_changed', function()  {
+            if (self.infoBox) {
+                self.infoBox.setContent('');
+                self.infoBox.close();
+            }
+        });
         google.maps.event.addListenerOnce(self.map, 'projection_changed', function() {
             self.initializeProduct();
 
@@ -135,7 +141,8 @@ var LayoutView = Backbone.View.extend({
                 self.$el.find('.product-listings-container').removeClass('fixed');
                 
                 // Return map to original state
-                if (self.scrolled) {            
+                if (self.scrolled) {
+                    bokka.events.trigger('resetPinIcon');
                     self.resetInfobox();
                     self.map.fitBounds(self.bounds);
                     self.setCenter(self.map.getCenter(), -350, -105);

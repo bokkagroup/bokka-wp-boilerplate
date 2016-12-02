@@ -5,6 +5,8 @@ module.exports = Backbone.View.extend({
         this.mapInfo = this.$el.data('map-info')
         this.parent = this.options.parent
         this.markerIndex = this.options.parent.markerIndex
+        this.defaultIcon = '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-purple.png'
+        this.activeIcon = '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-green.png'
         self.initializeMarker()
         self.initializeWatcher();
 
@@ -22,14 +24,28 @@ module.exports = Backbone.View.extend({
             
             self.marker = new google.maps.Marker({
                 position: {lat: self.mapInfo.position.lat, lng: self.mapInfo.position.lng},
-                icon: '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-purple.png'
+                icon: self.defaultIcon
             });
 
             if (self.isVisible()) {
                 self.marker.setMap(self.parent.map)
             }
 
-            self.parent.bounds.extend(self.marker.getPosition());
+            bokka.events.on('resetPinIcon', function() {
+                self.marker.setIcon(self.defaultIcon);
+            });
+
+            bokka.events.on('changePin', function(marker) {
+                if (this === marker) {
+                    this.setIcon(self.activeIcon)
+                    this.setZIndex(1)
+                } else {
+                    this.setIcon(self.defaultIcon)
+                    this.setZIndex(0)
+                }
+            }, self.marker);
+
+            self.parent.bounds.extend(self.marker.getPosition())
 
             self.parent.map.fitBounds(self.parent.bounds);
 
@@ -38,7 +54,13 @@ module.exports = Backbone.View.extend({
                     var context = self.$el.closest('.item').find('.header .title h4').text().trim();
                     bokka.eventTrack('Neighborhood Overview', 'Click', 'Overview Map-'+context+'-Pin Click');
                     self.parent.setCenter(self.marker.getPosition(), -350, -75)
+                });
+                self.marker.addListener('mouseover', function () {
+                    bokka.events.trigger('changePin', self.marker);
                     self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, true);
+                });
+                self.marker.addListener('mouseout', function () {
+                    self.parent.closeInfoWindow(self.index);
                 });
             }
         }
@@ -60,7 +82,7 @@ module.exports = Backbone.View.extend({
                         self.$el.addClass("visible");
                         self.parent.map.setZoom(10)
                         self.parent.setCenter(self.marker.getPosition(), -350, -75)
-                        self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, false);
+                        bokka.events.trigger('changePin', self.marker);
                     }
                 }
             });

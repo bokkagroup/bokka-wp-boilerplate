@@ -56,6 +56,12 @@
 
         .description {
             color: $black;
+
+            p a {
+                color: $gray_dark1;
+                font-size: 14px;
+                margin-left: 5px;
+            }
         }
 
         .gform_wrapper {

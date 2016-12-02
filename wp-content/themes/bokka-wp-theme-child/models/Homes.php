@@ -11,8 +11,7 @@ class Homes extends \BokkaWP\MVC\Model
         $post->neighborhood->link = get_the_permalink($post->neighborhood);
         $post->neighborhood->title = get_the_title($post->neighborhood);
 
-
-        $form = gravity_form(2, false, false, false, null, $ajax = true, 0, false);
+        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->brand_window_form = $form;
         $post->tabs = get_field('tabs');
         $post->map = array(
@@ -31,7 +30,7 @@ class Homes extends \BokkaWP\MVC\Model
         $post->map['sale_team_members'] = getSalesTeamMembers($post->neighborhood->ID);
 
         $post->pdf = wp_get_attachment_url($post->pdf);
-        $form = gravity_form(3, false, false, false, null, $ajax = true, 0, false);
+        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->coming_soon =  array('modal_content'=> $form);
         $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->osc_form = $form;

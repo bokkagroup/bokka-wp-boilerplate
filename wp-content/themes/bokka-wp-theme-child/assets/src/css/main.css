@@ -59,6 +59,7 @@
 /* ------------------------------------ *\
     Atoms
 \* ------------------------------------ */
+@import 'atoms/alerts';
 @import 'atoms/lists';
 @import 'atoms/buttons';
 @import 'atoms/icons';
