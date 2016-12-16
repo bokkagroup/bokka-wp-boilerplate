@@ -1,0 +1,66 @@
+<div id="{{id}}" class="section post-grid">
+    <section>
+        <div class="container">
+
+            {{#if show_categories}}
+                {{#if categories}}
+                <div class="categories">
+                    {{#if categories_title}}
+                    <h2>{{categories_title}}</h2>
+                    {{/if}}
+                    <ul>
+                        {{#each categories}}
+                        <li><a href="{{term_link}}" {{#if current}}class="current"{{/if}}><span>{{name}}</span> ({{count}})</a></li>
+                        {{/each}}
+                        <li><a href=""><span>View All</span></a></li>
+                    </ul>
+                </div><!--/categories -->
+                {{/if}}
+            {{/if}}
+
+            <ul class="grid">
+
+                <div class="grid-sizer"></div>
+
+                {{#each custom_posts}}
+
+                    <li class="item {{#if feat_img}} color-bg{{else}}{{#unless thumbnail}} color-bg white-text{{/unless}}{{/if}}{{#if two_column}} two-column{{/if}}">
+                        {{#if category}}
+                        <div class="category">
+                            <span>{{category}}</span>
+                        </div>
+                        {{/if}}
+
+                        {{#if feat_img}}
+                            <a class="image image-cutout" href="{{permalink}}" style="background-image:url('{{feat_img}}');"></a>
+                        {{else}}
+                            {{#if thumbnail}}
+                                <a class="image" href="{{permalink}}" style="background-image:url('{{images.tablet}}');"></a>
+                            {{/if}}
+                        {{/if}}
+                        
+                        <div class="text">
+                            <div class="title">
+                                <a href="{{permalink}}">
+                                    <h4>{{post_title}}</h4>
+                                </a>
+                            </div>
+                            <div class="body">
+                                {{{excerpt}}}
+                            </div>
+                            <a class="read-more" href="{{permalink}}">Read More &raquo;</a>
+                        </div>
+                    </li>
+                {{/each}}
+
+            </ul>
+
+            {{#if pagination}}
+            <div class="pagination">
+                {{{pagination}}}
+            </div><!-- /pagination -->
+            {{/if}}
+
+        </div><!--/container-->
+    </section>
+</div><!--/post-grid-->

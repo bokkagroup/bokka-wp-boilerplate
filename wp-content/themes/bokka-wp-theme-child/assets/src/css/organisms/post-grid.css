@@ -1,0 +1,298 @@
+.section.post-grid {
+    background: $gray_light2;
+    padding-bottom: 30px;
+
+    .grid {
+        list-style: none;
+        margin: 30px 0 0;
+        padding: 0;
+        width: 100%;
+
+        @mixin tablet {
+            lost-masonry-wrap: no-flex;
+            width: calc(100% + 30px);
+        }
+    }
+
+    .grid-sizer {
+        width: 100%;
+
+        @mixin tablet {
+            width: calc(99.99% * 1/2 - 30px);
+        }
+
+        @mixin desktop {
+            width: calc(99.99% * 1/3 - 30px);
+        }
+    }
+
+    .item {
+        background: $gray;
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+        position: relative;
+        width: 100%;
+
+        @mixin tablet {
+            lost-masonry-column: 1/2;
+
+            &.two-column {
+                lost-masonry-column: 2/2;
+
+                .image {
+                    padding: 0 0 45%;
+                }
+            }
+        }
+
+        @mixin desktop {
+            lost-masonry-column: 1/3;
+
+            &.two-column {
+                lost-masonry-column: 2/3;
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .category {
+            background: $purple;
+            color: $white;
+            font-family: 'Open Sans';
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 12px 20px;
+            text-align: right;
+            width: 100%;
+
+            span {
+                opacity: 0.6;
+            }
+        }
+
+        .image {
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: block;
+            padding: 0 0 65%;
+        }
+
+        .image-cutout {
+            background-position: center bottom;
+            background-size: auto 100%;
+        }
+
+        .text {
+            background: $white;
+            padding: 30px;
+        }
+
+        .title {
+            margin: 0 0 10px;
+
+            a {
+                &:hover {
+                    h4 {
+                        color: $blue_light;
+                    }
+                }
+            }
+        }
+
+        .body {
+            font-family: 'Open Sans';
+            font-size: 15px;
+            line-height: 1.46667;
+        }
+
+        .read-more {
+            color: $blue;
+            display: inline-block;
+            font-family: 'Open Sans';
+            font-size: 15px;
+            font-weight: 600;
+            margin: 10px 0 0;
+            text-decoration: underline;
+            text-transform: uppercase;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        &.color-bg {
+            background: $blue;
+
+            &:nth-child(4n+3) {
+                background: $green;
+            }
+
+            &:nth-child(4n+4) {
+                background: $blue_light;
+            }
+
+            &:nth-child(4n+5) {
+                background: $gold_dark;
+            }
+        }
+
+        &.white-text {
+            color: $white;
+
+            .text {
+                background: transparent;
+            }
+
+            .title {
+                h4 {
+                    color: $white;
+                }
+
+                a {
+                    &:hover {
+                        h4 {
+                            color: $white;
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+
+            .read-more {
+                color: $white;
+            }
+        }
+    }
+
+    .categories {
+        background: $white;
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+        list-style: none;
+        margin: 30px 30px 0;
+        padding: 30px;
+        width: 100%;
+
+        @mixin tablet {
+            margin: 30px 0 0;
+        }
+
+        ul {
+            font-family: 'Open Sans';
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 8px 0 0;
+
+            @mixin tablet {
+                display: inline-block;
+                margin: 10px 10px 0 0;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            @mixin desktop {
+                margin: 10px 25px 0 0;
+            }
+
+            a {
+                color: $blue;
+                text-decoration: none;
+
+                &:hover {
+                    span {
+                        text-decoration: none;
+                    }
+                }
+
+                &.current {
+                    span {
+                        font-weight: 700;
+                        text-decoration: none;
+                    }
+                }
+
+                span {
+                    font-weight: 600;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        background: $white;
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+        margin: 0 0 45px;
+        padding: 20px 10px;
+        text-align: center;
+        width: 100%;
+
+        @mixin tablet {
+            padding: 25px 30px;
+        }
+
+        .page-numbers {
+            color: $blue;
+            display: none;
+            font-family: 'Open Sans';
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.6em 0.8em;
+            text-decoration: none;
+
+            &.next,
+            &.prev {
+                display: inline-block;
+                font-weight: 400;
+            }
+
+            &.next {
+                float: right;
+
+                @mixin tablet {
+                    float: none;
+                }
+            }
+
+            &.prev {
+                float: left;
+
+                @mixin tablet {
+                    float: none;
+                }
+            }
+
+            @mixin tablet {
+                display: inline-block;
+                font-size: 16px;
+            }
+
+            &:hover {
+                background: rgba(85, 156, 190, 0.6);
+                color: $white;
+            }
+
+            &.current {
+                background: $gray_light3;
+                color: $gray_dark1;
+            }
+
+            &.dots {
+                &:hover {
+                    background: transparent;
+                    color: $blue;
+                }
+            }
+        }
+    }
+}

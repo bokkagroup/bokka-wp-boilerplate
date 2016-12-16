@@ -13,6 +13,14 @@
  */
 function setNeighborhoodPricing($post_id)
 {
+    
+    $post_type = get_post_type($post_id);
+
+    // only do this for plans
+    if ($post_type !== 'plans') {
+        return;
+    }
+
     //get the neighborhood & it's price
     $neighborhood_id = get_post_meta($post_id, 'neighborhood')[0];
 

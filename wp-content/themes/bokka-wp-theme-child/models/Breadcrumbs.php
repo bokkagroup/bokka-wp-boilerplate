@@ -43,6 +43,30 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             is_page('our-locations') ||
             is_page('homeowner-resources')) {
             $this->data = $this->askAQuestion();
+        } elseif (is_post_type_archive('blog-post')) {
+            $this->data = $this->blogArchive();
+        } elseif (is_singular(array('blog-post'))) {
+            $this->data = $this->blogSingle();
+        } elseif (is_tax('blog-post-category')) {
+            $this->data = $this->blogTax();
+        } elseif (is_post_type_archive('career')) {
+            $this->data = $this->careerArchive();
+        } elseif (is_singular(array('career'))) {
+            $this->data = $this->careerSingle();
+        } elseif (is_tax('career-category')) {
+            $this->data = $this->careerTax();
+        } elseif (is_post_type_archive('event')) {
+            $this->data = $this->eventArchive();
+        } elseif (is_singular(array('event'))) {
+            $this->data = $this->eventSingle();
+        } elseif (is_tax('event-category')) {
+            $this->data = $this->eventTax();
+        } elseif (is_post_type_archive('testimonial')) {
+            $this->data = $this->testimonialArchive();
+        } elseif (is_singular(array('testimonial'))) {
+            $this->data = $this->testimonialSingle();
+        } elseif (is_tax('testimonial-category')) {
+            $this->data = $this->testimonialTax();
         } else {
             $this->data = $this->singlePage();
         }
@@ -209,6 +233,242 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             array(
                 'title' => $post->post_title,
                 'link' => get_permalink($post)
+            )
+        );
+    }
+
+    public function blogSingle()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Blog',
+                'link' => '/blog',
+                'class' => 'icon icon-blog'
+            ),
+            array(
+                'title' => $post->post_title,
+                'link' => get_permalink($post)
+            )
+        );
+    }
+
+    public function blogArchive()
+    {
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Blog',
+                'link' => '/blog',
+                'class' => 'icon icon-blog'
+            )
+        );
+    }
+
+    public function blogTax()
+    {
+        global $wp_query;
+        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+        $term_link = get_term_link($term);
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Blog',
+                'link' => '/blog',
+                'class' => 'icon icon-blog'
+            ),
+            array(
+                'title' => $term->name,
+                'link' => $term_link
+            )
+        );
+    }
+
+    public function careerSingle()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Career Opportunities',
+                'link' => '/career-opportunities',
+                'class' => 'icon icon-careers'
+            ),
+            array(
+                'title' => $post->post_title,
+                'link' => get_permalink($post)
+            )
+        );
+    }
+
+    public function careerArchive()
+    {
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Career Opportunities',
+                'link' => '/career-opportunities',
+                'class' => 'icon icon-careers'
+            )
+        );
+    }
+
+    public function careerTax()
+    {
+        global $wp_query;
+        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+        $term_link = get_term_link($term);
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Career Opportunities',
+                'link' => '/career-opportunities',
+                'class' => 'icon icon-careers'
+            ),
+            array(
+                'title' => $term->name,
+                'link' => $term_link
+            )
+        );
+    }
+
+    public function eventSingle()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Events',
+                'link' => '/events',
+                'class' => 'icon icon-events'
+            ),
+            array(
+                'title' => $post->post_title,
+                'link' => get_permalink($post)
+            )
+        );
+    }
+
+    public function eventArchive()
+    {
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Events',
+                'link' => '/events',
+                'class' => 'icon icon-events'
+            )
+        );
+    }
+
+    public function eventTax()
+    {
+        global $wp_query;
+        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+        $term_link = get_term_link($term);
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Events',
+                'link' => '/events',
+                'class' => 'icon icon-events'
+            ),
+            array(
+                'title' => $term->name,
+                'link' => $term_link
+            )
+        );
+    }
+
+    public function testimonialSingle()
+    {
+        global $post;
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Testimonials',
+                'link' => '/testimonials',
+                'class' => 'icon icon-testimonials'
+            ),
+            array(
+                'title' => $post->post_title,
+                'link' => get_permalink($post)
+            )
+        );
+    }
+
+    public function testimonialArchive()
+    {
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Testimonials',
+                'link' => '/testimonials',
+                'class' => 'icon icon-testimonials'
+            )
+        );
+    }
+
+    public function testimonialTax()
+    {
+        global $wp_query;
+        $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+        $term_link = get_term_link($term);
+
+        return array(
+            array(
+                'title' => 'Home',
+                'link' => '/'
+            ),
+            array(
+                'title' => 'Testimonials',
+                'link' => '/testimonials',
+                'class' => 'icon icon-testimonials'
+            ),
+            array(
+                'title' => $term->name,
+                'link' => $term_link
             )
         );
     }

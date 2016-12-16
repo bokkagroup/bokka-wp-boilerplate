@@ -7,4 +7,7 @@
         {{>organisms/coming-soon-get-updates}}
     {{/with}}
 {{/if}}
+{{#if gallery_items}}
+    {{>organisms/masonry-gallery items=gallery_items }}
+{{/if}}
 {{> organisms/virtual-tour}}

@@ -1,0 +1,77 @@
+.section.brand-window-wide {
+    border-top: 9px solid $purple;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    @mixin tablet {
+        background-color: $blue;
+        border: 0 none;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .fallback {
+        display: none;
+
+        @mixin tablet {
+            display: block;
+        }
+    }
+
+    img {
+        height: 64vw;
+        object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
+
+        @mixin tablet {
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .text {
+        margin: 30px 0 0;
+        padding: 0 30px;
+        position: relative;
+
+        @mixin tablet {
+            margin: 82px auto;
+            padding: 30px;
+            width: 640px;
+
+            &.with-background {
+                background: rgba(63, 127, 157, 0.7);
+            }
+        }
+
+        h1 {
+            color: $black;
+
+            @mixin tablet {
+                color: $white;
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+            }
+
+            @mixin desktop {
+                font-size: 46px;
+            }
+        }
+    }
+
+    .body {
+        color: $black;
+        font-size: 18px;
+        font-style: italic;
+        margin: 20px 0 0;
+
+        @mixin tablet {
+            color: $white;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+    }
+}

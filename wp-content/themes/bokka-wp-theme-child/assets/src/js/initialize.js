@@ -3,6 +3,7 @@ require('./vendor/mlpushmenu.js')
 require('./vendor/mousewheel.js')
 require('./vendor/fancybox.js')
 require('./vendor/tipr.js')
+require('./vendor/masonry.js')
 
 jQuery( document ).ready(function($) {
     window.$ = jQuery
@@ -105,6 +106,13 @@ jQuery( document ).ready(function($) {
         $(this).siblings('.filters-wrap').toggleClass('open');
     });
 
+    // Prevent clicks on color block text without a specified destination
+    if ($('.circles-w-color-block-text').length > 0) {
+        $(".color-block-text .text a[href='#']").on('click', function (event) {
+            event.preventDefault();
+        });
+    }
+
 
     /**
      * Menu Instantiation
@@ -172,4 +180,20 @@ jQuery( document ).ready(function($) {
     $('.accordion .title').on('click', function (event) {
         $(this).toggleClass('active')
     });
+
+    /**
+     * Post Grid Masonry
+     */
+    // masonry / imagesloaded
+    if ($('.grid').length > 0) {
+        var Masonry = require('./vendor/masonry.js')
+
+        var msnry = new Masonry( '.grid', {
+            itemSelector: '.item',
+            columnWidth: '.grid-sizer',
+            gutter: 30
+        });
+
+        msnry.layout();
+    }
 });

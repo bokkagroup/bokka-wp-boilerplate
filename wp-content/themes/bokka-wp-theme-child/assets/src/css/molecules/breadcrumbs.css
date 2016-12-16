@@ -137,7 +137,9 @@
 } /* breadcrumb */
 
 .breadcrumb .icon::before {
-    font-size: 36px;
-    vertical-align: bottom;
     display: inline-block;
+    font-size: 36px;
+    position: relative;
+    top: -2px;
+    vertical-align: middle;
 }

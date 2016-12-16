@@ -6,8 +6,12 @@
         width: 100%;
         height: 225px;
 
-        @mixin desktop {
+        @mixin tablet {
             height: 500px;
+        }
+
+        @mixin desktop {
+            height: 700px;
         }
     }
 

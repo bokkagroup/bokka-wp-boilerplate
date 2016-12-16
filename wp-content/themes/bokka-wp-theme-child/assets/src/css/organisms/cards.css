@@ -1,8 +1,14 @@
 .section.cards {
-    background: $light_gray;
-    padding: 75px 0 0;
+    padding: 10px 0 0;
 
-    @mixin arrow $light_gray, 26px;
+    @mixin arrow $white, 26px;
+
+    &.has-background {
+        background: $light_gray;
+        padding: 75px 0 0;
+
+        @mixin arrow $light_gray, 26px;
+    }
 
     .card {
         .text {

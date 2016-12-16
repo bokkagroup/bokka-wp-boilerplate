@@ -4,9 +4,10 @@ namespace BokkaWP\Theme\models;
 
 class Organisms extends \BokkaWP\MVC\Model
 {
-    public function initialize()
+    public function initialize($id)
     {
-        $organisms = get_field('organism');
+        $post_id = isset($id) ? $id : get_the_ID();
+        $organisms = get_field('organism', $post_id);
         if (is_array($organisms)) {
             //recursively loop through our array
             $this->data = array_map(array($this, 'mapData'), $organisms);
@@ -60,6 +61,11 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['gallery'] = array_map('setSizeMedium', $organism['gallery']);
         }
 
+        //get image data for masonry gallery
+        if (isset($organism['type']) && $organism['type'] === 'masonry-gallery') {
+            $organism['gallery_items'] = prepare_masonry_gallery_data($organism['gallery_items']);
+        }
+
         // get layout type and images for secondary brand window
         if (isset($organism['background_image'])) {
             $organism['images'] = array(
@@ -79,8 +85,10 @@ class Organisms extends \BokkaWP\MVC\Model
         //get the testimonial from the ID
         if (isset($organism['testimonial_id'])) {
             $name = get_post_meta($organism['testimonial_id'], 'name');
+            $excerpt = get_post_meta($organism['testimonial_id'], 'excerpt');
             $organism['testimonial'] = get_object_vars(get_post($organism['testimonial_id']));
             $organism['testimonial']['name'] = count($name) > 0 ? $name[0] : false;
+            $organism['testimonial']['excerpt'] = count($excerpt) > 0 ? $excerpt[0] : false;
             $organism['testimonial']['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($organism['testimonial_id']), 'full')[0];
         }
 
@@ -104,6 +112,19 @@ class Organisms extends \BokkaWP\MVC\Model
                 return $module;
             }, $organism['contact_module']);
         }
+
+
+        // setup data for circles-w-color-block-text
+        if (isset($organism['type']) && $organism['type'] == 'circles-w-color-block-text') {
+            $organism['item'] = array_map(function ($item) {
+                $item['id'] = 'color-block-' . $this->count;
+                $this->count++;
+                return $item;
+            }, $organism['item']);
+        }
+
+        require('organisms/postGrid.php');
+        require('organisms/postCategories.php');
 
         return $organism;
     }

@@ -1,0 +1,235 @@
+.section.circles-w-color-block-text {
+    .container {
+        padding: 0 30px;
+    }
+
+    .intro {
+        margin: 0 0 30px;
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .circles {
+        width: 100%;
+    }
+
+    .color-block-text {
+        position: relative;
+        margin: 0 0 30px;
+        width: auto;
+        text-align: center;
+
+        .text {
+            position: relative;
+            text-align: left;
+            z-index: 2;
+            margin-top: -90px;
+
+            a {
+                display: block;
+                padding: 30px;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                position: relative;
+            }
+
+            a[href='#'] {
+                cursor: default;
+            }
+
+            h4,
+            h4 a,
+            p {
+                color: #fff;
+            }
+
+            h4 {
+                margin-bottom: 8px;
+            }
+        }
+
+        .image {
+            z-index: 1;
+            margin: 0 auto;
+            max-width: 375px;
+            max-height: 375px;
+
+            img {
+                display: block;
+                margin: 0 auto;
+                height: auto;
+                max-width: 100%;
+                border-radius: 50%;
+            }
+        }
+
+        &#color-block-1 {
+            .text {
+                a {
+                    background-color: $blue;
+
+                    &:not([href='#']) {
+                        @mixin button $blue;
+                    }
+                }
+            }
+        }
+
+        &#color-block-2 {
+            .text {
+                a {
+                    background-color: $purple;
+
+                    &:not([href='#']) {
+                        @mixin button $purple;
+                    }
+                }
+            }
+        }
+
+        &#color-block-3 {
+            .text {
+                a {
+                    background-color: $green;
+
+                    &:not([href='#']) {
+                        @mixin button $green;
+                    }
+                }
+            }
+        }
+    }
+
+    @mixin tablet {
+        .container {
+            padding: 75px 0 60px;
+        }
+
+        .intro {
+            margin: 0;
+            max-width: 415px;
+        }
+
+        .image {
+            position: relative;
+            width: 375px;
+            height: 375px;
+            z-index: 1;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                margin: 0 auto;
+                height: 100%;
+                max-width: 100%;
+                width: auto;
+            }
+        }
+
+        .color-block-text {
+            margin: 0;
+
+            .text {
+                position: absolute;
+                margin: 0;
+            }
+
+            &#color-block-1 {
+                float: right;
+                padding-left: 186px;
+                margin-top: -30px;
+
+                .text {
+                    width: 380px;
+                    left: 0;
+                    top: 60px;
+                }
+            }
+
+            &#color-block-2 {
+                float: left;
+                padding-left: 190px;
+
+                .text {
+                    width: 450px;
+                    left: 0;
+                    top: 178px;
+                }
+            }
+
+            &#color-block-3 {
+                float: right;
+                padding: 0 190px 36px 0;
+                margin-top: 30px;
+
+                .text {
+                    width: 400px;
+                    right: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 850px) {
+        .container {
+            padding-top: 90px;
+        }
+    }
+
+    @media only screen and (min-width: 930px) {
+        .container {
+            padding-top: 150px;
+        }
+    }
+
+    @mixin desktop {
+        .container {
+            padding: 75px 0 90px;
+        }
+
+        .intro {
+            max-width: 415px;
+        }
+
+        .color-block-text {
+            .text {
+                position: absolute;
+                z-index: 2;
+            }
+
+            &#color-block-2 {
+                margin-top: -100px;
+            }
+        }
+    }
+
+    @mixin desktop-large {
+        .container {
+            padding-top: 150px;
+        }
+
+        .intro {
+            margin-left: 72px;
+        }
+
+        .color-block-text {
+            &#color-block-1 {
+                margin-top: -100px;
+            }
+
+            &#color-block-2 {
+                margin-top: 70px;
+            }
+
+            &#color-block-3 {
+                margin-top: 45px;
+            }
+        }
+    }
+}

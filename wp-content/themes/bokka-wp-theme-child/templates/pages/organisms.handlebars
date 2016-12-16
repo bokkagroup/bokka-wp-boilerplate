@@ -45,9 +45,17 @@
         {{#if wysiwyg-block}}
             {{> organisms/wysiwyg-block }}
         {{/if}}
+        {{#if post-grid}}
+            {{> organisms/post-grid }}
+        {{/if}}
         {{#if accordion}}
             {{> organisms/accordion }}
         {{/if}}
+        {{#if masonry-gallery}}
+            {{>organisms/masonry-gallery items=gallery_items }}
+        {{/if}}
+        {{#if circles-w-color-block-text}}
+            {{> organisms/circles-w-color-block-text }}
+        {{/if}}
     {{/each}}
 </div>
-

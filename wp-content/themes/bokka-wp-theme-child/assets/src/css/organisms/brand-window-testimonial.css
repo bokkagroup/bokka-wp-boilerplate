@@ -1,0 +1,73 @@
+.section.brand-window-testimonial {
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    @mixin tablet {
+        background: $blue;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .image {
+        background: $blue;
+        width: 100%;
+
+        @mixin tablet {
+            background: transparent;
+            order: 2;
+            padding: 20px 0 0;
+            width: 35%;
+        }
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        max-width: 300px;
+
+        @mixin tablet {
+            max-width: 100%;
+        }
+
+        @mixin desktop {
+            max-width: 300px;
+        }
+    }
+
+    .text {
+        margin: 30px 0 0;
+        padding: 0 30px;
+        position: relative;
+
+        @mixin tablet {
+            align-self: center;
+            margin: 0;
+            order: 1;
+            padding: 30px;
+            width: 65%;
+        }
+
+        h1 {
+            color: $black;
+
+            @mixin tablet {
+                color: $white;
+            }
+
+            @mixin desktop {
+                font-size: 46px;
+            }
+        }
+    }
+
+    .body {
+        color: $black;
+        font-size: 18px;
+        font-style: italic;
+        margin: 20px 0 0;
+
+        @mixin tablet {
+            color: $white;
+        }
+    }
+}

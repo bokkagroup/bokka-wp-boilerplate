@@ -13,6 +13,8 @@ class Floorplan extends \BokkaWP\MVC\Model
         $post->pdf = wp_get_attachment_url($post->pdf);
         $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
         $post->coming_soon =  array('modal_content'=> $form);
+        $gallery_items = get_field('gallery_items', $post->ID);
+        $post->gallery_items = prepare_masonry_gallery_data($gallery_items);
         $this->data = $post;
     }
 }

@@ -1,0 +1,25 @@
+<div id="{{id}}" class="section brand-window-testimonial">
+    <section>
+        <div class="container">
+            {{#if feat_img}}
+                <div class="image">
+                    <img src="{{feat_img}}">
+                </div>
+            {{/if}}
+        
+            <div class="text">
+                <h1>
+                    {{#if title}}
+                        {{title}}
+                    {{/if}}
+                    {{#unless title}}
+                        {{post_title}}
+                    {{/unless}}
+                </h1><!--/text-->
+                <div class="body">
+                   {{{subtitle}}}
+                </div><!--/body-->
+            </div><!--/text-->
+        </div><!-- /container -->
+    </section>
+</div><!--/brand-window-->

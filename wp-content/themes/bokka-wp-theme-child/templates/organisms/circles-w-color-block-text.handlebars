@@ -1,0 +1,17 @@
+<div id="{{id}}" class="section circles-w-color-block-text">
+    <section>    
+        <div class="container">
+            <div class="intro">
+                <figure>
+                    <img class="lifefullness" src="/wp-content/themes/bokka-wp-theme-child/assets/build/images/lifefullness.png" alt="">
+                </figure>
+                {{{description}}}
+            </div>
+            <div class="circles">
+                {{#each item}}
+                    {{> molecules/blocks/color-block-text}}
+                {{/each}}
+            </div>
+        </div>
+    </section>
+</div>

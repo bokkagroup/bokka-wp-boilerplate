@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'icomoon';
-    src: url('../fonts/icomoon_9-21.eot?hbux2h');
+    src: url('../fonts/icomoon.eot?hbux2h');
     src:
-        url('../fonts/icomoon_9-21.eot?hbux2h#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon_9-21.ttf?hbux2h') format('truetype'),
-        url('../fonts/icomoon_9-21.woff?hbux2h') format('woff'),
-        url('../fonts/icomoon_9-21.svg?hbux2h#icomoon') format('svg');
+        url('../fonts/icomoon.eot?hbux2h#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?hbux2h') format('truetype'),
+        url('../fonts/icomoon.woff?hbux2h') format('woff'),
+        url('../fonts/icomoon.svg?hbux2h#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -27,6 +27,18 @@
 }
 
 .icon {
+    &.icon-careers::before {
+        content: '\e929';
+    }
+
+    &.icon-testimonials::before {
+        content: '\e92a';
+    }
+
+    &.icon-events::before {
+        content: '\e92b';
+    }
+
     &.icon-contact-mobile-phone::before {
         content: '\e927';
     }

@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+    {{#if testimonial}}
+        {{#if feat_img}}
+            {{> organisms/brand-window-testimonial}}
+        {{else}}
+            {{> organisms/brand-window-wide}}
+        {{/if}}
+    {{else}}
+        {{> organisms/brand-window-wide}}
+    {{/if}}
+    <div class="section custom-post">
+        <section>
+            <div class="container">
+                <div class="meta"> 
+                    <span class="date">Posted {{date}}</span>
+                    {{#if term}}<a class="category" href="{{term_link}}">{{term}}</a>{{/if}}
+                </div>
+
+                <div class="body">
+                    {{{post_content}}}
+                </div><!-- /body -->
+
+                <div class="share">
+                    <span>Share this</span> {{{share}}}
+                </div>
+            </div><!-- /container -->
+        </section>
+    </div><!-- /custom-post -->
+
+</div><!-- /page-wrapper -->

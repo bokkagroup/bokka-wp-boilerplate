@@ -39,8 +39,6 @@
 
         img {
             float: right;
-            mix-blend-mode: multiply;
-            filter: brightness(1.1);
             width: 100%;
         }
 

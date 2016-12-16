@@ -10,7 +10,7 @@
         position: relative;
     }
 
-    & + .section:not(.contact-us-modules) .container {
+    & + .section:not(.contact-us-modules):not(.circles-w-color-block-text) .container {
         @mixin tablet {
             padding-top: 75px;
         }

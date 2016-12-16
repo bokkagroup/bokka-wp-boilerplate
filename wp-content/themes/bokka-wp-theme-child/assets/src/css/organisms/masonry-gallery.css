@@ -11,7 +11,7 @@
             overflow: hidden;
             position: relative;
             font-size: 52px;
-            margin-bottom: 15px;
+            margin-bottom: 30px;
             lost-masonry-column: 1/2;
 
             @mixin desktop {
@@ -20,8 +20,6 @@
 
             &:first-child,
             &:nth-child(5n + 6) {
-                margin-bottom: 15px;
-
                 @mixin desktop {
                     lost-masonry-column: 1/2;
                 }
