@@ -116,6 +116,7 @@ class Organisms extends \BokkaWP\MVC\Model
 
         // setup data for circles-w-color-block-text
         if (isset($organism['type']) && $organism['type'] == 'circles-w-color-block-text') {
+            $this->count = 1;
             $organism['item'] = array_map(function ($item) {
                 $item['id'] = 'color-block-' . $this->count;
                 $this->count++;
