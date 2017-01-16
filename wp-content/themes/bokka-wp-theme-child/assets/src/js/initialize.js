@@ -165,16 +165,6 @@ jQuery( document ).ready(function($) {
     });
 
     /**
-     * Init Masonry Gallery
-     */
-    if ($('.masonry-gallery').length > 0) {
-        var MasonView = require('./views/masonry-gallery');
-        $('.masonry-gallery').each(function(){
-            new MasonView({el: $(this)});
-        });
-    }
-
-    /**
      * Accordion
      */
     $('.accordion .title').on('click', function (event) {

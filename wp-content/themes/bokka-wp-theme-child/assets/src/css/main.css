@@ -116,6 +116,7 @@
 @import 'organisms/form-basic';
 @import 'organisms/location-listings';
 @import 'organisms/circles-w-color-block-text';
+@import 'organisms/upcoming-event';
 
 /* ------------------------------------ *\
     $COMPONENTS

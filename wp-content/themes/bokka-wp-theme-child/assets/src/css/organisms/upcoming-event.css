@@ -1,0 +1,55 @@
+.section.upcoming-event {
+    .text {
+        background: $green;
+        border-bottom: 6px solid $green_light;
+        padding: 15px 15px 5px;
+        text-align: center;
+        width: 100%;
+
+        @mixin tablet {
+            padding: 13px 24px 13px 13px;
+            text-align: left;
+        }
+
+        @mixin desktop {
+            margin: 20px 0 -40px;
+        }
+
+        @media only screen and (min-width: 1081px) {
+            margin: 40px 0 -40px;
+        }
+    }
+
+    .title {
+        @mixin tablet {
+            float: left;
+        }
+
+        h4 {
+            color: $white;
+            font-weight: 600;
+        }
+    }
+
+    .icon {
+        display: none;
+
+        @mixin tablet {
+            color: $white;
+            display: inline-block;
+            font-size: 2.5em;
+            line-height: 1;
+            margin: -0.05em 0 -0.2em;
+            vertical-align: -0.3em;
+        }
+    }
+
+    .button {
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+
+        @mixin tablet {
+            float: right;
+            margin: 0;
+        }
+    }
+}

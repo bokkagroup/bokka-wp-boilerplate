@@ -80,16 +80,34 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
     {
         global $post;
 
-        return array(
-            array(
-                'title' => 'Home',
-                'link' => '/'
-            ),
-            array(
-                'title' => get_the_title($post),
-                'link' => get_permalink($post)
-            )
-        );
+        if (is_page() && $post->post_parent) {
+            // check if page has a parent page
+            return array(
+                array(
+                    'title' => 'Home',
+                    'link' => '/'
+                ),
+                array(
+                    'title' => get_the_title($post->post_parent),
+                    'link' => get_permalink($post->post_parent)
+                ),
+                array(
+                    'title' => get_the_title($post),
+                    'link' => get_permalink($post)
+                )
+            );
+        } else {
+            return array(
+                array(
+                    'title' => 'Home',
+                    'link' => '/'
+                ),
+                array(
+                    'title' => get_the_title($post),
+                    'link' => get_permalink($post)
+                )
+            );
+        }
     }
     
     /* Floorplans */
@@ -98,6 +116,7 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
         global $post;
         $obj = get_post_type_object(get_post_type($post));
         $postfix = $obj->labels->singular_name;
+        $post->post_title = (get_field('display_title', $post->ID)) ? get_field('display_title', $post->ID) : $post->post_title;
 
         return array(
             array(

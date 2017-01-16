@@ -8,6 +8,20 @@
 /**
  * @param $data
  * @return mixed
+ * Uses display_title field for floorplans if set
+ */
+function formatFloorplanTitle($data)
+{
+    if (isset($data->post_type) && ($data->post_type == 'plans')) {
+        $data->post_title = (get_field('display_title', $data->ID)) ? get_field('display_title', $data->ID) : $data->post_title;
+    }
+    return $data;
+}
+add_filter('bokkamvc_filter_before_render', 'formatFloorplanTitle');
+
+/**
+ * @param $data
+ * @return mixed
  * Retrieves Image urls for elevations_gallery
  */
 function generateElevationsGalleryData($data)

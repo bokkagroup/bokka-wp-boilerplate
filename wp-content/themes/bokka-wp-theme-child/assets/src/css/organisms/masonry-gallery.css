@@ -1,27 +1,36 @@
 .section.masonry-gallery {
     padding: 100px 0;
 
+    .container {
+        display: block;
+    }
+
     .masonry-items {
         list-style: none;
         margin-bottom: 0;
-        padding-left: 0;
+        overflow: hidden;
+        padding: 0 10px;
+        width: 100%;
 
         li {
             float: left;
             overflow: hidden;
             position: relative;
             font-size: 52px;
-            margin-bottom: 30px;
-            lost-masonry-column: 1/2;
+            margin: 0 10px 20px;
+            padding: 0 0 34%;
+            width: calc(50% - 20px);
 
             @mixin desktop {
-                lost-masonry-column: 1/4;
+                padding: 0 0 17%;
+                width: calc(25% - 20px);
             }
 
             &:first-child,
             &:nth-child(5n + 6) {
                 @mixin desktop {
-                    lost-masonry-column: 1/2;
+                    padding: 0 0 calc(34% + 20px);
+                    width: calc(50% - 20px);
                 }
             }
 
@@ -55,6 +64,7 @@
                 object-fit: cover;
                 transition: all 0.25s;
                 display: block;
+                position: absolute;
             }
 
             .icon {

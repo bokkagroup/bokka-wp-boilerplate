@@ -1,4 +1,7 @@
 <article>
+    {{#if upcoming_event_url}}
+        {{>organisms/upcoming-event}}
+    {{/if}}
     {{>pages/neighborhoods/brandwindow}}
     {{#if neighborhood_features}}
         {{>organisms/mega-features}}

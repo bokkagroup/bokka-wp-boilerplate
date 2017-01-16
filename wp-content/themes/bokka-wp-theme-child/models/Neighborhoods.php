@@ -72,6 +72,11 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         //legal copy (appears as part of map)
         $post->map['legal'] = get_field('legal', $post->ID);
 
+        //upcoming event
+        if ($post->upcoming_event) {
+            $post->upcoming_event_url = get_permalink(get_field('upcoming_event', $post->ID));
+        }
+
         if (isset($post->status)) {
             $status = $post->status;
             $post->{$status} = true;
