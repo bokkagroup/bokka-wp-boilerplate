@@ -54,16 +54,16 @@
                                     </span>Car Garage
                                 </li>
                             {{/if}}
-                            {{#if main_sqr_ft}}
-                                <li>
-                                    <i class="icon icon-sq-ft-main-floor"></i>Up to &nbsp;
-                                    <span> {{main_sqr_ft}} sq. ft.</span>
-                                </li>
-                            {{/if}}
                             {{#if finished_sqr_ft}}
                                 <li>
+                                    <i class="icon icon-sq-ft-main-floor"></i>Up to &nbsp;
+                                    <span> {{finished_sqr_ft}} sq. ft.</span>
+                                </li>
+                            {{/if}}
+                            {{#if main_sqr_ft}}
+                                <li>
                                     <i class="icon icon-sq-ft-total"></i>Starts at &nbsp;
-                                    <span> {{finished_sqr_ft}} sq. ft</span>
+                                    <span> {{main_sqr_ft}} sq. ft</span>
                                     <div class="tooltip icon icon-help" data-tip="Square footage varies based on floorplan options selected."></div>
                                 </li>
                             {{/if}}

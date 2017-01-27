@@ -2,47 +2,47 @@
     {{#if bedrooms_min}}
         <li>
             <i class="icon icon-beds"></i>
-                                    <span>
-                                        {{bedrooms_min}}
-                                        {{#if bedrooms_max}}
-                                            &ndash; {{bedrooms_max}}
-                                        {{/if}}
-                                    </span> &nbsp; Bedrooms
+            <span>
+                {{bedrooms_min}}
+                {{#if bedrooms_max}}
+                    &ndash; {{bedrooms_max}}
+                {{/if}}
+            </span> &nbsp; Bedrooms
         </li>
     {{/if}}
     {{#if bathrooms_min}}
         <li>
             <i class="icon icon-baths"></i>
-                                    <span>
-                                        {{bathrooms_min}}
-                                        {{#if bathrooms_max}}
-                                            &ndash; {{bathrooms_max}}
-                                        {{/if}}
-                                    </span>&nbsp; Bathrooms
+            <span>
+                {{bathrooms_min}}
+                {{#if bathrooms_max}}
+                    &ndash; {{bathrooms_max}}
+                {{/if}}
+            </span>&nbsp; Bathrooms
         </li>
     {{/if}}
     {{#if garage_min}}
         <li>
             <i class="icon icon-garage"></i>
-                                    <span>
-                                        {{garage_min}}
-                                        {{#if garage_max}}
-                                            &ndash; {{garage_max}}
-                                        {{/if}}
-                                    </span>&nbsp; Car Garage
+            <span>
+                {{garage_min}}
+                {{#if garage_max}}
+                    &ndash; {{garage_max}}
+                {{/if}}
+            </span>&nbsp; Car Garage
         </li>
     {{/if}}
     {{#if main_sqr_ft}}
         <li>
-            <i class="icon icon-sq-ft-main-floor"></i>Main Floor &nbsp;
+            <i class="icon icon-sq-ft-main-floor"></i>Starts at &nbsp;
             <span>{{main_sqr_ft}} sq. ft.</span>
         </li>
     {{/if}}
     {{#if finished_sqr_ft}}
         <li>
-            <i class="icon icon-sq-ft-total"></i>Starts at &nbsp;
+            <i class="icon icon-sq-ft-total"></i>Up to &nbsp;
             <span>{{finished_sqr_ft}} sq. ft</span>
-            <div class="tooltip icon icon-help" data-tip="Final price depends on homesite and options selected."></div>
+            <div class="tooltip icon icon-help" data-tip="Square footage varies based on floorplan options selected."></div>
         </li>
     {{/if}}
     {{#if base_price}}

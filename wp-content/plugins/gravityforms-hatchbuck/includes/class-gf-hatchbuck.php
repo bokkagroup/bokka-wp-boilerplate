@@ -281,6 +281,10 @@ class GFHatchbuck extends GFFeedAddOn {
             array(
                 'label' => 'BCN Insider',
                 'name' => 'bcn_insider'
+            ),
+            array(
+                'label' => 'Audience',
+                'name' => 'audience'
             )
         );
 
@@ -521,6 +525,10 @@ class GFHatchbuck extends GFFeedAddOn {
                 $field_tags = array_merge( $field_tags, explode( ', ', $lead_data['post_type'] ) );
             }
 
+            if ( ! empty( $lead_data['audience'] ) ) {
+                $field_tags = array_merge( $field_tags, explode( ', ', $lead_data['audience'] ) );
+            }
+
             //format tags array out of unique tags
             $field_tags = array_unique($field_tags);
             foreach ( $field_tags as $field_tag ) {
@@ -538,6 +546,7 @@ class GFHatchbuck extends GFFeedAddOn {
                 unset( $lead_data['bcn_insider'] );
                 unset( $lead_data['page_name'] );
                 unset( $lead_data['post_type'] );
+                unset( $lead_data['audience'] );
             }
         }
 

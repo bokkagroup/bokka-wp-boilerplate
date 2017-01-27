@@ -17,8 +17,7 @@
                                 <h4>Address</h4>
                                 <a class="directions" target="_blank" href="http://www.google.com/maps/place/{{latitude}},{{longitude}}">
                                     {{address_1}}<br>
-                                    {{#if address_2}}{{address_2}}<br>{{/if}}
-                                    {{city}}, {{state}} {{zip}}
+                                    {{#if address_2}}{{address_2}}<br>{{else}}{{city}}, {{state}} {{zip}}{{/if}}
                                 </a>
                             </div>
                             <div class="section">
