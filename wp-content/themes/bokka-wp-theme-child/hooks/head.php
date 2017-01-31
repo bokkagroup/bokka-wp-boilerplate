@@ -4,7 +4,8 @@
  * Vendor tracking scripts
  */
 
-add_action('wp_head', 'requireReachLocalTracking');
+// Disabling Reach Local tracking pre-launch due to footer form issues
+// add_action('wp_head', 'requireReachLocalTracking');
 function requireReachLocalTracking()
 {
     ?>
