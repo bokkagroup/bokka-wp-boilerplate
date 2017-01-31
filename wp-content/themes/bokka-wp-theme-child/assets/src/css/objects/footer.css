@@ -340,3 +340,13 @@
         }
     }
 }
+
+/* positioning for tracking pixels to prevent gap at bottom of page */
+.footer-pixel {
+    position: absolute;
+
+    + img {
+        position: absolute;
+    }
+}
+

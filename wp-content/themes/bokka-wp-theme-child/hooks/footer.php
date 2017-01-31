@@ -7,17 +7,17 @@
 add_action('wp_footer', 'requireTradeDeskTrackingPixel');
 function requireTradeDeskTrackingPixel()
 {
-    echo '<script type="text/javascript"> var __cho__ = {"data":{"boulder_creek_site":"[BOULDER_CREEK_SITE_VALUE]"},"pid":3326}; (function() { var c = document.createElement(\'script\'); c.type = \'text/javascript\'; c.async = true; c.src = document.location.protocol + \'//cc.chango.com/static/o.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(c, s); })(); </script>',
+    echo '<div class="footer-pixel"><script type="text/javascript"> var __cho__ = {"data":{"boulder_creek_site":"[BOULDER_CREEK_SITE_VALUE]"},"pid":3326}; (function() { var c = document.createElement(\'script\'); c.type = \'text/javascript\'; c.async = true; c.src = document.location.protocol + \'//cc.chango.com/static/o.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(c, s); })(); </script>',
         '<script type="text/javascript"> var __cho__ = {"data":{"boulder_creek_search":"[BOULDER_CREEK_SEARCH_VALUE]"},"pid":3326}; (function() { var c = document.createElement(\'script\'); c.type = \'text/javascript\'; c.async = true; c.src = document.location.protocol + \'//cc.chango.com/static/o.js\'; var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(c, s); })(); </script>',
         '<script async src="//16736.tctm.co/t.js"></script>',
-        '<iframe width="0" height="0" name="Trade Desk Tracking - Live Boulder Creek Retargeting" frameborder="0" scrolling="no" src="//insight.adsrvr.org/tags/xbmwi3b/h9cefh41/iframe"></iframe>';
+        '<iframe width="0" height="0" name="Trade Desk Tracking - Live Boulder Creek Retargeting" frameborder="0" scrolling="no" src="//insight.adsrvr.org/tags/xbmwi3b/h9cefh41/iframe"></iframe></div>';
 }
 
 add_action('wp_footer', 'requireResonateTrackingPixel');
 function requireResonateTrackingPixel()
 {
     ?>
-        <script language='JavaScript1.1' src='//pixel.mathtag.com/event/js?mt_id=1094385&mt_adid=176173&v1=&v2=&v3=&s1=&s2=&s3='></script>
+        <div class="footer-pixel"><script language='JavaScript1.1' src='//pixel.mathtag.com/event/js?mt_id=1094385&mt_adid=176173&v1=&v2=&v3=&s1=&s2=&s3='></script></div>
     <?php
 }
 
