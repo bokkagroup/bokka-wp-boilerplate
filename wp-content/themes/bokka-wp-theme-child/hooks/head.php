@@ -48,10 +48,10 @@ function requireLiveReload()
 }
 
 // Disabling BugHerd pre-launch, we can re-enable specifically for staging post-launch
-// add_action('wp_head', 'requireBugHerd');
+add_action('wp_head', 'requireBugHerd');
 function requireBugHerd()
 {
-    if (BOKKA_ENV !== "local") : ?>
+    if (BOKKA_ENV == "staging") : ?>
         <!-- BugHerd feedback -->
         <script type='text/javascript'>
             (function (d, t) {
