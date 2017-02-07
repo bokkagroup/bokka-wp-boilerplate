@@ -53,14 +53,24 @@ module.exports = Backbone.View.extend({
                 self.marker.addListener('click', function () {
                     var context = self.$el.closest('.item').find('.header .title h4').text().trim();
                     bokka.eventTrack('Neighborhood Overview', 'Click', 'Overview Map-'+context+'-Pin Click');
-                    self.parent.setCenter(self.marker.getPosition(), -350, -75)
+                    
+                    self.parent.map.setZoom(10)
+                    
+                    if (self.parent.scrolled) {
+                        self.parent.setCenter(self.marker.getPosition(), -350, -75)
+                    } else {
+                        self.parent.setCenter(self.marker.getPosition(), -350, -300)
+                    }
+                    
+                    bokka.events.trigger('changePin', self.marker);
+                    
+                    // open infobox when pan finished
+                    google.maps.event.addListenerOnce(self.parent.map, 'idle', function(){
+                        self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, true);
+                    });
                 });
                 self.marker.addListener('mouseover', function () {
                     bokka.events.trigger('changePin', self.marker);
-                    self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, true);
-                });
-                self.marker.addListener('mouseout', function () {
-                    self.parent.closeInfoWindow(self.index);
                 });
             }
         }

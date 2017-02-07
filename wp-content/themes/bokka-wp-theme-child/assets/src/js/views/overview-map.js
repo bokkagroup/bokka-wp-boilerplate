@@ -32,10 +32,13 @@ var LayoutView = Backbone.View.extend({
         this.emulateClick();
 
         // Check if user has scrolled the page
-        var bodyWatcher = scrollMonitor.create($('body'));
-        bodyWatcher.partiallyExitViewport(function () {
+        var headerWatcher = scrollMonitor.create($('#header'));
+        headerWatcher.partiallyExitViewport(function () {
             self.scrolled = true;
         });
+        headerWatcher.fullyEnterViewport(function () {
+            self.scrolled = false;
+        })
     },
     styles : require('../config/mapStyles'),
     render : function(){
@@ -143,6 +146,7 @@ var LayoutView = Backbone.View.extend({
                 // Return map to original state
                 if (self.scrolled) {
                     bokka.events.trigger('resetPinIcon');
+                    self.scrolled = false;
                     self.resetInfobox();
                     self.map.fitBounds(self.bounds);
                     self.setCenter(self.map.getCenter(), -350, -105);
