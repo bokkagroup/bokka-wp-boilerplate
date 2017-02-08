@@ -237,6 +237,10 @@
         @mixin desktop {
             height: calc(100vh - 100px);
         }
+
+        @media (min-height: 930px) {
+            height: auto;
+        }
     }
 
     .title {
