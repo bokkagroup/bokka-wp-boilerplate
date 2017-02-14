@@ -41,7 +41,7 @@ add_filter('bokkamvc_filter_before_render', 'generateElevationsGalleryData');
 function formatBasePrice($data)
 {
     if (isset($data->base_price) && $data->base_price) {
-        $data->base_price = round(number_format($data->base_price / 1000, 0));
+        $data->base_price = round(number_format($data->base_price / 1000, 0), -1);
     }
     return $data;
 }
