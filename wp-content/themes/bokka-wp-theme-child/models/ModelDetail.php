@@ -6,11 +6,21 @@ class ModelDetail extends \BokkaWP\MVC\Model
     public function initialize()
     {
         global $post;
+        $this->setNeighborhood($post);
+        $this->setMap($post, 14);
+        $this->data = $post;
+    }
+
+    private function setNeighborhood($post)
+    {
         $post->neighborhood = get_post($post->neighborhood);
         $post->neighborhood->link = get_the_permalink($post->neighborhood);
         $post->neighborhood->title = get_the_title($post->neighborhood);
-        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
-        $post->brand_window_form = array('modal_content'=> $form);
+    }
+
+    private function setMap($post, $zoom)
+    {
+        $sales_team = getSalesTeamMembers($post->neighborhood->ID);
         $post->map = array(
             'address_1' => $post->address_1,
             'address_2' => $post->address_2,
@@ -21,14 +31,8 @@ class ModelDetail extends \BokkaWP\MVC\Model
             'phone'     => $post->neighborhood->phone,
             'latitude'  => $post->latitude,
             'longitude' => $post->longitude,
-            'zoom'      => 14
+            'zoom'      => $zoom,
+            'sale_team_members' => $sales_team
         );
-
-        $post->map['sale_team_members'] = getSalesTeamMembers($post->neighborhood->ID);
-
-        $post->pdf = wp_get_attachment_url($post->pdf);
-        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
-        $post->coming_soon =  array('modal_content'=> $form);
-        $this->data = $post;
     }
 }

@@ -7,7 +7,12 @@ class NeighborhoodsOv extends \BokkaWP\MVC\Model
     public function initialize()
     {
         global $post;
-        $post->tabs = neighborhoodOverviewData();
+        $this->setTabs($post);
         $this->data = $post;
+    }
+
+    private function setTabs($post)
+    {
+        $post->tabs = neighborhoodOverviewData();
     }
 }

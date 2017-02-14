@@ -7,22 +7,68 @@ class Neighborhoods extends \BokkaWP\MVC\Model
     public function initialize()
     {
         global $post;
+        $this->setMap($post, 14);
+        $this->setFeaturedImg($post, 'large');
+        $this->setAltContent($post);
+        $this->setProduct($post);
+        $this->setSitemap($post);
+        $this->setNeighborhoodFeatures($post);
+        $this->setGalleryItems($post);
+        $this->setForm($post, 6);
+        $this->setUpcomingEvent($post);
+        $this->setStatus($post);
+        $this->data = $post;
+    }
 
-        $post->featured_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'large');
+    private function setMap($post, $zoom)
+    {
+        $sales_team = getSalesTeamMembers($post->ID);
+        $post->map = array(
+            'address_1' => $post->address_1,
+            'address_2' => $post->address_2,
+            'city'      => $post->city,
+            'state'     => $post->state,
+            'zip'       => $post->zip,
+            'hours'     => nl2br($post->hours),
+            'phone'     => $post->phone,
+            'latitude'  => $post->latitude,
+            'longitude' => $post->longitude,
+            'zoom'      => $zoom,
+            'sale_team_members' => $sales_team,
+            'legal' => get_field('legal', $post->ID)
+        );
+    }
+
+    private function setFeaturedImg($post, $size)
+    {
+        $post->featured_image = wp_get_attachment_url(get_post_thumbnail_id($post->ID), $size);
+    }
+
+    private function setAltContent($post)
+    {
         $post->alternating_content = array('items' => get_field('alternating_content'));
+    }
 
-        //gnarly tabbed product formatting
+    private function setProduct($post)
+    {
         $post->product = tabbedProductData($post->ID);
+    }
 
-        //sitemap
+    private function setSitemap($post)
+    {
         $post->site_map_thumbnail = wp_get_attachment_image_src($post->site_map_thumbnail, 'thumbnail')[0];
         $post->site_map_pdf = wp_get_attachment_url($post->site_map_pdf);
+    }
 
-        //types
+    private function setTypes($post)
+    {
         if ($types = get_post_meta($post->ID, 'types')) {
             $post->types = explode(',', $types[0]);
         }
+    }
 
+    private function setTestimonial($post)
+    {
         //prepare testimonial
         $testimonialID = $post->testimonial;
 
@@ -35,26 +81,10 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         } else {
             $post->testimonial = false;
         }
+    }
 
-
-        //prepare map w info data
-        $post->map = array(
-            'address_1' => $post->address_1,
-            'address_2' => $post->address_2,
-            'city'      => $post->city,
-            'state'     => $post->state,
-            'zip'       => $post->zip,
-            'hours'     => nl2br($post->hours),
-            'phone'     => $post->phone,
-            'latitude'  => $post->latitude,
-            'longitude' => $post->longitude,
-            'zoom'      => 14
-        );
-
-        //sales team
-        $post->map['sale_team_members'] = getSalesTeamMembers($post->ID);
-
-        //Content with icons & text
+    private function setNeighborhoodFeatures($post)
+    {
         $post->neighborhood_features = get_field('neighborhood_features', $post->ID);
         if (is_array($post->neighborhood_features)) {
             $post->neighborhood_features = array_map(function ($feature) {
@@ -62,25 +92,31 @@ class Neighborhoods extends \BokkaWP\MVC\Model
                 return $feature;
             }, $post->neighborhood_features);
         }
+    }
 
+    private function setGalleryItems($post)
+    {
         $gallery_items = get_field('gallery_items', $post->ID);
         $post->gallery_items = prepare_masonry_gallery_data($gallery_items);
+    }
 
-        //forms
-        $post->request_info_form = gravity_form(6, false, false, false, null, $ajax = true, 0, false);
+    private function setForm($post, $id)
+    {
+        $post->request_info_form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
+    }
 
-        //legal copy (appears as part of map)
-        $post->map['legal'] = get_field('legal', $post->ID);
-
-        //upcoming event
+    private function setUpcomingEvent($post)
+    {
         if ($post->upcoming_event) {
             $post->upcoming_event_url = get_permalink(get_field('upcoming_event', $post->ID));
         }
+    }
 
+    private function setStatus()
+    {
         if (isset($post->status)) {
             $status = $post->status;
             $post->{$status} = true;
         }
-        $this->data = $post;
     }
 }

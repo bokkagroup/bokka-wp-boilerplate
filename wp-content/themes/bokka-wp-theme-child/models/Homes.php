@@ -7,13 +7,41 @@ class Homes extends \BokkaWP\MVC\Model
     public function initialize()
     {
         global $post;
+        $this->setNeighborhood($post);
+        $this->setForm($post, 4);
+        $this->setPDF($post);
+        $this->setTabs($post);
+        $this->setMap($post, 16);
+        $this->data = $post;
+    }
+
+    private function setNeighborhood($post)
+    {
         $post->neighborhood = get_post($post->neighborhood);
         $post->neighborhood->link = get_the_permalink($post->neighborhood);
         $post->neighborhood->title = get_the_title($post->neighborhood);
+    }
 
-        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
+    private function setForm($post, $id)
+    {
+        $form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
         $post->brand_window_form = $form;
+        $post->osc_form = $form;
+    }
+
+    private function setPDF($post)
+    {
+        $post->pdf = wp_get_attachment_url($post->pdf);
+    }
+
+    private function setTabs($post)
+    {
         $post->tabs = get_field('tabs');
+    }
+
+    private function setMap($post, $zoom)
+    {
+        $sales_team = getSalesTeamMembers($post->neighborhood->ID);
         $post->map = array(
             'address_1' => $post->address_1,
             'address_2' => $post->address_2,
@@ -24,16 +52,8 @@ class Homes extends \BokkaWP\MVC\Model
             'phone'     => $post->neighborhood->phone,
             'latitude'  => $post->latitude,
             'longitude' => $post->longitude,
-            'zoom'      => 16
+            'zoom'      => $zoom,
+            'sale_team_members' => $sales_team
         );
-
-        $post->map['sale_team_members'] = getSalesTeamMembers($post->neighborhood->ID);
-
-        $post->pdf = wp_get_attachment_url($post->pdf);
-        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
-        $post->coming_soon =  array('modal_content'=> $form);
-        $form = gravity_form(4, false, false, false, null, $ajax = true, 0, false);
-        $post->osc_form = $form;
-        $this->data = $post;
     }
 }

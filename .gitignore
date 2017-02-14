@@ -19,6 +19,7 @@ sitemap.xml.gz
 .idea/
 build/
 
+
 # Interconnectit Search & Replace
 # https://interconnectit.com/products/search-and-replace-for-wordpress-databases/
 replace/*

@@ -8,9 +8,6 @@
 wp-content/uploads
 wp-config.php
 wp-content/upgrade/
-.idea/
-src/
-
 
 *.7z
 *.dmg

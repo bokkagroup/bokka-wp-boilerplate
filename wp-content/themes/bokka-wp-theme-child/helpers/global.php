@@ -8,9 +8,12 @@
  */
 function get_image_sizes_src($image_ids, $sizes = array('full'), $meta = false)
 {
+
     $images = [];
     foreach ($image_ids as $id) {
         setup_postdata($id);
+
+
         if ($meta) {
             $images[$id]['caption'] = get_the_excerpt($id);
         }

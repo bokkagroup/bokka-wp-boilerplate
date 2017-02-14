@@ -6,6 +6,6 @@ class FloorplanController extends \BokkaWP\MVC\Controller
 {
     public function initialize()
     {
-        $this->view->display($this->model->data);
+        $this->view->display($this->model);
     }
 }
