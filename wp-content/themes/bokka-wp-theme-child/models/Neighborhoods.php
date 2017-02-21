@@ -12,6 +12,8 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         $this->setAltContent($post);
         $this->setProduct($post);
         $this->setSitemap($post);
+        $this->setTypes($post);
+        $this->setTestimonial($post);
         $this->setNeighborhoodFeatures($post);
         $this->setGalleryItems($post);
         $this->setForm($post, 6);
