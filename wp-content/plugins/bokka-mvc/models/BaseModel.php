@@ -27,9 +27,11 @@ Class Model {
 
         $fields = get_fields($post_id);
 
-        foreach ($fields as $field_name => $value) {
-		    $this->$field_name = $value;
-	    }
+        if (!empty($fields)) {
+            foreach ($fields as $field_name => $value) {
+                $this->$field_name = $value;
+            }
+        }
         return $this;
     }
 }
