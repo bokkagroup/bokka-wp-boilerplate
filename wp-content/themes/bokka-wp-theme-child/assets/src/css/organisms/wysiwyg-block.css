@@ -10,7 +10,7 @@
         padding: 0 15px;
     }
 
-    a {
+    a:not(.button) {
         color: $blue;
     }
 
@@ -29,10 +29,6 @@
             font-size: 20px;
             color: $blue;
         }
-    }
-
-    a {
-        color: $blue;
     }
 
     @mixin desktop {
