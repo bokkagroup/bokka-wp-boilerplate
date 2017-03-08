@@ -303,6 +303,7 @@ Mobile Styles
 
     span {
         display: block;
+        font-size: 0.88em;
         font-weight: normal;
     }
 }
@@ -493,7 +494,7 @@ Desktop Styles
 
                 &:last-child {
                     margin-left: auto;
-                    margin-top: -145px;
+                    margin-top: -115px;
                 }
             }
         }
@@ -512,12 +513,14 @@ Desktop Styles
             }
 
             a {
-                padding: 5px 0;
+                padding: 5px 0 5px 15px;
                 display: inline-block;
                 color: $blue;
                 box-shadow: none;
-                font-size: 16px;
+                font-size: 15px;
                 position: relative;
+                transform: translateX(-15px);
+                width: calc(100% + 15px);
 
                 $hover: #0baad4;
 
@@ -529,9 +532,13 @@ Desktop Styles
                     font-size: 12px;
                     font-weight: normal;
                     margin-left: 12px;
+                    padding: 5px 0;
+                    transform: translateX(0);
+                    width: auto;
 
                     &:hover {
                         padding: 0;
+                        transform: translateX(0);
 
                         &::before {
                             display: none;
@@ -548,9 +555,9 @@ Desktop Styles
 
                 &:hover {
                     background: none;
-                    padding-left: 15px;
                     color: #2c657f;
                     transition: all 0.5s;
+                    transform: translateX(0);
                 }
 
                 &::before {
@@ -564,6 +571,11 @@ Desktop Styles
 
                 &:hover::before {
                     opacity: 1;
+                }
+
+                span {
+                    font-size: 0.8em;
+                    white-space: nowrap;
                 }
             }
 
@@ -649,3 +661,18 @@ Desktop Styles
         }
     }
 }
+
+@mixin desktop-large {
+    #mp-menu {
+        .mp-level {
+            a {
+                font-size: 16px;
+
+                span {
+                    font-size: 0.88em;
+                }
+            }
+        }
+    }
+}
+
