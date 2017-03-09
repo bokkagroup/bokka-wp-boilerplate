@@ -6,27 +6,14 @@
 
 {{#if tabs}}
     {{> organisms/tabbed-gallery}}
-{{else}}
-    {{#with coming_soon}}
-        {{>organisms/coming-soon-get-updates}}
-    {{/with}}
 {{/if}}
 
 {{#if virtual_tour}}
     {{> organisms/virtual-tour}}
-{{else}}
-    {{#if tabs}}
-        {{>organisms/coming-soon-get-updates}}
-    {{/if}}
 {{/if}}
 
-{{!-- crazy logic, essentially don't want to see OSC form if coming-soon form is displayed --}}
-{{#if tabs}}
-    {{#if virtual_tour}}
-        {{>organisms/osc-request-info}}
-    {{/if}}
-{{/if}}
+{{>organisms/osc-request-info}}
 
 {{#with map}}
-    {{> organisms/map-with-info }}
+    {{> organisms/map-with-info}}
 {{/with}}
