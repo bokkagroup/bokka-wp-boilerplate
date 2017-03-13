@@ -1,0 +1,49 @@
+<div id="{{id}}" class="section photo-grid-w-title-caption">
+    <section>
+        {{#if title}}
+        <div class="container">
+            <div class="section-title">
+                <h2>{{title}}</h2>
+            </div>
+        </div>
+        {{/if}}
+        <div class="container">
+            {{#each item}}
+            <div class="item">
+                <div class="image">
+                    <figure>
+                        {{#if button}}
+                        <a href="{{link}}" target="{{link_target}}"><img src="{{image}}" alt=""></a>
+                        {{else}}
+                        <img src="{{image}}" alt="">
+                        {{/if}}
+                    </figure>
+                </div>
+                <div class="body">
+                    <div class="title">
+                        <h3>{{title}}</h3>
+                    </div>
+                    <div class="subtitle">
+                        <p>{{sub_title}}</p>
+                        {{#if button}}
+                        <a href="{{link}}" class="button" target="{{link_target}}">{{button_text}}</a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{#if button}}
+        <div class="container">
+            <div class="section-button">
+                {{#if subtitle}}
+                <p>{{subtitle}}</p>
+                {{/if}}
+                {{#if button}}
+                <a href="{{link}}" class="button" target="{{link_target}}">{{button_text}}</a>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
+    </section>
+</div><!--/photo-grid-w-title-caption-->

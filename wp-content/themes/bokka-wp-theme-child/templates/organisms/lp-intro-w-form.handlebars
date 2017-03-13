@@ -1,0 +1,55 @@
+<div id="{{id}}" class="section lp-intro-w-form">
+    <section>
+        <div class="container">
+            <div class="main">
+                <div class="text">
+
+                    {{#if title}}
+                    <div class="title">
+                        <h2>{{title}}</h2>
+                    </div>
+                    {{/if}}
+
+                    {{#if subtitle}}
+                    <div class="subtitle">
+                        <h23>{{subtitle}}</h3>
+                    </div>
+                    {{/if}}
+
+                    {{#if description}}
+                    <div class="body">
+                        {{#if image}}<figure class="inset"><img src="{{image}}"></figure>{{/if}}
+                        {{{description}}}
+                    </div>
+                    {{/if}}
+
+                    {{#if call_to_action}}
+                        <div class="cta">{{call_to_action}}</div>
+                    {{/if}}
+
+                </div><!--/text -->
+
+                <div class="form-column">
+                    <div class="form-wrapper" id="campaign_vip_form" data-community-name="{{community.post_title}}">
+                        {{{gform}}}
+                        {{#if community_types}}
+                        <div class="product-type-data">
+                            {{#each community_types}}
+                                <span class="product-type">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                        {{#if form_footer}}
+                            <div class="form-footer">
+                                {{#each form_footer}}
+                                    <img src="{{image}}">
+                                    <span>{{text}}</span>
+                                {{/each}}
+                            </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div><!--/container-->
+    </section>
+</div><!--/lp-intro-w-form-->

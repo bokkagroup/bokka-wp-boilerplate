@@ -4,10 +4,13 @@ namespace BokkaWP\Theme\models;
 
 class Organisms extends \BokkaWP\MVC\Model
 {
-    public function initialize($id)
+    public function initialize()
     {
-        $post_id = isset($id) ? $id : get_the_ID();
+        global $post;
+
+        $post_id = $post->ID;
         $organisms = get_field('organism', $post_id);
+
         if (is_array($organisms)) {
             //recursively loop through our array
             $this->data = array_map(array($this, 'mapData'), $organisms);
@@ -56,6 +59,18 @@ class Organisms extends \BokkaWP\MVC\Model
             }
         }
 
+        // get community (including product type data) info for form
+        if (isset($organism['type']) && $organism['type'] === 'lp-intro-w-form') {
+            if (isset($this->community) && $this->community) {
+                $organism['community'] = $this->community[0];
+                $types = get_post_meta($organism['community']->ID, 'types');
+
+                if ($types) {
+                    $organism['community_types'] = explode(',', $types[0]);
+                }
+            }
+        }
+
         //get image sizes for our CTA gallery
         if (isset($organism['type']) && $organism['type'] === 'cta-w-gallery') {
             $organism['gallery'] = array_map('setSizeMedium', $organism['gallery']);
@@ -76,10 +91,21 @@ class Organisms extends \BokkaWP\MVC\Model
             );
         }
 
+        // get image caption
+        if (isset($organism['image']) && isset($organism['type']) && $organism['type'] === 'text-block-w-image') {
+            $image_post = get_post($organism['image']);
+            $organism['caption'] = $image_post->post_excerpt;
+        }
+
         //get image urls for image fields (id)
         if (isset($organism['image'])) {
+            $image_id = $organism['image'];
             $size = isset($organism['image_size']) ? $organism['image_size'] : 'large';
-            $organism['image'] = wp_get_attachment_image_src($organism['image'], $size)[0];
+            $organism['image'] = wp_get_attachment_image_src($image_id, $size)[0];
+        }
+
+        if (isset($organism['inset_image'])) {
+            $organism['inset_image'] = wp_get_attachment_image_src($organism['inset_image'], 'full')[0];
         }
 
         //get the testimonial from the ID
@@ -103,6 +129,11 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['gform'] = $form;
         }
 
+        if (isset($organism['form']) && $organism['form']) {
+            $form = gravity_form($organism['form']['id'], false, false, false, null, $ajax = true, 0, false);
+            $organism['gform'] = $form;
+        }
+
         // get class name and boolean for contact modules
         if (isset($organism['contact_module']) && $organism['contact_module']) {
             $organism['contact_module'] = array_map(function ($module) {
@@ -113,7 +144,6 @@ class Organisms extends \BokkaWP\MVC\Model
             }, $organism['contact_module']);
         }
 
-
         // setup data for circles-w-color-block-text
         if (isset($organism['type']) && $organism['type'] == 'circles-w-color-block-text') {
             $this->count = 1;
@@ -122,6 +152,15 @@ class Organisms extends \BokkaWP\MVC\Model
                 $this->count++;
                 return $item;
             }, $organism['item']);
+        }
+
+        // image alignment options
+        if (isset($organism['image_alignment']) && $organism['image_alignment']) {
+            if ($organism['image_alignment'] === 'right') {
+                $organism['align_image_right'] = true;
+            } else {
+                $organism['align_image_left'] = true;
+            }
         }
 
         require('organisms/postGrid.php');

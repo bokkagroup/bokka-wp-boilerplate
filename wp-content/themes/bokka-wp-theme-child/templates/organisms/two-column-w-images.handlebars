@@ -1,0 +1,40 @@
+<div id="{{id}}" class="section home-collections bg-{{background_color}}">
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>{{title}}</h2>
+            </div>
+        </div>
+        <div class="container">
+            <div class="body">            
+                {{#each item}}
+                <div class="item">
+                    <div class="image">
+                        <figure>
+                            <img src="{{image}}" alt="">
+                        </figure>
+                    </div>
+                    <div class="body">
+                        <div class="title">
+                            <h3>{{title}}</h3>
+                            {{{description}}}
+                        </div>
+                        <div class="subtitle">
+                            {{#if button}}
+                            <a href="{{link}}" class="button" target="{{link_target}}">{{button_text}}</a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{#if description}}
+        <div class="container">
+            <div class="secondary">
+                {{{description}}}
+            </div>
+        </div>
+        {{/if}}
+    </section>
+</div><!--/home-collections-->

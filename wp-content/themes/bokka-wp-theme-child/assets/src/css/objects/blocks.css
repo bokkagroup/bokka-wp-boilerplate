@@ -1,3 +1,106 @@
+.section {
+    img.aligncenter {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Max. width option */
+    &[class^='width-'],
+    &[class*='width-'] {
+        img {
+            height: auto;
+            max-width: 100%;
+        }
+    }
+
+    &.width-large {
+        .text,
+        .body {
+            max-width: none;
+            width: 100%;
+        }
+    }
+
+    &.width-medium {
+        @mixin desktop {
+            .text,
+            .body {
+                margin: 0 auto;
+                max-width: 80%;
+            }
+        }
+    }
+
+    &.width-small {
+        @mixin desktop {
+            .text,
+            .body {
+                margin: 0 auto;
+                max-width: 50%;
+            }
+        }
+    }
+
+    /* Background color option */
+    &.bg-blue {
+        background-color: $blue_light;
+    }
+
+    &.bg-purple {
+        background-color: $purple_light;
+    }
+
+    &.bg-blue,
+    &.bg-purple {
+        .title h2,
+        .section-title h2 {
+            color: #fff;
+        }
+
+        .body,
+        .text {
+            h2,
+            h3,
+            h4,
+            h5 {
+                color: #fff;
+            }
+
+            p,
+            a,
+            ul,
+            li {
+                color: #fff;
+            }
+
+            a:not(.button) {
+                color: #fff;
+            }
+        }
+
+        .body,
+        .text,
+        .section-button {
+            a.button {
+                background: $white;
+                color: $purple;
+
+                &:hover {
+                    @mixin hover_reversed $purple;
+                }
+            }
+        }
+    }
+
+    &.bg-white {
+        background-color: #fff;
+    }
+
+    &.bg-grey {
+        background-color: $light_gray;
+    }
+}
+
 .cta-block.text {
     .title a,
     h2 {

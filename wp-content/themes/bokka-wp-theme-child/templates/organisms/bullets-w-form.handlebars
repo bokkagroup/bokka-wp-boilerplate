@@ -1,0 +1,57 @@
+<div id="{{id}}" class="section bullets-w-form">
+    <section>
+        <div class="container">
+            <div class="brand-window">
+                <div class="image">
+                    <figure>
+                        <img src="{{image}}" alt="" />
+                    </figure>
+                </div><!--/image-->
+                {{#if description}}
+                <div class="text">
+                    <div class="body">
+                        {{{description}}}
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            <div class="body">
+                <div class="bullets-wrap">
+                    {{#if list_title}}
+                    <div class="title">
+                        <h2>{{list_title}}</h2>
+                    </div>
+                    {{/if}}
+                    {{#if bullets}}
+                    <div class="bullets">
+                        {{#if inset_image}}
+                        <div class="inset-image">
+                            <figure>
+                                <img src="{{inset_image}}" alt="" />
+                            </figure>
+                        </div><!--/image-->
+                        {{/if}}
+                        <ul class="{{#if inset_image}}with-image{{/if}}">
+                        {{#each bullets}}
+                            <li>{{this.item}}</li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="form-column">
+                    <div class="form-wrapper" id="campaign_vip_form" data-community-name="{{community.post_title}}">
+                        {{{gform}}}
+                        {{#if community_types}}
+                        <div class="product-type-data">
+                            {{#each community_types}}
+                                <span class="product-type">{{this}}</span>
+                            {{/each}}
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div><!--/container-->
+    </section>
+</div><!--/bullets-w-form-->

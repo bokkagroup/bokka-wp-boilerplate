@@ -6,12 +6,13 @@
                     <img src="{{image}}" alt="" />
                 </figure>
             </div><!--/image-->
+            {{#if description}}
             <div class="text">
                 <h1>
                     {{title}}
                 </h1><!--/text-->
                 <div class="body">
-                   {{{description}}}
+                    {{{description}}}
                     {{#if button}}
                         <a href="{{link}}" class="button">
                             {{button_text}}
@@ -19,6 +20,7 @@
                     {{/if}}
                 </div><!--/body-->
             </div><!--/text-->
+            {{/if}}
         </div><!--/container-->
     </section>
 </div><!--/brand-window-->

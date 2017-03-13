@@ -1,3 +1,4 @@
+.campaign-header#header,
 .header#header {
     padding: 0;
     z-index: 2;
@@ -30,6 +31,7 @@
 }
 
 .home,
+.campaign-header,
 .page-id-181 {
     div.header-body {
         border-bottom: 10px solid $purple;
@@ -121,5 +123,82 @@
         order: 2;
         margin-left: auto;
         padding-left: 0;
+    }
+}
+
+/* Landing Pages (Campaign) Header  */
+.campaign-header#header {
+    #logo {
+        margin: 0 auto;
+
+        .tablet {
+            display: block;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        @mixin desktop {
+            margin-left: 0;
+        }
+    }
+
+    .osc-phone-mobile {
+        display: block;
+        background-color: $blue;
+        text-align: center;
+        padding: 10px 0;
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        p {
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        @mixin desktop {
+            display: none;
+        }
+    }
+
+    .osc-phone {
+        display: none;
+        order: 2;
+        width: 241px;
+        height: 128px;
+        padding-top: 15px;
+        background: url('../images/campaign-header-bg-phone.png') 50% 50% no-repeat;
+        text-align: center;
+
+        p {
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 30px;
+        }
+
+        p.number {
+            font-size: 28px;
+        }
+
+        @mixin desktop {
+            display: block;
+        }
+    }
+
+    div.container {
+        padding: 20px 0;
+
+        @mixin desktop-large {
+            padding-top: 0;
+        }
+
+        @mixin desktop {
+            padding-top: 0;
+        }
     }
 }

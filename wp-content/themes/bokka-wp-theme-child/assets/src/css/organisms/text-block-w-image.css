@@ -1,0 +1,85 @@
+.section.text-block-w-image {
+    padding: 30px 0;
+
+    .container {
+        padding: 0 30px;
+
+        @mixin tablet {
+            padding: 0;
+        }
+    }
+
+    .title {
+        display: block;
+        margin: 0 0 20px;
+        width: 100%;
+
+        h2 {
+            text-align: center;
+        }
+    }
+
+    .body {
+        p,
+        a,
+        ul,
+        li {
+            font-family: 'Open Sans';
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        p strong {
+            font-weight: 700;
+        }
+
+        p em {
+            font-style: italic;
+        }
+
+        p,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 10px;
+        }
+
+        a:not(.button) {
+            color: $blue;
+        }
+    }
+
+    .image {
+        img {
+            height: auto;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .caption {
+            margin: 5px 0 0;
+            text-align: center;
+            font-size: 13px;
+        }
+    }
+
+    @mixin tablet {
+        .container {
+            padding: 0;
+        }
+
+        .image {
+            @mixin column 1,3;
+        }
+
+        .body {
+            @mixin column 2,3;
+        }
+    }
+
+    @mixin desktop {
+        padding: 75px 0;
+    }
+}

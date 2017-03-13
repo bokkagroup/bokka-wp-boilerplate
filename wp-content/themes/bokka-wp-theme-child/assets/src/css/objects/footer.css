@@ -1,3 +1,4 @@
+.campaign-footer#footer,
 .footer#footer {
     background: $blue;
     position: relative;
@@ -357,3 +358,45 @@
     }
 }
 
+body > img {
+    visibility: hidden;
+}
+
+/* Landing Pages (Campaign) Footer  */
+.campaign-footer#footer {
+    background-color: #222;
+    text-align: center;
+    color: #fff;
+
+    .osc-contact {
+        width: 100%;
+
+        .osc-photo {
+            position: relative;
+            display: block;
+            width: 156px;
+            height: 146px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #fff;
+            font-family: 'Merriweather';
+            font-weight: 400;
+            font-size: 28px;
+            margin: 15px 0 45px;
+        }
+
+        p,
+        a {
+            color: #fff;
+            line-height: 26px;
+        }
+    }
+
+    .copyright {
+        margin: 75px auto 0;
+        font-size: 13px;
+        line-height: 20px;
+    }
+}

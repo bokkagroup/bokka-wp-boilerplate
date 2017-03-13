@@ -19,7 +19,7 @@ jQuery( document ).ready(function($) {
      * Global Helpers
      */
     require('./utility/eventAggregator')
-    
+
     //Event Tracking
     require('./helpers/eventTracking.js')
     require('./helpers/maps.js')
@@ -27,9 +27,14 @@ jQuery( document ).ready(function($) {
     require('./helpers/responsiveImages')
     require('./helpers/forms')
 
+    var gformHelpers = require('./helpers/gforms');
+    gformHelpers.setProductTypes();
+    gformHelpers.setNeighborhoodName();
+
+    //activate fancybox
     $(".fancybox-masonry").fancybox({
-        openEffect	: 'none',
-        closeEffect	: 'none',
+        openEffect  : 'none',
+        closeEffect : 'none',
         autoSize: false,
         maxWidth: '85%',
         maxHeight: '90%',
@@ -42,9 +47,6 @@ jQuery( document ).ready(function($) {
             closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
         }
     });
-
-
-    //activate fancybox
     $(".fancybox-class").fancybox();
     $(".modal-trigger").fancybox({
         autoSize: false,
@@ -59,6 +61,21 @@ jQuery( document ).ready(function($) {
         tpl : {
             closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
         }
+    });
+    $(".video-modal-trigger").fancybox({
+        openEffect: 'none',
+        closeEffect: 'none',
+        autoSize: false,
+        maxWidth: '85%',
+        maxHeight: '90%',
+        helpers: {
+            overlay: {
+                locked: false
+            }
+        },
+        tpl: {
+            closeBtn: '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
+        },
     });
 
     $(document).on('gform_confirmation_loaded', function(event, formId) {

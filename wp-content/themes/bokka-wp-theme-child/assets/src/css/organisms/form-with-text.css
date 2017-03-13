@@ -206,7 +206,9 @@
     }
 }
 
-.home #email_form {
+.home #email_form,
+.single-campaigns #formModal,
+.single-campaigns #campaign_vip_form {
     li {
         @mixin desktop {
             &:nth-child(2),

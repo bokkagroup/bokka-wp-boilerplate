@@ -1,0 +1,82 @@
+.section.home-collections {
+    padding: 30px 0;
+
+    .container {
+        padding: 0 15px;
+
+        @mixin tablet {
+            padding: 0;
+        }
+    }
+
+    .section-title {
+        text-align: center;
+        margin: 0 auto 45px;
+        width: 100%;
+    }
+
+    .section-button {
+        text-align: center;
+        margin: 45px auto 0;
+        width: 100%;
+
+        .button {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .body {
+        @mixin container;
+
+        margin: 0 0 20px;
+    }
+
+    .item {
+        text-align: center;
+
+        .image {
+            margin: 0 0 30px;
+
+            img {
+                height: auto;
+                max-width: 100%;
+            }
+        }
+
+        h3 {
+            text-transform: none;
+            font-size: 24px;
+            letter-spacing: 0;
+            margin-bottom: 15px;
+        }
+    }
+
+    .secondary {
+        width: 100%;
+    }
+
+    @mixin tablet {
+        .item {
+            @mixin column 1,2;
+
+            .body {
+                padding: 0 30px;
+            }
+        }
+    }
+
+    @mixin desktop {
+        padding: 75px 0;
+
+        .container {
+            padding: 0;
+        }
+
+        .item {
+            .body {
+                padding: 0 45px;
+            }
+        }
+    }
+}

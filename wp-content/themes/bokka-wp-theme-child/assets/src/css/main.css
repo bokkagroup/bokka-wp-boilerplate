@@ -83,6 +83,7 @@
 @import 'organisms/alternating-content';
 @import 'organisms/brand-window';
 @import 'organisms/brand-window-w-color-overlay';
+@import 'organisms/brand-window-w-content-box';
 @import 'organisms/brand-window-two-column';
 @import 'organisms/brand-window-wide';
 @import 'organisms/brand-window-testimonial';
@@ -99,6 +100,7 @@
 @import 'organisms/form-with-text';
 @import 'organisms/icon-grid';
 @import 'organisms/intro-text';
+@import 'organisms/lp-intro-w-form';
 @import 'organisms/map-with-info';
 @import 'organisms/masonry-gallery';
 @import 'organisms/mega-features';
@@ -117,6 +119,11 @@
 @import 'organisms/location-listings';
 @import 'organisms/circles-w-color-block-text';
 @import 'organisms/upcoming-event';
+@import 'organisms/text-block-w-image';
+@import 'organisms/text-block-w-bgimage';
+@import 'organisms/photo-grid-w-title-caption';
+@import 'organisms/conversion-point-w-modal-form';
+@import 'organisms/two-column-w-images';
 
 /* ------------------------------------ *\
     $COMPONENTS

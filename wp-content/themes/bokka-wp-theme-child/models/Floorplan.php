@@ -22,7 +22,6 @@ class Floorplan extends \BokkaWP\MVC\Model
         $this->setPDF($post);
         $this->setGalleryItems($post);
         $this->setElevations();
-
     }
 
     private function setNeighborhood($post)
