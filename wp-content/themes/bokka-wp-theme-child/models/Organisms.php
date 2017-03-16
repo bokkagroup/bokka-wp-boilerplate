@@ -4,11 +4,9 @@ namespace BokkaWP\Theme\models;
 
 class Organisms extends \BokkaWP\MVC\Model
 {
-    public function initialize()
+    public function initialize($id)
     {
-        global $post;
-
-        $post_id = $post->ID;
+        $post_id = isset($id) ? $id : get_the_ID();
         $organisms = get_field('organism', $post_id);
 
         if (is_array($organisms)) {
