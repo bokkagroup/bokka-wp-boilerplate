@@ -4,6 +4,7 @@
  * Image sizes
  */
 add_image_size('medium', 675, 500, array( 'center', 'center' ));
+add_image_size('medium-square', 750, 750, array( 'center', 'center' ));
 add_image_size('thumb-product-listing', 536, 246, array( 'center', 'center' ));
 add_image_size('full-brand-window', 1584, 445, array( 'center', 'center' ));
 add_image_size('full-split-brand-window', 1500, 750, array( 'center', 'center' ));

@@ -1,0 +1,46 @@
+<div class="section post-grid post-grid-4-column">
+    <section>
+        <div class="container">
+            <div class="categories">
+                <h2>Select a department</h2>
+                <ul>
+                    {{#each departments}}
+                    <li><a href="#{{department_slug}}"><span>{{department}}</span></a></li>
+                    {{/each}}
+                </ul>
+            </div><!--/categories -->
+
+            {{#each departments}}
+                <div class="grid-wrapper" id="{{department_slug}}">
+
+                    <h3>{{department}}</h3>
+
+                    <ul class="grid">
+
+                        <div class="grid-sizer"></div>
+
+                        {{#each team_members}}
+
+                            <li class="item">
+                                
+                                <img src="{{#if photo}}{{photo}}{{else}}/wp-content/themes/bokka-wp-theme-child/assets/build/images/team-placeholder.jpg{{/if}}" alt="{{name}}">
+
+                                <div class="text">
+                                    <div class="title">
+                                        <h4>{{name}}</h4>
+                                    </div>
+                                    <div class="body">
+                                        {{position}}
+                                    </div>
+                                </div>
+                            </li>
+                        {{/each}}
+
+                    </ul>
+                </div><!-- /.wrapper -->
+
+            {{/each}}
+
+        </div><!--/container-->
+    </section>
+</div><!--/post-grid-->

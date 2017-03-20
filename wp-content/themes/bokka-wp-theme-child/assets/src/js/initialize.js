@@ -3,7 +3,6 @@ require('./vendor/mlpushmenu.js')
 require('./vendor/mousewheel.js')
 require('./vendor/fancybox.js')
 require('./vendor/tipr.js')
-require('./vendor/masonry.js')
 
 jQuery( document ).ready(function($) {
     window.$ = jQuery
@@ -194,13 +193,22 @@ jQuery( document ).ready(function($) {
     // masonry / imagesloaded
     if ($('.grid').length > 0) {
         var Masonry = require('./vendor/masonry.js')
+        var imagesLoaded = require('./vendor/imagesloaded.pkgd.js')
+        imagesLoaded.makeJQueryPlugin($)
 
-        var msnry = new Masonry( '.grid', {
-            itemSelector: '.item',
-            columnWidth: '.grid-sizer',
-            gutter: 30
-        });
-
-        msnry.layout();
+        $('.grid').each(function(i, container) {
+            // separate jQuery object for each element
+            var $container = $(container);
+            var msnry = new Masonry(container, {
+                itemSelector: '.item',
+                columnWidth: '.grid-sizer',
+                gutter: 30
+            });
+            // check if images are loaded
+            $container.imagesLoaded(function() {
+                // trigger masonry when element has loaded images
+                msnry.layout();
+            });
+          });
     }
 });
