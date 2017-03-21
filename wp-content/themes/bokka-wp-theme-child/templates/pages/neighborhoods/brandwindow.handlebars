@@ -5,6 +5,13 @@
                 <img src="{{featured_image}}" alt="">
             </div>
             <div class="text">
+
+                {{#unless open}}
+                <div class="status status-header">
+                    {{status_label}}
+                </div>
+                {{/unless}}
+
                 <div class="header">
                     <span>
                         {{#each types}}
@@ -23,7 +30,7 @@
                 </div>
                 <div class="nav">
                     {{#if coming_soon}}
-                        <div class="status">Floorplans Are Coming Soon</div>
+                        <a href="#request_info_form" class="coming-soon button modal-trigger">Sign Up For Updates Now</a>
                     {{else}}
                         <ul>
                             <li><a href="#product-listings" class="button">See Homes</a></li>
@@ -33,9 +40,6 @@
                     {{/if}}
 
                 </div>
-                {{#if coming_soon}}
-                    <a href="#request_info_form" class="coming-soon button modal-trigger">Sign Up For Updates Now</a>
-                {{/if}}
             </div>
         </div>
     </section>

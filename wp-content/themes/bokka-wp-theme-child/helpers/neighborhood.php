@@ -108,6 +108,15 @@ function neighborhoodOverviewData()
 
     foreach ($products as $product) {
         if ($product->post_type == 'communities') {
+            if (isset($product->status)) {
+                $status = $product->status;
+                $product->{$status} = true;
+
+                // get value of status field
+                $field = get_field_object('status', $product->ID);
+                $value = $field['value'];
+                $product->status_label = $field['choices'][$value];
+            }
             $neighborhoods[] = $product;
         } elseif ($product->post_type == 'model') {
             $models[] = $product;

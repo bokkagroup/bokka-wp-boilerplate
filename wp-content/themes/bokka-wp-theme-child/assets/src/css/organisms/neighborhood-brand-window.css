@@ -78,6 +78,12 @@
             text-transform: uppercase;
         }
 
+        .status-header {
+            background: $purple;
+            line-height: 1;
+            padding: 10px 10px 12px;
+        }
+
         .button {
             text-shadow: 1px 1px 0 #7d5d25;
 
@@ -134,12 +140,7 @@
     }
 
     .button.coming-soon {
-        position: absolute;
-        top: 100%;
         margin: 0 auto;
-        margin-top: -11px;
-        left: 50%;
-        margin-left: -127px;
         text-shadow: 1px 1px 0 #7d5d25;
     }
 }

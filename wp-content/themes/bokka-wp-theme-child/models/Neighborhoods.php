@@ -114,11 +114,16 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         }
     }
 
-    private function setStatus()
+    private function setStatus($post)
     {
         if (isset($post->status)) {
             $status = $post->status;
             $post->{$status} = true;
+
+            // get value of status field
+            $field = get_field_object('status', $post->ID);
+            $value = $field['value'];
+            $post->status_label = $field['choices'][$value];
         }
     }
 }
