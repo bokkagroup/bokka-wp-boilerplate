@@ -4,11 +4,13 @@
             <div class="header">
                 <figure class="image">
 
-                    {{#unless open}}
-                    <div class="status {{status}}">
-                        {{status_label}}
-                    </div>
-                    {{/unless}}
+                    {{#if status_label}}
+                        {{#unless open}}
+                        <div class="status {{status}}">
+                            {{status_label}}
+                        </div>
+                        {{/unless}}
+                    {{/if}}
 
                     {{#if featured_image}}
                         <a href="{{permalink}}"><img src="{{featured_image}}" alt=" " width="268" height="123"></a>
