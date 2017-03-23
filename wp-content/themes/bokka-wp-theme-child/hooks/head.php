@@ -5,7 +5,7 @@
  */
 
 // Disabling Reach Local tracking pre-launch due to footer form issues
-// add_action('wp_head', 'requireReachLocalTracking');
+add_action('wp_head', 'requireReachLocalTracking');
 function requireReachLocalTracking()
 {
     ?>

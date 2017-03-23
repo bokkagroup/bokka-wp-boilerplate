@@ -508,3 +508,107 @@ input[type=checkbox]:checked + label::before {
     margin-left: 2px;
     display: inline-block;
 }
+
+/* reach local footer form */
+#rl-email-container #rl-email {
+    border: none;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    width: 100%;
+
+    #rl-email-form {
+        text-align: center;
+
+        input[type='text'],
+        input[type='email'],
+        input[type='tel'],
+        textarea {
+            width: 100%;
+            height: 100%;
+            margin: 3px 0 16px;
+            padding: 12px 10px;
+            font-size: 16px;
+            line-height: 28px;
+            border: 1px solid $gray;
+
+            @mixin placeholder {
+                letter-spacing: 3px;
+            }
+        }
+
+        textarea {
+            max-height: 200px;
+            height: auto;
+        }
+
+        @mixin tablet {
+            input[type='text'],
+            input[type='email'],
+            input[type='tel'],
+            textarea {
+                font-size: 24px;
+            }
+        }
+
+        label.rl-email-label {
+            color: $gray_medium2;
+            font-family: 'Open Sans';
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+
+            span {
+                color: $red;
+            }
+        }
+
+        .rl-button[type='button'],
+        .rl-button[type='submit'] {
+            appearance: none;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            color: $white;
+            padding: 13px 30px;
+            font-size: 16px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Open Sans';
+            cursor: pointer;
+            text-align: center;
+            text-shadow: none;
+            position: relative;
+            z-index: 1;
+            color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rl-button[type=button] {
+            @mixin button $gray_light2;
+
+            background-color: $gray_light2;
+            color: #000;
+
+            &:hover {
+                color: #000;
+            }
+        }
+
+        .rl-button[type=submit] {
+            @mixin button $purple;
+
+            margin-right: 10px;
+            background-color: $purple;
+        }
+    } /* #rl-email-form */
+
+    @mixin tablet {
+        margin-top: -300px;
+        margin-left: -225px;
+        width: 450px;
+    }
+}
