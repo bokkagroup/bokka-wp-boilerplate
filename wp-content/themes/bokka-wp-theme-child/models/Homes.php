@@ -25,8 +25,7 @@ class Homes extends \BokkaWP\MVC\Model
     private function setForm($post, $id)
     {
         $form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
-        $post->brand_window_form = $form;
-        $post->osc_form = $form;
+        $post->request_info_form = $form;
     }
 
     private function setPDF($post)

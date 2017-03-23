@@ -8,8 +8,7 @@ class Floorplan extends \BokkaWP\MVC\Model
     public $neighborhood_title;
     public $gallery_items;
     public $pdf;
-    public $brand_window_form;
-    public $coming_soon;
+    public $request_info_form;
 
     public function initialize()
     {
@@ -53,8 +52,7 @@ class Floorplan extends \BokkaWP\MVC\Model
     private function setForm($post, $id)
     {
         $form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
-        $this->brand_window_form = $form;
-        $this->coming_soon = array('modal_content'=> $form);
+        $this->request_info_form = $form;
     }
 
     private function setElevations()

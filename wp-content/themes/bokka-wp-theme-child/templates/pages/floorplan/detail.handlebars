@@ -3,11 +3,10 @@
 {{#if tabs}}
     {{> organisms/tabbed-gallery}}
 {{else}}
-    {{#with coming_soon}}
-        {{>organisms/coming-soon-get-updates}}
-    {{/with}}
+    {{>organisms/coming-soon-get-updates}}
 {{/if}}
 {{#if gallery_items}}
     {{>organisms/masonry-gallery items=gallery_items }}
 {{/if}}
 {{> organisms/virtual-tour}}
+{{> molecules/blocks/forms}}
