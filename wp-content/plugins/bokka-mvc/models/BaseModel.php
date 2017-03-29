@@ -22,7 +22,8 @@ Class Model {
 
         if (!isset($post_id)) {
             global $post;
-            $post_id = $post->ID;
+            if($post)
+                    $post_id = $post->ID;
         }
 
         $fields = get_fields($post_id);
