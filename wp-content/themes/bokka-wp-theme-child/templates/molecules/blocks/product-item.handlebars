@@ -1,5 +1,10 @@
 <li class="product-item {{post_type}}">
     <a href="{{permalink}}">
+        {{#if ../plans}}
+        <div class="title above">
+            {{post_title}}
+        </div>
+        {{/if}}
         <div class="image">
             {{#if featured_image}}
                 <img src="{{featured_image}}" alt="">
@@ -15,38 +20,57 @@
                 </div>
             {{/if}}
         {{/if}}
-        <div class="title">
-            {{post_title}}
-            <br>
-            <span>
-                {{!-- if it's a floorplan show it's features --}}
-                {{#each features}}
-                    {{#if @first}}
-                        <span>{{feature}}</span>
+
+        {{#if ../plans}}
+            {{#if features}}
+                <div class="title">
+                    <span>
+                        {{#each features}}
+                            {{#if @first}}
+                                <span>{{feature}}</span>
+                            {{/if}}
+                        {{/each}}
+                    </span>
+                </div>
+            {{/if}}
+        {{else}}
+            <div class="title">
+                {{post_title}}
+                <br>
+                <span>
+                    {{!-- if it's a model or QMI get it's features from its floorplan --}}
+                    {{#if floorplan.features}}
+                        {{#each floorplan.features}}
+                            {{#if @first}}
+                                <span>{{feature}}</span>
+                            {{/if}}
+                        {{/each}}
                     {{/if}}
-                {{/each}}
-                {{!-- if it's a model or QMI get it's features from it's floorplan --}}
-                {{#if floorplan.features}}
-                    {{#each floorplan.features}}
-                        {{#if @first}}
-                            <span>{{feature}}</span>
-                        {{/if}}
-                    {{/each}}
-                {{/if}}
-            </span>
-        </div>
+                </span>
+            </div>
+        {{/if}}
+
         <div class="stats">
             <ul>
-                {{#unless ../home}}
+                {{#if ../plans}}
                     {{#if bedrooms_min}}
                         <li>{{bedrooms_min}}
-                            {{#if bedroom_max}}
-                                &dash; {{bedrooms_max}}
-                            {{/if}}
+                            {{#unless ../models}}
+                                {{#if bedrooms_max}}
+                                    &ndash; {{bedrooms_max}}
+                                {{/if}}
+                            {{/unless}}
                             <div class="label">Beds</div>
                         </li>
                     {{/if}}
-                {{/unless}}
+                {{/if}}
+                {{#if ../model}}
+                    {{#if bedrooms_min}}
+                        <li>{{bedrooms_min}}
+                            <div class="label">Beds</div>
+                        </li>
+                    {{/if}}
+                {{/if}}
                 {{#if ../home}}
                     {{#if bedrooms}}
                         <li>{{bedrooms}}
@@ -54,13 +78,14 @@
                         </li>
                     {{/if}}
                 {{/if}}
-                {{#unless ../home}}
+
+                {{#if ../model}}
                     {{#if bathrooms_min}}
                         <li>{{bathrooms_min}}
                             <div class="label">Baths</div>
                         </li>
                     {{/if}}
-                {{/unless}}
+                {{/if}}
                 {{#if ../home}}
                     {{#if bathrooms}}
                         <li>{{bathrooms}}
@@ -68,10 +93,23 @@
                         </li>
                     {{/if}}
                 {{/if}}
-                {{#if main_sqr_ft}}
-                    <li>{{main_sqr_ft}}
-                        <div class="label">SQ.FT.</div>
-                    </li>
+
+                {{#if ../plans}}
+                    {{#if main_sqr_ft}}
+                        <li>{{main_sqr_ft}}
+                            {{#if finished_sqr_ft}}
+                                &ndash; {{finished_sqr_ft}}
+                            {{/if}}
+
+                            <div class="label">SQ.FT.</div>
+                        </li>
+                    {{/if}}
+                {{else}}
+                    {{#if main_sqr_ft}}
+                        <li>{{main_sqr_ft}}
+                            <div class="label">SQ.FT.</div>
+                        </li>
+                    {{/if}}
                 {{/if}}
             </ul>
         </div>

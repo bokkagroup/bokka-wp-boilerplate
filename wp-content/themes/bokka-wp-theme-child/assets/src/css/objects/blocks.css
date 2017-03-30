@@ -431,6 +431,12 @@
     &.plans {
         .title {
             background: $blue;
+
+            &.above {
+                background: transparent;
+                color: $blue_dark;
+                font-weight: 400;
+            }
         }
 
         .stats {

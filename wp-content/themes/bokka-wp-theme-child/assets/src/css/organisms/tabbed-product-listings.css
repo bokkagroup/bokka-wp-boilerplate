@@ -216,5 +216,15 @@
                 text-transform: uppercase;
             }
         }
+
+        &.plans {
+            .stats {
+                li {
+                    flex-grow: 1;
+                    white-space: nowrap;
+                    width: auto;
+                }
+            }
+        }
     }
 }
