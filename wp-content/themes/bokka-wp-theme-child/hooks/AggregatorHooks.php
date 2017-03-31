@@ -1,15 +1,15 @@
 <?php
 
-if (!function_exists('\BokkaWP\bdx_add_filter'))
+if (!function_exists('\BokkaWP\bdx_add_filter')) {
     return;
-
+}
 
 \BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'NeighborhoodImages');
 function NeighborhoodImages(array $configuration, array $options)
 {
     $name = key($configuration);
 
-    if($name != 'images' || $options['post_type'] != 'communities') {
+    if ($name != 'images' || $options['post_type'] != 'communities') {
         return $options['value'];
     }
 
@@ -20,44 +20,43 @@ function NeighborhoodImages(array $configuration, array $options)
     }
 
     //photo gallery images
-    if(is_array($options['value'])){
-        $images_gallery = array_map(function($image){
+    if (is_array($options['value'])) {
+        $images_gallery = array_map(function ($image) {
 
-            if($image['type'] !== 'image' || !isset($image['image']))
+            if ($image['type'] !== 'image' || !isset($image['image'])) {
                 return false;
+            }
 
             return array(
                 'name'  =>  get_the_title($image['image']),
                 'url'   =>  wp_get_attachment_url($image['image'])
             );
-            
         }, $options['value']);
 
         $images = array_merge($images, $images_gallery);
-
     }
 
     return $images;
 }
 
 
-\BokkaWP\bdx_add_filter('bdx-adapter-configuration','convertPhone');
+\BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'convertPhone');
 function convertPhone($configuration, $options)
 {
     $name = key($configuration);
 
-    if($name != 'phone' || !is_string($options['value'])) {
+    if ($name != 'phone' || !is_string($options['value'])) {
         return $options['value'];
     }
 
-    $phone = preg_replace("/[^0-9]/","", $options['value']);
+    $phone = preg_replace("/[^0-9]/", "", $options['value']);
     $value = array(
         "areacode"  => substr($phone, 0, 3),
         "prefix"    => substr($phone, 3, 3),
         "suffix"    => substr($phone, 6, 4)
     );
 
-    $value = array_map(function($value){
+    $value = array_map(function ($value) {
         return (is_numeric($value) ? (int)$value : $value);
     }, $value);
 
@@ -68,51 +67,35 @@ function convertPhone($configuration, $options)
 /**
  * There are a few fields we have to grab from the neighborhood for home post type
  */
-\BokkaWP\bdx_add_filter('bdx-adapter-configuration','convertHomeFields');
+\BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'convertHomeFields');
 function convertHomeFields($configuration, $options)
 {
     $name = key($configuration);
 
-    if(!isset($options['post_type']))
+    if (!isset($options['post_type'])) {
         return $options['value'];
+    }
 
-    if(($name == 'state' || 
-        $name == 'city' || 
+    if (($name == 'state' ||
+        $name == 'city' ||
         $name == 'zip') &&
         $options['post_type'] == 'home') {
-       
         $neighborhood = get_field('neighborhood', $options['parent_post']->ID);
 
         return get_field($name, $neighborhood);
-
     }
 
     return $options['value'];
 }
 
 
-\BokkaWP\bdx_add_filter('bdx-adapter-relationship-filter','homeRelationship');
-function homeRelationship($configuration, $options){
+\BokkaWP\bdx_add_filter('bdx-adapter-relationship-filter', 'homeRelationship');
+function homeRelationship($configuration, $options)
+{
 
     $name = key($configuration);
 
-    if($name != 'post_type' || $configuration[$name]['value'] != 'home') {
-        return false;
-    }
-
-    if ($options['value'] == $options['parent_post']->ID) {
-        return true;
-    }
-
-    return false;
-}
-
-\BokkaWP\bdx_add_filter('bdx-adapter-relationship-filter','floorplanRelationship');
-function floorplanRelationship($configuration, $options){
-
-    $name = key($configuration);
-
-    if($name != 'post_type' || $configuration[$name]['value'] != 'plans') {
+    if ($name != 'post_type' || $configuration[$name]['value'] != 'home') {
         return false;
     }
 
@@ -124,6 +107,22 @@ function floorplanRelationship($configuration, $options){
 }
 
 
+\BokkaWP\bdx_add_filter('bdx-adapter-relationship-filter', 'floorplanRelationship');
+function floorplanRelationship($configuration, $options)
+{
+
+    $name = key($configuration);
+
+    if ($name != 'post_type' || $configuration[$name]['value'] != 'plans') {
+        return false;
+    }
+
+    if ($options['value'] == $options['parent_post']->ID) {
+        return true;
+    }
+
+    return false;
+}
 
 /**
  * Translates floorplan images
@@ -134,28 +133,27 @@ function floorplanImages(array $configuration, array $options)
 {
     $name = key($configuration);
 
-    if($name != 'images' || $options['post_type'] != 'plans') {
+    if ($name != 'images' || $options['post_type'] != 'plans') {
         return $options['value'];
     }
-
 
     $images = [];
 
     $configs = [$configuration['images']['elevation-images'], $configuration['images']['floorplan-images']];
-    foreach ($configs as $type => $config) {
 
-         $type = $type == 'elevation-images' ? 'elevation' : 'floorplan';
+    foreach ($configs as $type => $config) {
+        $type = $type == 'elevation-images' ? 'elevation' : 'floorplan';
 
         $value = get_field($config['value'], $options['parent_post']->ID);
 
-        
-        if(!$value)
+        if (!$value) {
             return;
+        }
 
-        $converted = array_map(function($image) use ($type) {
+        $converted = array_map(function ($image) use ($type) {
 
-            if($type == 'floorplan') {
-                $image['ID'] = $image['image'];  
+            if ($type == 'floorplan') {
+                $image['ID'] = $image['image'];
             }
 
             $converted_image = array(
@@ -167,11 +165,8 @@ function floorplanImages(array $configuration, array $options)
             return $converted_image;
         }, $value);
 
-
         $images = array_merge($images, $converted);
-
     }
-
 
     return $images;
 }
