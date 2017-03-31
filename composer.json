@@ -1,20 +1,11 @@
 {
     "name": "bokka/bokka-wp-boilerplate",
-    "description": "A boilerplate for the MVC WordPress framework by Bokka Group",
+    "description": "A boilerplate for the MVC WordPress framework by the Bokka Group",
     "minimum-stability": "dev",
     "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/bokkagroup/bokka-wp-theme"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/bokkagroup/bokka-wp-mvc"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/bokkagroup/bokka-wp-utilities"
-        }
+        { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-theme" },
+        { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-mvc" },
+        { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-utilities" }
     ],
     "require": {
         "bokka/bokka-wp-theme":         "*",
