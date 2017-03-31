@@ -19,6 +19,6 @@
     "require": {
         "bokka/bokka-wp-theme":         "*",
         "bokka/bokka-wp-utilities":     "*",
-        "bokka/bokka-wp-mvc":           "dev-*"
+        "bokka/bokka-wp-mvc":           "development-*"
     }
 }
