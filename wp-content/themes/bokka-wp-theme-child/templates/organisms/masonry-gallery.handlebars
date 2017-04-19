@@ -4,15 +4,14 @@
             {{#if items}}
                 <ul class="masonry-items">
                     {{#each items}}
-                        <li class="masonry-item {{#if image}}image{{/if}}{{#if video}}video{{/if}}">
-                            <a class="fancybox-masonry {{#if video}}fancybox.iframe{{/if}}" rel="masonry-gallery" href="{{#if image}}{{image}}{{/if}}{{#if video}}{{embed_url}}{{/if}}" {{#if image}}title="{{caption}}"{{/if}}>
-                                {{#if image}}
-                                <img src="{{image}}" alt=" ">
-                                <span class="icon icon-zoom-in"></span>
-                                {{/if}}
+                        <li class="masonry-item {{#if video}}video{{else}}image{{/if}}">
+                            <a class="fancybox-masonry {{#if video}}fancybox.iframe{{/if}}" rel="masonry-gallery" href="{{#if video}}{{embed_url}}{{else}}{{image}}{{/if}}" {{#unless video}}title="{{caption}}"{{/unless}}>
                                 {{#if video}}
                                 <img src="{{thumbnail}}" alt=" ">
                                 <span class="icon icon-play"></span>
+                                {{else}}
+                                <img src="{{image}}" alt=" ">
+                                <span class="icon icon-zoom-in"></span>
                                 {{/if}}
                             </a>
                         </li>
