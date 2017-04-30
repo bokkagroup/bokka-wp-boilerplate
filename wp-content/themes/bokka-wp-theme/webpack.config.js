@@ -1,7 +1,7 @@
 var webpack = require('webpack');
-
+var path = require('path');
 module.exports = {
-    watch:true,
+
     entry: {
         initialize: "./assets/src/js/initialize.js",
         depend: "./assets/src/js/depend.js",
@@ -10,42 +10,40 @@ module.exports = {
             'backbone'
         ]
     },
-    externals: { jquery: "jQuery" },
     output: {
         path: __dirname + "/assets/build/js/",
         filename: "[name].min.js"
     },
     module: {
-        preLoaders: [
-            {
-                loaders: ['eslint'],
-            }
-        ],
-        loaders: [ {
-            test: /\.html$/,
-            loader: 'mustache'
-        } ]
+        loaders: [ 
+            { test: /\.handlebars$/, loader: "handlebars-loader" },
+            { test: /\.modernizrrc$/, loader: "modernizr" }
+        ]
     },
     resolve: {
-      // you can now require('file') instead of require('file.js')
-      extensions: ['', '.html', '.js', '.json']
+        // you can now require('file') instead of require('file.coffee')
+        extensions: ['', '.html', '.js', '.json', '.coffee'],
+
+        modulesDirectories: [
+            path.join(__dirname, "node_modules"),
+        ],
+
+        alias: {
+            modernizr$: path.resolve(__dirname, ".modernizrrc"),
+            'underscore': 'lodash',
+            jquery: "jquery/src/jquery"
+        }
+
     },
-    eslint: {
-        failOnWarning: false,
-        failOnError: false
-    },
+
     plugins: [
         new webpack.ProvidePlugin({
+            $               : 'jquery',
+            jQuery          : 'jquery',
             _               : 'lodash',
             backbone        : 'backbone',
-
         }),
         new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
     ]
 
 }
