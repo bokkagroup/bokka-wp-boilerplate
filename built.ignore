@@ -1,0 +1,43 @@
+## This file is used for the artifact repository
+## ensures we can keep compiled files outside of this repo
+## and src files out of artifact repo
+
+# WordPress #
+############
+
+wp-content/uploads
+wp-config.php
+wp-content/upgrade/
+
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+# Icon?
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# SASS, NPM, GULP #
+##########
+.sass-cache
+node_modules
+.css.map
+
