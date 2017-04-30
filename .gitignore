@@ -5,6 +5,7 @@ wp-config-local.php
 wp-content/uploads
 wp-content/plugins/debug-log.php
 wp-content/blogs.dir/
+wp-config.php
 wp-config2.php
 wp-content/upgrade/
 wp-content/backup-db/
