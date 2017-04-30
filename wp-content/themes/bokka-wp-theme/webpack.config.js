@@ -4,7 +4,7 @@ module.exports = {
 
     entry: {
         initialize: "./assets/src/js/initialize.js",
-        depend: "./assets/src/js/depend.js",
+       // depend: "./assets/src/js/depend.js",
         common: [
             'lodash',
             'backbone'
