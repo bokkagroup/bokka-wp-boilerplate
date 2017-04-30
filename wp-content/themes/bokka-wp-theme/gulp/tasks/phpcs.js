@@ -9,4 +9,5 @@ gulp.task('phpcs', function () {
             warningSeverity: 0
         }))
         .pipe(phpcs.reporter('log'))
+
 })
