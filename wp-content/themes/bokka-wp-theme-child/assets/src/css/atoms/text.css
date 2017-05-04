@@ -59,6 +59,10 @@ small {
     font-size: 11px;
 }
 
+em {
+    font-style: italic;
+}
+
 .lowercase {
     text-transform: lowercase !important;
 }
