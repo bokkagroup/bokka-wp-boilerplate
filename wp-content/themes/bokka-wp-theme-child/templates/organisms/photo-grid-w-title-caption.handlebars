@@ -50,8 +50,15 @@
                     {{#if subtitle}}
                     <p>{{subtitle}}</p>
                     {{/if}}
+
                     {{#if button}}
-                    <a href="{{link}}" class="button" target="{{link_target}}">{{button_text}}</a>
+                        {{#if link}}
+                            <a href="{{link}}" class="button green" target="{{link_target}}">{{button_text}}</a>
+                        {{else}}
+                            <a href="#formModal" class="button green modal-trigger">
+                                {{button_text}}
+                            </a>
+                        {{/if}}
                     {{/if}}
                 </div>
             {{/if}}
