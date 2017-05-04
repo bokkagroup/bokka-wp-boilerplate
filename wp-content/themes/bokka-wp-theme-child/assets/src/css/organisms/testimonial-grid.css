@@ -1,5 +1,5 @@
 .section.testimonial-grid {
-    padding: 30px 30px 0;
+    padding: 30px;
 
     @mixin tablet {
         padding: 40px 30px;
@@ -55,7 +55,7 @@
             }
 
             img {
-                max-width: 100%;
+                width: 100%;
             }
         }
 

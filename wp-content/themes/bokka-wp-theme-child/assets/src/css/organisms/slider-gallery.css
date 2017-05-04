@@ -53,12 +53,16 @@
         a {
             color: $white;
             display: inline-block;
-            font-size: 48px;
+            font-size: 36px;
             opacity: 0.5;
             text-align: center;
             text-decoration: none;
             text-shadow: 1px 0 3px $black;
             transition: all 250ms;
+
+            @mixin tablet {
+                font-size: 48px;
+            }
 
             &:hover {
                 opacity: 0.8;
@@ -71,6 +75,10 @@
                 width: auto;
                 padding: 20px;
                 margin: 0;
+
+                @mixin tablet {
+                    padding: 20px;
+                }
             }
         }
     }

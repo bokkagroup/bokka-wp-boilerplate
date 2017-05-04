@@ -1,4 +1,4 @@
-<div id="{{id}}" class="section slider-gallery bg-purple">
+<div id="{{id}}" class="section slider-gallery {{#if background_color}}bg-{{background_color}}{{/if}}">
     <section>
         <div class="container">
             <div class="title">
@@ -38,8 +38,8 @@
                 </div>
             {{/if}}
 
-            {{#if button_text}}
-                <a href="#formModal" class="button green modal-trigger">
+            {{#if button}}
+                <a href="#formModal" class="button modal-trigger">
                     {{button_text}}
                 </a>
             {{/if}}

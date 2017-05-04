@@ -1,5 +1,8 @@
 .section.lp-intro-w-form {
-    padding: 0 0 75px;
+
+    @mixin tablet {
+        padding: 0 0 75px;
+    }
 
     .main {
         @mixin container;
