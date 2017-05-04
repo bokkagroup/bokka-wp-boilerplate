@@ -22,6 +22,10 @@
             {{#if pdf}}
             <div class="tab-gallery-button-wrapper">
                 <a class="button" target="_blank" href="{{pdf}}">Download &amp; Print</a>
+
+                {{#if neighborhood_link}}
+                    <h4><a class="text-link" href="{{neighborhood_link}}#product-listings">Browse more floorplans at {{neighborhood_title}}&nbsp;&raquo;</a></h4>
+                {{/if}}
             </div> <!-- tab-gallery-button-wrapper -->
             {{/if}}
         </div><!--/tabs-->

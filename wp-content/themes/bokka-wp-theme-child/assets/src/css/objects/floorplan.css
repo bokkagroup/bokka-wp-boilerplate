@@ -274,6 +274,15 @@
     .button {
         margin: 20px 0;
     }
+
+    .text-link {
+        color: $blue;
+        font-family: 'Open Sans';
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 /* Hide & show select menu and tabs based on screen width. Remove once in production */
