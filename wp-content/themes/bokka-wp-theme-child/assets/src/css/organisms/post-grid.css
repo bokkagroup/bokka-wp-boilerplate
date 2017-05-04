@@ -24,6 +24,7 @@
 
         @mixin tablet {
             lost-masonry-wrap: no-flex;
+            margin: 60px 0 0;
             padding: 0;
             width: calc(100% + 30px);
         }

@@ -1,9 +1,12 @@
-<div id="{{id}}" class="section slider-gallery {{#if background_color}}bg-{{background_color}}{{/if}}">
+<div id="{{id}}" class="section slider-gallery {{#if background_color}}bg-{{background_color}}{{/if}} {{#unless remove_padding}}has-padding{{/unless}}">
     <section>
         <div class="container">
-            <div class="title">
-                <h2>{{title}}</h2>
-            </div>
+            {{#if title}}
+                <div class="title">
+                    <h2>{{title}}</h2>
+                </div>
+            {{/if}}
+
             <div class="slider">
                 <ul class="slides">
                     {{#each gallery}}

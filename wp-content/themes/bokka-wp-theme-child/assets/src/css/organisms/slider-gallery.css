@@ -1,22 +1,30 @@
 .section.slider-gallery {
-    padding: 30px;
     text-align: center;
 
-    @mixin tablet {
-        padding: 75px 30px;
+    &.has-padding {
+        padding: 30px;
+
+        @mixin tablet {
+            padding: 75px 30px;
+        }
+
+        @mixin desktop {
+            .container {
+                max-width: 790px;
+            }
+        }
     }
 
     .container {
         display: block;
-
-        @mixin desktop {
-            max-width: 790px;
-        }
     }
 
     .slider {
-        margin: 30px 0 0;
         overflow: hidden;
+    }
+
+    .title + .slider {
+        margin: 30px 0 0;
     }
 
     .slides {

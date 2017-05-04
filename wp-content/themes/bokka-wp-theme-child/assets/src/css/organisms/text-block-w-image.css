@@ -122,17 +122,22 @@
     }
 
     @mixin tablet {
-        .container {
-            padding: 0;
+        &.col-thirds {
+            .slider {
+                @mixin column 1,3;
+            }
+
+            .body {
+                @mixin column 2,3;
+            }
         }
 
-        .slider {
-            @mixin column 1,3;
-        }
-
-        .body {
-            @mixin column 2,3;
-        }
+        &.col-halves {
+            .slider,
+            .body {
+                @mixin column 1,2;
+            }
+        }        
     }
 
     @mixin desktop {
