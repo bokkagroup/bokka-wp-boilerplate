@@ -1,0 +1,23 @@
+<div id="{{id}}" class="section testimonial-grid">
+    <section>
+        <div class="container">
+            {{#each item}}
+            <div class="item">
+                <div class="image">
+                    <figure>
+                        <img src="{{image}}" alt="">
+                    </figure>
+                </div>
+                <div class="text">
+                    <div class="body">
+                        {{{description}}}
+                    </div>
+                    <div class="title">
+                        {{title}}
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div><!--/container -->
+    </section>
+</div><!--/testimonial-grid-->

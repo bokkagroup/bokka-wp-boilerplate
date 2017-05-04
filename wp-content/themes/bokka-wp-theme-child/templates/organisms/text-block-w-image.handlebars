@@ -9,14 +9,7 @@
         {{/if}}
         <div class="container">
             {{#if align_image_left}}
-            <div class="image">
-                <figure>
-                    <img src="{{image}}" alt="" />
-                    {{#if caption}}
-                    <figcaption class="caption">{{caption}}</figcaption>
-                    {{/if}}
-                </figure>
-            </div>
+                {{> molecules/blocks/slider}}
             {{/if}}
             <div class="body">
                 {{{description}}}
@@ -27,14 +20,7 @@
                 {{/if}}
             </div><!--/container-->
             {{#if align_image_right}}
-            <div class="image">
-                <figure>
-                    <img src="{{image}}" alt="" />
-                    {{#if caption}}
-                    <figcaption class="caption">{{caption}}</figcaption>
-                    {{/if}}
-                </figure>
-            </div>
+                {{> molecules/blocks/slider}}
             {{/if}}
         </div>
     </section>

@@ -1,0 +1,32 @@
+<div class="slider">
+    <div class="slides-wrap">
+        <ul class="slides">
+            {{#each gallery}}
+                <li class="slide">
+                    <div class="image">
+                        <figure>
+                            <img src="{{url}}" alt="">
+                            {{#if caption}}
+                            <figcaption class="caption">{{caption}}</figcaption>
+                            {{/if}}
+                        </figure>
+                    </div><!--/image-->
+                </li><!--/slide-->
+            {{/each}}
+        </ul><!--/slides-->
+        {{#if controls}}
+            <ul class="controls">
+                <li class="previous">
+                    <a href="">
+                        <span class="icon icon-slider-previous"></span>
+                    </a>
+                </li>
+                <li class="next">
+                    <a href="">
+                        <span class="icon icon-slider-next"> </span>
+                    </a>
+                </li>
+            </ul>
+        {{/if}}
+    </div><!--/slides-wrap-->
+</div>

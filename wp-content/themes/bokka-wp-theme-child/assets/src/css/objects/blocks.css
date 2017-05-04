@@ -15,7 +15,8 @@
 
     &.width-large {
         .text,
-        .body {
+        .body,
+        .items {
             max-width: none;
             width: 100%;
         }
@@ -24,7 +25,8 @@
     &.width-medium {
         @mixin desktop {
             .text,
-            .body {
+            .body,
+            .items {
                 margin: 0 auto;
                 max-width: 80%;
             }
@@ -34,7 +36,8 @@
     &.width-small {
         @mixin desktop {
             .text,
-            .body {
+            .body,
+            .items {
                 margin: 0 auto;
                 max-width: 50%;
             }

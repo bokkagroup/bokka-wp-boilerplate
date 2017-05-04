@@ -1,0 +1,85 @@
+.section.testimonial-grid {
+    padding: 30px 30px 0;
+
+    @mixin tablet {
+        padding: 40px 30px;
+    }
+
+    @mixin desktop {
+        padding: 75px 0;
+    }
+
+    .container {
+        @mixin desktop {
+            max-width: 980px;
+        }
+    }
+
+    .item {
+        border-bottom: 3px solid #e3e3e3;
+        margin: 0 0 20px;
+        padding: 0 0 40px;
+        position: relative;
+        width: 100%;
+
+        &::after {
+            background: #e3e3e3;
+            bottom: 0;
+            color: $white;
+            content: '\201D';
+            font-family: serif;
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 0;
+            padding: 26px 15px 10px;
+            position: absolute;
+            right: 0;
+        }
+
+        @mixin tablet {
+            margin: 0 20px 30px;
+            width: calc(50% - 40px);
+        }
+
+        .image {
+            border-radius: 50%;
+            height: 200px;
+            margin: 0 auto;
+            overflow: hidden;
+            width: 200px;
+
+            @mixin tablet {
+                float: left;
+                height: 120px;
+                width: 120px;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .text {
+            margin: 30px 0 0;
+
+            @mixin tablet {
+                float: left;
+                margin: 0;
+                padding: 0 0 0 30px;
+                width: calc(100% - 120px);
+            }
+        }
+
+        .body {
+            font-style: italic;
+        }
+
+        .title {
+            color: $black;
+            font-family: 'Open Sans';
+            font-size: 14px;
+            padding: 20px 0 0;
+            position: relative;
+        }
+    }
+}

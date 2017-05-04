@@ -47,7 +47,9 @@ class Organisms extends \BokkaWP\MVC\Model
         //only show controls if there are greater 1 items
         if (isset($organism['type']) && (
                 $organism['type'] === "feature-slider" ||
-                $organism['type'] === "cta-w-gallery"
+                $organism['type'] === "cta-w-gallery" ||
+                $organism['type'] === "slider-gallery" ||
+                $organism['type'] === "text-block-w-image"
             )) {
             if (isset($organism['item']) && count($organism['item']) > 1) {
                 $organism['controls'] = true;

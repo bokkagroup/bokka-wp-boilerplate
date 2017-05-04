@@ -124,6 +124,8 @@
 @import 'organisms/photo-grid-w-title-caption';
 @import 'organisms/conversion-point-w-modal-form';
 @import 'organisms/two-column-w-images';
+@import 'organisms/testimonial-grid';
+@import 'organisms/slider-gallery';
 
 /* ------------------------------------ *\
     $COMPONENTS
