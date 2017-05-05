@@ -4,11 +4,33 @@
  * Vendor tracking scripts
  */
 
+add_action('wp_footer', 'requireReachLocalTracking');
+function requireReachLocalTracking()
+{
+    ?>
+        <script type="text/javascript">var rl_siteid = "a11cbb79-00af-4a1a-855a-771ac2b55312";</script><script type="text/javascript" src="//cdn.rlets.com/capture_static/mms/mms.js" async="async"></script>
+    <?php
+}
+
 add_action('wp_footer', 'requireResonateTrackingPixel');
 function requireResonateTrackingPixel()
 {
     ?>
         <div class="footer-pixel"><script language='JavaScript1.1' src='//pixel.mathtag.com/event/js?mt_id=1094385&mt_adid=176173&v1=&v2=&v3=&s1=&s2=&s3='></script></div>
+    <?php
+}
+
+add_action('wp_footer', 'requireGoogleTagManager');
+function requireGoogleTagManager()
+{
+    ?>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MG7X76');</script>
+        <!-- End Google Tag Manager -->
     <?php
 }
 
@@ -43,24 +65,5 @@ function requireGooglAnalyticsTracking()
             ga('create', 'UA-5740821-1', 'auto');
             ga('send', 'pageview');
         </script>
-    <?php
-}
-
-
-add_action('wp_footer', 'surveySnippet');
-function surveySnippet()
-{
-    ?>
-    <!-- Hotjar Tracking Code for http://livebouldercreek.com -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:424809,hjsv:5};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
     <?php
 }
