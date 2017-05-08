@@ -127,6 +127,7 @@
 
     .form-wrapper {
         background-color: $purple_light;
+        color: $white;
         margin: 60px 0 0;
         padding: 10px 35px;
         position: relative;
@@ -152,9 +153,19 @@
         }
 
         h2,
-        p {
-            color: #fff;
+        p,
+        small {
+            color: $white;
             text-align: center;
+
+            a {
+                color: $white;
+            }
+        }
+
+        small {
+            font-family: 'Open Sans';
+            opacity: 0.5;
         }
 
         h2 {
@@ -174,7 +185,7 @@
                 span {
                     > label {
                         display: block;
-                        color: #fff;
+                        color: $white;
                         font-size: 14px;
                         font-family: 'Open Sans', sans-serif;
                         opacity: 0.8;
@@ -182,17 +193,23 @@
                 }
             }
 
-            &.product-types {
+            &.checkbox-group {
+                .gfield_label {
+                    color: $white;
+                }
+            }
+
+            .gfield_checkbox {
                 label {
-                    color: #fff;
+                    color: $white;
                 }
 
                 input[type=checkbox] + label::before {
-                    background-color: #fff;
+                    background-color: $white;
                 }
 
                 input[type=checkbox]:checked + label::before {
-                    color: #fff;
+                    color: $white;
                     background-color: $blue_light;
                 }
             }
