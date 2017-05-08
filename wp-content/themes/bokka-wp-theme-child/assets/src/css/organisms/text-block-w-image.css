@@ -137,7 +137,7 @@
             .body {
                 @mixin column 1,2;
             }
-        }        
+        }
     }
 
     @mixin desktop {

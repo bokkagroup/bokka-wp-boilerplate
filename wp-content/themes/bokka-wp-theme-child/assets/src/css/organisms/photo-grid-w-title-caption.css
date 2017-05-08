@@ -39,6 +39,7 @@
 
     .item {
         margin: 30px 0 0;
+        text-align: center;
 
         @mixin tablet {
             margin: 45px 0 0;
@@ -57,13 +58,11 @@
             padding: 0 15px;
 
             h3 {
-                color: #fff;
                 margin-bottom: 5px;
                 text-transform: none;
             }
 
             p {
-                color: #fff;
                 font-family: 'Open Sans';
                 font-size: 18px;
                 line-height: 1.5;
@@ -76,12 +75,6 @@
             @mixin tablet {
                 margin: 20px 0 0;
             }
-        }
-
-        .title,
-        .subtitle {
-            color: #fff;
-            text-align: center;
         }
     }
 
