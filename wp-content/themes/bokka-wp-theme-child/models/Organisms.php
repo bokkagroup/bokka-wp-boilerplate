@@ -109,7 +109,7 @@ class Organisms extends \BokkaWP\MVC\Model
         }
 
         //get the testimonial from the ID
-        if (isset($organism['testimonial_id'])) {
+        if (isset($organism['testimonial_id']) && isset($organism['type']) && $organism['type'] === 'testimonial') {
             $name = get_post_meta($organism['testimonial_id'], 'name');
             $excerpt = get_post_meta($organism['testimonial_id'], 'excerpt');
             $organism['testimonial'] = get_object_vars(get_post($organism['testimonial_id']));
