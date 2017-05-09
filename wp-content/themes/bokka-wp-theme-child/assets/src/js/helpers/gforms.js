@@ -26,7 +26,7 @@ module.exports = {
                     productSelect += '</ul></div>';
                     productSelect += '</li>';
 
-                $(productSelect).insertBefore(hiddenProductDataInput.prev());
+                $(productSelect).insertBefore(hiddenProductDataInput);
 
                 $('.gform_wrapper form input[type="submit"]').on('click', function(e) {
                     e.preventDefault();
