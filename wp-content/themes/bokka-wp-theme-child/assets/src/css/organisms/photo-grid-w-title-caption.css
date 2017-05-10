@@ -1,11 +1,19 @@
 .section.photo-grid-w-title-caption {
     padding: 30px 0;
 
+    @mixin desktop {
+        padding: 75px 0;
+    }
+
     .container {
         padding: 0 30px;
 
         @mixin tablet {
             padding: 0;
+        }
+
+        @mixin desktop {
+            max-width: 930px;
         }
     }
 
@@ -42,7 +50,22 @@
         text-align: center;
 
         @mixin tablet {
+            display: flex;
+            flex-basis: 50%;
+            flex-direction: column;
             margin: 45px 0 0;
+
+            &:nth-child(odd) {
+                padding-right: 15px;
+            }
+
+            &:nth-child(even) {
+                padding-left: 15px;
+            }
+
+            .body {
+                padding: 0 30px;
+            }
         }
 
         .image {
@@ -74,40 +97,6 @@
 
             @mixin tablet {
                 margin: 20px 0 0;
-            }
-        }
-    }
-
-    @mixin tablet {
-        .item {
-            flex-basis: 50%;
-            display: flex;
-            flex-direction: column;
-
-            &:nth-child(odd) {
-                padding-right: 15px;
-            }
-
-            &:nth-child(even) {
-                padding-left: 15px;
-            }
-
-            .body {
-                padding: 0 30px;
-            }
-        }
-    }
-
-    @mixin desktop {
-        padding: 75px 0;
-
-        .container {
-            padding: 0;
-        }
-
-        .item {
-            .body {
-                padding: 0 45px;
             }
         }
     }
