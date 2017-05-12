@@ -289,6 +289,8 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
         page = '/thank-you/contact-us-page/ask-a-question'
     } else if(formId === 10){
         page = '/homeowner-resources-page/thank-you'
+    } else if(formId === 26){
+        page = '/weecottage.blog/thank-you'
     }
     ga('send', { hitType: 'pageview', page: page })
 })
