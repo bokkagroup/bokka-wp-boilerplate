@@ -68,7 +68,6 @@
         .gfield_checkbox li {
             float: none;
             display: block;
-            line-height: 1;
             margin: 0 0 6px;
         }
     }
@@ -182,6 +181,7 @@
 
             li {
                 float: left;
+                line-height: 1;
                 margin-right: 10px;
             }
 
