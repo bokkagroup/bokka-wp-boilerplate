@@ -20,7 +20,11 @@
                               {{this}}{{else}}{{#if @last}}{{#unless @first}} & {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
                             {{/if}}
                         {{/each}}
-                        From the ${{base_price}}</span><span class="lowercase">s</span>
+                        {{#if base_price}}
+                            From the ${{base_price}}</span><span class="lowercase">s</span>
+                        {{else}}
+                            </span>
+                        {{/if}}
                     <header>
                         <h1>
                             {{post_title}}

@@ -24,9 +24,9 @@ function setNeighborhoodPricing($post_id)
     //get the neighborhood & it's price
     $neighborhood_id = get_post_meta($post_id, 'neighborhood')[0];
 
-    $neightbordhood_price = getNeighborhoodPrices($neighborhood_id);
-    if (isset($neightbordhood_price)) {
-        update_post_meta($neighborhood_id, 'base_price', $neightbordhood_price);
+    $neighborhood_price = getNeighborhoodMinPrice($neighborhood_id);
+    if (isset($neighborhood_price)) {
+        update_post_meta($neighborhood_id, 'base_price', $neighborhood_price);
     }
 
     return;

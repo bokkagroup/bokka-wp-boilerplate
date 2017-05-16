@@ -45,7 +45,10 @@
                         <p class="details">{{#if bedrooms_min}}{{bedrooms_min}}{{#if bedrooms_max}}-{{bedrooms_max}}{{/if}} bed{{/if}}{{#if bathrooms_min}}, {{bathrooms_min}}{{#if bathrooms_max}}-{{bathrooms_max}}{{/if}} bath{{/if}}{{#if main_sqr_ft}} <br>{{main_sqr_ft}}&nbsp;sq.&nbsp;ft{{/if}}</p>
                     {{/if}}
                     {{#if communities}}
-                        <p class="details">{{types}} <br>from the ${{base_price}}s</p>
+                        <p class="details">
+                            {{types}}
+                            {{#if base_price}}<br>from the ${{base_price}}s{{/if}}
+                        </p>
                     {{/if}}
                 </div>
             </div>

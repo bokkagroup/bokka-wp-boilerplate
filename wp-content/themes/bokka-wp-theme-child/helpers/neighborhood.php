@@ -171,12 +171,13 @@ function sortProductByType($posts)
         $type = getProductType($post->ID);
         $type = getDefaultType($type);
         $price = round(number_format(getProductPrice($post) / 1000, 0), -1);
-        if (isset($types[$type]['price']) &&
-            $types[$type]['price'] < $price) {
+        if (isset($types[$type]['price']) && $types[$type]['price'] < $price) {
             $price = $types[$type]['price'];
         }
+        if ($price > 0) {
+            $types[$type]['price'] = $price;
+        }
         $types[$type]['title'] = $type;
-        $types[$type]['price'] = $price;
         $types[$type][$post->post_type] = true;
         $types[$type]['products'][] = $post;
     }
@@ -349,8 +350,7 @@ function convertCategoryToIcon($category)
     }
 }
 
-
-function getNeighborhoodPrices($id)
+function getNeighborhoodMinPrice($id)
 {
     $posts = get_posts(
         array(
@@ -360,15 +360,17 @@ function getNeighborhoodPrices($id)
         )
     );
 
-    $prices = array_map(function ($post) {
+    $prices = array();
+    foreach ($posts as $post) {
         if ($post->post_type === 'home') {
             $price = get_post_meta($post->ID, 'price');
         } else {
             $price = get_post_meta($post->ID, 'base_price');
         }
-        return $price;
-    }, $posts);
-    $min_price = min($prices);
+        $prices[] = $price[0];
+    }
 
-    return $min_price[0];
+    $prices = array_diff($prices, array(0, ''));
+    $min_price = min($prices);
+    return $min_price;
 }

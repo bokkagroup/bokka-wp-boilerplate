@@ -21,7 +21,7 @@
                                 <div class="type">
                                     <h3>{{title}}
                                         {{#if plans}}
-                                            from the ${{price}}<span class="lowercase">s</span>
+                                            {{#if price}}from the ${{price}}<span class="lowercase">s</span>{{/if}}
                                         {{/if}}
                                     </h3>
                                     <ul class="product-listing container">
