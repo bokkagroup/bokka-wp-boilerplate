@@ -13,7 +13,7 @@ function tabbedProductData($id)
         array(
             'key' => 'neighborhood',
             'value' => "${id}",
-            'compare' => 'LIKE'
+            'compare' => '='
         )
     );
 
