@@ -191,7 +191,7 @@ if ( ! empty( $messages ) ) {
 	foreach ( $messages as $msg )
 		echo '<div id="message" class="updated notice is-dismissible"><p>' . $msg . '</p></div>';
 } ?>
-<form method="post" action="<?php echo network_admin_url( 'site-new.php?action=add-site' ); ?>" novalidate="novalidate">
+<form method="post"  enctype="multipart/form-data" action="<?php echo network_admin_url( 'site-new.php?action=add-site' ); ?>" novalidate="novalidate">
 <?php wp_nonce_field( 'add-blog', '_wpnonce_add-blog' ) ?>
 	<table class="form-table">
 		<tr class="form-field form-required">

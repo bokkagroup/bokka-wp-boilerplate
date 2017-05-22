@@ -71,6 +71,7 @@ add_action(
         /**---------------------
          * CUSTOM INCLUDES BELOW *
          ------------------------*/
+        require_once ('admin/add_new_site.php');
     },
     1
 );

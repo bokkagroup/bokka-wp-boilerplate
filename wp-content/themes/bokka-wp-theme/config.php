@@ -17,3 +17,11 @@ if (!defined('BOKKA_ENV') && isset($_SERVER) && $_SERVER['HTTP_HOST']) {
         define('BOKKA_ENV', "production");
     }
 }
+
+/**
+ * Define Mail from address
+ */
+
+add_filter( 'wp_mail_from', function() {
+    return 'noreply@myjoneshome.com';
+} );
