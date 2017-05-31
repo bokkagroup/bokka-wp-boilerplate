@@ -354,7 +354,7 @@
 }
 
 /* confirmation / validation */
-.gforms_confirmation_message,
+.gform_confirmation_message,
 .validation_error {
     border-radius: 4px;
     height: auto;
@@ -366,7 +366,7 @@
     padding: 15px;
 }
 
-.gforms_confirmation_message {
+.gform_confirmation_message {
     background-color: $blue_light;
 }
 
