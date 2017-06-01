@@ -118,8 +118,37 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['testimonial']['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($organism['testimonial_id']), 'full')[0];
         }
 
+
+
         //recursively call this function on child items
         if (isset($organism['item']) && $organism['item']) {
+
+            /*TODO: There is an issue with fields being added to organisms that don't accept those organisms
+            I think this is an issue with ACF
+            for now I'm unsetting those fields so they dont show up inappropriately
+            */
+            if ($organism['type'] === "feature-slider") {
+                $organism['item'] = $organism['item'] = array_map(function($item) {
+                    if( isset($item['description'])) {
+                        unset($item['description']);
+                    }
+                    return $item;
+                }, $organism['item'] );
+            }
+            /*TODO: There is an issue with fields being added to organisms that don't accept those organisms
+            I think this is an issue with ACF
+            for now I'm unsetting those fields so they dont show up inappropriately
+            */
+            if ($organism['type'] === "cards") {
+                $organism['item'] = $organism['item'] = array_map(function($item) {
+                    if( isset($item['sub_title'])) {
+                        unset($item['sub_title']);
+                    }
+                    return $item;
+                }, $organism['item'] );
+            }
+
+
             $organism['item'] = array_map(array($this, 'mapData'), $organism['item']);
         }
 
