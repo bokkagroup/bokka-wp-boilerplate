@@ -3,15 +3,17 @@
 (function(){
     CookieJS = require('../vendor/cookies')
     require('../utility/urls')
+
     function setUTMCookies(){
         setUTMCookie("utm_source")
         setUTMCookie("utm_medium")
         setUTMCookie("utm_campaign")
     }
+
     function setUTMCookie(name){
         var queryValue = getParameterByName(name)
         var cookie = CookieJS.get("BOKKAWPTHEME_"+name)
-        if (queryValue !== "" && cookie == null) {
+        if (queryValue !== null && (cookie == undefined || cookie == 'null')) {
             CookieJS.set({
                 name: "BOKKAWPTHEME_"+name,
                 value: queryValue,
@@ -19,6 +21,7 @@
             })
         }
     }
+
     setUTMCookies()
 
     var utmFields = $('.gfield.utm_source, .gfield.utm_medium, .gfield.utm_campaign')
