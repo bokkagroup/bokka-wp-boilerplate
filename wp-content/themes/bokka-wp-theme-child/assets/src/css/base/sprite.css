@@ -17,17 +17,17 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 <i class="icon icon-home"></i>
 */.sprite-bcn-logo-mobile {
   background-image: url(../images/sprite.png);
-  background-position: -72px -136px;
+  background-position: -228px -72px;
   width: 51px;
   height: 59px;
 }.sprite-bcn-logo {
   background-image: url(../images/sprite.png);
   background-position: -228px 0px;
   width: 245px;
-  height: 80px;
+  height: 72px;
 }.sprite-breadcrumb-seperator {
   background-image: url(../images/sprite.png);
-  background-position: -228px -80px;
+  background-position: -279px -72px;
   width: 18px;
   height: 40px;
 }.sprite-email-signup-icon {
