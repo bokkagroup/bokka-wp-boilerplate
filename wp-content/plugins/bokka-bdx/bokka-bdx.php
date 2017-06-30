@@ -46,7 +46,7 @@ class BDX {
     {
 
         add_filter( 'query_vars', array($this, 'add_query_vars_filter'));
-
+        add_filter('wp_headers', array($this, 'changeHeaders'));
         $this->pluginDir =  plugin_dir_path( __FILE__ );
 
 		//load base classes
@@ -62,6 +62,15 @@ class BDX {
         add_action('nightly', array($this, 'sendData'));
         add_action('parse_query', array($this, 'handleRequest'));
        
+    }
+
+    public function changeHeaders($headers)
+    {
+        $test   =   get_query_var('bokka_aggregate_test', false);
+        if ($test === 'true') {
+            $headers['Content-Type'] = 'application/json; charset=utf-8';
+            return $headers;
+        }
     }
 
     public function add_query_vars_filter( $vars ){
@@ -105,9 +114,9 @@ class BDX {
         $test   =   get_query_var('bokka_aggregate_test', false);
         $run    =   get_query_var('bokka_aggregate_run', false);
 
-
         if($test === 'true'){
              $this->IN_PROGRESS = TRUE;
+
             //dry run, generate data but don't send
             echo $this->getData();
             die();
@@ -422,97 +431,7 @@ $fields = array(
                         "type"  =>  "acf-relationship"
                     )
                 )
-            ),
-            array(
-                "label" => "Homes Post Type",
-                "name" => "homes",
-                "type" => "post_type",
-                "fields"    => array(
-                    array(
-                        "label" => "ID",
-                        "name"  => "id",
-                        "type"  => "post_field"
-                    ),
-                    array(
-                        "label" => "Floorplan ID",
-                        "name"  => "floorplan_id",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "URL",
-                        "name"  => "url",
-                        "type"  => "post_field"
-                    ),
-                    array(
-                        "label" => "Name",
-                        "name"  => "name",
-                        "type"  => "post_field"
-                    ),
-                    array(
-                        "label" => "Address 1",
-                        "name"  => "address_1",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "Address 2",
-                        "name"  => "address_2",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "City",
-                        "name"  => "city",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "State",
-                        "name"  => "state",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "Zip",
-                        "name"  => "zip",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label"     =>  "Geocode",
-                        "name"      =>  "geocode",
-                        "type"      =>  "parent",
-                        "fields"    =>  array(
-                            array(
-                                "label" =>  "Latitude",
-                                "name"  =>  "lat",
-                                "type"  =>  "acf"
-                            ),
-                            array(
-                                "label" =>  "Longitude",
-                                "name"  =>  "long",
-                                "type"  =>  "acf"
-                            ),
-
-                        )
-                    ),
-                    array(
-                        "label" => "Price",
-                        "name"  => "price",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "sqft",
-                        "name"  => "sqft",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" => "Stories",
-                        "name"  => "stories",
-                        "type"  => "acf"
-                    ),
-                    array(
-                        "label" =>  "Relationship",
-                        "name"  =>  "relationship",
-                        "type"  =>  "acf-relationship"
-                    )
-                )
-            ),
+            )
         )
     )
 );
