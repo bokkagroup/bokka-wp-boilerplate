@@ -131,7 +131,8 @@ class Adapter {
 
         }
 
-        return count($array) > 0 ? $array : 'No data can be parsed. Check your settings to make sure it\'s working.';
+        return count($array) > 0 ? $array : '';
+
     }
 
 

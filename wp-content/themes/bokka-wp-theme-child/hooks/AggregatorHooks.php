@@ -14,24 +14,34 @@ function NeighborhoodImages(array $configuration, array $options)
     }
 
     //make sure we grab featured images
-    $thumbnail = get_the_post_thumbnail_url($options['parent_post']->ID, 'large');
+    $thumbnail = get_post_thumbnail_id($options['parent_post']->ID, 'large');
+
+    if (!$thumbnail) {
+        return $options['value'];
+    }
+
+
     if ($thumbnail) {
-        $images[] = $thumbnail;
+        $images[] = array(
+            'name'  =>  get_the_title($thumbnail),
+            'url'   =>  wp_get_attachment_url($thumbnail)
+        );
     }
 
     //photo gallery images
     if (is_array($options['value'])) {
-        $images_gallery = array_map(function ($image) {
+        $images_gallery =  [];
+        foreach ($options['value'] as $image) {
 
             if ($image['type'] !== 'image' || !isset($image['image'])) {
-                return false;
+                continue;
             }
 
-            return array(
+            $images_gallery[] = array(
                 'name'  =>  get_the_title($image['image']),
                 'url'   =>  wp_get_attachment_url($image['image'])
             );
-        }, $options['value']);
+        }
 
         $images = array_merge($images, $images_gallery);
     }
@@ -169,4 +179,29 @@ function floorplanImages(array $configuration, array $options)
     }
 
     return $images;
+}
+
+
+\BokkaWP\bdx_add_filter('bdx-adapter-configuration','convertBaths');
+function convertBaths($configuration, $options)
+{
+
+    //baths need to be integers only.
+    $name = key($configuration);
+    if($name != 'baths') {
+        return $options['value'];
+    }
+
+    $floor = floor($options['value']);
+    $decimal = $options['value'] - $floor;
+
+    //if there is 3/4 bath, BDX counts it as a full bath
+    if ($decimal > 0) {
+        $value = $floor + ( $decimal == 0.75 ? 1 : 0);
+    } else {
+        $value = $options['value'];
+    }
+
+
+    return $value;
 }
