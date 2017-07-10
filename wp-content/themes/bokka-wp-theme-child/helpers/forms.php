@@ -7,8 +7,9 @@ function populate_neighborhood_name_field($value)
     global $post;
     $neighborhood_name = '';
 
-    if ($post->neighborhood && isset($post->neighborhood->post_title)) {
-        $neighborhood_name = $post->neighborhood->post_title;
+    if ($post->neighborhood) {
+        $neighborhood = get_post($post->neighborhood);
+        $neighborhood_name = $neighborhood->post_title;
     }
 
     return $neighborhood_name;
