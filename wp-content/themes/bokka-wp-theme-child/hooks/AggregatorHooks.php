@@ -88,11 +88,12 @@ function convertHomeFields($configuration, $options)
 
     if (($name == 'state' ||
         $name == 'city' ||
-        $name == 'zip') &&
+        $name == 'zip' ||
+        $name == 'latitude' ||
+        $name == 'longitude'
+        ) &&
         $options['post_type'] == 'home') {
-        $neighborhood = get_field('neighborhood', $options['parent_post']->ID);
-
-        return get_field($name, $neighborhood);
+        return get_field($name, $options['value']);
     }
 
     return $options['value'];
@@ -138,47 +139,55 @@ function floorplanRelationship($configuration, $options)
  * Translates floorplan images
  */
 
-\BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'floorplanImages');
-function floorplanImages(array $configuration, array $options)
+\BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'ProductImages');
+function ProductImages(array $configuration, array $options)
 {
     $name = key($configuration);
 
-    if ($name != 'images' || $options['post_type'] != 'plans') {
-        return $options['value'];
-    }
+    if ($name == 'images' &&
+        ($options['post_type'] == 'plans'  || $options['post_type'] == 'home')) {
 
-    $images = [];
+        $images = [];
 
-    $configs = [$configuration['images']['elevation-images'], $configuration['images']['floorplan-images']];
+        $configs = [
+            $configuration['images']['elevation-images'],
+            $configuration['images']['floorplan-images']
+        ];
 
-    foreach ($configs as $type => $config) {
-        $type = $type == 'elevation-images' ? 'elevation' : 'floorplan';
+        foreach ($configs as $type => $config) {
+            $type = $type == 'elevation-images' ? 'elevation' : 'floorplan';
 
-        $value = get_field($config['value'], $options['parent_post']->ID);
+            $value = get_field($config['value'], $options['parent_post']->ID);
 
-        if (!$value) {
-            return;
-        }
-
-        $converted = array_map(function ($image) use ($type) {
-
-            if ($type == 'floorplan') {
-                $image['ID'] = $image['image'];
+            if (!$value) {
+                return;
             }
 
-            $converted_image = array(
-                'name'  => substr($image['title'], 0, 99),
-                'type'  => $type,
-                'url'   => wp_get_attachment_image_src($image['ID'], 'large')[0]
-            );
+            $converted = array_map(function ($image) use ($type) {
 
-            return $converted_image;
-        }, $value);
+                if ($type == 'floorplan') {
+                    $image['ID'] = $image['image'];
+                }
 
-        $images = array_merge($images, $converted);
+                $converted_image = array(
+                    'name' => substr($image['title'], 0, 99),
+                    'type' => $type,
+                    'url' => wp_get_attachment_image_src($image['ID'],
+                        'large')[0]
+                );
+
+                return $converted_image;
+            }, $value);
+
+            $images = array_merge($images, $converted);
+        }
+
+        return $images;
     }
 
-    return $images;
+    return $options['value'];
+
+
 }
 
 

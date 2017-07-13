@@ -21,8 +21,8 @@ class Admin  {
     public function bokka_bdx_create_menu()
     {
         //create new top-level menu
-        add_menu_page('Bokka', 'Bokka', 'unknown', "bokka", false , plugins_url('/images/icon.png', __FILE__) );
-        add_submenu_page('bokka', 'BDX Configuration', 'BDX', 'administrator', 'bdx', array($this, 'bokka_bdx_settings_page'));
+        add_menu_page('Catalyst', 'Catalyst', 'unknown', "catalyst", false , plugins_url('/images/icon.png', __FILE__) );
+        add_submenu_page('catalyst', 'BDX Configuration', 'BDX', 'administrator', 'bdx', array($this, 'bokka_bdx_settings_page'));
     }
 
     /**
@@ -69,7 +69,8 @@ class Admin  {
 
 
     public function bokka_bdx_settings_page()
-    {?>
+    {
+        $fields = require(BGBDX_DIR . '/fields.php'); ?>
         <div class="wrap">
         <h1>BDX Feed Configuration</h1>
 
@@ -77,7 +78,7 @@ class Admin  {
             <?php settings_fields( 'bokka-bdx-settings-group' ); ?>
             <?php do_settings_sections( 'bokka-bdx-settings-group' ); ?>
             <table class="form-table">
-                <?php global $fields; $this->create_form_html($fields); ?>
+                <?php $this->create_form_html($fields); ?>
             </table>
             <?php submit_button(); ?>
         </form>
