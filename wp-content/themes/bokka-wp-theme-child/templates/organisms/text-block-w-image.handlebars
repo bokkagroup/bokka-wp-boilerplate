@@ -13,10 +13,15 @@
             {{/if}}
             <div class="body">
                 {{{description}}}
+
                 {{#if button}}
-                    <a href="{{link}}" class="button">
-                        {{button_text}}
-                    </a>
+                    {{#if link}}
+                        <a href="{{link}}" class="button">{{button_text}}</a>
+                    {{else}}
+                        <a href="#campaign_vip_form" class="button js-page-jump">
+                            {{button_text}}
+                        </a>
+                    {{/if}}
                 {{/if}}
             </div><!--/container-->
             {{#if align_image_right}}
