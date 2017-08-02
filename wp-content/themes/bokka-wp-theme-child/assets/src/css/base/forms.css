@@ -211,6 +211,8 @@
 
     .container-select,
     .ginput_container_select {
+        background-color: #fff;
+
         select {
             position: relative;
             appearance: none;
