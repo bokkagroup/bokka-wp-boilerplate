@@ -393,7 +393,7 @@ Desktop Styles
         height: auto;
         background: $white;
         position: absolute;
-        order: 3;
+        order: 4;
         opacity: 0;
         left: 0;
         z-index: 101;
@@ -442,24 +442,32 @@ Desktop Styles
 
             & > ul > li {
                 @mixin column 1,4;
-                @mixin cycle 2;
+                @mixin cycle 4;
 
-                height: 50%;
+
                 margin-bottom: 15px;
 
                 &.our-neighborhoods {
                     display: flex;
                     height: 100%;
 
-                    @mixin column 3,4;
+                    @mixin column 4,4;
 
                     .mp-level {
                         width: 100%;
                     }
 
                     li {
-                        @mixin column 1,3;
-                        @mixin cycle 3;
+
+                        @mixin column 1,4;
+
+                        @mixin desktop {
+                            margin-right:30px;
+
+                            &:nth-child(4n + 5) {
+                                margin-right:0;
+                            }
+                        }
 
                         float: left;
                     }
@@ -492,10 +500,6 @@ Desktop Styles
                     margin-right: 0;
                 }
 
-                &:last-child {
-                    margin-left: auto;
-                    margin-top: -115px;
-                }
             }
         }
 
@@ -622,11 +626,11 @@ Desktop Styles
 
         .about-us {
             .title {
-                border-color: $purple;
+                border-color: $gold;
             }
 
             h2 {
-                color: $purple;
+                color: $gold;
             }
         }
 

@@ -23,10 +23,10 @@
     .container {
         position: relative;
         max-width: 100%;
+        display: block;
 
         @mixin desktop {
             @mixin container;
-
             height: 415px;
         }
     }

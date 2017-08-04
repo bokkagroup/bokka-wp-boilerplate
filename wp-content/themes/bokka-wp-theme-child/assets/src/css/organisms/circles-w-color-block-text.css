@@ -1,11 +1,17 @@
 .section.circles-w-color-block-text {
+
     .container {
         padding: 0 30px;
+        display: block;
+
+        @mixin desktop {
+            @mixin container;
+        }
     }
 
     .intro {
         margin: 0 0 30px;
-
+        max-width:415px;
         img {
             display: block;
             max-width: 100%;
@@ -191,10 +197,6 @@
     @mixin desktop {
         .container {
             padding: 75px 0 90px;
-        }
-
-        .intro {
-            max-width: 415px;
         }
 
         .color-block-text {

@@ -7,8 +7,10 @@
 
     .container {
         padding: 25px 15px;
+        display:block;
 
         @mixin desktop {
+            @mixin container;
             padding: 50px 15px;
         }
     }
@@ -136,8 +138,12 @@
             margin-bottom: 0;
             padding-left: 0;
             line-height: normal;
-            display: flex;
-            flex-flow: wrap;
+            display:block;
+
+            @mixin desktop {
+                display: flex;
+                flex-flow: wrap;
+            }
         }
 
         li {
