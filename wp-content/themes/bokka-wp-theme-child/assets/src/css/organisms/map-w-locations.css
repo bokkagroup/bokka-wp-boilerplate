@@ -1,0 +1,87 @@
+.section.map-w-locations {
+    padding: 30px 20px;
+    text-align: center;
+
+    @mixin tablet {
+        padding: 75px 30px;
+    }
+
+    @mixin desktop {
+        .container {
+            max-width: 930px;
+        }
+    }
+
+    .map-wrap {
+        border: 2px solid $gray_medium1;
+        margin: 30px auto;
+        padding: 0 0 75%;
+        position: relative;
+        width: 900px;
+
+        @mixin tablet {
+            margin: 50px auto;
+            padding: 0 0 65%;
+        }
+
+    }
+
+    .google-map {
+        .map-marker-label {
+            position: absolute;
+            color: blue;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+
+    .infoBox {
+        > img {
+            display: none;
+        }
+    }
+
+    .info-window {
+        background: $white;
+        border-bottom: 10px solid $purple_light;
+        bottom: 62px;
+        box-shadow: 1px 3px 10px 0 rgba(0,0,0,.5);
+        position: absolute;
+        transform: translateX(-50%);
+        z-index: 2;
+
+        @mixin tablet {
+            border-bottom: 25px solid $purple_light;
+        }
+
+        &::after {
+            bottom: -24px;
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 14px solid $purple_light;
+            left: 50%;
+            margin: 0 0 0 -14px;
+            z-index: 1;
+
+            @mixin tablet {
+                bottom: -39px;
+            }
+        }
+
+        .contents {
+            padding: 20px;
+
+            @mixin desktop {
+                padding: 20px 30px;
+            }
+        }
+    }
+
+    .button {
+        margin: 30px auto 0;
+    }
+}

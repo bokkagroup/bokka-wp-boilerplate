@@ -134,17 +134,19 @@ jQuery( document ).ready(function($) {
      * Menu Instantiation
      * @type {*|mlPushMenu}
      */
-    var push = new mlPushMenu(document.getElementById('mp-menu'), $('.menu-trigger'))
-    $(window).on('resize', function(){
-        push._determineNav();
-    });
+
+    if ($('.mp-menu').length > 0) {
+        var push = new mlPushMenu(document.getElementById('mp-menu'), $('.menu-trigger'))
+        $(window).on('resize', function(){
+            push._determineNav();
+        });
+    }
 
     /**
      * Map instatiation
      */
 
     if($('.google-map').length > 0){
-
         loadMapsAPI(function() {
 
             $('.google-map-wrapper').each(function () {
@@ -156,6 +158,10 @@ jQuery( document ).ready(function($) {
                     var overviewMapView = require('./views/overview-map.js');
                     new overviewMapView({el: wrapper})
                     Backbone.history.start({pushState: true});
+                } else if ($(this).hasClass('locations-map')) {
+                    var wrapper = $(this).closest('.section');
+                    var locationsMapView = require('./views/locations-map.js');
+                    new locationsMapView({el: wrapper})
                 } else if ($(this).hasClass('google-map-wrapper')) {
                     var modelMapView = require('./views/model-map.js');
                     new modelMapView({el: $(this)});

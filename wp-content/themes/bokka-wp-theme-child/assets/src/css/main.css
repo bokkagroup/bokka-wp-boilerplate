@@ -126,6 +126,7 @@
 @import 'organisms/two-column-w-images';
 @import 'organisms/testimonial-grid';
 @import 'organisms/slider-gallery';
+@import 'organisms/map-w-locations';
 
 /* ------------------------------------ *\
     $COMPONENTS

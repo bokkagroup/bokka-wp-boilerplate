@@ -25,6 +25,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp.spritesmith": "^6.2.1",
     "gutil": "^1.6.4",
+    "handlebars": "^4.0.10",
     "handlebars-loader": "^1.4.0",
     "imagemin-pngquant": "^4.2.2",
     "jquery": "^2.1.4",
