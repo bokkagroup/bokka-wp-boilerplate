@@ -78,7 +78,8 @@ class Neighborhoods extends \BokkaWP\MVC\Model
             $post->testimonial = array(
                 'name'  => get_field('name', $testimonialID),
                 'post_content' => get_post_field('post_content', $testimonialID),
-                'image' => wp_get_attachment_image_src(get_post_thumbnail_id($testimonialID), 'full')[0]
+                'image' => wp_get_attachment_image_src(get_post_thumbnail_id($testimonialID), 'full')[0],
+                'excerpt' => get_post_field('excerpt', $testimonialID),
             );
         } else {
             $post->testimonial = false;
