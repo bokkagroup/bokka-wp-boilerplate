@@ -37,7 +37,7 @@ gulp.task('css', ['style-lint'], function () {
             require('postcss-mixins'),
             require('postcss-nested'),
             require('postcss-simple-vars')({ silent: true }),
-            require('postcss-font-magician')({ hosted: './assets/build/fonts/' }),
+            require('postcss-font-magician')({}),
             require('lost'),
             require('autoprefixer'),
             /*colorFunction(),*/
