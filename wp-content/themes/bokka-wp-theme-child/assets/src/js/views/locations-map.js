@@ -50,9 +50,9 @@ var LayoutView = Backbone.View.extend({
                 self.map.setZoom(self.map.getZoom() - 1);
 
                 if (bokka.breakpoint.value !== 'desktop') {
-                    self.setCenter(self.map.getCenter());
+                    self.map.setCenter(self.map.getCenter());
                 } else {
-                    self.setCenter(self.map.getCenter(), 0, 0);
+                    self.map.setCenter(self.map.getCenter(), 0, 0);
                 }
             }, 250);
         })
@@ -62,9 +62,9 @@ var LayoutView = Backbone.View.extend({
             self.map.setZoom(self.map.getZoom() - 1);
 
             if (bokka.breakpoint.value !== 'desktop') {
-                self.setCenter(self.map.getCenter());
+                self.map.setCenter(self.map.getCenter());
             } else {
-                self.setCenter(self.map.getCenter(), 0, 0);
+                self.map.setCenter(self.map.getCenter(), 0, 0);
             }
         });
     },
@@ -87,7 +87,7 @@ var LayoutView = Backbone.View.extend({
                 self.bounds.extend(item.marker.getPosition())
                 self.map.fitBounds(self.bounds)
                 self.map.setZoom(self.map.getZoom() - 1)
-                self.setCenter(self.map.getCenter(), 0, 0)
+                self.map.setCenter(self.map.getCenter(), 0, 0)
                 setTimeout(function(){
                     if (item.isVisible()) {
                         item.marker.setMap(self.map)
