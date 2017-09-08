@@ -1,0 +1,34 @@
+<div id="{{id}}" class="section brand-window-slider">
+    <section>
+        <div class="container">
+            <div class="bw-slider">
+                {{#each item}}
+                    <div class="slide">
+                        <div class="container">
+                            <div class="image">
+                                <figure>
+                                    <img src="{{image}}" alt="" />
+                                </figure>
+                            </div><!--/image-->
+                            {{#if description}}
+                            <div class="text">
+                                <h1>
+                                    {{title}}
+                                </h1><!--/text-->
+                                <div class="body">
+                                    {{{description}}}
+                                    {{#if button}}
+                                        <a href="{{link}}" class="button">
+                                            {{button_text}}
+                                        </a>
+                                    {{/if}}
+                                </div><!--/body-->
+                            </div><!--/text-->
+                            {{/if}}
+                        </div><!--/container-->
+                    </div><!--/slide-->
+                {{/each}}
+            </div><!--/bw-slider-->
+        </div> <!--/container-->
+    </section>
+</div><!--/brand-window-->

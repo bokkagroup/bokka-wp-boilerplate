@@ -82,6 +82,7 @@
 @import 'organisms/accordion';
 @import 'organisms/alternating-content';
 @import 'organisms/brand-window';
+@import 'organisms/brand-window-slider';
 @import 'organisms/brand-window-w-color-overlay';
 @import 'organisms/brand-window-w-content-box';
 @import 'organisms/brand-window-two-column';
@@ -143,3 +144,4 @@
 @import 'vendor/fancybox';
 @import 'vendor/tipr';
 @import 'vendor/datepicker';
+@import 'vendor/slick';

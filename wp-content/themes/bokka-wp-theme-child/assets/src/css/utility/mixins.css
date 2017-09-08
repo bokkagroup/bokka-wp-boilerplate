@@ -20,8 +20,8 @@ LOST GRID MIXINS
 
     &::before,
     &::after {
-        content: '';
         clear: both;
+        content: '';
         display: block;
     }
 }
@@ -51,7 +51,7 @@ BREAKPOINT MIXINS
 ----------------------------------------------------------- */
 
 @define-mixin desktop-large $type: min {
-    @media ($(type)-width: $desktop-large) {
+    @media ($(type)-width: $(desktop-large)) {
         @mixin-content;
     }
 }
@@ -71,8 +71,8 @@ BREAKPOINT MIXINS
 html,
 body {
     &::before {
-        display: none;
         content: 'mobile';
+        display: none;
 
         @mixin tablet {
             content: 'tablet';
@@ -126,17 +126,17 @@ LOST GRID MIXINS
 
 @define-mixin arrow $color, $size {
     &::after {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        margin-left: -$size;
-        border-width: $size $size 0 $size;
         border-color: $color transparent transparent transparent;
+        border-style: solid;
+        border-width: $size $size 0 $size;
+        content: ' ';
+        display: block;
+        height: 0;
+        left: 50%;
+        margin-left: -$size;
         position: absolute;
         top: 100%;
-        left: 50%;
-        display: block;
-        content: ' ';
+        width: 0;
         z-index: 2;
     }
 }
@@ -146,8 +146,8 @@ BUTTON / HOVER MIXINS
 ----------------------------------------------------------- */
 
 @define-mixin button $color {
-    transition: box-shadow 0.2s;
     background: $color;
+    transition: box-shadow 0.2s;
 
     &:hover {
         box-shadow:
@@ -158,9 +158,9 @@ BUTTON / HOVER MIXINS
 }
 
 @define-mixin button_reversed $color {
-    transition: box-shadow 0.2s;
     background: $white;
     color: $color;
+    transition: box-shadow 0.2s;
 
     &:hover {
         box-shadow:
@@ -171,21 +171,22 @@ BUTTON / HOVER MIXINS
 }
 
 @define-mixin hover $color {
-    transition: box-shadow 0.2s;
     box-shadow:
         0 0 0 4px $(color),
         inset 0 0 0 3px $white;
     color: #fff;
+    transition: box-shadow 0.2s;
 }
 
 @define-mixin hover_reversed $color {
-    transition: box-shadow 0.2s;
     box-shadow:
         0 0 0 4px $white,
         inset 0 0 0 3px $color;
     color: $color;
+    transition: box-shadow 0.2s;
 }
 
+/* stylelint-disable selector-no-vendor-prefix */
 @define-mixin placeholder {
     &::-webkit-input-placeholder {
         @mixin-content;
@@ -203,3 +204,4 @@ BUTTON / HOVER MIXINS
         @mixin-content;
     }
 }
+/* stylelint-enable */

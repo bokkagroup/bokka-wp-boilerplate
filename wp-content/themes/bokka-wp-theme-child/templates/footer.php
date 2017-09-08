@@ -8,7 +8,7 @@
  */
 ?>
 
-                <?php new BokkaWP\Theme\controllers\FooterController(); ?>
+    <?php new BokkaWP\Theme\controllers\FooterController(); ?>
     </div><!--/site-wrapper-->
     <div id="email-signup-modal" class="modal-content">
         <div class="email-signup">

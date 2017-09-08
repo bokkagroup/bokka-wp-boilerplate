@@ -32,7 +32,6 @@ function NeighborhoodImages(array $configuration, array $options)
     if (is_array($options['value'])) {
         $images_gallery =  [];
         foreach ($options['value'] as $image) {
-
             if ($image['type'] !== 'image' || !isset($image['image'])) {
                 continue;
             }
@@ -144,9 +143,7 @@ function ProductImages(array $configuration, array $options)
 {
     $name = key($configuration);
 
-    if ($name == 'images' &&
-        ($options['post_type'] == 'plans'  || $options['post_type'] == 'home')) {
-
+    if ($name == 'images' && ($options['post_type'] == 'plans' || $options['post_type'] == 'home')) {
         $images = [];
 
         $configs = [
@@ -186,18 +183,14 @@ function ProductImages(array $configuration, array $options)
     }
 
     return $options['value'];
-
-
 }
 
-
-\BokkaWP\bdx_add_filter('bdx-adapter-configuration','convertBaths');
+\BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'convertBaths');
 function convertBaths($configuration, $options)
 {
-
     //baths need to be integers only.
     $name = key($configuration);
-    if($name != 'baths') {
+    if ($name != 'baths') {
         return $options['value'];
     }
 

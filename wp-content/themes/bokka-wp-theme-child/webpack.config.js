@@ -10,12 +10,13 @@ module.exports = {
             'backbone'
         ]
     },
+    externals: { jquery: "jQuery" },
     output: {
         path: __dirname + "/assets/build/js/",
         filename: "[name].min.js"
     },
     module: {
-        loaders: [ 
+        loaders: [
             { test: /\.handlebars$/, loader: "handlebars-loader" },
             { test: /\.modernizrrc$/, loader: "modernizr" }
         ]

@@ -4,7 +4,6 @@ namespace BokkaWP\Theme\models;
 
 class Breadcrumbs extends \BokkaWP\MVC\Model
 {
-
     public function localizeData($postIds)
     {
         $breadcrumbData = array_map(function ($postId) {
@@ -109,7 +108,7 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
             );
         }
     }
-    
+
     /* Floorplans */
     public function floorplans()
     {

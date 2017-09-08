@@ -4,6 +4,8 @@ require('./vendor/mousewheel.js')
 require('./vendor/fancybox.js')
 require('./vendor/tipr.js')
 
+var slick = require('slick-carousel');
+
 jQuery( document ).ready(function($) {
     window.$ = jQuery
 
@@ -29,6 +31,17 @@ jQuery( document ).ready(function($) {
     var gformHelpers = require('./helpers/gforms');
     gformHelpers.setProductTypes();
     gformHelpers.setNeighborhoodName();
+
+    /**
+     * Brand window slider
+     */
+    $('.bw-slider').slick({
+        infinite: false,
+        slide: '.slide',
+        infinite: true,
+        prevArrow: '<a href="#" class="slick-prev"><span class="icon icon-slider-previous"></span></a>',
+        nextArrow: '<a href="#" class="slick-next"><span class="icon icon-slider-next"></span></a>'
+    });
 
     //activate fancybox
     $(".fancybox-masonry").fancybox({
@@ -128,7 +141,6 @@ jQuery( document ).ready(function($) {
             event.preventDefault();
         });
     }
-
 
     /**
      * Menu Instantiation

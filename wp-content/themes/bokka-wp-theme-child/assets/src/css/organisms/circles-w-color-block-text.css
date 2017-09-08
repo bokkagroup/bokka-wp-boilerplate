@@ -20,7 +20,12 @@
     }
 
     .circles {
+        margin-top: 45px;
         width: 100%;
+
+        @mixin tablet {
+            margin-top: 95px;
+        }
     }
 
     .color-block-text {
@@ -46,6 +51,19 @@
 
             a[href='#'] {
                 cursor: default;
+            }
+
+            .text-link {
+                display: inline-block;
+                margin-top: 25px;
+                position: relative;
+                text-decoration: underline;
+
+                &:after {
+                    content:"\00bb";
+                    position: absolute;
+                    right: -20px;
+                }
             }
 
             h4,
@@ -76,7 +94,7 @@
 
         &#color-block-1 {
             .text {
-                a {
+                & > a {
                     background-color: $blue;
 
                     &:not([href='#']) {
@@ -88,7 +106,7 @@
 
         &#color-block-2 {
             .text {
-                a {
+                & > a {
                     background-color: $purple;
 
                     &:not([href='#']) {
@@ -100,7 +118,7 @@
 
         &#color-block-3 {
             .text {
-                a {
+                & > a {
                     background-color: $green;
 
                     &:not([href='#']) {
@@ -141,19 +159,19 @@
             margin: 0;
 
             .text {
-                position: absolute;
                 margin: 0;
+                position: absolute;
             }
 
             &#color-block-1 {
                 float: right;
-                padding-left: 186px;
                 margin-top: -30px;
+                padding-left: 186px;
 
                 .text {
-                    width: 380px;
+                    bottom: 175px;
                     left: 0;
-                    top: 60px;
+                    width: 380px;
                 }
             }
 
@@ -162,9 +180,9 @@
                 padding-left: 190px;
 
                 .text {
-                    width: 450px;
                     left: 0;
-                    top: 178px;
+                    top: 230px;
+                    width: 450px;
                 }
             }
 
@@ -176,7 +194,7 @@
                 .text {
                     width: 400px;
                     right: 0;
-                    bottom: 0;
+                    bottom: -15px;
                 }
             }
         }
@@ -212,10 +230,6 @@
     }
 
     @mixin desktop-large {
-        .container {
-            padding-top: 150px;
-        }
-
         .intro {
             margin-left: 72px;
         }
