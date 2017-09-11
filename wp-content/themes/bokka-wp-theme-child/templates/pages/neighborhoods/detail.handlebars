@@ -20,7 +20,7 @@
         {{/if}}
     {{/unless}}
     {{#if gallery_items}}
-        {{>organisms/masonry-gallery items=gallery_items }}
+        {{>organisms/masonry-gallery items=gallery_items form=modal_gallery_form neighborhood=post_title}}
     {{/if}}
     {{>organisms/osc-request-info-neighborhood}}
     {{#if coming_soon}}

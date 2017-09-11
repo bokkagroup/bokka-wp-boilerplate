@@ -32,7 +32,7 @@ class Organisms extends \BokkaWP\MVC\Model
             $type = $organism['type'];
 
             // Reassign form data to $organism['gform']
-            if ($type == 'form-basic' || $type == 'form-w-text') {
+            if ($type == 'form-basic' || $type == 'form-w-text' || $type == 'masonry-gallery') {
                 $organism['gform'] = $organism['form'];
             }
 

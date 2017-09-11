@@ -1,6 +1,7 @@
 var productTypeData = $('.product-type-data .product-type');
-var requestInfoForm = $('#request_info_form, #campaign_vip_form, #formModal');
+var requestInfoForm = $('#request_info_form, #campaign_vip_form, #formModal, #modal_gallery_form');
 var hiddenProductDataInput = requestInfoForm.find('.neighborhood-product-data');
+var hiddenProductDataInputSingle = requestInfoForm.find('.product-type-data');
 var hiddenNeighborhoodNameInput = requestInfoForm.find('.neighborhood-name-data');
 
 module.exports = {
@@ -44,6 +45,17 @@ module.exports = {
                     // Manually submit the form
                     $('.gform_wrapper form').submit();
                 });
+            }
+        }
+    },
+    setSingleProductType: function() {
+        // Populate product type single line text hidden field
+        if (requestInfoForm.length > 0) {
+            if (requestInfoForm.data('product-type')) {
+                var productType = requestInfoForm.data('product-type');
+                var productDataInput = hiddenProductDataInputSingle.find('input[type=text]');
+
+                productDataInput.val(productType);
             }
         }
     },

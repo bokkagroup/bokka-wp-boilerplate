@@ -21,3 +21,10 @@
         </div>
     </section>
 </div>
+
+<div class="hidden_forms">
+    <a class="fancybox-masonry" rel="masonry-gallery" href="#modal_gallery_form"></a>
+    <div id="modal_gallery_form" class="modal-gallery-form" {{#if neighborhood}}data-community-name="{{neighborhood}}"{{/if}} {{#if product-type}}data-product-type="{{product-type}}"{{/if}}>
+        {{{form}}}
+    </div>
+</div>

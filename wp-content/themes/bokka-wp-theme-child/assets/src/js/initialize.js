@@ -30,6 +30,7 @@ jQuery( document ).ready(function($) {
 
     var gformHelpers = require('./helpers/gforms');
     gformHelpers.setProductTypes();
+    gformHelpers.setSingleProductType();
     gformHelpers.setNeighborhoodName();
 
     /**
@@ -47,7 +48,7 @@ jQuery( document ).ready(function($) {
     $(".fancybox-masonry").fancybox({
         openEffect  : 'none',
         closeEffect : 'none',
-        autoSize: false,
+        autoSize: true,
         maxWidth: '85%',
         maxHeight: '90%',
         helpers: {

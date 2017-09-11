@@ -17,10 +17,12 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         $this->setNeighborhoodFeatures($post);
         $this->setGalleryItems($post);
         $this->setForm($post, 6);
+        $this->setModalGalleryForm($post, 37);
         $this->setUpcomingEvent($post);
         $this->setStatus($post);
         $this->data = $post;
     }
+
 
     private function setMap($post, $zoom)
     {
@@ -106,6 +108,11 @@ class Neighborhoods extends \BokkaWP\MVC\Model
     private function setForm($post, $id)
     {
         $post->request_info_form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
+    }
+
+    private function setModalGalleryForm($post, $id)
+    {
+        $post->modal_gallery_form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
     }
 
     private function setUpcomingEvent($post)
