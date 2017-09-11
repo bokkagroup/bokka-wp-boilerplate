@@ -1,0 +1,35 @@
+<div id="get_brochure_form" class="get_brochure_form">
+    <div class="header">
+        <div class="title">
+            <h3>Get a free brochure emailed to you instantly</h3>
+        </div>
+        <div class="info">
+            <div class="image">
+                <figure>
+                    {{#each elevations_gallery}}
+                        {{#if @first}}
+                            <img src="{{url.thumb-small}}" alt="{{caption}}">
+                        {{/if}}
+                    {{/each}}
+                </figure>
+            </div>
+            <div class="text">
+                <div class="title">{{post_title}}</div>
+                <div class="sub-title">{{neighborhood_title}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        {{{get_brochure_form}}}
+        <a href="{{pdf}}" target="_blank" class="brochure-link">
+            <span class="button yellow">
+                View Brochure
+            </span>
+        </a>
+
+        <div class="text">
+            <span>*Required</span>
+            <a target="_blank" href="/privacyterms/">Privacy Policy</a>
+        </div>
+    </div>
+</div>

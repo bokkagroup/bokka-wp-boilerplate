@@ -27,7 +27,7 @@ add_filter('bokkamvc_filter_before_render', 'formatFloorplanTitle');
 function generateElevationsGalleryData($data)
 {
     if (isset($data->elevations) && $data->elevations) {
-        $data->elevations_gallery = get_image_sizes_src($data->elevations, array('full', 'thumbnail'), true);
+        $data->elevations_gallery = get_image_sizes_src($data->elevations, array('full', 'thumbnail', 'thumb-small'), true);
     }
     return $data;
 }
@@ -83,7 +83,7 @@ add_filter('bokkamvc_filter_before_render', 'generateTabGalleryData');
  */
 function getAttachedFloorplan($data)
 {
-    if (isset($data->floorplan) && $data->floorplan) {
+    if (isset($data->floorplan) && $data->floorplan && $data->post_type != 'plans') {
         $data->floorplan = get_post($data->floorplan);
         $data->floorplan->permalink = get_the_permalink($data->floorplan->ID);
         //recursively apply the filters in this file to the attached floorplan as well

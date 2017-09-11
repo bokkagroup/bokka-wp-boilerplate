@@ -60,7 +60,7 @@ jQuery( document ).ready(function($) {
         }
     });
     $(".fancybox-class").fancybox();
-    $(".modal-trigger").fancybox({
+    $(".modal-trigger, .fancy-trigger").fancybox({
         autoSize: false,
         height: 'auto',
         maxWidth: '85%',
@@ -72,6 +72,15 @@ jQuery( document ).ready(function($) {
         },
         tpl : {
             closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
+        },
+        beforeShow : function () {
+
+            var wrapclass = $(this.element).data('wrapclass');
+
+            if (wrapclass) {
+                this.maxWidth = 415;
+                $(this.skin).addClass(wrapclass);
+            }
         }
     });
     $(".video-modal-trigger").fancybox({

@@ -58,5 +58,3 @@ do_action('bwt\before_content'); ?>
 
 <?php do_action('bwt\after_content');
 get_template_part('templates/footer');
-
-?>

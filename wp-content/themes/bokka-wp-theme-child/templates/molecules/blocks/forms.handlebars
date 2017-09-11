@@ -4,6 +4,9 @@
             {{{request_info_form}}}
         </div>
     {{/if}}
+    {{#if get_brochure_form}}
+        {{> organisms/forms/get_brochure}}
+    {{/if}}
     {{#if types}}
         <div class="product-type-data">
             {{#each types}}

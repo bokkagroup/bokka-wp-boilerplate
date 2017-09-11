@@ -75,6 +75,7 @@
 @import 'molecules/maps';
 @import 'molecules/slider';
 @import 'molecules/tabs';
+@import 'molecules/forms/get_brochure';
 
 /* ------------------------------------ *\
     Organism Styles

@@ -8,7 +8,8 @@ class Floorplan extends \BokkaWP\MVC\Model
     public $neighborhood_title;
     public $gallery_items;
     public $pdf;
-    public $request_info_form;
+    public $get_brochure_form;
+    public $floorplan = true;
 
     public function initialize()
     {
@@ -17,10 +18,16 @@ class Floorplan extends \BokkaWP\MVC\Model
         $this->setNeighborhood($post);
         $this->setNeighborhoodLink($post);
         $this->setNeighborhoodTitle($post);
-        $this->setForm($post, 4);
+        $this->setForm($post, 38);
         $this->setPDF($post);
         $this->setGalleryItems($post);
         $this->setElevations();
+        $this->setPostType($post);
+    }
+
+    private function setPostType($post)
+    {
+        $this->post_type = get_post_type($post);
     }
 
     private function setNeighborhood($post)
@@ -52,7 +59,7 @@ class Floorplan extends \BokkaWP\MVC\Model
     private function setForm($post, $id)
     {
         $form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
-        $this->request_info_form = $form;
+        $this->get_brochure_form = $form;
     }
 
     private function setElevations()

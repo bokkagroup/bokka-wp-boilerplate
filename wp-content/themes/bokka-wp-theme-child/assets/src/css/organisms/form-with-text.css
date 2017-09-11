@@ -3,11 +3,12 @@
         background: $light_gray;
         padding: 25px 15px;
         font-family: 'Open Sans';
-        display:block;
+        display: block;
 
         @mixin desktop {
             padding: 50px 0;
             margin-top: 50px;
+
             @mixin container;
         }
 

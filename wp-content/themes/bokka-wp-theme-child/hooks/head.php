@@ -16,8 +16,9 @@ function requireLiveReload()
 add_action('wp_head', 'requireBugHerd');
 function requireBugHerd()
 {
-    if (BOKKA_ENV == "staging") : ?>
-        <!-- BugHerd feedback -->
+    if (BOKKA_ENV == "staging") {
+        echo "
+        <!--/ BugHerd feedback -->
         <script type='text/javascript'>
             (function (d, t) {
                 var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -26,7 +27,6 @@ function requireBugHerd()
                 s.parentNode.insertBefore(bh, s);
             })(document, 'script');
         </script>
-        <!-- BugHerd feedback -->
-        <?php
-    endif;
+          <!--/ BugHerd feedback -->";
+    }
 }

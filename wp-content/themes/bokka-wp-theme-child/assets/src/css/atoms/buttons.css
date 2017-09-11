@@ -39,6 +39,13 @@ button,
         @mixin button $gold;
     }
 
+    &.yellow {
+        background: $yellow;
+        color: $black;
+
+        @mixin button $yellow;
+    }
+
     &.green {
         background: $green;
 

@@ -17,10 +17,16 @@
 
     .container {
         padding: 30px;
+        justify-content: center;
+        text-align: center;
 
         @mixin tablet {
             padding: 60px;
         }
+    }
+
+    .button {
+        margin: 40px 0 0;
     }
 
     h2 {

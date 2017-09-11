@@ -143,7 +143,7 @@ function ProductImages(array $configuration, array $options)
 {
     $name = key($configuration);
 
-    if ($name == 'images' && ($options['post_type'] == 'plans' || $options['post_type'] == 'home')) {
+    if ($name == 'images' && ($options['post_type'] == 'plans'  || $options['post_type'] == 'home')) {
         $images = [];
 
         $configs = [
@@ -169,8 +169,7 @@ function ProductImages(array $configuration, array $options)
                 $converted_image = array(
                     'name' => substr($image['title'], 0, 99),
                     'type' => $type,
-                    'url' => wp_get_attachment_image_src($image['ID'],
-                        'large')[0]
+                    'url' => wp_get_attachment_image_src($image['ID'], 'large')[0]
                 );
 
                 return $converted_image;
@@ -188,6 +187,7 @@ function ProductImages(array $configuration, array $options)
 \BokkaWP\bdx_add_filter('bdx-adapter-configuration', 'convertBaths');
 function convertBaths($configuration, $options)
 {
+
     //baths need to be integers only.
     $name = key($configuration);
     if ($name != 'baths') {

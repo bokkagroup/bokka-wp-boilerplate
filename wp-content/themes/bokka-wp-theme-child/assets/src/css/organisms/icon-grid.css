@@ -2,10 +2,8 @@
     .container {
         padding: 35px 0;
 
-
         @mixin desktop {
             padding: 100px;
-
         }
 
         ul {
@@ -13,23 +11,24 @@
             margin-bottom: 0;
             padding-left: 0;
             line-height: normal;
-            display:block;
+            display: block;
+            width: 100%;
+
             @mixin clear;
-            width:100%;
 
             @mixin desktop {
                 @mixin container;
             }
-
         }
 
         li {
             @mixin row 1, 2;
             @mixin column 1, 2;
             @mixin cycle 2;
-            float:left;
+
+            float: left;
             text-align: center;
-            padding-bottom:15px;
+            padding-bottom: 15px;
 
             @mixin tablet {
                 @mixin column 1, 4;

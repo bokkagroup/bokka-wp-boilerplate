@@ -17,7 +17,7 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 <i class="icon icon-home"></i>
 */.sprite-bcn-logo-mobile {
   background-image: url(../images/sprite.png);
-  background-position: -228px -72px;
+  background-position: -290px -72px;
   width: 51px;
   height: 59px;
 }.sprite-bcn-logo {
@@ -27,14 +27,24 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   height: 72px;
 }.sprite-breadcrumb-seperator {
   background-image: url(../images/sprite.png);
-  background-position: -279px -72px;
+  background-position: -341px -72px;
   width: 18px;
   height: 40px;
+}.sprite-email-icon {
+  background-image: url(../images/sprite.png);
+  background-position: -228px -72px;
+  width: 62px;
+  height: 59px;
 }.sprite-email-signup-icon {
   background-image: url(../images/sprite.png);
-  background-position: 0px -136px;
+  background-position: -112px -136px;
   width: 72px;
   height: 72px;
+}.sprite-pdf-icon {
+  background-image: url(../images/sprite.png);
+  background-position: 0px -136px;
+  width: 112px;
+  height: 110px;
 }.sprite-the-lakes {
   background-image: url(../images/sprite.png);
   background-position: 0px 0px;
@@ -46,22 +56,30 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
        (min-resolution: 192dpi) {
  .sprite-bcn-logo-mobile {
     background-image: url(../images/sprite@2x.png);
-    background-size: 473px 208px;
+    background-size: 473px 246px;
   }
  .sprite-bcn-logo {
     background-image: url(../images/sprite@2x.png);
-    background-size: 473px 208px;
+    background-size: 473px 246px;
   }
  .sprite-breadcrumb-seperator {
     background-image: url(../images/sprite@2x.png);
-    background-size: 473px 208px;
+    background-size: 473px 246px;
+  }
+ .sprite-email-icon {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 246px;
   }
  .sprite-email-signup-icon {
     background-image: url(../images/sprite@2x.png);
-    background-size: 473px 208px;
+    background-size: 473px 246px;
+  }
+ .sprite-pdf-icon {
+    background-image: url(../images/sprite@2x.png);
+    background-size: 473px 246px;
   }
  .sprite-the-lakes {
     background-image: url(../images/sprite@2x.png);
-    background-size: 473px 208px;
+    background-size: 473px 246px;
   }
 }

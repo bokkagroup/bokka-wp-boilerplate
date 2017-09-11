@@ -1,5 +1,4 @@
 .section.circles-w-color-block-text {
-
     .container {
         padding: 0 30px;
         display: block;
@@ -11,7 +10,8 @@
 
     .intro {
         margin: 0 0 30px;
-        max-width:415px;
+        max-width: 415px;
+
         img {
             display: block;
             max-width: 100%;

@@ -444,7 +444,6 @@ Desktop Styles
                 @mixin column 1,4;
                 @mixin cycle 4;
 
-
                 margin-bottom: 15px;
 
                 &.our-neighborhoods {
@@ -458,14 +457,13 @@ Desktop Styles
                     }
 
                     li {
-
                         @mixin column 1,4;
 
                         @mixin desktop {
-                            margin-right:30px;
+                            margin-right: 30px;
 
                             &:nth-child(4n + 5) {
-                                margin-right:0;
+                                margin-right: 0;
                             }
                         }
 
@@ -499,7 +497,6 @@ Desktop Styles
                 &:nth-child(6) {
                     margin-right: 0;
                 }
-
             }
         }
 

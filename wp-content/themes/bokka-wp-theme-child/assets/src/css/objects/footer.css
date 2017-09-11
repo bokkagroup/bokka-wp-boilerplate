@@ -6,11 +6,12 @@
     z-index: 3;
 
     .container {
-        display:block;
         padding: 25px 15px;
+        display:block;
 
         @mixin desktop {
             @mixin container;
+
             padding: 50px 15px;
         }
     }
@@ -22,8 +23,7 @@
         padding: 20px 15px;
 
         @mixin desktop {
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding: 20px 0;
         }
 
         .copyright {
@@ -174,7 +174,7 @@
             margin-bottom: 0;
             padding-left: 0;
             line-height: normal;
-            display:block;
+            display: block;
 
             @mixin desktop {
                 display: flex;

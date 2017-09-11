@@ -50,8 +50,7 @@
 #logo {
     margin: 0.4rem;
     order: 2;
-
-    display:block;
+    display: block;
 
     .mobile {
         max-height: 75px;
