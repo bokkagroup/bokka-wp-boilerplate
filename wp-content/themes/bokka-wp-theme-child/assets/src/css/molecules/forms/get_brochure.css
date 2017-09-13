@@ -176,7 +176,7 @@
         .gform_confirmation_wrapper ~ .text {
             display: none;
         }
-        
+
         .validation_error {
             margin-left: 30px;
             background: $yellow;

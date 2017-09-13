@@ -23,15 +23,20 @@ jQuery( document ).ready(function($) {
 
     //Event Tracking
     require('./helpers/eventTracking.js')
-    require('./helpers/maps.js')
     require('./helpers/UTMStringHandler')
-    require('./helpers/responsiveImages')
-    require('./helpers/forms')
 
-    var gformHelpers = require('./helpers/gforms');
-    gformHelpers.setProductTypes();
-    gformHelpers.setSingleProductType();
-    gformHelpers.setNeighborhoodName();
+    //Gmaps functionality
+    require('./helpers/maps.js')
+
+    //responsive images functionality
+    require('./helpers/responsiveImages')
+
+    //init + helpers for gravity forms
+    require('./helpers/gforms');
+    require('./helpers/forms');
+
+    //helpers for modals
+    require('./helpers/modals')
 
     /**
      * Brand window slider
@@ -44,65 +49,7 @@ jQuery( document ).ready(function($) {
         nextArrow: '<a href="#" class="slick-next"><span class="icon icon-slider-next"></span></a>'
     });
 
-    //activate fancybox
-    $(".fancybox-masonry").fancybox({
-        openEffect  : 'none',
-        closeEffect : 'none',
-        autoSize: true,
-        maxWidth: '85%',
-        maxHeight: '90%',
-        helpers: {
-            overlay: {
-                locked: false
-            }
-        },
-        tpl : {
-            closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
-        }
-    });
-    $(".fancybox-class").fancybox();
-    $(".modal-trigger, .fancy-trigger").fancybox({
-        autoSize: false,
-        height: 'auto',
-        maxWidth: '85%',
-        maxHeight: '90%',
-        helpers: {
-            overlay: {
-                locked: false
-            }
-        },
-        tpl : {
-            closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
-        },
-        beforeShow : function () {
 
-            var wrapclass = $(this.element).data('wrapclass');
-
-            if (wrapclass) {
-                this.maxWidth = 415;
-                $(this.skin).addClass(wrapclass);
-            }
-        }
-    });
-    $(".video-modal-trigger").fancybox({
-        openEffect: 'none',
-        closeEffect: 'none',
-        autoSize: false,
-        maxWidth: '85%',
-        maxHeight: '90%',
-        helpers: {
-            overlay: {
-                locked: false
-            }
-        },
-        tpl: {
-            closeBtn: '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
-        },
-    });
-
-    $(document).on('gform_confirmation_loaded', function(event, formId) {
-        $.fancybox.update();
-    })
 
     $('.js-page-jump').on('click', function(event){
         event.preventDefault()

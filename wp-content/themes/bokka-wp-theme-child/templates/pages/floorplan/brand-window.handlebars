@@ -78,7 +78,9 @@
                                 </li>
                             {{/if}}
                         </ul>
-                        <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" href="#get_brochure_form">Get Brochure</a>
+                        {{#if pdf}}
+                            <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" href="#get_brochure_form">Get Brochure</a>
+                        {{/if}}
                     </div> <!-- plan-meta-bottom -->
                 </div> <!-- plan-meta -->
             </div><!-- plan-window-left -->

@@ -4,7 +4,7 @@ var hiddenProductDataInput = requestInfoForm.find('.neighborhood-product-data');
 var hiddenProductDataInputSingle = requestInfoForm.find('.product-type-data');
 var hiddenNeighborhoodNameInput = requestInfoForm.find('.neighborhood-name-data');
 
-module.exports = {
+var gformHelpers = module.exports = {
     setProductTypes: function() {
         // Populate product type input based on user selection
         if (productTypeData.length > 0 && requestInfoForm.length > 0) {
@@ -71,3 +71,6 @@ module.exports = {
         }
     }
 }
+
+gformHelpers.setProductTypes();
+gformHelpers.setNeighborhoodName();
