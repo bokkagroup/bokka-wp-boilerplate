@@ -42,7 +42,6 @@ jQuery( document ).ready(function($) {
      * Brand window slider
      */
     $('.bw-slider').slick({
-        infinite: false,
         slide: '.slide',
         infinite: true,
         prevArrow: '<a href="#" class="slick-prev"><span class="icon icon-slider-previous"></span></a>',

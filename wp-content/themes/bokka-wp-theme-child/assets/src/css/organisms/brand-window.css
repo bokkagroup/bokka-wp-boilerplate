@@ -32,8 +32,9 @@
         }
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 28px;
+            line-height: 1.1;
+            margin-bottom: 10px;
             color: $blue_light;
 
             @mixin tablet {
@@ -44,27 +45,37 @@
 
             @mixin desktop {
                 font-size: 46px;
+                margin-bottom: 15px;
             }
         }
 
         button {
             clear: both;
             display: block;
-            margin: 20px 0;
+            margin: 10px 0 0;
+
+            @mixin desktop {
+                margin: 20px 0;
+            }
         }
 
         .body,
         p {
-            font-family: 'Open Sans';
-            font-size: 18px;
             color: $gray_dark1;
-            line-height: 36px;
+            font-family: 'Open Sans';
+            font-size: 15px;
             font-weight: 600;
+            line-height: 1.3;
 
             @mixin tablet {
-                font-size: 24px;
+                font-size: 18px;
                 color: $white;
                 text-shadow: 1px 0 0 $black;
+            }
+
+            @mixin desktop {
+                font-size: 24px;
+                line-height: 36px;
             }
         }
     }

@@ -21,7 +21,8 @@
         text-align: center;
         text-decoration: none;
         text-shadow: 0 2px 3px rgba(0,0,0,.6);
-        top: 50%;
+        top: 15%;
+        transform: scale(0.7);
         transition: all 250ms;
         z-index: 1;
 
@@ -32,26 +33,40 @@
             box-shadow: none;
             text-shadow: 0 1px 3px rgba(0,0,0,.6);
         }
-    }
 
-    .slick-prev,
-    .slick-next {
-        display: none;
-        visibility: hidden;
+        /* iPhone 6, 6+ portrait */
+        @media only screen and (min-width: 375px) {
+            top: 19%;
+        }
+        /* Nexus 7+ */
+        @media only screen and (min-width: 600px) {
+            top: 23%;
+        }
+        /* iPhone 6, 6+ landscape */
+        @media only screen and (min-width: 667px) and (orientation: landscape) {
+            top: 25%;
+        }
+
+        @mixin tablet {
+            top: 50%;
+        }
 
         @mixin desktop {
-            display: block;
-            visibility: visible;
+            transform: scale(1);
         }
     }
 
     .slick-prev {
+        left: 10px;
+
         @mixin desktop {
             left: 10px;
         }
     }
 
     .slick-next {
+        right: 10px;
+
         @mixin desktop {
             right: 10px;
         }
@@ -67,6 +82,17 @@
 
         @mixin desktop-large {
             height: 515px;
+        }
+
+        /* individual slide styles */
+        .text {
+            @mixin tablet {
+                padding-left: 75px;
+            }
+
+            @mixin desktop {
+                padding-left: 15px;
+            }
         }
     }
 }
