@@ -23,7 +23,6 @@
             margin: 50px auto;
             padding: 0 0 65%;
         }
-
     }
 
     .google-map {
@@ -45,7 +44,7 @@
         background: $white;
         border-bottom: 10px solid $purple_light;
         bottom: 62px;
-        box-shadow: 1px 3px 10px 0 rgba(0,0,0,.5);
+        box-shadow: 1px 3px 10px 0 rgba(0, 0, 0, 0.5);
         position: absolute;
         transform: translateX(-50%);
         z-index: 2;

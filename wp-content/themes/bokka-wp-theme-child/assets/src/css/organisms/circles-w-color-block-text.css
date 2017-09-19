@@ -59,8 +59,8 @@
                 position: relative;
                 text-decoration: underline;
 
-                &:after {
-                    content:"\00bb";
+                &::after {
+                    content: '\00bb';
                     position: absolute;
                     right: -20px;
                 }

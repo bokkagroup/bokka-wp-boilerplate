@@ -1,85 +1,46 @@
-/*
-Icon classes can be used entirely standalone. They are named after their original file names.
 
-Example usage in HTML:
-
-`display: block` sprite:
-<div class="icon-home"></div>
-
-To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
-
-// CSS
-.icon {
-  display: inline-block;
+.sprite {
+  background-image: url('../images/sprite.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .sprite {
+    background-image: url('../images/sprite@2x.png');
+    background-size: 249px 576px;
+  }
 }
 
-// HTML
-<i class="icon icon-home"></i>
-*/.sprite-bcn-logo-mobile {
-  background-image: url(../images/sprite.png);
-  background-position: -290px -72px;
-  width: 51px;
-  height: 59px;
-}.sprite-bcn-logo {
-  background-image: url(../images/sprite.png);
-  background-position: -228px 0px;
-  width: 245px;
-  height: 72px;
-}.sprite-breadcrumb-seperator {
-  background-image: url(../images/sprite.png);
-  background-position: -341px -72px;
-  width: 18px;
-  height: 40px;
-}.sprite-email-icon {
-  background-image: url(../images/sprite.png);
-  background-position: -228px -72px;
-  width: 62px;
-  height: 59px;
-}.sprite-email-signup-icon {
-  background-image: url(../images/sprite.png);
-  background-position: -112px -136px;
-  width: 72px;
-  height: 72px;
-}.sprite-pdf-icon {
-  background-image: url(../images/sprite.png);
-  background-position: 0px -136px;
-  width: 112px;
-  height: 110px;
-}.sprite-the-lakes {
-  background-image: url(../images/sprite.png);
-  background-position: 0px 0px;
-  width: 228px;
-  height: 136px;
+.sprite-breadcrumb-seperator {
+  background-position: -0px -0px;
+  width: 22px;
+  height: 44px;
 }
-
-@media (-webkit-min-device-pixel-ratio: 2),
-       (min-resolution: 192dpi) {
- .sprite-bcn-logo-mobile {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
- .sprite-bcn-logo {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
- .sprite-breadcrumb-seperator {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
- .sprite-email-icon {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
- .sprite-email-signup-icon {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
- .sprite-pdf-icon {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
- .sprite-the-lakes {
-    background-image: url(../images/sprite@2x.png);
-    background-size: 473px 246px;
-  }
+.sprite-bcn-logo-mobile {
+  background-position: -0px -44px;
+  width: 55px;
+  height: 63px;
+}
+.sprite-email-icon {
+  background-position: -0px -107px;
+  width: 66px;
+  height: 63px;
+}
+.sprite-bcn-logo {
+  background-position: -0px -170px;
+  width: 249px;
+  height: 76px;
+}
+.sprite-email-signup-icon {
+  background-position: -0px -246px;
+  width: 76px;
+  height: 76px;
+}
+.sprite-pdf-icon {
+  background-position: -0px -322px;
+  width: 116px;
+  height: 114px;
+}
+.sprite-the-lakes {
+  background-position: -0px -436px;
+  width: 232px;
+  height: 140px;
 }

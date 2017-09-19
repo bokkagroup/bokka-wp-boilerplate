@@ -7,43 +7,60 @@
 
  */
 
-var gulp            = require('gulp')
-var autoprefixer    = require('autoprefixer')
-var lost            = require('lost')
-var postcss         = require('gulp-postcss')
-var sourcemaps      = require('gulp-sourcemaps')
-var nano            = require('gulp-cssnano')
-var colorFunction   = require("postcss-color-function")
-var livereload      = require("gulp-livereload")
-
+var gulp            = require('gulp');
+var del             = require('del');
+var autoprefixer    = require('autoprefixer');
+var lost            = require('lost');
+var postcss         = require('gulp-postcss');
+var sourcemaps      = require('gulp-sourcemaps');
+var nano            = require('gulp-cssnano');
+var livereload      = require('gulp-livereload');
+var cache           = require('gulp-cached');
 
 gulp.task('style-lint', function () {
 
-    return gulp.src(['assets/src/css/**/*.css', '!assets/src/css/utility/reset.css', '!assets/src/css/vendor/*.css', '!assets/src/css/base/sprite.css'])
-        .pipe( postcss([
+    var SRC = [
+        'assets/src/css/**/*.css',
+        '!assets/src/css/utility/reset.css',
+        '!assets/src/css/vendor/*.css',
+        '!assets/src/css/base/sprite.css'
+    ];
+
+    return gulp.src(SRC)
+        .pipe(cache('style-linting'))
+        .pipe(postcss([
             // See .stylelintrc for configuration options
             require('stylelint'),
             require('postcss-reporter')({ clearMessages: true })
         ]));
-
 });
 
 gulp.task('css', ['style-lint'], function () {
 
-    return gulp.src(['assets/src/css/**/*.css'])
-        .pipe( sourcemaps.init() )
-        .pipe( postcss([
-            require("postcss-import"),
-            require('postcss-mixins'),
-            require('postcss-nested'),
-            require('postcss-simple-vars')({ silent: true }),
-            require('postcss-font-magician')({}),
-            require('lost'),
-            require('autoprefixer'),
-            /*colorFunction(),*/
-        ]))
-        .pipe( nano() )
+    var SRC = 'assets/src/css/main.css';
+    var DEST = 'assets/build/css';
+
+    var plugins = [
+        require('postcss-import'),
+        require('postcss-mixins'),
+        require('postcss-nested'),
+        require('postcss-simple-vars')({ silent: true }),
+        require('postcss-font-magician'),
+        require('lost'),
+        require('autoprefixer'),
+    ];
+
+    return gulp.src([SRC])
+        .pipe(sourcemaps.init())
+        .pipe(postcss(plugins))
+        .pipe(sourcemaps.write('./maps/'))
         .pipe(livereload())
-        .pipe( sourcemaps.write('./assets/build/css/') )
-        .pipe( gulp.dest('./assets/build/css/') )
+        .pipe(gulp.dest(DEST));
+});
+
+gulp.task('css-optimize', function () {
+
+    return gulp.src(['assets/build/css/*.css'])
+        .pipe(nano())
+        .pipe(gulp.dest('./assets/build/css/'));
 });

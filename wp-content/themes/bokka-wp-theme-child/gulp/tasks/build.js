@@ -1,13 +1,37 @@
 /*
- __________ ____ ___.___.____     ________
- \______   \    |   \   |    |    \______ \
-  |    |  _/    |   /   |    |     |    |  \
-  |    |   \    |  /|   |    |___  |    `   \
-  |______  /______/ |___|_______ \/_______  /
-         \/                     \/        \/
+  ___      _ _    _
+ | _ )_  _(_) |__| |
+ | _ \ || | | / _` |
+ |___/\_,_|_|_\__,_|
+
  */
 
+var gulp            = require('gulp');
+var del             = require('del');
+var runSequence     = require('run-sequence');
 
-var gulp = require('gulp')
+gulp.task('build-clean', function () {
 
-gulp.task('build', ['sprites', 'css', 'copyfonts', 'image', 'phpcs', 'phplint', 'build-webpack'])
+    return del.sync([
+        './assets/build/**/*',
+        './assets/build'
+    ]);
+
+});
+
+// primary async build tasks
+
+gulp.task('build', function (callback) {
+    var buildTasks = [
+        'sprites',
+        'css',
+        'copyfonts',
+        'image',
+        'phpcs',
+        'phplint',
+        'build-webpack'
+    ];
+
+    // tasks to run after everything else has finished
+    runSequence('build-clean', buildTasks, ['css-optimize'], callback);
+});
