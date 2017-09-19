@@ -4,7 +4,7 @@
 $('.section').each(function(){
     // Get eventTrack function from global window.bokka object
     var eventTrack = window.bokka.eventTrack;
-    
+
     var el = $(this)
     var body = $('body')
     var category = ''
@@ -291,6 +291,10 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
         page = '/homeowner-resources-page/thank-you'
     } else if(formId === 26){
         page = '/weecottage.blog/thank-you'
+    } else if(formId === 38){
+        page = '/thank-you/floorplan-detail-page/get-brochure'
+    } else if(formId === 37){
+        page = '/thank-you/neighborhood-detail-page/modal-gallery'
     }
     ga('send', { hitType: 'pageview', page: page })
 })
