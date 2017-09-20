@@ -115,6 +115,13 @@ $('.section').each(function(){
             })
         })
 
+    //cta-get-updates
+    } else if (el.hasClass('cta-get-updates')) {
+        el.on('click', 'a', function(event) {
+            label = ('CTA-Get Updates')
+            eventTrack(category, action, label)
+        });
+
     //floorplan brandwindow
     } else if (el.hasClass('detail-brand-window') && el.hasClass('floorplan')) {
         el.on('click', '.button.modal-trigger', function(event){
