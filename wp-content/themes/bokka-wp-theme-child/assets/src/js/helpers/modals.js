@@ -4,7 +4,7 @@ var CookieJS = require('../vendor/cookies')
 $(".fancybox-masonry").fancybox({
     openEffect  : 'none',
     closeEffect : 'none',
-    autoSize: false,
+    autoSize: true,
     maxWidth: '85%',
     maxHeight: '90%',
     helpers: {
