@@ -17,7 +17,7 @@ if ($("body").hasClass('page-homeowner-resources')) {
 
 
 $(window).load(function() {
-    
+
     $('.gform_wrapper').find('label').each(
         function () {
             var text = $(this).clone()    //clone the element
@@ -30,16 +30,18 @@ $(window).load(function() {
             var email = CookieJS.get('email')
             var phone = CookieJS.get('phone')
 
-
-            if (text === 'name') {
-                if(first_name !== undefined && last_name !== undefined){
-                    $(this).next('.ginput_container').find('input').val(first_name + ' '+last_name)
+            if( text === 'name') {
+                if(first_name !== undefined){
+                    $(this).next('.ginput_container').find('.name_first input').val(first_name)
+                }
+                if(last_name !== undefined){
+                    $(this).next('.ginput_container').find('.name_last input').val(last_name)
                 }
             } else if( text === 'first name') {
                 if(first_name !== undefined){
-                    $(this).next('.ginput_container').find('input').val(first_name )
+                    $(this).next('.ginput_container').find('input').val(first_name)
                 }
-            } else if (text === 'last name') {
+            } else if( text === 'last name') {
                 if(last_name !== undefined){
                     $(this).next('.ginput_container').find('input').val(last_name)
                 }
