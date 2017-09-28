@@ -8,7 +8,10 @@ class Homes extends \BokkaWP\MVC\Model
     {
         global $post;
         $this->setNeighborhood($post);
-        $this->setForm($post, 4);
+        $this->setForms($post, array(
+            'request_info_form' => 4,
+            'get_brochure_form' => 38
+        ));
         $this->setPDF($post);
         $this->setTabs($post);
         $this->setMap($post, 16);
@@ -22,10 +25,12 @@ class Homes extends \BokkaWP\MVC\Model
         $post->neighborhood->title = get_the_title($post->neighborhood);
     }
 
-    private function setForm($post, $id)
+    private function setForms($post, $forms)
     {
-        $form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
-        $post->request_info_form = $form;
+        foreach ($forms as $formName => $formID) {
+            $form = gravity_form($formID, false, false, false, null, $ajax = true, 0, false);
+            $post->$formName = $form;
+        }
     }
 
     private function setPDF($post)
