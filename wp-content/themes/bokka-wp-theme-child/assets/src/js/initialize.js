@@ -98,6 +98,12 @@ jQuery( document ).ready(function($) {
         });
     }
 
+    if ($('body').hasClass('single-campaigns')) {
+        $('.logo').on('click', function(event) {
+            event.preventDefault();
+        });
+    }
+
     /**
      * Menu Instantiation
      * @type {*|mlPushMenu}

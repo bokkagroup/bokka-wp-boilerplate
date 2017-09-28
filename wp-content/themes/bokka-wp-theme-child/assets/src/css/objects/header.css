@@ -38,6 +38,12 @@
     }
 }
 
+.campaign-header {
+    .logo {
+        cursor: default;
+    }
+}
+
 /* style guide, homepage & 404 hide breadcrumbs */
 .home,
 .page-id-181,
