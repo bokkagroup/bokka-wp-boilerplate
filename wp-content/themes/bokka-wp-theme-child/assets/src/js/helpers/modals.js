@@ -9,7 +9,7 @@ $(".fancybox-masonry").fancybox({
     maxHeight: '90%',
     helpers: {
         overlay: {
-            locked: false
+            locked: true
         }
     },
     tpl : {
@@ -26,7 +26,7 @@ $(".modal-trigger, .fancy-trigger").fancybox({
     maxHeight: '90%',
     helpers: {
         overlay: {
-            locked: false
+            locked: true
         }
     },
     tpl : {

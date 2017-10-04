@@ -79,8 +79,9 @@ class Breadcrumbs extends \BokkaWP\MVC\Model
     {
         global $post;
 
-        if (is_a($post, 'WP_Post'))
+        if (is_a($post, 'WP_Post')) {
             $post_parent = get_post($post->post_parent);
+        }
 
         if (is_page() && ($post_parent && strlen($post_parent->post_content) > 1)) {
             // check if page has a parent page
