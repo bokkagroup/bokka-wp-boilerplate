@@ -6,11 +6,7 @@
  */
 function setFeaturedImage($data)
 {
-
-    $post_type = get_post_type();
-
     $data = array_map(function ($post) {
-
         if (isset($post->ID)) {
             if ($post->post_type === 'communities') {
                 if (isset($post->thumbnail) && ($post->thumbnail)) {

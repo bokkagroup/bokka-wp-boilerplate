@@ -81,6 +81,35 @@ class Organisms extends \BokkaWP\MVC\Model
             $organism['gallery_items'] = prepare_masonry_gallery_data($organism['gallery_items']);
         }
 
+        //get QMI data for product organism
+        if ((isset($organism['type']) && $organism['type'] === 'qmi-product') && !empty($organism['communities'])) {
+            $args = array(
+                'posts_per_page' => 500,
+                'post_type' => 'home',
+                'meta_query' => array(
+                    array(
+                        'key' => 'neighborhood',
+                        'value' => $organism['communities'],
+                        'compare' => 'IN'
+                    )
+                ),
+                'orderby' => 'title',
+                'order' => 'ASC'
+            );
+            $posts = new \WP_Query($args);
+
+            $qmi_product = applyFiltersToProducts($posts->posts);
+
+            //set neighborhood name
+            $qmi_product = array_map(function ($post) {
+                $neighborhood = get_post(get_post_meta($post->ID, 'neighborhood')[0]);
+                $post->neighborhood = $neighborhood->post_title;
+                return $post;
+            }, $qmi_product);
+
+            $organism['qmi_product'] = $qmi_product;
+        }
+
         // get layout type and images for secondary brand window
         if (isset($organism['background_image'])) {
             $organism['images'] = array(

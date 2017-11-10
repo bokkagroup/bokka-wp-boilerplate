@@ -1,0 +1,80 @@
+.section.qmi-product {
+    padding: 30px 0 0;
+
+    @mixin desktop {
+        padding: 60px 0;
+    }
+
+    h4 {
+        color: $gray_dark2;
+        text-align: center;
+        width: 100%;
+    }
+
+    .product-item {
+        margin: 0 15px;
+        max-width: none;
+        outline: none;
+        width: auto;
+    }
+
+    .product-item.home {
+        .title {
+            background: $blue;
+        }
+
+        .stats {
+            background: #2f647e;
+        }
+    }
+
+    .slick-prev,
+    .slick-next {
+        background: none;
+        border: none;
+        box-sizing: border-box;
+        color: $gray_medium1;
+        display: inline-block;
+        font-size: 40px;
+        margin-top: -24px;
+        position: absolute;
+        text-align: center;
+        text-decoration: none;
+        top: 50%;
+        transform: scale(0.7);
+        transition: all 250ms;
+        z-index: 1;
+
+        @mixin tablet {
+            font-size: 36px;
+        }
+
+        @mixin desktop {
+            transform: scale(1);
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+
+        @mixin desktop {
+            left: -15px;
+        }
+
+        @mixin desktop-large {
+            left: -30px;
+        }
+    }
+
+    .slick-next {
+        right: 0;
+
+        @mixin desktop {
+            right: -15px;
+        }
+
+        @mixin desktop-large {
+            right: -30px;
+        }
+    }
+}

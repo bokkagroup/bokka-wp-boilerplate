@@ -86,6 +86,8 @@ function getAttachedFloorplan($data)
     if (isset($data->floorplan) && $data->floorplan && $data->post_type != 'plans') {
         $data->floorplan = get_post($data->floorplan);
         $data->floorplan->permalink = get_the_permalink($data->floorplan->ID);
+        $data->floorplan->type = get_post_meta($data->floorplan->ID, 'type')[0];
+
         //recursively apply the filters in this file to the attached floorplan as well
         apply_filters('bokkamvc_filter_before_render', $data->floorplan);
     }

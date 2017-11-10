@@ -48,7 +48,31 @@ jQuery( document ).ready(function($) {
         nextArrow: '<a href="#" class="slick-next"><span class="icon icon-slider-next"></span></a>'
     });
 
-
+    $('.qmi-product .product-listing').slick({
+        arrows: true,
+        slide: '.product-item',
+        slidesToShow: 1,
+        infinite: true,
+        prevArrow: '<a href="#" class="slick-prev"><span class="icon icon-slider-previous"></span></a>',
+        nextArrow: '<a href="#" class="slick-next"><span class="icon icon-slider-next"></span></a>',
+        mobileFirst: true,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    arrows: true,
+                    slidesToShow: 4
+                }
+            }
+        ]
+    });
 
     $('.js-page-jump').on('click', function(event){
         event.preventDefault()

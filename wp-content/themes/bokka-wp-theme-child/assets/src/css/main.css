@@ -114,6 +114,7 @@
 @import 'organisms/osc-request-info';
 @import 'organisms/post-grid';
 @import 'organisms/site-map';
+@import 'organisms/product-listings';
 @import 'organisms/tabbed-product-listings';
 @import 'organisms/testimonial';
 @import 'organisms/virtual-tour';
@@ -131,6 +132,7 @@
 @import 'organisms/testimonial-grid';
 @import 'organisms/slider-gallery';
 @import 'organisms/map-w-locations';
+@import 'organisms/qmi-product';
 
 /* ------------------------------------ *\
     $COMPONENTS
