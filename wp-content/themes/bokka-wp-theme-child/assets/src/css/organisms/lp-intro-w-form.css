@@ -96,7 +96,8 @@
             position: relative;
 
             @mixin desktop {
-                display: block;
+                align-items: center;
+                display: flex;
             }
 
             &::before {

@@ -410,6 +410,13 @@ body > img {
     text-align: center;
     color: #fff;
 
+    .osc-phone {
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+
     .osc-contact {
         width: 100%;
 

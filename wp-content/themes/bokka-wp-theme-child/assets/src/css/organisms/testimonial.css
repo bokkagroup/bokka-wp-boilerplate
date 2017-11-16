@@ -63,3 +63,23 @@
         text-transform: uppercase;
     }
 }
+
+.single-campaigns {
+    .section.testimonial {
+        .container {
+            padding-bottom: 30px;
+
+            @mixin desktop {
+                padding-bottom: 0;
+            }
+        }
+
+        .image {
+            display: none;
+
+            @mixin desktop {
+                display: block;
+            }
+        }
+    }
+}

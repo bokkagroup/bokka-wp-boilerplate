@@ -12,7 +12,7 @@ module.exports = Backbone.View.extend({
     initializeMarker: function(item){
         var self = this
         if (self.mapInfo.position) {
-            
+
             self.marker = new google.maps.Marker({
                 position: {lat: self.mapInfo.position.lat, lng: self.mapInfo.position.lng},
                 icon: self.defaultIcon
@@ -43,6 +43,7 @@ module.exports = Backbone.View.extend({
             self.marker.addListener('click', function () {
                 bokka.events.trigger('changePin', self.marker);
                 self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, true);
+                self.parent.setCenter(self.marker.position);
             });
 
             if (bokka.breakpoint.value !== 'mobile') {

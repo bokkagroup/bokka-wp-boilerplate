@@ -181,6 +181,11 @@
         background: url('../images/campaign-header-bg-phone.png') 50% 50% no-repeat;
         text-align: center;
 
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
         p {
             color: #fff;
             font-family: 'Open Sans', sans-serif;

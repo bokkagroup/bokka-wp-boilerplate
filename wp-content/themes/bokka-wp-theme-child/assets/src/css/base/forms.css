@@ -520,6 +520,12 @@ input[type=checkbox]:checked + label::before {
     border-radius: 4px;
     width: 100%;
 
+    @mixin tablet {
+        margin-top: -300px;
+        top: 50%;
+        width: 450px;
+    }
+
     #rl-email-form {
         text-align: center;
 
@@ -608,10 +614,4 @@ input[type=checkbox]:checked + label::before {
             background-color: $purple;
         }
     } /* #rl-email-form */
-
-    @mixin tablet {
-        margin-top: -300px;
-        margin-left: -225px;
-        width: 450px;
-    }
 }

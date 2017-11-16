@@ -98,8 +98,8 @@ var LayoutView = Backbone.View.extend({
         })
     },
     setCenter: function(coordinates, offsetx, offsety){
-        var self = this
-        var scale = Math.pow(2, self.self.map.getZoom())
+        var self = this;
+        var scale = Math.pow(2, self.map.getZoom());
         offsetx = (typeof offsetx !== 'undefined') ? offsetx : 0;
         offsety = (typeof offsety !== 'undefined') ? offsety : 0;
 

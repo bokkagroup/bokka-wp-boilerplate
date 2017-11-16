@@ -12,16 +12,22 @@
         }
     }
 
+    .container {
+        display: block;
+    }
+
     .map-wrap {
         border: 2px solid $gray_medium1;
         margin: 30px auto;
+        max-width: 100%;
+        min-height: 450px;
         padding: 0 0 75%;
         position: relative;
-        width: 900px;
 
         @mixin tablet {
             margin: 50px auto;
             padding: 0 0 65%;
+            width: 900px;
         }
     }
 
