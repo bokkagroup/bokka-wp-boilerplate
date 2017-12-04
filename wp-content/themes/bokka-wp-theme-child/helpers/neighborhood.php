@@ -235,7 +235,7 @@ function sortProductByNeighborhood($posts)
 }
 
 /**
- * Format the floorplan types associated with a neighborhood as "Patio Homes & Townhomes"
+ * Format neighborhood data
  * @param $data
  * @return array
  */
@@ -243,8 +243,20 @@ function formatNeighborhoodTypes($data)
 {
     $data = array_map(function ($item) {
         iterateNeighborhoodData($item, function ($item) {
+            //format the floorplan types associated with a neighborhood as "Patio Homes & Townhomes"
             $types = explode(',', get_post_meta($item->ID, 'types')[0]);
             $item->types = implode(' & ', $types);
+
+            //set custom message if pricing data unavailable
+            if (!$item->base_price || $item->base_price < 1) {
+                if (($item->status === 'under_development') || ($item->status === 'coming_soon')) {
+                    $item->pricing_message = 'Pricing coming soon';
+                } elseif ($item->status === 'closeout') {
+                    $item->pricing_message = 'Almost sold out';
+                } else {
+                    $item->pricing_message = false;
+                }
+            }
         });
         return $item;
     }, $data);
