@@ -68,7 +68,7 @@ function tabbedProductData($id)
             'order' => 'ASC'
         )
     );
-    
+
     if (count($models) > 0) {
         $data['tabs'][] = array(
             'title' => 'Model Homes',
@@ -213,14 +213,14 @@ function sortProductByType($posts)
 function sortProductByNeighborhood($posts)
 {
     $neighborhoods = array();
-    
+
     // get our products and their types in a basic array structure
     foreach ($posts as $post) {
         $neighborhood = $post->neighborhood;
         $neighborhoods[$neighborhood]['title'] = get_the_title($neighborhood);
         $neighborhoods[$neighborhood]['products'][] = $post;
     }
-    
+
     // attach additional data to post objects
     $neighborhoods = array_map(function ($item) {
         // attach neighborhood_name propery to each product
@@ -366,6 +366,7 @@ function getNeighborhoodMinPrice($id)
 {
     $posts = get_posts(
         array(
+            'posts_per_page' => 500,
             'post_type' =>  array('home', 'plans'),
             'meta_key' =>   'neighborhood',
             'meta_value' => $id
