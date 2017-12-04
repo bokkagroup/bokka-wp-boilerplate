@@ -28,13 +28,15 @@
                     <li>
                         <a href="{{link}}">
                             {{title}}  {{#if city}}in {{city}}{{/if}}
+                            {{#if price}}
                             <span>
                                 {{#each types}}
                                     {{#if @first}}
                                     {{! the below line is a little crazy but formats a list into the following style "x, y & z"}}
-                                        {{this}}{{else}}{{#if @last}}{{#unless @first}} & {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
+                                        {{this}}{{else}}{{#if @last}}{{#unless @first}} &amp; {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
                                     {{/if}}
                                 {{/each}} from the ${{price}}s</span>
+                            {{/if}}
                         </a>
                     </li>
                 {{/each}}
