@@ -254,6 +254,20 @@
         }
     }
 
+    .fallback {
+        padding: 30px;
+        text-align: center;
+        width: 100%;
+
+        @mixin tablet {
+            padding: 90px 30px 60px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+    }
+
     .pagination {
         background: $white;
         box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);

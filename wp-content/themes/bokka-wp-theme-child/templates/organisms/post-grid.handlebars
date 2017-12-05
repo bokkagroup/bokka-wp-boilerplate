@@ -18,42 +18,52 @@
                 {{/if}}
             {{/if}}
 
-            <ul class="grid">
+            {{#if custom_posts}}
 
-                <div class="grid-sizer"></div>
+                <ul class="grid">
 
-                {{#each custom_posts}}
+                    <div class="grid-sizer"></div>
 
-                    <li class="item {{#if feat_img}} color-bg{{else}}{{#unless thumbnail}} color-bg white-text{{/unless}}{{/if}}{{#if two_column}} two-column{{/if}}">
-                        {{#if category}}
-                        <div class="category">
-                            <span>{{category}}</span>
-                        </div>
-                        {{/if}}
+                    {{#each custom_posts}}
 
-                        {{#if feat_img}}
-                            <a class="image image-cutout" href="{{permalink}}" style="background-image:url('{{feat_img}}');"></a>
-                        {{else}}
-                            {{#if thumbnail}}
-                                <a class="image" href="{{permalink}}" style="background-image:url('{{images.tablet}}');"></a>
+                        <li class="item {{#if feat_img}} color-bg{{else}}{{#unless thumbnail}} color-bg white-text{{/unless}}{{/if}}{{#if two_column}} two-column{{/if}}">
+                            {{#if category}}
+                            <div class="category">
+                                <span>{{category}}</span>
+                            </div>
                             {{/if}}
-                        {{/if}}
-                        
-                        <div class="text">
-                            <div class="title">
-                                <a href="{{permalink}}">
-                                    <h4>{{post_title}}</h4>
-                                </a>
-                            </div>
-                            <div class="body">
-                                {{{excerpt}}}
-                            </div>
-                            <a class="read-more" href="{{permalink}}">Read More &raquo;</a>
-                        </div>
-                    </li>
-                {{/each}}
 
-            </ul>
+                            {{#if feat_img}}
+                                <a class="image image-cutout" href="{{permalink}}" style="background-image:url('{{feat_img}}');"></a>
+                            {{else}}
+                                {{#if thumbnail}}
+                                    <a class="image" href="{{permalink}}" style="background-image:url('{{images.tablet}}');"></a>
+                                {{/if}}
+                            {{/if}}
+
+                            <div class="text">
+                                <div class="title">
+                                    <a href="{{permalink}}">
+                                        <h4>{{post_title}}</h4>
+                                    </a>
+                                </div>
+                                <div class="body">
+                                    {{{excerpt}}}
+                                </div>
+                                <a class="read-more" href="{{permalink}}">Read More &raquo;</a>
+                            </div>
+                        </li>
+                    {{/each}}
+
+                </ul>
+
+            {{else}}
+
+                <div class="fallback">
+                    <p><strong>Looks like there's nothing to speak of at this time.</strong> <br>But we are always updating so check back soon!</p>
+                </div>
+
+            {{/if}}
 
             {{#if pagination}}
             <div class="pagination">
