@@ -27,6 +27,14 @@
 }
 
 .icon {
+    &.icon-map-signs::before {
+        content: '\f277';
+    }
+
+    &.icon-phone::before {
+        content: '\f095';
+    }
+
     &.icon-careers::before {
         content: '\e929';
     }

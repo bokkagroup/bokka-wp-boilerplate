@@ -14,7 +14,7 @@
                         <div class="title">
                             <h3>{{title}}</h3>
                         </div>
-                        <img src="{{image}}" />
+                        <a href="{{image.sizes.full}}" target="_blank"><img src="{{image.src}}" /></a>
                     </li> <!-- tab-gallery-images-wrapper -->
                 {{/each}}
 
@@ -23,7 +23,7 @@
             <div class="tab-gallery-button-wrapper">
                 {{#if floorplan}}
                     {{#if pdf}}
-                        <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" href="#get_brochure_form">Get Brochure</a>
+                        <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" data-width="415" href="#get_brochure_form">Get Brochure</a>
                     {{/if}}
                 {{else}}
                     <a class="button" target="_blank" href="{{pdf}}">Download &amp; Print </a>

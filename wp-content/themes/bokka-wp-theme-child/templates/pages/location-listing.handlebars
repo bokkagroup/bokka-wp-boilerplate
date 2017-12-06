@@ -40,12 +40,12 @@
 
                             <div class="hours">
                                 {{#if hours}}
-                                    <span class="title">Hours:</span> 
+                                    <span class="title">Hours:</span>
                                     {{{hours}}}
                                 {{/if}}
 
-                                <a class="button fancy-trigger" href="#contact-us">Contact Us</a>
-                                
+                                <a class="button fancy-trigger" href="#contact-us" data-wrapclass="contact-us-wrapper" data-width="560" data-neighborhood="{{title}}">Contact Us</a>
+
                             </div>
                         </div><!-- /body -->
                     </div><!-- /content -->
@@ -53,7 +53,7 @@
             {{/each}}
 
             <div class="modal-content">
-                <div id="contact-us">
+                <div id="contact-us" class="contact-us-form">
                     {{{form}}}
                 </div>
             </div>

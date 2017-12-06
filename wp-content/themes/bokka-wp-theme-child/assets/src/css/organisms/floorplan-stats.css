@@ -1,4 +1,5 @@
-.section.floorplan-stats {
+.section.floorplan-stats,
+.section.floorplan-description {
     background: $purple_light;
 
     @mixin arrow $purple_light, 26px;
@@ -11,17 +12,30 @@
         }
     }
 
+    .body,
+    ul {
+        background: $white;
+        display: block;
+        margin-bottom: 0;
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .body {
+        padding: 30px 35px;
+
+        p {
+            font-size: 15px;
+            line-height: 30px;
+        }
+    }
+
     ul {
         @mixin clear;
 
         list-style: none;
-        margin-bottom: 0;
         line-height: normal;
-        background: $white;
-        display: block;
-        width: 100%;
-        padding: 15px;
-        text-align: center;
         display: flex;
         flex-wrap: wrap;
 

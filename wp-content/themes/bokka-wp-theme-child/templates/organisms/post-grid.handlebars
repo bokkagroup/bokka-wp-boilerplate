@@ -6,7 +6,7 @@
                 {{#if categories}}
                 <div class="categories">
                     {{#if categories_title}}
-                    <h2>{{categories_title}}</h2>
+                    <h2 class="toggle">{{categories_title}}</h2>
                     {{/if}}
                     <ul>
                         {{#each categories}}
@@ -33,27 +33,27 @@
                             </div>
                             {{/if}}
 
-                            {{#if feat_img}}
-                                <a class="image image-cutout" href="{{permalink}}" style="background-image:url('{{feat_img}}');"></a>
-                            {{else}}
-                                {{#if thumbnail}}
-                                    <a class="image" href="{{permalink}}" style="background-image:url('{{images.tablet}}');"></a>
-                                {{/if}}
+                        {{#if feat_img}}
+                            <a class="image image-cutout" href="{{permalink}}" style="background-image:url('{{feat_img}}');"></a>
+                        {{else}}
+                            {{#if thumbnail}}
+                                <a class="image" href="{{permalink}}" style="background-image:url('{{images.tablet}}');"></a>
                             {{/if}}
+                        {{/if}}
 
-                            <div class="text">
-                                <div class="title">
-                                    <a href="{{permalink}}">
-                                        <h4>{{post_title}}</h4>
-                                    </a>
-                                </div>
-                                <div class="body">
-                                    {{{excerpt}}}
-                                </div>
-                                <a class="read-more" href="{{permalink}}">Read More &raquo;</a>
+                        <div class="text">
+                            <div class="title">
+                                <a href="{{permalink}}">
+                                    <h4>{{post_title}}</h4>
+                                </a>
                             </div>
-                        </li>
-                    {{/each}}
+                            <div class="body">
+                                {{{excerpt}}}
+                            </div>
+                            <a class="read-more" href="{{permalink}}">Read More &raquo;</a>
+                        </div>
+                    </li>
+                {{/each}}
 
                 </ul>
 

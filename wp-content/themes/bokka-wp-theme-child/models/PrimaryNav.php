@@ -20,6 +20,14 @@ class PrimaryNav extends \BokkaWP\MVC\Model
 
             $slug = get_post_field('post_name', $item->object_id);
 
+            if (strpos($slug, '720') !== false) {
+                $slug = 'phone';
+            }
+
+            if (strpos($slug, 'our-locations') !== false) {
+                $slug = 'map-signs';
+            }
+
             //parent level menu items
             if (!$item->menu_item_parent) {
                 $parent_id = $item->ID;

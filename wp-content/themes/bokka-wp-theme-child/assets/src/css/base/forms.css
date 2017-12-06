@@ -615,3 +615,254 @@ input[type=checkbox]:checked + label::before {
         }
     } /* #rl-email-form */
 }
+
+/* Modal Wrapper fancybox */
+.contact-us-wrapper.fancybox-skin,
+.request-info-wrapper.fancybox-skin,
+.get-updates-wrapper.fancybox-skin {
+    background-image: url('../images/form-bg-streetscape.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-color: $purple;
+    border-radius: 0;
+    padding: 15px !important;
+    position: relative;
+
+    @mixin tablet {
+        padding: 45px 90px !important;
+    }
+
+    &::after {
+        background-color: $purple;
+        background-blend-mode: multiply;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0.9;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .fancybox-inner {
+        max-width: 100%;
+    }
+
+    .fancybox-outer {
+        z-index: 2;
+    }
+}
+
+.contact-us-wrapper.fancybox-skin,
+.request-info-wrapper.fancybox-skin {
+    background-color: $blue;
+
+    @mixin tablet {
+        padding-left: 60px !important;
+        padding-right: 60px !important;
+    }
+
+    &::after {
+        background-color: $blue;
+    }
+}
+
+.contact-us-form,
+.request-info-form,
+.get-updates-form {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    h4 {
+        color: #fff;
+        font-family: 'Open Sans';
+        margin: 2px 0 8px;
+
+        @mixin tablet {
+            font-size: 36px;
+            line-height: 40px;
+            margin-bottom: 15px;
+        }
+    }
+
+    p {
+        color: #fff;
+        font-family: 'Open Sans';
+        font-size: 14px;
+        line-height: 22px;
+
+        @mixin tablet {
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+
+    .gfield:not(.gfield_html) {
+        margin-bottom: 8px;
+
+        @mixin tablet {
+            lost-center: 100%;
+        }
+    }
+
+    .gfield .gfield_label {
+        color: #fff;
+        left: initial;
+        margin-top: 0;
+        position: relative;
+        right: initial;
+        text-transform: initial;
+        text-align: left;
+        top: initial;
+
+        @mixin tablet {
+            @mixin column 1,3;
+
+            align-items: center;
+            display: flex;
+            justify-content: flex-end;
+            lost-column-cycle: 2;
+            text-align: right;
+        }
+    }
+
+    .gfield_required {
+        color: #fff;
+    }
+
+    .gfield .ginput_container input,
+    .gfield .ginput_container select,
+    .gfield .ginput_container textarea {
+        border: none;
+        border-radius: 3px;
+        font-size: 16px;
+        line-height: initial;
+        padding: 12px 20px;
+
+        @mixin placeholder {
+            letter-spacing: initial;
+        }
+    }
+
+    .gfield .gfield_label + .ginput_container {
+        @mixin tablet {
+            @mixin column 2,3;
+
+            lost-column-cycle: 2;
+        }
+    }
+
+    /* drop down arrow/caret */
+    .field .container-select::before,
+    .field .ginput_container_select::before,
+    .gfield .container-select::before,
+    .gfield .ginput_container_select::before {
+        border-bottom: none;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 7px solid #000;
+        content: ' ';
+        display: block;
+        height: 0;
+        position: absolute;
+        right: 14px;
+        text-decoration: none;
+        top: 42px;
+        width: 0;
+
+        @mixin tablet {
+            top: 18px;
+        }
+    }
+
+    /* drop down arrow/caret */
+    .field .container-select::after,
+    .field .ginput_container_select::after,
+    .gfield .container-select::after,
+    .gfield .ginput_container_select::after {
+        border-top-color: #fff;
+        border-left-width: 6px;
+        border-right-width: 6px;
+        border-top-width: 6px;
+        margin-top: 0;
+        right: 15px;
+        top: 42px;
+
+        @mixin tablet {
+            top: 18px;
+        }
+    }
+
+    .ginput_container_checkbox {
+        text-align: left;
+
+        label {
+            color: #fff;
+            font-size: 14px;
+        }
+    }
+
+    .field.checkbox-group label:not(.gfield_label),
+    .gfield.checkbox-group label:not(.gfield_label) {
+        font-size: 14px;
+    }
+
+    input[type=checkbox] + label::before,
+    input[type=checkbox]:checked + label::before {
+        background: #fff;
+        border-color: #fff;
+    }
+
+    input[type=checkbox]:checked + label::before {
+        color: #000;
+    }
+
+    .field.gfield_error .validation_message,
+    .gfield.gfield_error .validation_message {
+        background-color: transparent;
+        flex: 1 1 auto;
+        margin-top: 4px;
+        position: relative;
+        text-align: left;
+        top: initial;
+        width: 100%;
+        z-index: 0;
+
+        @mixin tablet {
+            @mixin column 2,3;
+
+            lost-offset: -1/3;
+        }
+    }
+
+    .gfield.gfield_error {
+        padding-top: 0;
+    }
+
+    .gform_footer {
+        margin: 0;
+    }
+
+    .gform_wrapper .gform_button {
+        background-color: $yellow;
+        border: 0;
+        border-radius: 0;
+        color: #000;
+        padding-left: 75px;
+        padding-right: 75px;
+        text-transform: uppercase;
+
+        &:hover,
+        &:active {
+            border: none;
+            box-shadow: none;
+        }
+    }
+}

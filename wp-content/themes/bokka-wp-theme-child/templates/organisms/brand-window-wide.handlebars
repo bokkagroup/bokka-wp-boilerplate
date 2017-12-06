@@ -1,16 +1,16 @@
 <div id="{{id}}" class="section brand-window-wide">
     <section>
-        
+
         <div class="image {{#unless image}}fallback{{/unless}}">
             <figure>
                 {{#if image}}
-                    <img src="{{images.mobile}}" data-src-desktop="{{images.full}}" data-src-tablet="{{images.tablet}}" alt="" class="responsive-img" style="display:none" />
+                    {{{images.responsive}}}
                 {{else}}
-                    <img src="{{images.fallback-tablet}}" data-src-desktop="{{images.fallback-full}}" data-src-tablet="{{images.fallback-tablet}}" alt="" class="responsive-img" style="display:none" />
+                    <img src="{{images.fallback-full}}"alt=" " />
                 {{/if}}
             </figure>
         </div><!--/image-->
-        
+
         <div class="text {{#if background_color}}with-background{{/if}}">
             <h1>
                 {{#if title}}

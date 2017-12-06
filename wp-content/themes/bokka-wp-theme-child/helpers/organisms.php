@@ -1,11 +1,12 @@
 <?php
 
+use BokkaWP\Theme\models\Image as Image;
+
 function setSizeMedium($item)
 {
     $item['url'] = wp_get_attachment_image_src($item['ID'], 'medium')[0];
     return $item;
 }
-
 
 /**
  * Takes feature data and prepares it for template
@@ -26,7 +27,12 @@ function prepare_feature_bar_data($feature)
  */
 function prepare_tabbed_data($tab)
 {
-    $tab['image'] = wp_get_attachment_image_src($tab['image'], 'full')[0];
+    $image = new Image($tab['image']);
+
+    $tab['image'] = array(
+        'src' => $image->src,
+        'sizes' => $image->sizes
+    );
     return $tab;
 }
 
@@ -42,7 +48,8 @@ function prepare_masonry_gallery_data($gallery_items)
     if (isset($gallery_items) && is_array($gallery_items)) {
         $gallery_data = array_map(function ($item) {
             if ($item['type'] === 'image') {
-                $item['caption'] = get_the_excerpt($item['image']);
+                $image = get_post($item['image']);
+                $item['caption'] = $image->post_excerpt;
                 $item['image'] =  wp_get_attachment_image_src($item['image'], 'medium')[0];
                 return $item;
             }

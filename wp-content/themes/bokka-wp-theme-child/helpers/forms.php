@@ -19,11 +19,17 @@ add_filter('gform_field_value_neighborhood_name', 'populate_neighborhood_name_fi
 function populate_page_name_field($value)
 {
     global $post;
-    $post_type = get_post_type($post);
 
-    if ($post_type == 'model') {
-        return;
-    }
+    /**
+     * 2017-12-05: Added the request info form to model detail pages.
+     * Not sure why we were previously not passing the product (page) name
+     * value to Hatchbuck for models - commenting out for now.
+     */
+    // $post_type = get_post_type($post);
+
+    // if ($post_type == 'model') {
+    //     return;
+    // }
 
     return $post->post_title;
 }

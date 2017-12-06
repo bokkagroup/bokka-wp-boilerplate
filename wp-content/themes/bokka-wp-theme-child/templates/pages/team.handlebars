@@ -2,7 +2,7 @@
     <section>
         <div class="container">
             <div class="categories">
-                <h2>Select a department</h2>
+                <h2 class="toggle">Select a department</h2>
                 <ul>
                     {{#each departments}}
                     <li><a href="#{{department_slug}}"><span>{{department}}</span></a></li>
@@ -22,7 +22,7 @@
                         {{#each team_members}}
 
                             <li class="item">
-                                
+
                                 <img src="{{#if photo}}{{photo}}{{else}}/wp-content/themes/bokka-wp-theme-child/assets/build/images/team-placeholder.jpg{{/if}}" alt="{{name}}">
 
                                 <div class="text">

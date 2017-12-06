@@ -112,7 +112,11 @@
         }
 
         .body {
-            padding: 5% 5% 5% 10%;
+            padding: 5% 5% 5% 8%;
+
+            @mixin desktop-large {
+                padding-left: 10%;
+            }
 
             .plan-amenities {
                 list-style: none;
@@ -153,10 +157,17 @@
         }
 
         .slide {
+            display: block;
             height: 100%;
 
             img {
                 object-fit: cover;
+            }
+        }
+
+        .pagination {
+            li:only-child {
+                display: none;
             }
         }
     }

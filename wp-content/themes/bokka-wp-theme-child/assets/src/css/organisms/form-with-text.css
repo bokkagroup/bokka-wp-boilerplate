@@ -115,17 +115,6 @@
                         background: $white;
                         border-bottom: 3px solid $gray_medium2;
                     }
-
-                    @mixin desktop {
-                        &:first-child,
-                        &:nth-child(2n) {
-                            @mixin column 3,12;
-                        }
-
-                        &:nth-child(3n) {
-                            @mixin column 3.5,12;
-                        }
-                    }
                 }
 
                 label {
@@ -209,7 +198,6 @@
     }
 }
 
-.home #email_form,
 .single-campaigns #formModal,
 .single-campaigns #campaign_vip_form {
     li {

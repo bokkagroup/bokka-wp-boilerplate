@@ -1,5 +1,6 @@
 var productTypeData = $('.product-type-data .product-type');
 var requestInfoForm = $('#request_info_form, #campaign_vip_form, #formModal, #modal_gallery_form');
+var neighborhoodSelectInput = $('.neighborhood-select');
 var hiddenProductDataInput = requestInfoForm.find('.neighborhood-product-data');
 var hiddenProductDataInputSingle = requestInfoForm.find('.product-type-data');
 var hiddenNeighborhoodNameInput = requestInfoForm.find('.neighborhood-name-data');
@@ -14,7 +15,7 @@ var gformHelpers = module.exports = {
                 productDataInput.val($(productTypeData[0]).text());
             } else {
                 var productSelect  = '<li class="gfield checkbox-group product-types">';
-                    productSelect += '<label class="gfield_label">What type of home(s) are you interested in?</label>';
+                    productSelect += '<label class="gfield_label">Type of home you\'re interested in:</label>';
                     productSelect += '<div class="ginput_container ginput_container_checkbox"><ul class="gfield_checkbox">';
                     productTypeData.each(function(index) {
                         var type = $(productTypeData[index]).text();
@@ -68,6 +69,17 @@ var gformHelpers = module.exports = {
 
                 neighborhoodNameInput.val(communityName);
             }
+        }
+    },
+    setNeighborhoodNameSelect: function(neighborhoodName) {
+        // Format neighborhood names as needed to match select option
+        if (neighborhoodName == 'Delo') {
+            neighborhoodName = 'DELO';
+        }
+
+        // Populate neighborhood select input
+        if (neighborhoodName && neighborhoodSelectInput.length > 0) {
+            neighborhoodSelectInput.find('select option[value="' + neighborhoodName + '"]').prop('selected', true);
         }
     }
 }

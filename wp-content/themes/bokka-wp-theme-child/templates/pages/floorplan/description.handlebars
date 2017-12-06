@@ -1,0 +1,16 @@
+    <div class="section floorplan-description">
+        <section>
+            <div class="container">
+                {{#if description}}
+                <div class="body">
+                    <p>{{{description}}}</p>
+                </div>
+                {{/if}}
+                {{#if floorplan}}
+                    {{#with floorplan}}
+                        <a href="{{permalink}}">View the {{post_title}} floorplan &raquo;</a>
+                    {{/with}}
+                {{/if}}
+            </div>
+        </section>
+    </div>

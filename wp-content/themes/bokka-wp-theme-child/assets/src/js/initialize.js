@@ -28,15 +28,14 @@ jQuery( document ).ready(function($) {
     //Gmaps functionality
     require('./helpers/maps.js')
 
-    //responsive images functionality
-    require('./helpers/responsiveImages')
-
     //init + helpers for gravity forms
     require('./helpers/gforms');
     require('./helpers/forms');
 
     //helpers for modals
     require('./helpers/modals')
+
+    require('./helpers/toggleMenu');
 
     /**
      * Brand window slider
@@ -133,10 +132,16 @@ jQuery( document ).ready(function($) {
      * @type {*|mlPushMenu}
      */
 
+    var windowWidth = $(window).width();
+
     if ($('.mp-menu').length > 0) {
         var push = new mlPushMenu(document.getElementById('mp-menu'), $('.menu-trigger'))
-        $(window).on('resize', function(){
-            push._determineNav();
+
+        $(window).resize(function(){
+            if ($(window).width() != windowWidth) {
+                windowWidth = $(window).width();
+                push._determineNav();
+            }
         });
     }
 

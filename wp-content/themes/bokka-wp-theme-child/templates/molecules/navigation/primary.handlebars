@@ -19,8 +19,9 @@
             <ul>
                 {{#each links}}
                     <li class="{{class}} icon-arrow-left">
-                        <a class="icon icon-{{class}}" href="#">{{title}}</a>
-                        <div class="mp-level"  >
+                        <a class="icon icon-{{class}}" href="{{#if subnav}}#{{else}}{{link}}{{/if}}">{{title}}</a>
+                        {{#if subnav}}
+                        <div class="mp-level">
                             <div class="title">
                                 <h2 class="icon icon-{{class}}">{{title}}</h2>
                                 {{#if overview}}
@@ -50,6 +51,7 @@
                                 {{/each}}
                             </ul>
                         </div><!--/mp-level-->
+                        {{/if}}
                     </li>
                 {{/each}}
             </ul>

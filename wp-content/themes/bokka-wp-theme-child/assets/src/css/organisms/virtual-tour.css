@@ -1,6 +1,11 @@
 .section.virtual-tour {
     background: $purple_light;
+    display: none;
     text-align: center;
+
+    @mixin tablet {
+        display: block;
+    }
 
     iframe {
         height: 225px;
@@ -37,9 +42,14 @@
         width: 100%;
     }
 
-    & + .floorplan-stats {
+    & + .floorplan-stats,
+    & + .floorplan-description {
         .container {
-            padding-top: 0;
+            padding-top: 60px;
+
+            @mixin tablet {
+                padding-top: 0;
+            }
         }
     }
 }

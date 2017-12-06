@@ -2,9 +2,13 @@
 {{#with floorplan}}
     {{> organisms/feature-bar}}
 {{/with}}
+{{#if gallery_items}}
+    {{>organisms/masonry-gallery items=gallery_items form=modal_gallery_form neighborhood=neighborhood_title product-type=type }}
+{{/if}}
 {{> organisms/virtual-tour}}
-{{> pages/floorplan/stats}}
+{{> pages/floorplan/description}}
 {{#with map}}
     {{> organisms/map-with-info }}
 {{/with}}
 {{> organisms/cta-get-updates }}
+{{> molecules/blocks/forms}}

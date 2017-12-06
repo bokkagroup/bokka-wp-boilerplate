@@ -1,4 +1,5 @@
 var CookieJS = require('../vendor/cookies')
+var gformHelpers = require('./gforms');
 
 //fancybox for the masonry gallery
 $(".fancybox-masonry").fancybox({
@@ -33,12 +34,20 @@ $(".modal-trigger, .fancy-trigger").fancybox({
         closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
     },
     beforeShow : function () {
-
         var wrapclass = $(this.element).data('wrapclass');
+        var width = $(this.element).data('width');
+        var neighborhoodName = $(this.element).data('neighborhood');
 
         if (wrapclass) {
-            this.maxWidth = 415;
             $(this.skin).addClass(wrapclass);
+        }
+
+        if (width) {
+            this.maxWidth = width;
+        }
+
+        if (neighborhoodName) {
+            gformHelpers.setNeighborhoodNameSelect(neighborhoodName);
         }
     }
 });

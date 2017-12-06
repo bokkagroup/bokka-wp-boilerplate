@@ -51,3 +51,16 @@
         }
     }
 }
+
+.single-model {
+    .section.intro-text {
+        .container {
+            padding-bottom: 60px;
+            padding-top: 0;
+        }
+
+        &::after {
+            display: none;
+        }
+    }
+}

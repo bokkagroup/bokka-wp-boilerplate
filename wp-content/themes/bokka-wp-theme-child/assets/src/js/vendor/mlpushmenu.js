@@ -96,7 +96,7 @@
             // if type == "cover" these will serve as hooks to move back to the previous level
             this.levelBack = Array.prototype.slice.call( this.el.querySelectorAll( '.' + this.options.backClass ) );
             // event type (if mobile use touch events)
-            this.eventtype = 'click';
+            this.eventtype = mobilecheck() ? 'touchstart' : 'click';
             // add the class mp-overlap or mp-cover to the main element depending on options.type
             $(this.el).addClass('mp-' + this.options.type );
             // initialize / bind the necessary events
@@ -142,15 +142,32 @@
             this.menuItems.forEach( function( el, i ) {
                 // check if it has a sub level
                 var subLevel = el.querySelector( 'div.mp-level' );
+
                 if( subLevel ) {
-                    el.querySelector( 'a' ).addEventListener( self.eventtype, function( ev ) {
-                        ev.preventDefault();
-                        var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
-                        if( self.level <= level ) {
-                            ev.stopPropagation();
-                            $(el).closest('.mp-level').addClass('mp-level-overlay' );
-                            self._openMenu( subLevel );
+                    /**
+                     * Prevent scrolling/swiping within the menu from opening sub levels
+                     * Reference: https://stackoverflow.com/questions/7069458/prevent-touchstart-when-swiping
+                     */
+                    var touchmoved;
+
+                    el.querySelector( 'a' ).addEventListener( 'touchend', function( ev ) {
+                        if (touchmoved != true) {
+                            ev.preventDefault();
+                            var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
+                            if( self.level <= level ) {
+                                ev.stopPropagation();
+                                $(el).closest('.mp-level').addClass('mp-level-overlay' );
+                                self._openMenu( subLevel );
+                            }
                         }
+                    } );
+
+                    el.querySelector( 'a' ).addEventListener( 'touchmove', function( ev ) {
+                        touchmoved = true;
+                    } );
+
+                    el.querySelector( 'a' ).addEventListener( 'touchstart', function() {
+                        touchmoved = false;
                     } );
                 }
             } );
@@ -341,7 +358,6 @@
             bokka.breakpoint.refreshValue();
             if (bokka.breakpoint.value != "desktop") {
                 this._setTransform('translate3d(0,0,0)');
-
             }
             this.level = 0;
             $("body").removeClass('menu-open')
@@ -353,11 +369,10 @@
             this.open = false;
         },
         // close sub menus
-        _closeMenu : function() {
+        _closeMenu : function( ) {
             var translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + ( this.level - 1 ) * this.options.levelSpacing : this.el.offsetWidth;
             this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
             this._toggleLevels();
-            $("body").removeClass('menu-open')
         },
         // translate the el
         _setTransform : function( val, el ) {

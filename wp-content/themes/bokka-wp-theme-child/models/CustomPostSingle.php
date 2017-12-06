@@ -12,17 +12,18 @@ class CustomPostSingle extends \BokkaWP\MVC\Model
         $this->setDate($post);
         $this->setContent($post);
         $this->setShareShortcode($post);
-        
+
         if ($post->post_type == 'testimonial') {
             $this->setTestimonial($post);
         }
-        
+
         $this->data = $post;
     }
 
     private function setImages($post, $fallback_id)
     {
         $post->images = array(
+            'responsive' => wp_get_attachment_image($post->image, 'full'),
             'full' => wp_get_attachment_image_src($post->image, 'full-brand-window')[0],
             'tablet' => wp_get_attachment_image_src($post->image, 'tablet-brand-window')[0],
             'mobile' => wp_get_attachment_image_src($post->image, 'mobile-brand-window')[0],

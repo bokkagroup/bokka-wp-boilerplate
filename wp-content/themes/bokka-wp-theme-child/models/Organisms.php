@@ -113,6 +113,7 @@ class Organisms extends \BokkaWP\MVC\Model
         // get layout type and images for secondary brand window
         if (isset($organism['background_image'])) {
             $organism['images'] = array(
+                'responsive' => wp_get_attachment_image($organism['background_image'], 'full'),
                 'full' => wp_get_attachment_image_src($organism['background_image'], 'full-brand-window')[0],
                 'full-split' => wp_get_attachment_image_src($organism['background_image'], 'full-split-brand-window')[0],
                 'tablet' => wp_get_attachment_image_src($organism['background_image'], 'tablet-brand-window')[0],

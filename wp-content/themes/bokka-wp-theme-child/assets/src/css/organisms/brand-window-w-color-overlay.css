@@ -1,50 +1,92 @@
 .section.brand-window-w-color-overlay {
-    .image {
-        img {
-            display: block;
-            height: auto;
-            width: 100%;
-        }
+    @mixin desktop {
+        height: auto;
+
+        @mixin arrow $blue, 30px;
     }
-
-    .text {
-        h1 {
-            color: #fff;
-            font-size: 36px;
-            font-weight: 600;
-            line-height: 1.2;
-            margin: 0 0 15px;
-        }
-
-        p {
-            color: #fff;
-            font-family: 'Merriweather';
-            font-size: 18px;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 1.4;
-            margin: 0 0 15px;
-        }
-    }
-
-    /* Begin overlay styles */
 
     .container {
         background-color: $blue;
-        position: relative;
+        height: auto;
         max-width: none;
+        overflow: hidden;
+        position: relative;
         text-align: center;
         width: 100%;
-        overflow: hidden;
+
+        @mixin desktop {
+            align-items: center;
+            display: flex;
+            height: 445px;
+        }
     }
 
     .image {
+        bottom: 0;
+        height: 100%;
+        left: 0;
         margin: 0 auto;
-        position: relative;
+        position: absolute;
+        right: 0;
+        top: 0;
         width: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
+
+        @mixin desktop {
+            height: 445px;
+            max-width: 1500px;
+
+            /* Bottom fade-out gradient */
+            &::after {
+                content: '';
+                display: block;
+                height: 45px;
+                width: 100%;
+                bottom: 0;
+                position: absolute;
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 1) 100%);
+            }
+        }
+
+        figure {
+            display: block;
+            height: 100%;
+            width: 100%;
+
+            @mixin desktop {
+                &::before,
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 250px;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                }
+
+                /* Left side fade-out gradient */
+                &::before {
+                    left: -50px;
+
+                    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f7f9d+0,ffffff+100&1+0,0+100 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right, rgba(63, 127, 157, 1) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
+                }
+
+                /* Right side fade-out gradient */
+                &::after {
+                    right: -50px;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(63, 127, 157, 1) 100%);
+                }
+            }
+        }
+
+        img {
+            display: block;
+            object-fit: cover;
+            object-position: 50% 50%;
+            height: 100%;
+            width: 100%;
+        }
 
         /* Image overlay */
         &::before {
@@ -63,85 +105,39 @@
     }
 
     .text {
-        padding: 0 30px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        text-align: center;
-        max-width: 620px;
         margin: 0 auto;
+        max-width: 620px;
+        padding: 30px;
+        position: relative;
+        text-align: center;
 
         h1 {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.2;
             margin: 0 0 25px;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-        }
 
-        p {
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-        }
-    }
-
-    @mixin tablet {
-        .text {
-            h1 {
+            @mixin tablet {
                 font-size: 46px;
                 font-weight: 700;
                 line-height: 1.2;
             }
         }
-    }
 
-    &.layout-overlay {
-        @mixin desktop {
-            height: auto;
-            max-height: 445px;
+        p {
+            color: #fff;
+            font-family: 'Merriweather';
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 0 0 15px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 
-            @mixin arrow $blue, 30px;
-
-            .image {
-                max-width: 1500px;
-
-                /* Bottom fade-out gradient */
-                &::after {
-                    content: '';
-                    display: block;
-                    height: 45px;
-                    width: 100%;
-                    bottom: 0;
-                    position: absolute;
-                    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 1) 100%);
-                }
-
-                figure {
-                    width: 100%;
-
-                    &::before,
-                    &::after {
-                        content: '';
-                        display: block;
-                        width: 250px;
-                        height: 100%;
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                    }
-
-                    /* Left side fade-out gradient */
-                    &::before {
-                        left: -50px;
-
-                        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f7f9d+0,ffffff+100&1+0,0+100 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
-                        background: linear-gradient(to right, rgba(63, 127, 157, 1) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(255, 255, 255, 0) 100%);
-                    }
-
-                    /* Right side fade-out gradient */
-                    &::after {
-                        right: -50px;
-                        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(63, 127, 157, 0.85) 50%, rgba(63, 127, 157, 1) 100%);
-                    }
-                }
+            &:last-child {
+                margin-bottom: 0;
             }
         }
     }

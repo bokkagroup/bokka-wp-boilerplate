@@ -40,29 +40,17 @@
             position: relative;
         }
 
-        &.objectfit {
-            img {
-                object-fit: cover;
-                object-position: 50% 50%;
-                height: 100%;
-            }
-        }
-
-        &.no-objectfit {
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            background-size: cover;
-            height: 100%;
-
-            img {
-                display: none;
-            }
-        }
-
-        img,
         figure {
             display: block;
             height: 100%;
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
             width: 100%;
         }
 
