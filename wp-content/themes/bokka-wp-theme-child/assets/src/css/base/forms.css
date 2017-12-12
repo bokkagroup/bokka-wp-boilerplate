@@ -865,4 +865,13 @@ input[type=checkbox]:checked + label::before {
             box-shadow: none;
         }
     }
+
+    /* confirmation message */
+    .gform_confirmation_message {
+        background-color: transparent;
+
+        h2 {
+            color: #fff;
+        }
+    }
 }
