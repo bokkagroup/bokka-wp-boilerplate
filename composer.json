@@ -1,15 +1,19 @@
 {
-    "name": "bokka/bokka-wp-boilerplate",
-    "description": "A boilerplate for the MVC WordPress framework by the Bokka Group",
+    "name": "bokkagroup/catalyst-wp-boilerplate",
+    "description": "A boilerplate for Catalyst WP",
     "minimum-stability": "dev",
     "repositories": [
-        { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-theme" },
-        { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-mvc" },
+        { "type": "git", "url": "https://github.com/bokkagroup/atom" },
+        { "type": "git", "url": "https://github.com/bokkagroup/nucleus" },
         { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-utilities" }
     ],
     "require": {
-        "bokka/bokka-wp-theme":         "*",
-        "bokka/bokka-wp-utilities":     "*",
-        "bokka/bokka-wp-mvc":           "dev-development"
+        "bokkagroup/atom": "*",
+        "bokka/bokka-wp-utilities": "*",
+        "bokkagroup/nucleus": "dev-development",
+        "johnpbloch/wordpress": "4.9"
+    },
+    "extra": {
+        "wordpress-install-dir": "wp"
     }
 }

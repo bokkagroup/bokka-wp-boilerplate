@@ -1,0 +1,102 @@
+# WordPress #
+############
+patternlab-php-master/
+wp-config-local.php
+wp-content/uploads
+wp-content/plugins/debug-log.php
+wp-content/blogs.dir/
+wp-config.php
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/cache/
+wp-content/backups/
+wp-content/object-cache.php
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache
+wp-content/www
+sitemap.xml
+sitemap.xml.gz
+*.log
+
+# Catalyst WP #
+###############
+wp-content/themes/atom
+build/
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+# Icon?
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# IDE generated files #
+######################
+.idea/
+.floo
+.flooignore
+
+# SASS, NPM, GULP #
+##########
+.sass-cache
+node_modules
+.css.map
+
+# large/disallowed file types
+# a CDN should be used for these
+*.hqx
+*.bin
+*.exe
+*.dll
+*.deb
+*.dmg
+*.iso
+*.img
+*.msi
+*.msp
+*.msm
+*.mid
+*.midi
+*.kar
+*.mp3
+*.ogg
+*.m4a
+*.ra
+*.3gpp
+*.3gp
+*.mp4
+*.mpeg
+*.mpg
+*.mov
+*.webm
+*.flv
+*.m4v
+*.mng
+*.asx
+*.asf
+*.wmv
+*.avi
