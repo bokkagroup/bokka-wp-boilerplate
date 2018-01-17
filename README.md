@@ -15,7 +15,7 @@ Boilerplate designed to get you up and running with Catalyst WP in a few short m
 3. Run `composer install`
 4. Add database credentials and nonces to `wp-config.php` (see gotchas below)
 5. Duplicate the Atom theme and name the copied directory `atom-child`
-6. Update the child theme's `style.css` so that `Theme Name:` is `Atom Child` and add a field for `Text Domain: atom`
+6. Update the child theme's `style.css` header so that `Theme Name:` is `Atom Child` and add a field for `Template: atom`
 7. Profit
 
 For more details on working with the Catalyst WP Toolbox see documentation for the [Atom Theme](https://github.com/bokkagroup/atom)
