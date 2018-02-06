@@ -5,11 +5,11 @@
     "repositories": [
         { "type": "git", "url": "https://github.com/bokkagroup/atom" },
         { "type": "git", "url": "https://github.com/bokkagroup/nucleus" },
-        { "type": "git", "url": "https://github.com/bokkagroup/bokka-wp-utilities" }
+        { "type": "git", "url": "https://github.com/bokkagroup/bokka-utilities" }
     ],
     "require": {
         "bokkagroup/atom": "*",
-        "bokka/bokka-wp-utilities": "*",
+        "bokkagroup/bokka-utilities": "*",
         "bokkagroup/nucleus": "dev-development",
         "johnpbloch/wordpress": "4.9"
     },
