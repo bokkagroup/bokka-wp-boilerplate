@@ -5,7 +5,8 @@
     "repositories": [
         { "type": "git", "url": "https://github.com/bokkagroup/atom" },
         { "type": "git", "url": "https://github.com/bokkagroup/nucleus" },
-        { "type": "git", "url": "https://github.com/bokkagroup/bokka-utilities" }
+        { "type": "git", "url": "https://github.com/bokkagroup/bokka-utilities" },
+        { "type": "composer", "url": "https://wpackagist.org" }
     ],
     "require": {
         "bokkagroup/atom": "*",
