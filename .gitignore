@@ -24,6 +24,10 @@ sitemap.xml.gz
 wp-content/themes/atom
 build/
 
+# Composer #
+###############
+vendor
+
 # Packages #
 ############
 *.7z
