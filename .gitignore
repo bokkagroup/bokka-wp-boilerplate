@@ -1,9 +1,11 @@
 # WordPress #
 ############
+wp
 patternlab-php-master/
 wp-config-local.php
 wp-content/uploads
-wp-content/plugins/debug-log.php
+wp-content/mu-plugins
+wp-content/plugins
 wp-content/blogs.dir/
 wp-config.php
 wp-content/upgrade/
