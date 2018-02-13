@@ -8,6 +8,13 @@
         { "type": "git", "url": "https://github.com/bokkagroup/bokka-utilities" },
         { "type": "composer", "url": "https://wpackagist.org" }
     ],
+    "autoload": {
+      "psr-4": {
+        "CatalystWP\\AtomChild\\models\\" : "wp-content/themes/atom-child/models/",
+        "CatalystWP\\AtomChild\\controllers\\" : "wp-content/themes/atom-child/controllers/",
+        "CatalystWP\\AtomChild\\views\\" : "wp-content/themes/atom-child/views/"
+      }
+    },
     "require": {
         "bokkagroup/atom": "*",
         "bokkagroup/bokka-utilities": "*",
