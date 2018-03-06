@@ -258,19 +258,34 @@
             }
 
             & > ul > li > h3 {
-                position: relative;
-                margin: 25px 30px 50px;
                 font-size: 24px;
-                line-height: 0;
                 letter-spacing: 0;
+                margin: 15px 15px 35px;
+                position: relative;
                 text-transform: none;
                 text-align: center;
-                width: auto%;
-                border-top: 2px solid $gray_dark1;
+                width: auto;
+
+                @mixin tablet {
+                    margin-left: 30px;
+                    margin-right: 30px;
+                }
+
+                &::after {
+                    border-top: 2px solid $gray_dark1;
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 50%;
+                    width: 100%;
+                }
 
                 span {
                     background-color: #fff;
                     padding: 0 10px;
+                    position: relative;
+                    z-index: 1;
                 }
             }
 
