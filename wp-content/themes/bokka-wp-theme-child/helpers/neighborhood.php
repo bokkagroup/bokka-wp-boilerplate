@@ -76,6 +76,9 @@ function tabbedProductData($id)
             'types' => sortProductByType($models)
         );
     }
+
+    $data = applyFiltersToProducts($data);
+
     return $data;
 }
 

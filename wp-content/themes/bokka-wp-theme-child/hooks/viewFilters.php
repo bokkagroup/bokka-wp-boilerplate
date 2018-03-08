@@ -5,6 +5,25 @@
  * or code you don't want to repeat in your models
  */
 
+function formatProductStatus($data)
+{
+    if (isset($data->post_type) && (
+        $data->post_type == 'plans' ||
+        $data->post_type == 'model' ||
+        $data->post_type == 'home') &&
+        isset($data->status_message)) {
+        if (is_array($data->status_message) && isset($data->status_message['value'])) {
+            $data->status_message = $data->status_message['value'];
+        }
+
+        if ($data->status_message == 'Custom Message') {
+            $data->status_message = $data->status_custom;
+        }
+    }
+    return $data;
+}
+add_filter('bokkamvc_filter_before_render', 'formatProductStatus');
+
 /**
  * @param $data
  * @return mixed
@@ -55,7 +74,9 @@ add_filter('bokkamvc_filter_before_render', 'formatBasePrice');
 function formatPrice($data)
 {
     if (isset($data->price) && $data->price) {
-        $data->price = number_format($data->price);
+        if (!strpos($data->price, ',')) {
+            $data->price = number_format($data->price);
+        }
     }
     return $data;
 }

@@ -2,12 +2,16 @@
     <section>
         <div class="container">
             <div class="right">
+                {{#if status_message}}
+                <div class="product-status">
+                    {{status_message}}
+                </div>
+                {{/if}}
                 {{#if elevations}}
                     {{>molecules/blocks/elevations-gallery}}
                 {{else}}
                     {{>molecules/blocks/brand-window-fallback}}
                 {{/if}}
-
             </div> <!-- plan-window-right -->
             <div class="left">
                 <div class="text">

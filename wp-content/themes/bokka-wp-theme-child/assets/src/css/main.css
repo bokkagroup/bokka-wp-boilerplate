@@ -67,6 +67,7 @@
 @import 'atoms/pagination';
 @import 'atoms/text';
 @import 'atoms/tooltip';
+@import 'atoms/status';
 
 /* ------------------------------------ *\
     Molecules Styles

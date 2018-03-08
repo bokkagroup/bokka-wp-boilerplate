@@ -5,7 +5,13 @@
             {{post_title}}
         </div>
         {{/if}}
+
         <div class="image">
+            {{#if status_message}}
+            <div class="product-status">
+                {{status_message}}
+            </div>
+            {{/if}}
             {{#if featured_image}}
                 <img src="{{featured_image}}" alt="">
             {{else}}
@@ -115,4 +121,3 @@
         </div>
     </a>
 </li>
-

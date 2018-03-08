@@ -1,0 +1,25 @@
+/* ----------------------------------------------------------
+ATOM MIXINS
+----------------------------------------------------------- */
+@define-mixin product_status {
+    background-color: rgba(16, 147, 208, 0.95);
+    color: #fff;
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: bold;
+    height: auto;
+    line-height: 1.15;
+    left: -6px;
+    max-width: 50%;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    text-transform: uppercase;
+    top: 20px;
+    width: auto;
+    z-index: 1;
+}
+
+.product-status {
+    @mixin product_status;
+}

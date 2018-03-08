@@ -17,6 +17,17 @@
         }
     }
 
+    .product-status {
+        left: initial;
+        max-width: 210px;
+        right: 0;
+        text-align: right;
+
+        @mixin tablet {
+            right: -6px;
+        }
+    }
+
     .left {
         float: none;
         width: auto;
