@@ -23,14 +23,22 @@
         {{>organisms/masonry-gallery items=gallery_items form=modal_gallery_form neighborhood=post_title}}
     {{/if}}
     {{>organisms/osc-request-info-neighborhood}}
+
     {{#if coming_soon}}
         {{>organisms/coming-soon-map}}
     {{/if}}
+    {{#if under_development}}
+        {{>organisms/coming-soon-map}}
+    {{/if}}
+
     {{#unless coming_soon}}
-        {{#with map}}
-            {{> organisms/map-with-info }}
-        {{/with}}
+        {{#unless under_development}}
+            {{#with map}}
+                {{> organisms/map-with-info }}
+            {{/with}}
+        {{/unless}}
     {{/unless}}
+
     {{#unless coming_soon}}
         {{#if testimonial}}
             {{> organisms/testimonial }}
