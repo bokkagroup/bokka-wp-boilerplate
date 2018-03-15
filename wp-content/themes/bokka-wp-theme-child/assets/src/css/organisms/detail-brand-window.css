@@ -18,8 +18,10 @@
     }
 
     .product-status {
+        font-size: 15px;
         left: initial;
-        max-width: 210px;
+        max-width: initial;
+        padding: 12px 15px;
         right: 0;
         text-align: right;
 
