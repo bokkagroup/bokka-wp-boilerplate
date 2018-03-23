@@ -285,6 +285,18 @@ class GFHatchbuck extends GFFeedAddOn {
             array(
                 'label' => 'Audience',
                 'name' => 'audience'
+            ),
+            array(
+                'label' => 'Page Type',
+                'name' => 'page_type'
+            ),
+            array(
+                'label' => 'Lead Type',
+                'name' => 'lead_type'
+            ),
+            array(
+                'label' => 'Follow-up Workflow',
+                'name' => 'follow_up_workflow'
             )
         );
 
@@ -529,6 +541,18 @@ class GFHatchbuck extends GFFeedAddOn {
                 $field_tags = array_merge( $field_tags, explode( ', ', $lead_data['audience'] ) );
             }
 
+            if ( ! empty( $lead_data['page_type'] ) ) {
+                $field_tags = array_merge( $field_tags, explode( ', ', $lead_data['page_type'] ) );
+            }
+
+            if ( ! empty( $lead_data['lead_type'] ) ) {
+                $field_tags = array_merge( $field_tags, explode( ', ', $lead_data['lead_type'] ) );
+            }
+
+            if ( ! empty( $lead_data['follow_up_workflow'] ) ) {
+                $field_tags = array_merge( $field_tags, explode( ', ', $lead_data['follow_up_workflow'] ) );
+            }
+
             //format tags array out of unique tags
             $field_tags = array_unique($field_tags);
             foreach ( $field_tags as $field_tag ) {
@@ -547,6 +571,9 @@ class GFHatchbuck extends GFFeedAddOn {
                 unset( $lead_data['page_name'] );
                 unset( $lead_data['post_type'] );
                 unset( $lead_data['audience'] );
+                unset( $lead_data['page_type'] );
+                unset( $lead_data['lead_type'] );
+                unset( $lead_data['follow_up_workflow'] );
             }
         }
 
