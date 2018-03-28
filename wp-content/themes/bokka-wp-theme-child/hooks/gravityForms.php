@@ -1,5 +1,23 @@
 <?php
 
+/**
+ * Create a combined "plan - neighborhood" tag value that gets added
+ * to the additional tags input.
+ */
+add_action('gform_pre_submission_38', 'modify_tag_values');
+function modify_tag_values($form)
+{
+    // Floorplan - Get Brochure Form
+    if (isset($form['id']) && $form['id'] == 38) {
+        $plan = $_POST['input_12'];
+        $neighborhood = $_POST['input_13'];
+
+        if ($plan && $neighborhood) {
+            $_POST['input_19'] = ($_POST['input_19']) ? $_POST['input_19'] . ', ' . $plan . ' - ' . $neighborhood : $plan . ' - ' . $neighborhood;
+        }
+    }
+}
+
 add_filter('gform_notification_38', 'add_attachment_pdf', 10, 3); //target form id 2, change to your form id
 function add_attachment_pdf($notification, $form, $entry)
 {
