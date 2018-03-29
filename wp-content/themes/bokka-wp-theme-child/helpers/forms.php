@@ -1,5 +1,13 @@
 <?php
 
+function populate_product_type_field($value) {
+    global $post;
+    $type = getProductType($post->ID);
+    $type = getDefaultType($type);
+    return $type;
+}
+add_filter('gform_field_value_product_type', 'populate_product_type_field');
+
 // Dynamically populate hidden fields based on custom parameters
 // https://www.gravityhelp.com/documentation/article/using-dynamic-population/
 function populate_neighborhood_name_field($value)

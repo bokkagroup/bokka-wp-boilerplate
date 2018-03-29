@@ -12,7 +12,7 @@ function modify_tag_values($form)
         $plan = $_POST['input_12'];
         $neighborhood = $_POST['input_13'];
 
-        if ($plan && $neighborhood) {
+        if (isset($_POST['input_19']) && $plan && $neighborhood) {
             $_POST['input_19'] = ($_POST['input_19']) ? $_POST['input_19'] . ', ' . $plan . ' - ' . $neighborhood : $plan . ' - ' . $neighborhood;
         }
     }
