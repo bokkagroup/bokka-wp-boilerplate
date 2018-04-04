@@ -253,6 +253,11 @@
         }
     }
 
+    .ginput_container_fileupload {
+        background-color: #fff;
+        border-radius: 3px;
+    }
+
     /* datepicker */
     .ginput_container_date {
         position: relative;
@@ -617,6 +622,7 @@ input[type=checkbox]:checked + label::before {
 }
 
 /* Modal Wrapper fancybox */
+.career-interest-wrapper.fancybox-skin,
 .contact-us-wrapper.fancybox-skin,
 .request-info-wrapper.fancybox-skin,
 .get-updates-wrapper.fancybox-skin {
@@ -672,6 +678,7 @@ input[type=checkbox]:checked + label::before {
     }
 }
 
+.career-interest-form,
 .contact-us-form,
 .request-info-form,
 .get-updates-form {

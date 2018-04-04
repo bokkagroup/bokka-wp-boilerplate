@@ -1,0 +1,25 @@
+.section.join-team {
+    background-color: #e6e9ed;
+    padding-bottom: 45px;
+
+    .cta-wrapper {
+        background-color: #898731;
+    }
+
+    .inner {
+        border-color: #fff;
+    }
+
+    h2,
+    p {
+        color: #fff;
+    }
+
+    .button {
+        color: $blue;
+
+        &:hover {
+            box-shadow: 0 0 0 4px #fff, inset 0 0 0 3px $blue;
+        }
+    }
+}

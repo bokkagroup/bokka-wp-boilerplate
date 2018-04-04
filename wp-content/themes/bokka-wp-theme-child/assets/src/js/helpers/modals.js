@@ -52,7 +52,6 @@ $(".modal-trigger, .fancy-trigger").fancybox({
     }
 });
 
-
 /** Video modals **/
 $(".video-modal-trigger").fancybox({
     openEffect: 'none',

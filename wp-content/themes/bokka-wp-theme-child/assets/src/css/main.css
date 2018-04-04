@@ -133,7 +133,9 @@
 @import 'organisms/testimonial-grid';
 @import 'organisms/slider-gallery';
 @import 'organisms/map-w-locations';
+@import 'organisms/join-team';
 @import 'organisms/qmi-product';
+@import 'organisms/careers-cta';
 
 /* ------------------------------------ *\
     $COMPONENTS

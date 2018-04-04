@@ -528,3 +528,57 @@
         }
     }
 }
+
+.careers-cta,
+.join-team {
+    .cta-wrapper {
+        box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.5);
+        height: auto;
+        padding: 30px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .inner {
+        border: 2px solid #fff;
+        padding: 15px 25px;
+
+        @mixin tablet {
+            padding: 30px 50px;
+        }
+    }
+
+    h2,
+    p {
+        font-family: 'Open Sans';
+    }
+
+    h2 {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+
+        @mixin tablet {
+            line-height: 1.4;
+        }
+    }
+
+    p {
+        font-weight: 300;
+        margin-bottom: 12px;
+
+        @mixin tablet {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+    }
+
+    .button {
+        font-size: 14px;
+        font-weight: bold;
+
+        @mixin tablet {
+            width: 260px;
+        }
+    }
+}
