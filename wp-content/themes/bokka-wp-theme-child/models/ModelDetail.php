@@ -57,13 +57,20 @@ class ModelDetail extends \BokkaWP\MVC\Model
     private function setMap($post, $zoom)
     {
         $sales_team = getSalesTeamMembers($post->neighborhood->ID);
+        $hours = get_field('hours', $post->ID);
+        if ($hours) {
+            $map_hours = $hours;
+        } else {
+            $map_hours = 'By Appointment Only';
+        }
+
         $post->map = array(
             'address_1' => $post->address_1,
             'address_2' => $post->address_2,
             'city'      => $post->neighborhood->city,
             'state'     => $post->neighborhood->state,
             'zip'       => $post->neighborhood->zip,
-            'hours'     => $post->neighborhood->hours,
+            'hours'     => $map_hours,
             'phone'     => $post->neighborhood->phone,
             'latitude'  => $post->latitude,
             'longitude' => $post->longitude,

@@ -52,7 +52,7 @@ class Homes extends \BokkaWP\MVC\Model
             'city'      => $post->neighborhood->city,
             'state'     => $post->neighborhood->state,
             'zip'       => $post->neighborhood->zip,
-            'hours'     => $post->neighborhood->hours,
+            'hours'     => 'By Appointment Only',
             'phone'     => $post->neighborhood->phone,
             'latitude'  => $post->latitude,
             'longitude' => $post->longitude,

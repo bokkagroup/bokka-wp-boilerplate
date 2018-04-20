@@ -17,7 +17,14 @@
                 <div class="text">
                     <div class="title">
                         <h1 class="plan-meta-name">{{floorplan.post_title}} Home</h1>
-                        <h3 class="location">{{post_title}}, {{neighborhood.city}},{{neighborhood.state}}</h3>
+                        <h3 class="location">
+                            {{post_title}},
+                            {{#if address_2}}
+                                {{address_2}}
+                            {{else}}
+                                {{neighborhood.city}}, {{neighborhood.state}}
+                            {{/if}}
+                        </h3>
                         <h3 class="product-type">{{type}}</h3>
 
                         <a class="plan-meta-community-name" href="{{neighborhood.link}}">
