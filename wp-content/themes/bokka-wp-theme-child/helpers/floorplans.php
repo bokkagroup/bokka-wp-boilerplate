@@ -49,5 +49,11 @@ function get_feature_description($title)
         case 'Energy Efficient':
             return 'Spend less, so you can do more.';
             break;
+        case '2-Car Garage':
+            return 'Space for cars, toys, or hobbies.';
+            break;
+        case 'Attached Garage':
+            return 'Convenience at your back door.';
+            break;
     }
 }
