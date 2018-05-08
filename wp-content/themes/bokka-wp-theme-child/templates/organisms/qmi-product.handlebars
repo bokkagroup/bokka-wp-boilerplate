@@ -7,6 +7,11 @@
                 {{#each qmi_product}}
                 <li class="product-item {{post_type}}">
                     <div class="image">
+                        {{#if status_message}}
+                        <div class="product-status">
+                            {{status_message}}
+                        </div>
+                        {{/if}}
                         {{#if featured_image}}
                             <img src="{{featured_image}}" alt="">
                         {{else}}
