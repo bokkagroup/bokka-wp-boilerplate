@@ -1,5 +1,12 @@
 var CookieJS = require('../vendor/cookies')
 var gformHelpers = require('./gforms');
+var Hatchbuck = require('./hatchbuck');
+
+var brochureModal = $('#get_brochure_modal .brochure-modal');
+
+if (brochureModal.length) {
+    var tags = brochureModal.data();
+}
 
 //fancybox for the masonry gallery
 $(".fancybox-masonry").fancybox({
@@ -32,6 +39,11 @@ $(".modal-trigger, .fancy-trigger").fancybox({
     },
     tpl : {
         closeBtn : '<a title="Close" class="fancybox-item fancybox-close icon icon-exit-circle" href="javascript:;"></a>',
+    },
+    afterShow: function(instance, slide) {
+        if (tags && tags.email) {
+            Hatchbuck.send(tags);
+        }
     },
     beforeShow : function () {
         var wrapclass = $(this.element).data('wrapclass');

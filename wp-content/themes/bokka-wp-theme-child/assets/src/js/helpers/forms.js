@@ -14,10 +14,7 @@ if ($("body").hasClass('page-homeowner-resources')) {
     $("body").append(s);
 }
 
-
-
 $(window).load(function() {
-
     $('.gform_wrapper').find('label').each(
         function () {
             var text = $(this).clone()    //clone the element
@@ -73,20 +70,26 @@ $(document).on('click', ".gform_wrapper input[type=submit]", function (event) {
                 .text().toLocaleLowerCase();
 
             if (text == 'name') {
-                input = $(this).next().find('input').val()
-                input = input.split(' ');
-                if (input[0]) {
+                var names = []
+                input = $(this).next('.ginput_container').find('input')
+
+                input.each(function() {
+                    input = $(this).val().split(' ')
+                    names.push(input)
+                })
+
+                if (names[0]) {
                     CookieJS.set({
                         name: 'first_name',
-                        value: input[0],
+                        value: names[0],
                         path: '/'
                     })
                 }
 
-                if(input[1]) {
+                if(names[1]) {
                     CookieJS.set({
                         name: 'last_name',
-                        value: input[1],
+                        value: names[1],
                         path: '/'
                     })
                 }

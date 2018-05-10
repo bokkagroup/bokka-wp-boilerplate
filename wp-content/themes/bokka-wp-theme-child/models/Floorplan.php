@@ -20,14 +20,14 @@ class Floorplan extends \BokkaWP\MVC\Model
         $this->setNeighborhood($post);
         $this->setNeighborhoodLink($post);
         $this->setNeighborhoodTitle($post);
+        $this->setElevations();
         $this->setForms($post, array(
             'request_info_form' => 4,
-            'get_brochure_form' => 38,
             'modal_gallery_form' => 37
         ));
+        $this->setFormOrBrochure($post);
         $this->setPDF($post);
         $this->setGalleryItems($post);
-        $this->setElevations();
         $this->setPostType($post);
     }
 
@@ -60,6 +60,25 @@ class Floorplan extends \BokkaWP\MVC\Model
     private function setPDF($post)
     {
         $this->pdf = wp_get_attachment_url($post->pdf);
+    }
+
+    private function setFormOrBrochure($post)
+    {
+        $email = isset($_COOKIE['email']) ? $_COOKIE['email'] : false;
+
+        if ($email) {
+            $this->displayBrochureForm = false;
+            $this->userEmail = $email;
+            $this->pdfSrc = get_attached_file($this->pdf);
+
+            if (isset($this->elevations[0])) {
+                $src = wp_get_attachment_image_src($this->elevations[0], 'medium');
+                $this->thumbnail = $src[0];
+            }
+        } else {
+            $this->displayBrochureForm = true;
+            $this->setForms($post, array('get_brochure_form' => 38));
+        }
     }
 
     private function setForms($post, $forms)

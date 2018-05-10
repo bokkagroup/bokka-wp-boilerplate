@@ -82,8 +82,15 @@
                                 </li>
                             {{/if}}
                         </ul>
-                        {{#if pdf}}
+                        {{#if displayBrochureForm}}
                             <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" data-width="415" href="#get_brochure_form">Get Brochure</a>
+                        {{else}}
+                            <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" data-width="415" href="#get_brochure_modal">Get Brochure</a>
+                            <div style="display:none">
+                                <div id="get_brochure_modal">
+                                    {{> molecules/blocks/get-brochure-modal}}
+                                </div>
+                            </div>
                         {{/if}}
                     </div> <!-- plan-meta-bottom -->
                 </div> <!-- plan-meta -->

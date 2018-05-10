@@ -1,0 +1,38 @@
+<div class="fancybox-inner brochure-modal" style="overflow: auto; width: 415px; height: 640px;"
+    data-email="{{userEmail}}"
+    data-page-name="{{post_title}}"
+    data-neighborhood="{{neighborhood_title}}"
+    data-page-type="Floorplan Detail"
+    data-product-cat="plans"
+    data-product-type="{{type}}"
+    data-pdf-src="{{pdfSrc}}">
+    <div id="get_brochure_form" class="get_brochure_form">
+        <div class="header">
+            <div class="title">
+                <h3>Get a free brochure emailed to you instantly</h3>
+            </div>
+            <div class="info">
+                <div class="image">
+                    <figure>
+                        <img src="{{thumbnail}}" alt="">
+                    </figure>
+                </div>
+                <div class="text">
+                    <div class="title">{{post_title}}</div>
+                    <div class="sub-title">{{neighborhood_title}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <div id="gform_confirmation_wrapper_38" class="gform_confirmation_wrapper ">
+                <div id="gform_confirmation_message_38" class="gform_confirmation_message_38 gform_confirmation_message">
+                    <span style="display:inline-block"><a href="#" class="brochure-email-trigger">Email this brochure</a> to {{userEmail}}.</span><br><br>
+                    Click the link below to view it now:
+                </div>
+            </div>
+            <a href="{{pdf}}" target="_blank" class="brochure-link">
+                <span class="button yellow">View Brochure</span>
+            </a>
+        </div>
+    </div>
+</div>

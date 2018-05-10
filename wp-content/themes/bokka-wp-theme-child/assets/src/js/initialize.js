@@ -38,6 +38,37 @@ jQuery( document ).ready(function($) {
     require('./helpers/toggleMenu');
 
     /**
+     * Send plan brochure email to user
+     */
+    $('.brochure-email-trigger').on('click', function(e) {
+        e.preventDefault();
+
+        var self = this;
+        var data = $(this).parents('.brochure-modal').data();
+        var parent = $(self).closest('span');
+
+        parent.html('<img src="' + BokkaWP.themedir + '/assets/build/images/loading.png" height="16" width="16" />');
+
+        if (data) {
+            $.ajax({
+                type: 'POST',
+                url: BokkaWP.ajaxurl,
+                data: {
+                    action: 'send_brochure_email',
+                    data: data
+                },
+                success: function(res) {
+                    if (res) {
+                        parent.text('Sent!');
+                    } else {
+                        parent.text('There was an issue sending the brochure, please try again later.');
+                    }
+                }
+            })
+        }
+    });
+
+    /**
      * Brand window slider
      */
     $('.bw-slider').slick({

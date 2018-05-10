@@ -172,6 +172,10 @@
         .gform_confirmation_message {
             background: none;
             padding: 0 40px;
+
+            a {
+                color: #fff;
+            }
         }
 
         .gform_button.button {

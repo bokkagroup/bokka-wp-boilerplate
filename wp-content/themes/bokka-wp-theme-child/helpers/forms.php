@@ -1,6 +1,7 @@
 <?php
 
-function populate_product_type_field($value) {
+function populate_product_type_field($value)
+{
     global $post;
     $type = getProductType($post->ID);
     $type = getDefaultType($type);
