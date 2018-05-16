@@ -14,7 +14,8 @@
         background: $white;
 
         & > .title {
-            background: url('/wp-content/themes/bokka-wp-theme-child/assets/build/images/email_to.jpg') no-repeat;
+            background: url('/wp-content/themes/atom-child/assets/build/images/email-icon-retina.png') no-repeat;
+            background-size: 62px 59px;
             padding-left: 75px;
             padding-bottom: 10px;
             margin-bottom: 35px;
@@ -157,16 +158,26 @@
         }
 
         .brochure-link {
-            background: url('/wp-content/themes/bokka-wp-theme-child/assets/build/images/pdf-icon.jpg') no-repeat;
-            background-position: calc(50% - 10px) 0;
+            background: url('/wp-content/themes/atom-child/assets/build/images/pdf-icon.jpg') no-repeat;
+            background-position: calc(50%) 0;
             display: none;
             text-align: center;
             padding-top: 121px;
             margin: 40px 0 35px;
         }
 
-        .gform_confirmation_wrapper ~ .brochure-link {
+        .gform_confirmation_wrapper ~ .brochure-link,
+        .gforms_confirmation_message ~ .brochure-link {
             display: block;
+        }
+
+        .gform_confirmation_wrapper,
+        .brochure-link {
+            padding-left: 30px;
+        }
+
+        .gforms_confirmation_message {
+            padding-left: 30px;
         }
 
         .gform_confirmation_message {
@@ -192,7 +203,8 @@
             padding: 0;
         }
 
-        .gform_confirmation_wrapper ~ .text {
+        .gform_confirmation_wrapper ~ .text,
+        .gforms_confirmation_message ~ .text {
             display: none;
         }
 
