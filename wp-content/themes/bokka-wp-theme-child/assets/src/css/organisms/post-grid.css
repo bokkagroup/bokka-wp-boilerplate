@@ -297,7 +297,10 @@
             }
         }
     }
+}
 
+.section.events-archive,
+.section.post-grid {
     .fallback {
         padding: 30px;
         text-align: center;

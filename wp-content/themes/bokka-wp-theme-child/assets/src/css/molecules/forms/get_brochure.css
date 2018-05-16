@@ -14,7 +14,7 @@
         background: $white;
 
         & > .title {
-            background: url('/wp-content/themes/atom-child/assets/build/images/email-icon-retina.png') no-repeat;
+            background: url('/wp-content/themes/bokka-wp-theme-child/assets/build/images/email-icon-retina.png') no-repeat;
             background-size: 62px 59px;
             padding-left: 75px;
             padding-bottom: 10px;
@@ -158,7 +158,7 @@
         }
 
         .brochure-link {
-            background: url('/wp-content/themes/atom-child/assets/build/images/pdf-icon.jpg') no-repeat;
+            background: url('/wp-content/themes/bokka-wp-theme-child/assets/build/images/pdf-icon.jpg') no-repeat;
             background-position: calc(50%) 0;
             display: none;
             text-align: center;
