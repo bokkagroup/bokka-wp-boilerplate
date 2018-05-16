@@ -1,0 +1,12 @@
+.section.brand-window-image {
+    img {
+        height: 64vw;
+        object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
+
+        @mixin tablet {
+            height: 445px;
+        }
+    }
+}

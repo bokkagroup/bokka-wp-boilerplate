@@ -1,6 +1,8 @@
 <article>
-    {{#if upcoming_event_url}}
-        {{>organisms/upcoming-event}}
+    {{#if events}}
+        {{#each events}}
+            {{>organisms/upcoming-event}}
+        {{/each}}
     {{/if}}
     {{>pages/neighborhoods/brandwindow}}
     {{#if neighborhood_features}}

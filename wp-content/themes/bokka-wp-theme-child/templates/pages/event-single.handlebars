@@ -1,0 +1,90 @@
+<div class="page-wrapper">
+    {{> organisms/brand-window-image}}
+    <div class="section event-single-post">
+        <section>
+            <div class="container">
+                {{#if has_past}}
+                <div class="past-notice">
+                    <p>PLEASE NOTE, THIS EVENT HAS ALREADY OCCURED. If you'd like to know about upcoming events, <a href="/campaigns/get-updates/">become a Boulder Creek Insider &raquo;</a></p>
+                </div>
+                {{/if}}
+                <div class="body">
+                    <div class="content">
+                        <h1 class="title">{{post_title}}</h1>
+                        {{#if event_summary}}
+                        <div class="summary">
+                            <p>{{{event_summary}}}</p>
+                        </div>
+                        {{/if}}
+                        {{#if when}}
+                        <div class="when">
+                            <h4>WHEN:</h4>
+                            <p>{{date}} from {{start_time}} to {{end_time}}</p>
+                        </div>
+                        {{/if}}
+                        {{#if where}}
+                        <div class="where">
+                            <h4>WHERE:</h4>
+                            <p><a href="{{directions_url}}" target="_blank">{{location}}</a></p>
+                        </div>
+                        {{/if}}
+                        {{{post_content}}}
+                    </div>
+                    <div class="sidebar">
+                        <div class="add-to-calendar">
+                            <h4>Add to Your Calendar</h4>
+                            <span class="addtocalendar atc-style-blue" data-month="{{month}}" data-day="{{day}}" data-location="{{location}}" data-start="{{start_time}}" data-end="{{end_time}}">
+                                <var class="atc_event">
+                                    <var class="atc_date_start">{{start_date_time}}</var>
+                                    <var class="atc_date_end">{{end_date_time}}</var>
+                                    <var class="atc_timezone">America/Denver</var>
+                                    <var class="atc_title">{{post_title}}</var>
+                                    <var class="atc_description">{{event_summary}}</var>
+                                    <var class="atc_location">{{location}}</var>
+                                    <var class="atc_organizer">Boulder Creek Neighborhoods</var>
+                                    <var class="atc_organizer_email">info@livebouldercreek.com</var>
+                                </var>
+                            </span>
+                        </div>
+                        {{#if neighborhood}}
+                        {{#with neighborhood}}
+                            <div class="neighborhood-banner">
+                                <div class="image">
+                                    {{#if featured_image}}
+                                        <a href="{{permalink}}">
+                                            <img src="{{featured_image}}" alt=" ">
+                                        </a>
+                                    {{else}}
+                                        <a href="{{permalink}}">
+                                            <img src="/wp-content/themes/bokka-wp-theme-child/assets/build/images/home-background-faded_536x246.jpg" alt=" " class="fallback">
+                                        </a>
+                                    {{/if}}
+                                </div>
+                                <div class="details">
+                                    <h3>{{post_title}}</h3>
+                                    <p class="location">in {{city}}, {{state}}</p>
+                                    <p class="product">
+                                    {{#each types}}
+                                        {{#if @first}}
+                                          {{! the below line is a little crazy but formats a list into the following style "x, y & z"}}
+                                          {{this}}{{else}}{{#if @last}}{{#unless @first}} & {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
+                                        {{/if}}
+                                    {{/each}}
+                                    {{#if base_price}}<br>from the ${{base_price}}s{{/if}}
+                                    </p>
+                                    <a href="{{permalink}}" class="button reversed">Explore Neighborhood</a>
+                                </div>
+                            </div>
+                        {{/with}}
+                        {{/if}}
+                    </div>
+                </div><!-- /body -->
+
+                <div class="share">
+                    <span>Share this</span> {{{share}}}
+                </div>
+            </div><!-- /container -->
+        </section>
+    </div><!-- /custom-post -->
+    {{> organisms/cta-get-updates }}
+</div><!-- /page-wrapper -->

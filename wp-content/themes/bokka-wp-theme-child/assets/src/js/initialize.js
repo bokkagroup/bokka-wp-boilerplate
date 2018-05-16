@@ -16,6 +16,8 @@ jQuery( document ).ready(function($) {
         })
     }
 
+    require('./vendor/addtocalendar.js');
+
     /**
      * Global Helpers
      */

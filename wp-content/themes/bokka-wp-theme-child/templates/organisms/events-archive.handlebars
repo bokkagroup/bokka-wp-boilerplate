@@ -1,0 +1,65 @@
+<div id="{{id}}" class="section events-archive">
+    <section>
+        <div class="container">
+
+            {{#if posts}}
+
+                <ul class="events-list">
+
+                {{#each posts}}
+
+                    <li class="item {{#if feat_img}} color-bg{{else}}{{#unless thumbnail}} color-bg white-text{{/unless}}{{/if}}{{#if two_column}} two-column{{/if}}">
+
+                        {{#if feat_img}}
+                            <a class="image image-cutout" href="{{permalink}}" style="background-image:url('{{feat_img}}');"></a>
+                        {{else}}
+                            {{#if thumbnail}}
+                                <a class="image" href="{{permalink}}" style="background-image:url('{{images.tablet}}');"></a>
+                            {{/if}}
+                        {{/if}}
+
+                        <div class="text">
+                            {{#if date}}
+                            <div class="date">
+                                <span class="icon icon-events"></span>
+                                {{date}}
+                                {{#if neighborhood}}
+                                    at {{neighborhood.post_title}}
+                                {{/if}}
+                            </div>
+                            {{/if}}
+
+                            <div class="title">
+                                <a href="{{permalink}}">
+                                    <h4>{{post_title}}</h4>
+                                </a>
+                            </div>
+                            <div class="body">
+                                <p>{{{excerpt}}}</p>
+                            </div>
+                            <a class="get-details" href="{{permalink}}">Get Details &raquo;</a>
+                        </div>
+
+                    </li>
+
+                {{/each}}
+
+                </ul>
+
+            {{else}}
+
+                <div class="fallback">
+                    <p><strong>Looks like there's nothing to speak of at this time.</strong> <br>But we are always updating so check back soon!</p>
+                </div>
+
+            {{/if}}
+
+            {{#if pagination}}
+            <div class="pagination">
+                {{{pagination}}}
+            </div><!-- /pagination -->
+            {{/if}}
+
+        </div><!--/container-->
+    </section>
+</div><!--/post-grid-->

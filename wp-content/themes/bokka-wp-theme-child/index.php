@@ -37,15 +37,18 @@ do_action('bwt\before_content'); ?>
             is_tax('blog-post-category') ||
             is_post_type_archive('career') ||
             is_tax('career-category') ||
-            is_post_type_archive('event') ||
-            is_tax('event-category') ||
             is_post_type_archive('testimonial') ||
             is_tax('testimonial-category')) {
             new \BokkaWP\Theme\controllers\CustomPostArchiveController();
+        } elseif (is_post_type_archive('event') ||
+            is_tax('event-category')) {
+            new \BokkaWP\Theme\controllers\EventArchiveController();
         } elseif (is_tax()) {
         } elseif (is_archive()) {
-        } elseif (is_singular(array('blog-post', 'career', 'event', 'testimonial'))) {
+        } elseif (is_singular(array('blog-post', 'career', 'testimonial'))) {
             new \BokkaWP\Theme\controllers\CustomPostSingleController();
+        } elseif (is_singular(array('event'))) {
+            new \BokkaWP\Theme\controllers\EventSingleController();
         } elseif (is_single()) {
         } elseif (is_category()) {
         } elseif (is_404()) {

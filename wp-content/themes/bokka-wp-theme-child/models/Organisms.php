@@ -221,6 +221,7 @@ class Organisms extends \BokkaWP\MVC\Model
             }
         }
 
+        require('organisms/eventsArchive.php');
         require('organisms/postGrid.php');
         require('organisms/postCategories.php');
 

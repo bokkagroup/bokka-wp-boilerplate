@@ -23,7 +23,6 @@ class Neighborhoods extends \BokkaWP\MVC\Model
         $this->data = $post;
     }
 
-
     private function setMap($post, $zoom)
     {
         $sales_team = getSalesTeamMembers($post->ID);
@@ -117,8 +116,42 @@ class Neighborhoods extends \BokkaWP\MVC\Model
 
     private function setUpcomingEvent($post)
     {
-        if ($post->upcoming_event) {
-            $post->upcoming_event_url = get_permalink(get_field('upcoming_event', $post->ID));
+        $today = date('Y-m-d');
+        $args = array(
+            'post_type' => 'event',
+            'posts_per_page' => 2,
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key' => 'neighborhood',
+                    'value' => '"' . $post->ID . '"',
+                    'compare' => 'LIKE'
+                ),
+                array(
+                    'key'       => 'end_date_time',
+                    'value'     => $today,
+                    'compare'   => '>=',
+                    'type'      => 'DATE'
+                )
+            )
+        );
+        $events = get_posts($args);
+
+        $events = array_map(function ($event) {
+            $event->event_url = get_permalink($event->ID);
+            $event->banner_btn = 'Get Event Details';
+            return $event;
+        }, $events);
+
+        if (count($events) > 1) {
+            $post->events = array(
+                array(
+                    'event_url' => '/events',
+                    'banner_btn' => 'See Events'
+                )
+            );
+        } else {
+            $post->events = $events;
         }
     }
 
