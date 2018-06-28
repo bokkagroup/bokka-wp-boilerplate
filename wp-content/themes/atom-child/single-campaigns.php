@@ -5,7 +5,6 @@ do_action('bwt\before_content'); ?>
 
     <div id="content" class="content">
         <?php
-        global $wp_query;
         new \CatalystWP\AtomChild\controllers\CampaignController();
         ?>
     </div><!--/content-->

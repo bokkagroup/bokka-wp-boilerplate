@@ -9,4 +9,5 @@
  * @package bokka_wp_theme
  */
 
-new CatalystWP\AtomChild\controllers\CampaignHeaderController();
+global $post;
+new CatalystWP\AtomChild\controllers\CampaignHeaderController(["post_id" => $post->ID]);

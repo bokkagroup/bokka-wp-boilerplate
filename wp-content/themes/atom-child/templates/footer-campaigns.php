@@ -6,10 +6,10 @@
  *
  * @package bokka_wp_theme
  */
-?>
 
-    <?php new CatalystWP\AtomChild\controllers\CampaignFooterController(); ?>
-    </div><!--/site-wrapper-->
-    <?php wp_footer(); ?>
+global $post;
+new CatalystWP\AtomChild\controllers\CampaignFooterController(["post_id" => $post->ID]); ?>
+</div><!--/site-wrapper-->
+<?php wp_footer(); ?>
 </body>
 </html>
