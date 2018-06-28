@@ -1,0 +1,68 @@
+<div class="footer" id="footer">
+    <div class="container">
+        <div class="contact-us">
+            <div class="title">
+                <h4>Contact Us</h4>
+            </div>
+            <div class="buttons">
+                <a href="/contact-us/our-locations/" class="icon icon-footer-locations">Visit Us</a>
+                <a href="mailto:hello@livebouldercreek.com?subject=I%27d%20like%20to%20learn%20more%20about%20Boulder%20Creek%20Neighborhoods" class="icon icon-footer-email">Send an Email</a>
+                <a href="tel:7206367088" class="icon icon-footer-phone">720-636-7088</a>
+            </div>
+            <div class="chat">
+                {{>molecules/blocks/osc-image}}
+                <div class="text">
+                    <h4>Questions?</h4>
+                    <p>We're here to help</p>
+                    <a href="/contact-us/ask-a-question/">Ask a Question Now&nbsp;&raquo;</a>
+                </div>
+            </div>
+
+        </div><!--/contact-us-->
+        <div class="neighborhoods">
+            <div class="title">
+                <h4>Explore Our Colorado Neighborhoods</h4>
+            </div>
+            <ul>
+                {{#each communities}}
+                    <li>
+                        <a href="{{link}}">
+                            {{title}}  {{#if city}}in {{city}}{{/if}}
+                            {{#if price}}
+                            <span>
+                                {{#each types}}
+                                    {{#if @first}}
+                                    {{! the below line is a little crazy but formats a list into the following style "x, y & z"}}
+                                        {{this}}{{else}}{{#if @last}}{{#unless @first}} &amp; {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
+                                    {{/if}}
+                                {{/each}} from the ${{price}}s</span>
+                            {{/if}}
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+
+        </div><!--neighborhoods-->
+    </div><!--/container-->
+    <hr/>
+    <div class="container">
+        <div class="copyright">
+            Copyright {{year}} Boulder Creek Brands LLC<br>
+            <span>Boulder Creek Neighborhoods&trade; is a licensed trademark and tradename of Boulder Creek Brands LLC, a Colorado limited liability company. Floor plan information is for illustration purposes only and is not part of a legal contract.  All pricing, availability, and specifications are subject to change without notice.</span>
+        </div>
+        <div class="badges">
+            <img src="/wp-content/themes/atom-child/assets/build/images/BCN-Accreditations-Energy-Star.png" height="50" width="75" alt=" ">
+            <img src="/wp-content/themes/atom-child/assets/build/images/BCN-Accreditations-Equal-House.png" height="50" width="75" alt=" ">
+        </div>
+        <ul class="subnav">
+            <li><i class="icon icon-equal-housing"></i></li>
+            <li>
+                <a href="/privacyterms/">Privacy/Terms</a>
+            </li>
+        </ul>
+        <div class="facebook">
+            Find Us
+            <a href="https://www.facebook.com/bouldercreeklifeandhome" class="icon icon-footer-facebook"><span>On Facebook</span></a>
+        </div>
+    </div><!--/container-->
+</div><!--/footer-->

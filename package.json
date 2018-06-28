@@ -1,0 +1,77 @@
+{
+  "name": "bokkagroup/livebcn",
+  "description": "A boilerplate for Catalyst WP",
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/bokkagroup/atom"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/bokkagroup/nucleus"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/bokkagroup/bokka-utilities"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:bokkagroup/advanced-custom-fields-pro.git"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:bokkagroup/advanced-custom-field-repeater-collapser.git"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:bokkagroup/gravityforms.git"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:bokkagroup/gravity-forms-acf-field.git"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:bokkagroup/wp-migrate-db-pro.git"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:bokkagroup/multisite-url-fixer.git"
+    },
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CatalystWP\\AtomChild\\models\\": "wp-content/themes/atom-child/models/",
+      "CatalystWP\\AtomChild\\controllers\\": "wp-content/themes/atom-child/controllers/",
+      "CatalystWP\\AtomChild\\views\\": "wp-content/themes/atom-child/views/"
+    }
+  },
+  "require": {
+    "bokkagroup/atom": "*",
+    "bokkagroup/bokka-utilities": "*",
+    "bokkagroup/nucleus": "dev-development",
+    "bokkagroup/advanced-custom-field-repeater-collapser": "^1.4",
+    "bokkagroup/advanced-custom-fields-pro": "5.5.12",
+    "bokkagroup/gravityforms": "^1.9",
+    "bokkagroup/gravity-forms-acf-field": "^1.1",
+    "bokkagroup/multisite-url-fixer": "*",
+    "bokkagroup/wp-migrate-db-pro": "1.6",
+    "wpackagist-plugin/custom-post-type-ui": "^1.5",
+    "wpackagist-plugin/wordpress-seo": "^4.6",
+    "wpackagist-plugin/wp-better-attachments": "^1.3",
+    "wpackagist-plugin/wp-crontrol": "^1.5",
+    "wpackagist-plugin/wp-mail-smtp": "*",
+    "johnpbloch/wordpress": "4.9"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
+  },
+  "dependencies": {
+    "query-string": "^6.0.0"
+  }
+}

@@ -1,39 +1,33 @@
 # WordPress #
 ############
+wp
 patternlab-php-master/
 wp-config-local.php
 wp-content/uploads
-wp-content/plugins/debug-log.php
+wp-content/plugins
 wp-content/blogs.dir/
 wp-config.php
 wp-content/upgrade/
 wp-content/backup-db/
+wp-content/cache/
+wp-content/backups/
 wp-content/object-cache.php
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache
-wp-content/ewww
+wp-content/www
 sitemap.xml
 sitemap.xml.gz
 *.log
-.idea/
+
+# Catalyst WP #
+###############
+wp-content/themes/atom
 build/
 
-
-# Interconnectit Search & Replace
-# https://interconnectit.com/products/search-and-replace-for-wordpress-databases/
-replace/*
-
-# wpengine specific
-.smushit-status
-.gitattributes
-_wpeprivate
-configseparator.php.
-
-# @TODO writable paths
-wp-content/cache/
-wp-content/backups/
-
+# Composer #
+###############
+/vendor
 
 # Packages #
 ############
@@ -67,7 +61,9 @@ Thumbs.db
 
 # IDE generated files #
 ######################
-*.idea/*
+.idea/
+.floo
+.flooignore
 
 # SASS, NPM, GULP #
 ##########
@@ -109,23 +105,3 @@ node_modules
 *.asf
 *.wmv
 *.avi
-
-
-.floo
-.flooignore
-wp-content/plugins/regenerate-thumbnails/jquery-ui/jquery.ui.progressbar.min.1.7.2.js
-wp-content/plugins/regenerate-thumbnails/jquery-ui/jquery.ui.progressbar.min.js
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_flat_55_fbec88_40x100.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_glass_85_dfeffc_1x400.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_glass_95_fef1ec_1x400.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_inset-hard_100_f5f8f9_1x100.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png
-wp-content/plugins/regenerate-thumbnails/jquery-ui/redmond/jquery-ui-1.7.2.custom.css
-wp-content/plugins/regenerate-thumbnails/readme.txt
-wp-content/plugins/regenerate-thumbnails/regenerate-thumbnails.php
-wp-content/plugins/regenerate-thumbnails/screenshot-1.png
-wp-content/plugins/regenerate-thumbnails/screenshot-2.png
-wp-content/plugins/regenerate-thumbnails/screenshot-3.png

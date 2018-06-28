@@ -89,7 +89,7 @@ We don't have to use these multiple files which often clutters our our codebase.
 Eventually this might translate into your `index.php` having something like the following
 ```
 if (is_front_page()) {
-    new \BokkaWP\Theme\controllers\HomeController();
+    new \CatalystWP\AtomChild\controllers\HomeController();
 }
 ```
 
@@ -101,7 +101,7 @@ Essentially this methodology creates a trail of breadcrumbs that will make it ea
 Generally when we take this approach we'll only be loading our controllers. Our controllers are essentially the thing that controls what happens when that route is met. A controller for a page might look different than a controller for a custom post type as each needs to be handled differently. You'll want to make sure you're providing a default case as well. Generally, we have both a 404 case at the bottom of my `if/elseif` structure as well as a default `else` at the end to handle anything that we didn't catch.
 ```
 if (is_front_page()) {
-    new \BokkaWP\Theme\controllers\HomeController();
+    new \CatalystWP\AtomChild\controllers\HomeController();
 } elseif (is_404()) {
     //handle 404 here
 } else {

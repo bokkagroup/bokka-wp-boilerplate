@@ -1,0 +1,15 @@
+<div id="{{id}}" class="section brand-window-image">
+    <section>
+
+        <div class="image {{#unless image}}fallback{{/unless}}">
+            <figure>
+                {{#if image}}
+                    {{{images.responsive}}}
+                {{else}}
+                    <img src="{{images.fallback-full}}"alt=" " />
+                {{/if}}
+            </figure>
+        </div><!--/image-->
+
+    </section>
+</div><!--/brand-window-->

@@ -1,0 +1,54 @@
+{
+  "name": "bokkagroup/livebouldercreek",
+  "description": "A boilerplate for Catalyst WP",
+  "minimum-stability": "dev",
+  "repositories": [
+    { "type": "git", "url": "https://github.com/bokkagroup/atom" },
+    { "type": "git", "url": "https://github.com/bokkagroup/nucleus" },
+    { "type": "git", "url": "https://github.com/bokkagroup/bokka-utilities" },
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/advanced-custom-fields-pro.git" },
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/advanced-custom-field-repeater-collapser.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/gravityforms.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/admin-columns-pro.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/gravity-forms-acf-field.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/wp-migrate-db-pro.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/facetwp.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/bcn-hatchbuck.git"},
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/admin-columns-acf-add-on.git"},
+    { "type": "composer", "url": "https://wpackagist.org" }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CatalystWP\\AtomChild\\models\\" : "wp-content/themes/atom-child/models/",
+      "CatalystWP\\AtomChild\\controllers\\" : "wp-content/themes/atom-child/controllers/",
+      "CatalystWP\\AtomChild\\views\\" : "wp-content/themes/atom-child/views/"
+    }
+  },
+  "require": {
+    "bokkagroup/bokka-utilities": "*",
+    "bokkagroup/nucleus": "^0.1",
+    "bokkagroup/admin-columns-pro": "^3.6",
+    "bokkagroup/advanced-custom-field-repeater-collapser": "^1.4",
+    "bokkagroup/advanced-custom-fields-pro": "5.5.12",
+    "bokkagroup/gravityforms": "^1.9",
+    "bokkagroup/gravity-forms-acf-field": "^1.1",
+    "bokkagroup/wp-migrate-db-pro": "1.6",
+    "bokkagroup/facetwp": "dev-master",
+    "bokkagroup/bcn-hatchbuck": "*",
+    "bokkagroup/admin-columns-acf-addon": "^1.3",
+    "wpackagist-plugin/regenerate-thumbnails": "^3.0",
+    "wpackagist-plugin/wp-smushit": "^2.7",
+    "wpackagist-plugin/admin-menu-editor": "^1.8",
+    "wpackagist-plugin/custom-post-type-ui": "^1.5",
+    "wpackagist-plugin/add-to-any": "^1.7",
+    "wpackagist-plugin/duplicate-post": "^3.2",
+    "wpackagist-plugin/wordpress-seo": "^4.6",
+    "wpackagist-plugin/wp-better-attachments": "^1.3",
+    "wpackagist-plugin/wp-crontrol": "^1.5",
+    "wpackagist-plugin/wp-mail-smtp": "*",
+    "johnpbloch/wordpress": "4.9"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
+  }
+}

@@ -1,0 +1,20 @@
+<ul class="floorplans-list">
+    {{#each neighborhoods}}
+        <li class="neighborhood" data-location="{{city}}" data-neighborhood="{{title}}">
+            <section>
+                <div class="container">
+                    <div class="header">
+                        <header>
+                            <h2>{{title}} in {{city}}, {{state}}</h2>
+                        </header>
+                    </div>
+                    <div class="body product-listing">
+                        {{#each plans}}
+                            {{>molecules/blocks/product-item}}
+                        {{/each}}
+                    </div>
+                </div>
+            </section>
+        </li>
+    {{/each}}
+</ul>

@@ -1,0 +1,100 @@
+<div class="section floorplan detail-brand-window">
+    <section>
+        <div class="container">
+            <div class="right">
+                {{#if status_message}}
+                    <div class="product-status">
+                        {{status_message}}
+                    </div>
+                {{/if}}
+                {{#if elevations}}
+                    {{>molecules/blocks/elevations-gallery}}
+                {{else}}
+                    {{>molecules/blocks/brand-window-fallback}}
+                {{/if}}
+            </div> <!-- plan-window-right -->
+            <div class="left">
+                <div class="text">
+                    <div class="title">
+                        <h1 class="plan-meta-name">{{post_title}} Plan</h1>
+                        <h3 class="plan-meta-plan-name">{{type}}</h3>
+
+                        <a class="plan-meta-community-name" href="{{neighborhood_link}}">
+                            <h3 class="community-name">{{neighborhood_title}} &raquo;</h3>
+                        </a>
+                    </div> <!-- plan-meta-top -->
+                    <div class="body">
+                        <ul class="plan-amenities">
+                            {{#if bedrooms_min}}
+                                <li>
+                                    <i class="icon icon-beds"></i>
+                                    <span>
+                                        {{bedrooms_min}}
+                                        {{#if bedrooms_max}}
+                                            &ndash; {{bedrooms_max}}
+                                        {{/if}}
+                                    </span>Bedrooms
+                                </li>
+                            {{/if}}
+                            {{#if bathrooms_min}}
+                                <li>
+                                    <i class="icon icon-baths"></i>
+                                    <span>
+                                        {{bathrooms_min}}
+                                        {{#if bathrooms_max}}
+                                            &ndash; {{bathrooms_max}}
+                                        {{/if}}
+                                    </span>Bathrooms
+                                </li>
+                            {{/if}}
+                            {{#if garage_min}}
+                                <li>
+                                    <i class="icon icon-garage"></i>
+                                    <span>
+                                        {{garage_min}}
+                                        {{#if garage_max}}
+                                            &ndash; {{garage_max}}
+                                        {{/if}}
+                                    </span>Car Garage
+                                </li>
+                            {{/if}}
+                            {{#if finished_sqr_ft}}
+                                <li>
+                                    <i class="icon icon-sq-ft-main-floor"></i>Up to &nbsp;
+                                    <span> {{finished_sqr_ft}} sq. ft.</span>
+                                </li>
+                            {{/if}}
+                            {{#if main_sqr_ft}}
+                                <li>
+                                    <i class="icon icon-sq-ft-total"></i>Starts at &nbsp;
+                                    <span> {{main_sqr_ft}} sq. ft</span>
+                                    <div class="tooltip icon icon-help" data-tip="Square footage varies based on floorplan options selected."></div>
+                                </li>
+                            {{/if}}
+
+                            {{#if base_price}}
+                                <li><i class="icon icon-price"></i>Priced From &nbsp;
+                                    <span> ${{base_price}}k</span>
+                                    <div class="tooltip icon icon-help" data-tip="Final price depends on homesite and options selected."></div>
+                                </li>
+                            {{else}}
+                                <li><i class="icon icon-price"></i> Pricing Coming Soon
+                                </li>
+                            {{/if}}
+                        </ul>
+                        {{#if displayBrochureForm}}
+                            <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" data-width="415" href="#get_brochure_form">Get Brochure</a>
+                        {{else}}
+                            <a class="button yellow fancy-trigger" data-wrapclass="get-brochure-wrapper" data-width="415" href="#get_brochure_modal">Get Brochure</a>
+                            <div style="display:none">
+                                <div id="get_brochure_modal">
+                                    {{> molecules/blocks/get-brochure-modal}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div> <!-- plan-meta-bottom -->
+                </div> <!-- plan-meta -->
+            </div><!-- plan-window-left -->
+        </div> <!-- plan-window-wrapper -->
+    </section>
+</div>

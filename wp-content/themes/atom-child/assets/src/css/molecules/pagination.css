@@ -1,0 +1,70 @@
+.post-grid,
+.events-archive {
+    .pagination {
+        background: $white;
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+        margin: 0 0 45px;
+        padding: 20px 10px;
+        text-align: center;
+        width: 100%;
+
+        @mixin tablet {
+            padding: 25px 30px;
+        }
+
+        .page-numbers {
+            color: $blue;
+            display: none;
+            font-family: 'Open Sans';
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 0.6em 0.8em;
+            text-decoration: none;
+
+            &.next,
+            &.prev {
+                display: inline-block;
+                font-weight: 400;
+            }
+
+            &.next {
+                float: right;
+
+                @mixin tablet {
+                    float: none;
+                }
+            }
+
+            &.prev {
+                float: left;
+
+                @mixin tablet {
+                    float: none;
+                }
+            }
+
+            @mixin tablet {
+                display: inline-block;
+                font-size: 16px;
+            }
+
+            &:hover {
+                background: rgba(85, 156, 190, 0.6);
+                color: $white;
+            }
+
+            &.current {
+                background: $gray_light3;
+                color: $gray_dark1;
+            }
+
+            &.dots {
+                &:hover {
+                    background: transparent;
+                    color: $blue;
+                }
+            }
+        }
+    }
+}

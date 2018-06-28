@@ -1,0 +1,28 @@
+.section.custom-post,
+.section.event-single-post {
+    .share {
+        background: rgba(155, 154, 155, 0.3);
+        color: $gray_dark2;
+        font-family: 'Open Sans';
+        font-weight: bold;
+        margin: 30px 0 0;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+
+        @mixin tablet {
+            margin: 0;
+            padding: 20px 40px 16px;
+            text-align: left;
+        }
+
+        .addtoany_shortcode {
+            display: inline-block;
+            margin: 10px 15px 0;
+
+            @mixin tablet {
+                margin: 0 0 0 15px;
+            }
+        }
+    }
+}

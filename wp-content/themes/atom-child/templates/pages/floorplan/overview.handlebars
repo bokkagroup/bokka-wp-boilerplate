@@ -1,0 +1,53 @@
+<div class="organism floorplan-filters container">
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <h1>
+                    New Home Search
+                </h1>
+            </header>
+        </div>
+        <ul>
+            {{#each facets}}
+                <li>
+                    {{#if label}}
+                        <span class="label">{{label}}</span>
+                    {{/if}}
+                    {{#if facet}}
+                        <span>
+                            {{{facet}}}
+                        </span>
+                    {{/if}}
+                </li>
+            {{/each}}
+        </ul>
+        <div class="facet-reset">
+            <button>Reset</button>
+        </div>
+        <div class="count">
+            {{{count}}}
+            <span class="facet-counter"></span>&nbsp;<span class="facet-counter-label"></span> Found
+        </div>
+    </div>
+
+    <div class="show-filters">
+        <button>Filter Floorplans</button>
+    </div>
+</div>
+
+<div class="floorplan-header">
+    <div class="header">
+        <header>
+            <h1>
+                New Home Plans
+            </h1>
+        </header>
+    </div>
+    <div class="count">
+        {{{count}}}
+        <span class="facet-counter"></span> Floorplans Found
+    </div>
+</div>
+
+
+{{{facets_template}}}

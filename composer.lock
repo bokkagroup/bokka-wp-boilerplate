@@ -1,0 +1,772 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "bcaf22d93c776ec048c49f2695f9b528",
+    "packages": [
+        {
+            "name": "bokkagroup/admin-columns-acf-addon",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/admin-columns-acf-add-on.git",
+                "reference": "5e4f28f36a0f7a85374662a52375e1b9a33404a7"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "Codewizard",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "time": "2018-04-11T06:14:38+00:00"
+        },
+        {
+            "name": "bokkagroup/admin-columns-pro",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/admin-columns-pro.git",
+                "reference": "34780fe69d9c002edded3089d942bd08d0351559"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "Codewizard",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "time": "2018-02-09T21:44:53+00:00"
+        },
+        {
+            "name": "bokkagroup/advanced-custom-field-repeater-collapser",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/advanced-custom-field-repeater-collapser.git",
+                "reference": "63c986c9c5c696420883a4ea837f661b26cd35b5"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "Codewizaerd",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "time": "2018-04-10T20:30:17+00:00"
+        },
+        {
+            "name": "bokkagroup/advanced-custom-fields-pro",
+            "version": "5.5.12",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/advanced-custom-fields-pro.git",
+                "reference": "6a8693fffac2262be09b9a6a7cfc4423aa3ed770"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "Codewizard",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "time": "2018-02-06T23:34:05+00:00"
+        },
+        {
+            "name": "bokkagroup/bcn-hatchbuck",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/bcn-hatchbuck.git",
+                "reference": "3c41b4beaf1f189eb5155c1cdd9a2eb68a74be15"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "Codewizard",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "time": "2018-04-11T05:43:26+00:00"
+        },
+        {
+            "name": "bokkagroup/bokka-utilities",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bokkagroup/bokka-utilities",
+                "reference": "2e9a9f695c9e30d5981c88be09c84d467a400c5c"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bokka\\Utilities\\": "src/"
+                }
+            },
+            "license": [
+                "GNU2"
+            ],
+            "description": "A utilities plugin built to be used in the Catalyst WordPress framework by the Bokka Group.",
+            "time": "2017-11-10T18:45:23+00:00"
+        },
+        {
+            "name": "bokkagroup/facetwp",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/facetwp.git",
+                "reference": "53a4fe603402c50a9851e1a508580a58db3f94e6"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "codewizard",
+                    "email": "mikemcguire.dev@gmail.com"
+                }
+            ],
+            "description": "Gravity Forms",
+            "time": "2018-04-04T06:21:54+00:00"
+        },
+        {
+            "name": "bokkagroup/gravity-forms-acf-field",
+            "version": "1.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/gravity-forms-acf-field.git",
+                "reference": "083e66a2ee8c424bb8446396e5cff5e5c71dadcd"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "Codewizard",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "time": "2017-04-04T22:26:14+00:00"
+        },
+        {
+            "name": "bokkagroup/gravityforms",
+            "version": "1.9.19",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/gravityforms.git",
+                "reference": "3e389a066fd20917b691e881e58ed182bf330276"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "codewizard",
+                    "email": "mikemcguire.dev@gmail.com"
+                }
+            ],
+            "description": "Gravity Forms",
+            "time": "2018-02-07T00:04:14+00:00"
+        },
+        {
+            "name": "bokkagroup/nucleus",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bokkagroup/nucleus",
+                "reference": "1cef64ba7008c00a90095ae60fd597cc5e3a3712"
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "tmilos/lexer": "1.0.*"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GNU2"
+            ],
+            "authors": [
+                {
+                    "name": "Mike McGuire",
+                    "email": "mike@bokkagroup.com"
+                }
+            ],
+            "description": "A plugin that provides MVC functionality in the Catalyst WP Toolbox.",
+            "time": "2018-05-10T15:40:51+00:00"
+        },
+        {
+            "name": "bokkagroup/wp-migrate-db-pro",
+            "version": "1.6",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:bokkagroup/wp-migrate-db-pro.git",
+                "reference": "a589899fd53ffcd99f5e9537d358b5afd795e22c"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "UNLICENSED"
+            ],
+            "authors": [
+                {
+                    "name": "codewizard",
+                    "email": "mikemcguire.dev@gmail.com"
+                }
+            ],
+            "description": "Migrate DB Pro",
+            "time": "2018-02-06T23:55:32+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "049797d727261bf27f2690430d935067710049c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
+                "reference": "049797d727261bf27f2690430d935067710049c2",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2017-12-29T09:13:20+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress",
+            "version": "4.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress.git",
+                "reference": "b15c463dc04c79483058a3da16865c356393408d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/b15c463dc04c79483058a3da16865c356393408d",
+                "reference": "b15c463dc04c79483058a3da16865c356393408d",
+                "shasum": ""
+            },
+            "require": {
+                "johnpbloch/wordpress-core": "4.9.0",
+                "johnpbloch/wordpress-core-installer": "^1.0",
+                "php": ">=5.3.2"
+            },
+            "type": "package",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "http://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is web software you can use to create a beautiful website or blog.",
+            "homepage": "http://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "time": "2017-11-16T01:32:51+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core",
+            "version": "4.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core.git",
+                "reference": "bf2ed9c364d35bcabd15c4bb139c2581ea8513a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/bf2ed9c364d35bcabd15c4bb139c2581ea8513a9",
+                "reference": "bf2ed9c364d35bcabd15c4bb139c2581ea8513a9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "provide": {
+                "wordpress/core-implementation": "4.9.0"
+            },
+            "type": "wordpress-core",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "WordPress Community",
+                    "homepage": "http://wordpress.org/about/"
+                }
+            ],
+            "description": "WordPress is web software you can use to create a beautiful website or blog.",
+            "homepage": "http://wordpress.org/",
+            "keywords": [
+                "blog",
+                "cms",
+                "wordpress"
+            ],
+            "time": "2017-11-16T01:32:46+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress-core-installer",
+            "version": "1.0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress-core-installer.git",
+                "reference": "7941acd71725710a789daabe0557429da63e7ac6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core-installer/zipball/7941acd71725710a789daabe0557429da63e7ac6",
+                "reference": "7941acd71725710a789daabe0557429da63e7ac6",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "conflict": {
+                "composer/installers": "<1.0.6"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0",
+                "phpunit/phpunit": ">=4.8.35"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "johnpbloch\\Composer\\WordPressCorePlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "johnpbloch\\Composer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "John P. Bloch",
+                    "email": "me@johnpbloch.com"
+                }
+            ],
+            "description": "A custom installer to handle deploying WordPress with composer",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2018-01-29T14:49:29+00:00"
+        },
+        {
+            "name": "tmilos/lexer",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tmilos/lexer.git",
+                "reference": "e7885595614759f1da2ff79b66e3fb26d7f875fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tmilos/lexer/zipball/e7885595614759f1da2ff79b66e3fb26d7f875fa",
+                "reference": "e7885595614759f1da2ff79b66e3fb26d7f875fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.6",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tmilos\\Lexer\\": "src/",
+                    "Tests\\Tmilos\\Lexer\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Milos Tomic",
+                    "email": "tmilos@gmail.com"
+                }
+            ],
+            "description": "Lexical analyzer with individual token definition with regular expressions",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2016-12-21T11:22:39+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/add-to-any",
+            "version": "1.7.26",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/add-to-any/",
+                "reference": "tags/1.7.26"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.26.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/add-to-any/"
+        },
+        {
+            "name": "wpackagist-plugin/admin-menu-editor",
+            "version": "1.8.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/admin-menu-editor/",
+                "reference": "tags/1.8.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.8.4.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/admin-menu-editor/"
+        },
+        {
+            "name": "wpackagist-plugin/custom-post-type-ui",
+            "version": "1.5.8",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/custom-post-type-ui/",
+                "reference": "tags/1.5.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/custom-post-type-ui.1.5.8.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/custom-post-type-ui/"
+        },
+        {
+            "name": "wpackagist-plugin/duplicate-post",
+            "version": "3.2.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/duplicate-post/",
+                "reference": "tags/3.2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/duplicate-post.3.2.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/duplicate-post/"
+        },
+        {
+            "name": "wpackagist-plugin/regenerate-thumbnails",
+            "version": "3.0.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/regenerate-thumbnails/",
+                "reference": "tags/3.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.3.0.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "4.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/4.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.4.9.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-seo/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-better-attachments",
+            "version": "1.3.11",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-better-attachments/",
+                "reference": "tags/1.3.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-better-attachments.1.3.11.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-better-attachments/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-crontrol",
+            "version": "1.6.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-crontrol/",
+                "reference": "tags/1.6.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-crontrol.1.6.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-crontrol/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-mail-smtp",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-mail-smtp/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.zip?timestamp=1517953157",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-mail-smtp/",
+            "time": "2018-02-06T21:39:17+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/wp-smushit",
+            "version": "2.7.9.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-smushit/",
+                "reference": "tags/2.7.9.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-smushit.2.7.9.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-smushit/"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "bokkagroup/facetwp": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

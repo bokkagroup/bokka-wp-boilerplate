@@ -1,0 +1,4 @@
+@define-mixin bg-white-shadow {
+    background-color: #fff;
+    box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,344 @@
+@define-mixin  facet-header {
+    .header {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    header h1 {
+        font-size: 32px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: -0.4px;
+        text-align: left;
+    }
+}
+
+@define-mixin facet-counter {
+    .count {
+
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: $purple;
+        text-align: center;
+        width: 100%;
+
+        * {
+            display: inline-block;
+        }
+    }
+
+    .facetwp-counts {
+        display: none;
+    }
+}
+
+.floorplan-header {
+    @mixin facet-header;
+    @mixin facet-counter;
+
+    margin-bottom: 30px;
+
+    .header {
+        display: block;
+        margin-bottom: 0;
+
+        @mixin desktop {
+            display: none;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    }
+
+    .count {
+        display: block;
+
+        @mixin desktop {
+            display: none;
+        }
+    }
+}
+
+.floorplan-filters {
+    @mixin bg-white-shadow;
+    @mixin facet-header;
+    @mixin facet-counter;
+    @mixin desktop {
+        margin: 40px auto;
+        padding: 30px;
+        border-top: none;
+    }
+
+    border-top: 1px solid #ccc;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+
+
+    .wrapper {
+        display: none;
+        width: 100%;
+
+        @mixin desktop {
+            display: block;
+        }
+
+    }
+
+    .show-filters {
+        display: block;
+        margin: 0 auto;
+
+        @mixin desktop {
+            display: none;
+        }
+    }
+
+    .count {
+        display: none;
+
+        @mixin desktop {
+            display: block;
+        }
+    }
+
+
+    .header {
+        display: none;
+
+        @mixin desktop {
+            display: block;
+        }
+    }
+
+    .facetwp-facet {
+        margin-bottom: 0px;
+    }
+
+
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+        @mixin desktop {
+            flex-flow: row;
+
+        }
+
+        li {
+
+            @mixin column 1,1;
+            display: flex;
+            flex-flow: column;
+            margin-bottom: 20px;
+
+            @mixin desktop {
+                flex-flow: row;
+            }
+
+
+        }
+
+        li:first-child {
+            order: 4;
+            padding-top: 12px;
+
+
+            @mixin desktop {
+                order: 1;
+                @mixin column 2, 6;
+            }
+        }
+
+        li:nth-child(2) {
+            @mixin desktop {
+                order: 2;
+
+                @mixin column 2, 8;
+            }
+        }
+
+        li:nth-child(3) {
+
+            @mixin desktop {
+                order: 3;
+
+                @mixin column 2, 8;
+            }
+        }
+
+        li:nth-child(4) {
+            order: 3;
+
+            @mixin desktop {
+                order: 3;
+
+                @mixin column 1, 6;
+            }
+        }
+
+
+        li .facetwp-facet {
+            width: 100%;
+        }
+
+        li span {
+            flex-grow: 1;
+
+            @mixin desktop {
+                display: inline-block;
+
+            }
+        }
+
+        li .facetwp-slider-label {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+
+        li .facetwp-slider-wrap {
+            width: 100%;
+        }
+
+        li .label {
+            font-family: "Open Sans";
+            font-size: 16px;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 0.94;
+            letter-spacing: normal;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+
+            @mixin desktop {
+                text-align: left;
+                flex-grow: 0;
+
+            }
+        }
+    }
+
+
+
+    .facetwp-type-dropdown,
+    .facet-wrapper {
+        position: relative;
+        background: #fff;
+        border-radius: 4px;
+        background-color: #fff;
+        border: solid 1px $blue;
+        height: 42px;
+        position: relative;
+        overflow: hidden;
+        backface-visibility: hidden;
+
+        &::before {
+             display: block;
+             content: ' ';
+             width: 40px;
+             height: 42px;
+             background-color: $blue;
+             position: absolute;
+             right: 0;
+        }
+
+        &::after {
+            width: 12px;
+            height: 12px;
+            border-style: solid;
+            transform: rotate(45deg);
+            content: ' ';
+            border-width: 0px 3px 3px 0px;
+            border-color: #fff;
+            position: absolute;
+            right: 15px;
+            top: 12px;
+        }
+    }
+
+    select {
+        width: 100%;
+        height: 100%;
+        appearance: none;
+        background: none;
+        border: none;
+        position: relative;
+        z-index: 1;
+        padding:0 50px 0 15px;
+        font-size: 15px;
+
+        option {
+            font-size: 15px;
+        }
+
+    }
+
+    .facetwp-slider {
+        width: 100%;
+        background: none;
+        border: none;
+        box-shadow: none;
+
+        .noUi-handle {
+            width: 21px;
+            height: 21px;
+            background-color: #fff;
+            border: solid 1px #193856;
+            border-radius: 50%;
+            right: 0;
+            outline: none;
+        }
+
+        .noUi-handle:before,
+        .noUi-handle:after {
+            display: none;
+        }
+
+        .noUi-connect {
+            height: 10px;
+            border-radius: 5px;
+            background-color: $blue;
+            border: solid 1px #193856;
+        }
+
+        .noUi-connects {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #fff;
+            border: solid 1px #193856;
+        }
+
+        .noUi-target {
+            display: none;
+        }
+
+    }
+
+    .facetwp-slider-reset {
+        display: none !important;
+    }
+
+    .facet-reset {
+        display: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+
+}

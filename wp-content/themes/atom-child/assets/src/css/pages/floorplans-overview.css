@@ -1,0 +1,38 @@
+.post-type-archive-plans {
+    background-color: #f0f0f0;
+}
+
+.floorplans-list {
+    list-style:none;
+    padding: 0;
+    margin: 0;
+
+    .header {
+        background: $purple_light;
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 10px;
+
+        h2 {
+            font-family: "Open Sans";
+            font-size: 25px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: -0.1px;
+            text-align: center;
+            color: $white;
+        }
+    }
+
+    .container {
+        @mixin bg-white-shadow;
+
+        margin-bottom: 67px;
+
+        .body {
+            padding: 30px;
+        }
+    }
+}

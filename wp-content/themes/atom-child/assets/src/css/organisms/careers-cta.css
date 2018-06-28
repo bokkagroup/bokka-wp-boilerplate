@@ -1,0 +1,36 @@
+.section.careers-cta {
+    background-color: #e6e9ed;
+    padding-bottom: 45px;
+
+    .cta-wrapper {
+        background-color: #fff;
+        padding-top: 60px;
+
+        @mixin tablet {
+            padding-top: 45px;
+        }
+    }
+
+    .inner {
+        border-color: $purple;
+        border-width: 3px;
+        border-style: solid;
+    }
+
+    h2 {
+        background-color: #fff;
+        display: inline-block;
+        margin-bottom: -53px;
+        padding: 0 20px;
+        position: relative;
+        top: -38px;
+
+        @mixin tablet {
+            top: -53px;
+        }
+    }
+
+    p {
+        margin-top: -30px;
+    }
+}
