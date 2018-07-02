@@ -31,16 +31,16 @@
     }
 
     .warranty-request {
-        background: $blue;
+        background: $purple_dark;
         color: #fff;
         display: none;
         font-size: 11px;
         font-weight: bold;
-        line-height: 2.8;
+        overflow: hidden;
         padding: 0 14px 0 0;
         position: absolute;
         text-decoration: none;
-        top: 0;
+        top: 22px;
         right: 30px;
 
         @mixin desktop {
@@ -48,11 +48,12 @@
         }
 
         span {
-            background: $blue_light;
+            background: $purple;
             border-right: 1px solid #fff;
             display: inline-block;
             font-size: 12px;
-            height: 32px;
+            height: 30px;
+            line-height: 2.8;
             margin: -4px 14px 0 0;
             padding: 1px 0 0 0;
             text-align: center;
