@@ -63,8 +63,9 @@ function filterFloorplanLocation(value)
         var stringified = queryString.stringify(parsed);
         history.pushState(null, null, location.protocol + '//' + location.host + location.pathname + '?' + stringified);
 
-
-    $('.floorplans-location option[value='+value+']').prop('selected', true);
+    if (value) {
+        $('.floorplans-location option[value='+value+']').prop('selected', true);
+    }
     //update our counter
     countFloorplans();
 }
