@@ -40,7 +40,7 @@
             var marker = new google.maps.Marker({
                 position: item.position,
                 map: self.map,
-                icon: '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-purple.png'
+                icon: '/wp-content/themes/atom-child/assets/build/images/map-pin-purple.png'
             });
 
             if(item.link) {

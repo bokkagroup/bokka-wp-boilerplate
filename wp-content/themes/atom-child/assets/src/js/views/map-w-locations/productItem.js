@@ -5,8 +5,8 @@ module.exports = Backbone.View.extend({
         this.mapInfo = this.$el.data('map-info')
         this.parent = this.options.parent
         this.markerIndex = this.options.parent.markerIndex
-        this.defaultIcon = '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-purple.png'
-        this.activeIcon = '/wp-content/themes/bokka-wp-theme-child/assets/build/images/map-pin-green.png'
+        this.defaultIcon = '/wp-content/themes/atom-child/assets/build/images/map-pin-purple.png'
+        this.activeIcon = '/wp-content/themes/atom-child/assets/build/images/map-pin-green.png'
         self.initializeMarker()
     },
     initializeMarker: function(item){

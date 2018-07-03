@@ -467,12 +467,9 @@ class Breadcrumbs extends \CatalystWP\Nucleus\Model
                 'link' => '/'
             ),
             array(
-                'title' => 'Our Homes',
-                'class' => 'icon icon-our-homes'
-            ),
-            array(
-                'title' => ' New Home Search',
-                'link' => '/floorplans',
+                'title' => 'New Home Search',
+                'class' => 'icon icon-our-homes',
+                'link' => '/new-home-search'
             )
         );
     }
