@@ -107,6 +107,7 @@
 @import 'organisms/conversion-point-w-modal-form';
 @import 'organisms/cta-w-image';
 @import 'organisms/custom-post';
+@import 'organisms/custom-cta-w-modal-form';
 @import 'organisms/cta-get-updates';
 @import 'organisms/detail-brand-window';
 @import 'organisms/events-archive';

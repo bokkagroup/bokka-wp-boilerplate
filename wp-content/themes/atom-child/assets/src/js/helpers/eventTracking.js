@@ -130,6 +130,14 @@ $('.section').each(function(){
             eventTrack(category, action, label)
         })
 
+    //custom cta w modal form
+    } else if (el.hasClass('custom-cta-w-modal-form')) {
+        el.on('click', '.button.modal-trigger', function(event){
+            var text = el.find('.button').text().trim()
+            label = ('Custom-CTA-w-Modal-Form-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
+            eventTrack(category, action, label)
+        })
+
     //model brandwindow
     } else if (el.hasClass('detail-brand-window') && el.hasClass('model')) {
         el.on('click', '.button.modal-trigger', function(event){
@@ -322,6 +330,8 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
         page = '/thank-you/floorplan-detail-page/get-brochure'
     } else if(formId === 37){
         page = '/thank-you/neighborhood-detail-page/modal-gallery'
+    } else if(formId === 40){
+        page = '/thank-you/home-collections/get-more-info'
     }
     ga('send', { hitType: 'pageview', page: page })
 })
