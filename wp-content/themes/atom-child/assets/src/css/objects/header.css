@@ -22,11 +22,11 @@
         position: relative;
 
         @mixin desktop-large {
-            padding: 25px 0 15px 0;
+            padding: 25px 0 15px;
         }
 
         @mixin desktop {
-            padding: 25px 30px 15px 30px;
+            padding: 25px 30px 15px;
         }
     }
 
@@ -55,7 +55,7 @@
             height: 30px;
             line-height: 2.8;
             margin: -4px 14px 0 0;
-            padding: 1px 0 0 0;
+            padding: 1px 0 0;
             text-align: center;
             vertical-align: middle;
             width: 32px;

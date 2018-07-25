@@ -8,6 +8,4 @@ class CampaignHeader extends \CatalystWP\Nucleus\Model
     {
         global $post;
     }
-
-
 }

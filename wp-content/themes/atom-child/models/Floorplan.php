@@ -15,12 +15,11 @@ class Floorplan extends \CatalystWP\Nucleus\Model
 
     public function initialize()
     {
-
         $this->setNeighborhood();
         $this->setNeighborhoodLink();
         $this->setNeighborhoodTitle();
         $this->setElevations();
-        $this->setForms( array(
+        $this->setForms(array(
             'request_info_form' => 4,
             'modal_gallery_form' => 37
         ));
@@ -28,7 +27,6 @@ class Floorplan extends \CatalystWP\Nucleus\Model
         $this->setPDF();
         $this->setGalleryItems();
         $this->setPostType();
-
     }
 
     private function setPostType()
@@ -99,6 +97,4 @@ class Floorplan extends \CatalystWP\Nucleus\Model
             $this->elevations = false;
         }
     }
-
-
 }

@@ -9,10 +9,10 @@ class Organisms extends \CatalystWP\Nucleus\Model
         parent::__construct($options);
         $post_id = isset($options['post_id']) ? $options['post_id'] : get_the_ID();
         $this->getFields($post_id);
-
     }
 
-    public function getFields($id) {
+    public function getFields($id)
+    {
         $organisms = get_field('organism', $id);
         if (is_array($organisms)) {
             //recursively loop through our array

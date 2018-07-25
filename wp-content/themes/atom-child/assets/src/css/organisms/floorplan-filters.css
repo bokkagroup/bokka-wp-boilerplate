@@ -1,4 +1,4 @@
-@define-mixin  facet-header {
+@define-mixin facet-header {
     .header {
         width: 100%;
         margin-bottom: 20px;
@@ -17,8 +17,7 @@
 
 @define-mixin facet-counter {
     .count {
-
-        font-family: "Open Sans";
+        font-family: 'Open Sans';
         font-size: 20px;
         font-weight: bold;
         font-style: normal;
@@ -72,6 +71,7 @@
     @mixin bg-white-shadow;
     @mixin facet-header;
     @mixin facet-counter;
+
     @mixin desktop {
         margin: 40px auto;
         padding: 30px;
@@ -82,7 +82,6 @@
     padding: 20px 30px;
     margin-bottom: 20px;
 
-
     .wrapper {
         display: none;
         width: 100%;
@@ -90,7 +89,6 @@
         @mixin desktop {
             display: block;
         }
-
     }
 
     .show-filters {
@@ -110,7 +108,6 @@
         }
     }
 
-
     .header {
         display: none;
 
@@ -120,10 +117,8 @@
     }
 
     .facetwp-facet {
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
-
-
 
     ul {
         list-style: none;
@@ -135,12 +130,11 @@
 
         @mixin desktop {
             flex-flow: row;
-
         }
 
         li {
+            @mixin column 1, 1;
 
-            @mixin column 1,1;
             display: flex;
             flex-flow: column;
             margin-bottom: 20px;
@@ -148,17 +142,15 @@
             @mixin desktop {
                 flex-flow: row;
             }
-
-
         }
 
         li:first-child {
             order: 4;
             padding-top: 12px;
 
-
             @mixin desktop {
                 order: 1;
+
                 @mixin column 2, 6;
             }
         }
@@ -172,7 +164,6 @@
         }
 
         li:nth-child(3) {
-
             @mixin desktop {
                 order: 3;
 
@@ -190,7 +181,6 @@
             }
         }
 
-
         li .facetwp-facet {
             width: 100%;
         }
@@ -200,7 +190,6 @@
 
             @mixin desktop {
                 display: inline-block;
-
             }
         }
 
@@ -215,7 +204,7 @@
         }
 
         li .label {
-            font-family: "Open Sans";
+            font-family: 'Open Sans';
             font-size: 16px;
             font-weight: 600;
             font-style: normal;
@@ -229,12 +218,9 @@
             @mixin desktop {
                 text-align: left;
                 flex-grow: 0;
-
             }
         }
     }
-
-
 
     .facetwp-type-dropdown,
     .facet-wrapper {
@@ -249,13 +235,13 @@
         backface-visibility: hidden;
 
         &::before {
-             display: block;
-             content: ' ';
-             width: 40px;
-             height: 42px;
-             background-color: $blue;
-             position: absolute;
-             right: 0;
+            display: block;
+            content: ' ';
+            width: 40px;
+            height: 42px;
+            background-color: $blue;
+            position: absolute;
+            right: 0;
         }
 
         &::after {
@@ -264,7 +250,7 @@
             border-style: solid;
             transform: rotate(45deg);
             content: ' ';
-            border-width: 0px 3px 3px 0px;
+            border-width: 0 3px 3px 0;
             border-color: #fff;
             position: absolute;
             right: 15px;
@@ -279,14 +265,13 @@
         background: none;
         border: none;
         position: relative;
-        z-index: 1;
-        padding:0 50px 0 15px;
+        padding: 0 50px 0 15px;
         font-size: 15px;
+        z-index: 1;
 
         option {
             font-size: 15px;
         }
-
     }
 
     .facetwp-slider {
@@ -305,8 +290,8 @@
             outline: none;
         }
 
-        .noUi-handle:before,
-        .noUi-handle:after {
+        .noUi-handle::before,
+        .noUi-handle::after {
             display: none;
         }
 
@@ -327,7 +312,6 @@
         .noUi-target {
             display: none;
         }
-
     }
 
     .facetwp-slider-reset {
@@ -339,6 +323,4 @@
         margin: 0 auto;
         text-align: center;
     }
-
-
 }

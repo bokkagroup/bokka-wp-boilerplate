@@ -36,7 +36,7 @@ class Floorplans extends \CatalystWP\Nucleus\Model
     {
         $neighborhoods = get_posts(array('post_type' => 'communities', 'posts_per_page' => 500));
         $cities = array_unique(
-            array_map(function($neighborhood) {
+            array_map(function ($neighborhood) {
                 return $neighborhood->city;
             }, $neighborhoods)
         );

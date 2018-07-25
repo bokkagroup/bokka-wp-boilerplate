@@ -112,7 +112,6 @@
 @import 'organisms/detail-brand-window';
 @import 'organisms/events-archive';
 @import 'organisms/event-single-post';
-
 @import 'organisms/feature-slider';
 @import 'organisms/floorplan-stats';
 @import 'organisms/form-with-text';
@@ -146,17 +145,6 @@
 @import 'organisms/upcoming-event';
 @import 'organisms/virtual-tour';
 @import 'organisms/wysiwyg-block';
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ------------------------------------ *\

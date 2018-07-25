@@ -390,5 +390,3 @@ function getNeighborhoodMinPrice($id)
     $min_price = min($prices);
     return $min_price;
 }
-
-
