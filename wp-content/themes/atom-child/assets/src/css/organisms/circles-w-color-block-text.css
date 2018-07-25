@@ -11,6 +11,7 @@
     .intro {
         margin: 0 0 30px;
         max-width: 415px;
+        text-align: right;
 
         img {
             display: block;

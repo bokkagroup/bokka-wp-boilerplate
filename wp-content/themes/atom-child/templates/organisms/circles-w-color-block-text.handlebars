@@ -2,10 +2,18 @@
     <section>
         <div class="container">
             <div class="intro">
+                {{#if link}}<a href="{{link}}">{{/if}}
                 <figure>
                     <img class="lifefullness" src="/wp-content/themes/atom-child/assets/build/images/lifefullness-homepage.jpg" alt="">
                 </figure>
+                {{#if link}}</a>{{/if}}
                 {{{description}}}
+
+                {{#if button}}
+                    <a href="{{link}}" class="button">
+                        {{button_text}}
+                    </a>
+                {{/if}}
             </div>
             <div class="circles">
                 {{#each item}}

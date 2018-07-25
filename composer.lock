@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bcaf22d93c776ec048c49f2695f9b528",
+    "content-hash": "11a87545c3adba24fc0a5574c097a651",
     "packages": [
         {
             "name": "bokkagroup/admin-columns-acf-addon",
@@ -559,15 +559,15 @@
         },
         {
             "name": "wpackagist-plugin/add-to-any",
-            "version": "1.7.26",
+            "version": "1.7.28",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/add-to-any/",
-                "reference": "tags/1.7.26"
+                "reference": "tags/1.7.28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.26.zip",
+                "url": "https://downloads.wordpress.org/plugin/add-to-any.1.7.28.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -659,15 +659,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "4.9",
+            "version": "7.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/4.9"
+                "reference": "tags/7.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.4.9.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.7.9.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -727,7 +727,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.zip?timestamp=1517953157",
+                "url": "https://downloads.wordpress.org/plugin/wp-mail-smtp.zip?timestamp=1530795280",
                 "reference": null,
                 "shasum": null
             },
@@ -736,7 +736,7 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-mail-smtp/",
-            "time": "2018-02-06T21:39:17+00:00"
+            "time": "2018-07-05T12:54:40+00:00"
         },
         {
             "name": "wpackagist-plugin/wp-smushit",
