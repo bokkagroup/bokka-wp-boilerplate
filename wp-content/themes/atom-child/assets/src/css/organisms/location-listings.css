@@ -91,6 +91,10 @@
                 width: 33%;
             }
 
+            .address {
+                display: flex;
+            }
+
             .phone {
                 margin: 0 0 20px;
             }
@@ -124,7 +128,7 @@
             @mixin desktop {
                 margin: 0;
                 padding: 0 0 0 30px;
-                width: 67%;
+                width: 45%;
             }
 
             .title {
@@ -142,9 +146,29 @@
                 vertical-align: top;
                 width: calc(100% - 4em);
             }
+        }
+
+        .contact {
+            @media only screen and (min-width: 500px) {
+                clear: both;
+            }
+
+            @mixin tablet {
+                clear: none;
+                float: none;
+            }
+
+            @mixin desktop {
+                margin: 0 0 0 30px;
+            }
 
             .button {
                 margin: 20px 0 0;
+
+                @mixin desktop {
+                    margin: 0;
+                    white-space: nowrap;
+                }
             }
         }
     }
