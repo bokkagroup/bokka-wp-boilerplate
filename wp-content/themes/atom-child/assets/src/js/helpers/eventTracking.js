@@ -29,7 +29,7 @@ $('.section').each(function(){
     }
 
     /**
-     * SETUP our labels & actiosn and call the Event tracking function
+     * SETUP our labels & actions and call the Event tracking function
      */
 
     //brand window organism
@@ -124,10 +124,23 @@ $('.section').each(function(){
 
     //floorplan brandwindow
     } else if (el.hasClass('detail-brand-window') && el.hasClass('floorplan')) {
-        el.on('click', '.button.modal-trigger', function(event){
-            var text = el.find('.button').text().trim()
+        el.on('click', '.button.fancy-trigger', function(event){
+            var button = $(this);
+            var text = button.text().trim();
             label = ('FP-Brand-Window-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
             eventTrack(category, action, label)
+
+            // virtual pageview when 'get brochure' modal is opened after user has already provided their info
+            var wrapclass = el.find('.button').attr('data-wrapclass');
+            if (wrapclass == 'get-brochure-wrapper') {
+                var floorplan = '';
+                var pathArray = window.location.pathname.split('/');
+                if (pathArray.length) {
+                    floorplan = pathArray[5];
+                }
+                page = '/thank-you/floorplan-detail-page/get-brochure/' + floorplan;
+                ga('send', { hitType: 'pageview', page: page })
+            }
         })
 
     //custom cta w modal form
@@ -146,7 +159,7 @@ $('.section').each(function(){
             eventTrack(category, action, label)
         })
 
-        //tab gallery
+    //tab gallery
     } else if (el.hasClass('tab-gallery')) {
         el.on('click', '.tab', function(event){
             var text = $(this).find('a').text().trim()
@@ -267,7 +280,13 @@ $('.section').each(function(){
 
             eventTrack(category, action, label)
         })
-
+    // form w/ text
+    } else if (el.hasClass('form-w-text')) {
+        el.on('click', '.button', function(event){
+            var text = el.find('.button').text().trim()
+            label = ('Form-With-Text-'+text).replace(/(\r\n|\n|\r)/gm,"")
+            eventTrack(category, action, label)
+        })
     }
 })
 
@@ -319,7 +338,12 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
     } else if(formId === 3){
         page = '/thank-you/coming-soon-get-updates'
     } else if(formId === 6){
-        page = '/thank-you/neighborhood-detail-page/request-info'
+        var neighborhood = '';
+        var pathArray = window.location.pathname.split('/');
+        if (pathArray.length) {
+            neighborhood = pathArray[3];
+        }
+        page = '/thank-you/neighborhood-detail-page/request-info/' + neighborhood
     } else if(formId === 9){
         page = '/thank-you/contact-us-page/ask-a-question'
     } else if(formId === 10){
@@ -327,9 +351,19 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
     } else if(formId === 26){
         page = '/weecottage.blog/thank-you'
     } else if(formId === 38){
-        page = '/thank-you/floorplan-detail-page/get-brochure'
+        var floorplan = '';
+        var pathArray = window.location.pathname.split('/');
+        if (pathArray.length) {
+            floorplan = pathArray[5];
+        }
+        page = '/thank-you/floorplan-detail-page/get-brochure/' + floorplan
     } else if(formId === 37){
-        page = '/thank-you/neighborhood-detail-page/modal-gallery'
+        var neighborhood = '';
+        var pathArray = window.location.pathname.split('/');
+        if (pathArray.length) {
+            neighborhood = pathArray[3];
+        }
+        page = '/thank-you/neighborhood-detail-page/modal-gallery/' + neighborhood
     } else if(formId === 40){
         page = '/thank-you/home-collections/get-more-info'
     }
