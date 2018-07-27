@@ -240,6 +240,44 @@ add_filter('catatlystwp_nucleus_filter_before_render', 'getModelStats');
 
 /**
  * @param $data
+ * Applies the view filters on tabbed products
+ */
+function getPlanStats($data)
+{
+    if (isset($data->post_type) &&
+        $data->post_type == 'plans') {
+
+        $data->bathrooms_min = get_field('bathrooms_min', $data->ID);
+        $data->bathrooms_max = get_field('bathrooms_max', $data->ID);
+        if ($data->bathrooms_min == $data->bathrooms_max || $data->bathrooms_max == null) {
+            $data->bathrooms_display = $data->bathrooms_min;
+        } else {
+            $data->bathrooms_display = $data->bathrooms_min . ' – ' . $data->bathrooms_max;
+        }
+
+        $data->bedrooms_min = get_field('bedrooms_min', $data->ID);
+        $data->bedrooms_max = get_field('bedrooms_max', $data->ID);
+        if ($data->bedrooms_min == $data->bedrooms_max || $data->bedrooms_max == null) {
+            $data->bedrooms_display = $data->bedrooms_min;
+        } else {
+            $data->bedrooms_display = $data->bedrooms_min . ' – ' . $data->bedrooms_max;
+        }
+        
+        $data->main_sqr_ft = get_field('main_sqr_ft', $data->ID);
+        $data->finished_sqr_ft = get_field('finished_sqr_ft', $data->ID);
+        if ($data->main_sqr_ft == $data->finished_sqr_ft || $data->finished_sqr_ft == null) {
+            $data->sqr_ft_display = $data->main_sqr_ft;
+        } else {
+            $data->sqr_ft_display = $data->main_sqr_ft . ' – ' . $data->finished_sqr_ft;
+        }
+
+    }
+    return $data;
+}
+add_filter('catatlystwp_nucleus_filter_before_render', 'getPlanStats');
+
+/**
+ * @param $data
  * Attaches the 'city' property to homes and models
  */
 function getNeighborhoodCity($data)

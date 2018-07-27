@@ -59,16 +59,10 @@
         <div class="stats">
             <ul>
                 {{#if ../plans}}
-                    {{#if bedrooms_min}}
-                        <li>{{bedrooms_min}}
-                            {{#unless ../models}}
-                                {{#if bedrooms_max}}
-                                    &ndash; {{bedrooms_max}}
-                                {{/if}}
-                            {{/unless}}
+                        <li>
+                            {{bedrooms_display}}
                             <div class="label">Beds</div>
                         </li>
-                    {{/if}}
                 {{/if}}
                 {{#if ../model}}
                     {{#if bedrooms_min}}
@@ -102,11 +96,7 @@
 
                 {{#if ../plans}}
                     {{#if main_sqr_ft}}
-                        <li>{{main_sqr_ft}}
-                            {{#if finished_sqr_ft}}
-                                &ndash; {{finished_sqr_ft}}
-                            {{/if}}
-
+                        <li>{{sqr_ft_display}}
                             <div class="label">SQ.FT.</div>
                         </li>
                     {{/if}}
