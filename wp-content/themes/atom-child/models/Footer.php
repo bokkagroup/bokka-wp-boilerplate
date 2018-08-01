@@ -17,6 +17,8 @@ class Footer extends \CatalystWP\Nucleus\Model
             $city = get_post_meta($item->object_id, 'city');
             $price = get_post_meta($item->object_id, 'base_price');
             $types = get_post_meta($item->object_id, 'types');
+            $status = get_post_meta($item->object_id, 'status');
+
             if (!$item->menu_item_parent) {
                 $parent_id = $item->ID;
                 $menu_object['communities'][$item->ID]['link'] = $link;
@@ -31,6 +33,12 @@ class Footer extends \CatalystWP\Nucleus\Model
                     $types = explode(',', $types[0]);
                     $menu_object['communities'][$item->ID]['types'] = $types;
                 }
+                if ($status) {
+                    $status_field = get_field_object('status', $item->object_id);
+                    $status_label = $status_field['choices'][$status[0]];
+                    $menu_object['communities'][$item->ID]['status_label'] = $status_label;
+                }
+
             }
             if ($parent_id == $item->menu_item_parent) {
                 $menu_object['communities'][$item->menu_item_parent]['subnav'][$item->ID]['link'] = $link;

@@ -46,6 +46,11 @@
                                                     {{/each}} from the {{price}}'s
                                                 </span>
                                             {{/if}}
+                                            {{#unless price}}
+                                                {{#if status_label}}
+                                                <span>{{status_label}}</span>
+                                                {{/if}}
+                                            {{/unless}}
                                         </a>
                                     </li>
                                 {{/each}}
