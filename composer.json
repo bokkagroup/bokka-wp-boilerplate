@@ -7,6 +7,7 @@
     { "type": "git", "url": "https://github.com/bokkagroup/nucleus" },
     { "type": "git", "url": "https://github.com/bokkagroup/bokka-utilities" },
     { "type": "git", "url": "git@bitbucket.org:bokkagroup/advanced-custom-fields-pro.git" },
+    { "type": "git", "url": "git@bitbucket.org:bokkagroup/bokka-bdx-plugin.git" },
     { "type": "git", "url": "git@bitbucket.org:bokkagroup/advanced-custom-field-repeater-collapser.git"},
     { "type": "git", "url": "git@bitbucket.org:bokkagroup/gravityforms.git"},
     { "type": "git", "url": "git@bitbucket.org:bokkagroup/admin-columns-pro.git"},
@@ -27,6 +28,7 @@
   "require": {
     "bokkagroup/bokka-utilities": "*",
     "bokkagroup/nucleus": "^0.1",
+    "bokkagroup/bokka-bdx-plugin": "0.1.0",
     "bokkagroup/admin-columns-pro": "^3.6",
     "bokkagroup/advanced-custom-field-repeater-collapser": "^1.4",
     "bokkagroup/advanced-custom-fields-pro": "5.5.12",
