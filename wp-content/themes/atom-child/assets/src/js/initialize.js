@@ -108,6 +108,16 @@ jQuery( document ).ready(function($) {
         ]
     });
 
+    // brand window photo gallery
+    $('.elevations-gallery').slick({
+        slide: '.slide',
+        infinite: true,
+        auto: true,
+        rows: 0,
+        prevArrow: '<a href="#" class="slick-prev"><span class="icon icon-slider-previous"></span></a>',
+        nextArrow: '<a href="#" class="slick-next"><span class="icon icon-slider-next"></span></a>'
+    });
+
     $('.js-page-jump').on('click', function(event){
         event.preventDefault()
         var selector = $(this).attr('href')
