@@ -33,6 +33,9 @@ var gformHelpers = module.exports = {
                 $('.gform_wrapper form input[type="submit"]').on('click', function(e) {
                     e.preventDefault();
 
+                    var button = $(this);
+                    var form = button.closest('.gform_wrapper form');
+
                     var selectedProducts = $('.product-types').find('input[type=checkbox]:checked');
                     var productValues = '';
 
@@ -44,7 +47,7 @@ var gformHelpers = module.exports = {
                     productDataInput.val(productValues);
 
                     // Manually submit the form
-                    $('.gform_wrapper form').submit();
+                    form.submit();
                 });
             }
         }

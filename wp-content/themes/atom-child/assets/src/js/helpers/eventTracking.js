@@ -126,13 +126,9 @@ $('.section').each(function(){
     } else if (el.hasClass('detail-brand-window') && el.hasClass('floorplan')) {
         el.on('click', '.button.fancy-trigger', function(event){
             var button = $(this);
-            var text = button.text().trim();
-            label = ('FP-Brand-Window-'+text).replace(/(\r\n|\n|\r)/gm,"")//define our label
-            eventTrack(category, action, label)
-
-            // virtual pageview when 'get brochure' modal is opened after user has already provided their info
-            var wrapclass = el.find('.button').attr('data-wrapclass');
-            if (wrapclass == 'get-brochure-wrapper') {
+            var target = button.attr('href');
+            // if user has already provided their info, trigger virtual pageview when 'get brochure' modal is opened
+            if (target == '#get_brochure_modal') {
                 var floorplan = '';
                 var pathArray = window.location.pathname.split('/');
                 if (pathArray.length) {
@@ -140,6 +136,11 @@ $('.section').each(function(){
                 }
                 page = '/thank-you/floorplan-detail-page/get-brochure/' + floorplan;
                 ga('send', { hitType: 'pageview', page: page })
+            } else {
+                // otherwise just track click on CTA
+                var text = button.text().trim();
+                label = ('FP-Brand-Window-'+text).replace(/(\r\n|\n|\r)/gm,"")
+                eventTrack(category, action, label)
             }
         })
 
