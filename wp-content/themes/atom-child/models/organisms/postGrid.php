@@ -3,11 +3,12 @@
 if (isset($organism['type']) && $organism['type'] === "post-grid") {
     global $wp_query;
     $post_type = $organism['post_type'];
+    $limit_posts = $organism['limit_posts'];
     $taxonomies = get_object_taxonomies($post_type);
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
         'post_type'         => $post_type,
-        'posts_per_page'    => 9,
+        'posts_per_page'    => $limit_posts ? 3 : 9,
         'paged'             => $paged,
     );
 
@@ -24,12 +25,14 @@ if (isset($organism['type']) && $organism['type'] === "post-grid") {
 
     $custom_posts = new WP_Query($args);
 
-    $pagination = paginate_links(array(
-        'current' => max(1, get_query_var('paged')),
-        'total' => $custom_posts->max_num_pages
-    ));
+    if (!$limit_posts) {
+        $pagination = paginate_links(array(
+            'current' => max(1, get_query_var('paged')),
+            'total' => $custom_posts->max_num_pages
+        ));
 
-    $organism['pagination'] = $pagination;
+        $organism['pagination'] = $pagination;
+    }
 
     $custom_posts = $custom_posts->get_posts();
     $posts = array_map(function ($post) {

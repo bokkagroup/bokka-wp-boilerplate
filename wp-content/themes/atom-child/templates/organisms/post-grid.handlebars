@@ -1,22 +1,30 @@
-<div id="{{id}}" class="section post-grid">
+<div id="{{id}}" class="section post-grid {{#if limit_posts}}limit-posts{{/if}}">
     <section>
         <div class="container">
-
-            {{#if show_categories}}
-                {{#if categories}}
-                <div class="categories">
-                    {{#if categories_title}}
-                    <h2 class="toggle">{{categories_title}}</h2>
-                    {{/if}}
-                    <ul>
-                        {{#each categories}}
-                        <li><a href="{{term_link}}" {{#if current}}class="current"{{/if}}><span>{{name}}</span> ({{count}})</a></li>
-                        {{/each}}
-                        <li><a href=""><span>View All</span></a></li>
-                    </ul>
-                </div><!--/categories -->
-                {{/if}}
+            
+            {{#if title}}
+                <div class="section-header">
+                    <h2>{{title}}</h2>
+                </div>
             {{/if}}
+
+            {{#unless limit_posts}}
+                {{#if show_categories}}
+                    {{#if categories}}
+                    <div class="categories">
+                        {{#if categories_title}}
+                        <h2 class="toggle">{{categories_title}}</h2>
+                        {{/if}}
+                        <ul>
+                            {{#each categories}}
+                            <li><a href="{{term_link}}" {{#if current}}class="current"{{/if}}><span>{{name}}</span> ({{count}})</a></li>
+                            {{/each}}
+                            <li><a href=""><span>View All</span></a></li>
+                        </ul>
+                    </div><!--/categories -->
+                    {{/if}}
+                {{/if}}
+            {{/unless}}
 
             {{#if custom_posts}}
 
@@ -26,7 +34,7 @@
 
                     {{#each custom_posts}}
 
-                        <li class="item {{#if feat_img}} color-bg{{else}}{{#unless thumbnail}} color-bg white-text{{/unless}}{{/if}}{{#if two_column}} two-column{{/if}}">
+                        <li class="item {{#if feat_img}}color-bg{{else}}{{#unless thumbnail}} color-bg white-text{{/unless}}{{/if}}{{#unless ../limit_posts}}{{#if two_column}} two-column{{/if}}{{/unless}}">
                             {{#if category}}
                             <div class="category">
                                 <span>{{category}}</span>
@@ -56,6 +64,14 @@
                 {{/each}}
 
                 </ul>
+
+                {{#if button}}
+                    <div class="section-footer">
+                        <a href="{{link}}" class="button">
+                            {{button_text}}
+                        </a>
+                    </div>
+                {{/if}}
 
             {{else}}
 

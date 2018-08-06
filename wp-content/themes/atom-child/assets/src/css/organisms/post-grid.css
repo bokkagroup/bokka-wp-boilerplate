@@ -2,6 +2,37 @@
     background: $gray_light2;
     padding-bottom: 30px;
 
+    /* hide third post on tablet for limited posts version */
+    &.limit-posts {
+        .item {
+            &:nth-child(3) {
+                @mixin tablet {
+                    display: none;
+                }
+
+                @mixin desktop {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .section-header {
+        margin: 40px 0 0;
+        padding: 0 30px;
+        text-align: center;
+        width: 100%;
+
+        @mixin tablet {
+            margin: 40px 0 -30px;
+        }
+    }
+
+    .section-footer {
+        text-align: center;
+        width: 100%;
+    }
+
     .grid-wrapper {
         margin: -30px 0 0;
         padding: 30px 0 0;

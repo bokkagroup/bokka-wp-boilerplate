@@ -15,3 +15,14 @@ function button_shortcode($atts, $content = "")
     return $output;
 }
 add_shortcode('button', 'button_shortcode');
+
+// output URL parameters
+function get_parameters($atts) {
+    $a = shortcode_atts(array(
+        'q' => '',
+    ), $atts);
+
+    $q = $a['q'];
+    return $_GET[$q];
+}
+add_shortcode('parameters', 'get_parameters');
