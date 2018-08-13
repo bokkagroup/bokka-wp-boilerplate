@@ -12,6 +12,7 @@ class Floorplan extends \CatalystWP\Nucleus\Model
     public $modal_gallery_form;
     public $get_brochure_form;
     public $floorplan = true;
+    public $garage_display;
 
     public function initialize()
     {
@@ -27,6 +28,7 @@ class Floorplan extends \CatalystWP\Nucleus\Model
         $this->setPDF();
         $this->setGalleryItems();
         $this->setPostType();
+        $this->setGarageDisplay();
     }
 
     private function setPostType()
@@ -95,6 +97,17 @@ class Floorplan extends \CatalystWP\Nucleus\Model
             }, $this->elevations);
         } else {
             $this->elevations = false;
+        }
+    }
+
+    private function setGarageDisplay()
+    {
+        $garage_min = get_field('garage_min', $this->ID);
+        $garage_max = get_field('garage', $this->ID);
+        if ($garage_max > $garage_min) {
+            $this->garage_display = $garage_min . ' - ' . $garage_max;
+        } else {
+            $this->garage_display = $garage_min;
         }
     }
 }
