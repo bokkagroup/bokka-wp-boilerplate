@@ -1,17 +1,23 @@
 <div id="{{id}}" class="section testimonial">
     <section>
         <div class="container">
-            {{#with testimonial}}
-                <div class="text">
-                    {{{excerpt}}}
-                    <span class="name">{{name}}</span>
-                </div><!--/text-->
-                <div class="image">
-                    <figure>
-                        <img src="{{image}}" alt="" />
-                    </figure>
-                </div><!--/image-->
-            {{/with}}
+            <div class="row">
+                {{#each testimonials}}
+                <div class="item">
+                    <a href="/lifestyle/reviews/">
+                        <div class="text">
+                            {{{excerpt}}}
+                            <span class="name">{{name}}</span>
+                        </div>
+                        <div class="image">
+                            <figure>
+                                <img src="{{image}}" alt="" />
+                            </figure>
+                        </div><!--/image-->
+                    </a>
+                </div>
+                {{/each}}
+            </div>
         </div><!--/container-->
     </section>
 </div><!--/testimonial-->

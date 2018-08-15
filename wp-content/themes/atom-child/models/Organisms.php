@@ -143,17 +143,21 @@ class Organisms extends \CatalystWP\Nucleus\Model
             $organism['inset_image'] = wp_get_attachment_image_src($organism['inset_image'], 'full')[0];
         }
 
-        //get the testimonial from the ID
-        if (isset($organism['testimonial_id']) && isset($organism['type']) && $organism['type'] === 'testimonial') {
-            $name = get_post_meta($organism['testimonial_id'], 'name');
-            $excerpt = get_post_meta($organism['testimonial_id'], 'excerpt');
-            $organism['testimonial'] = get_object_vars(get_post($organism['testimonial_id']));
-            $organism['testimonial']['name'] = count($name) > 0 ? $name[0] : false;
-            $organism['testimonial']['excerpt'] = count($excerpt) > 0 ? $excerpt[0] : false;
-            $organism['testimonial']['image'] = wp_get_attachment_image_src(get_post_thumbnail_id($organism['testimonial_id']), 'full')[0];
+        //get testimonials from array of IDs
+        if (isset($organism['testimonial_ids']) && isset($organism['type']) && $organism['type'] === 'testimonial') {
+            $testimonials = array_map(function($testimonial_id) {
+                $name = get_post_meta($testimonial_id, 'name');
+                $excerpt = get_post_meta($testimonial_id, 'excerpt');
+                $image = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_id), 'full')[0];
+                $testimonial = array(
+                    'name' => count($name) > 0 ? $name[0] : false,
+                    'excerpt' => count($excerpt) > 0 ? $excerpt[0] : false,
+                    'image' => $image
+                );
+                return $testimonial;
+            }, $organism['testimonial_ids']);
+            $organism['testimonials'] = $testimonials;
         }
-
-
 
         //recursively call this function on child items
         if (isset($organism['item']) && $organism['item']) {
