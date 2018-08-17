@@ -129,12 +129,14 @@ $('.section').each(function(){
             var target = button.attr('href');
             // if user has already provided their info, trigger virtual pageview when 'get brochure' modal is opened
             if (target == '#get_brochure_modal') {
+                var neighborhood = '';
                 var floorplan = '';
                 var pathArray = window.location.pathname.split('/');
                 if (pathArray.length) {
+                    neighborhood = pathArray[3];
                     floorplan = pathArray[5];
                 }
-                page = '/thank-you/floorplan-detail-page/get-brochure/' + floorplan;
+                page = '/thank-you/floorplan-detail-page/get-brochure/' + neighborhood + '/' + floorplan;
                 ga('send', { hitType: 'pageview', page: page })
             } else {
                 // otherwise just track click on CTA
@@ -352,12 +354,14 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
     } else if(formId === 26){
         page = '/weecottage.blog/thank-you'
     } else if(formId === 38){
+        var neighborhood = '';
         var floorplan = '';
         var pathArray = window.location.pathname.split('/');
         if (pathArray.length) {
+            neighborhood = pathArray[3];
             floorplan = pathArray[5];
         }
-        page = '/thank-you/floorplan-detail-page/get-brochure/' + floorplan
+        page = '/thank-you/floorplan-detail-page/get-brochure/' + neighborhood + '/' + floorplan
     } else if(formId === 37){
         var neighborhood = '';
         var pathArray = window.location.pathname.split('/');
