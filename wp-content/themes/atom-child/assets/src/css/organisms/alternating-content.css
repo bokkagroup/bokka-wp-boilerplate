@@ -33,7 +33,7 @@
             }
         }
 
-        .image {
+        .media {
             @mixin column 1, 1;
 
             margin-bottom: 30px;
@@ -45,7 +45,13 @@
             }
 
             img {
+                display: block;
+                margin: 0 auto;
                 max-width: 100%;
+            }
+
+            .embed-container {
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
             }
         }
 
@@ -64,7 +70,7 @@
                 }
             }
 
-            .image {
+            .media {
                 @mixin desktop {
                     order: 2;
                 }
@@ -86,12 +92,13 @@
 
                 .title h2,
                 .body,
-                .body p {
+                .body p,
+                a {
                     color: $white;
                 }
             }
 
-            .image {
+            .media {
                 margin-right: 30px;
                 order: 1;
             }

@@ -4,12 +4,17 @@
             {{#each items}}
                 <div class="item">
                     {{>molecules/blocks/cta-block}}
-                    <div class="image">
-                        <img src="{{image}}" alt="">
+                    <div class="media">
+                        {{#if video_embed}}
+                            <div class="embed-container">
+                                {{{video_embed}}}
+                            </div>
+                        {{else}}
+                            <img src="{{image}}" alt="">
+                        {{/if}}
                     </div>
                 </div>
             {{/each}}
-
         </div>
     </section>
 </div>

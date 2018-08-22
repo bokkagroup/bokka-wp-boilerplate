@@ -69,6 +69,7 @@
 @import 'atoms/tooltip';
 @import 'atoms/status';
 @import 'atoms/backgrounds';
+@import 'atoms/embed';
 
 /* ------------------------------------ *\
     Molecules Styles
@@ -146,7 +147,6 @@
 @import 'organisms/virtual-tour';
 @import 'organisms/wysiwyg-block';
 
-
 /* ------------------------------------ *\
     $COMPONENTS
 \* ------------------------------------ */
@@ -155,12 +155,10 @@
 @import 'objects/filters';
 @import 'objects/product-listings';
 
-
 /* ------------------------------------ *\
     $PAGES
 \* ------------------------------------ */
 @import 'pages/floorplans-overview.css';
-
 
 /* ------------------------------------ *\
    Vendor
