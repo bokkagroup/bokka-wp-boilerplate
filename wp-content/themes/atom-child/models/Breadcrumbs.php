@@ -449,7 +449,7 @@ class Breadcrumbs extends \CatalystWP\Nucleus\Model
             ),
             array(
                 'title' => 'Testimonials',
-                'link' => '/testimonials',
+                'link' => '/lifestyle/reviews',
                 'class' => 'icon icon-testimonials'
             ),
             array(
@@ -484,7 +484,7 @@ class Breadcrumbs extends \CatalystWP\Nucleus\Model
             ),
             array(
                 'title' => 'Testimonials',
-                'link' => '/testimonials',
+                'link' => '/lifestyle/reviews',
                 'class' => 'icon icon-testimonials'
             )
         );
@@ -503,7 +503,7 @@ class Breadcrumbs extends \CatalystWP\Nucleus\Model
             ),
             array(
                 'title' => 'Testimonials',
-                'link' => '/testimonials',
+                'link' => '/lifestyle/reviews',
                 'class' => 'icon icon-testimonials'
             ),
             array(
