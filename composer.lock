@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "7113c16fffef43bdae9884048929ec21",
-    "content-hash": "7c6b971a46e3df0ead7f524358d17872",
+    "content-hash": "a66f4334a8cc7e43dc92ac3ae833e8ed",
     "packages": [
         {
             "name": "bokkagroup/admin-columns-acf-addon",
@@ -28,7 +27,7 @@
                     "email": "mike@bokkagroup.com"
                 }
             ],
-            "time": "2018-04-11 06:14:38"
+            "time": "2018-04-11T06:14:38+00:00"
         },
         {
             "name": "bokkagroup/admin-columns-pro",
@@ -51,7 +50,7 @@
                     "email": "mike@bokkagroup.com"
                 }
             ],
-            "time": "2018-02-09 21:44:53"
+            "time": "2018-02-09T21:44:53+00:00"
         },
         {
             "name": "bokkagroup/advanced-custom-field-repeater-collapser",
@@ -74,15 +73,15 @@
                     "email": "mike@bokkagroup.com"
                 }
             ],
-            "time": "2018-04-10 20:30:17"
+            "time": "2018-04-10T20:30:17+00:00"
         },
         {
             "name": "bokkagroup/advanced-custom-fields-pro",
-            "version": "5.5.12",
+            "version": "5.7.3",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:bokkagroup/advanced-custom-fields-pro.git",
-                "reference": "6a8693fffac2262be09b9a6a7cfc4423aa3ed770"
+                "reference": "ee8567db534c7a1bd92536a75e22041c4ceb0843"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -97,7 +96,7 @@
                     "email": "mike@bokkagroup.com"
                 }
             ],
-            "time": "2018-02-06 23:34:05"
+            "time": "2018-08-25T07:36:21+00:00"
         },
         {
             "name": "bokkagroup/bcn-hatchbuck",
@@ -120,7 +119,7 @@
                     "email": "mike@bokkagroup.com"
                 }
             ],
-            "time": "2018-04-11 05:43:26"
+            "time": "2018-04-11T05:43:26+00:00"
         },
         {
             "name": "bokkagroup/bokka-bdx-plugin",
@@ -148,7 +147,7 @@
                 }
             ],
             "description": "Customizable user authentication that allows for login and registration using an email address as well as setting a password at registration.",
-            "time": "2018-08-02 17:24:55"
+            "time": "2018-08-02T17:24:55+00:00"
         },
         {
             "name": "bokkagroup/bokka-utilities",
@@ -171,15 +170,15 @@
                 "GNU2"
             ],
             "description": "A utilities plugin built to be used in the Catalyst WordPress framework by the Bokka Group.",
-            "time": "2017-11-10 18:45:23"
+            "time": "2017-11-10T18:45:23+00:00"
         },
         {
             "name": "bokkagroup/facetwp",
-            "version": "dev-master",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:bokkagroup/facetwp.git",
-                "reference": "53a4fe603402c50a9851e1a508580a58db3f94e6"
+                "reference": "565002c6440f5e2ce14c0c85315ab43d5725fed6"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -195,7 +194,7 @@
                 }
             ],
             "description": "Gravity Forms",
-            "time": "2018-04-04 06:21:54"
+            "time": "2018-08-25T08:37:11+00:00"
         },
         {
             "name": "bokkagroup/gravity-forms-acf-field",
@@ -218,15 +217,15 @@
                     "email": "mike@bokkagroup.com"
                 }
             ],
-            "time": "2017-04-04 22:26:14"
+            "time": "2017-04-04T22:26:14+00:00"
         },
         {
             "name": "bokkagroup/gravityforms",
-            "version": "1.9.19",
+            "version": "2.2.6",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:bokkagroup/gravityforms.git",
-                "reference": "3e389a066fd20917b691e881e58ed182bf330276"
+                "reference": "f29159733b5dfe72d4db00a174421b1ab109c44b"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -242,7 +241,7 @@
                 }
             ],
             "description": "Gravity Forms",
-            "time": "2018-02-07 00:04:14"
+            "time": "2018-04-10T20:32:08+00:00"
         },
         {
             "name": "bokkagroup/nucleus",
@@ -267,7 +266,7 @@
                 }
             ],
             "description": "A plugin that provides MVC functionality in the Catalyst WP Toolbox.",
-            "time": "2018-05-10 15:40:51"
+            "time": "2018-05-10T15:40:51+00:00"
         },
         {
             "name": "bokkagroup/wp-migrate-db-pro",
@@ -291,7 +290,7 @@
                 }
             ],
             "description": "Migrate DB Pro",
-            "time": "2018-02-06 23:55:32"
+            "time": "2018-02-06T23:55:32+00:00"
         },
         {
             "name": "composer/installers",
@@ -411,7 +410,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-12-29 09:13:20"
+            "time": "2017-12-29T09:13:20+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -450,7 +449,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-11-16 01:32:51"
+            "time": "2017-11-16T01:32:51+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
@@ -490,7 +489,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-11-16 01:32:46"
+            "time": "2017-11-16T01:32:46+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -539,7 +538,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2018-01-29 14:49:29"
+            "time": "2018-01-29T14:49:29+00:00"
         },
         {
             "name": "tmilos/lexer",
@@ -584,7 +583,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2016-12-21 11:22:39"
+            "time": "2016-12-21T11:22:39+00:00"
         },
         {
             "name": "wpackagist-plugin/add-to-any",
@@ -608,15 +607,15 @@
         },
         {
             "name": "wpackagist-plugin/admin-menu-editor",
-            "version": "1.8.4",
+            "version": "1.8.5",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/admin-menu-editor/",
-                "reference": "tags/1.8.4"
+                "reference": "tags/1.8.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.8.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/admin-menu-editor.1.8.5.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -688,15 +687,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "7.9",
+            "version": "8.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/7.9"
+                "reference": "tags/8.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.7.9.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.8.0.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -765,19 +764,19 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-mail-smtp/",
-            "time": "2018-07-05 12:54:40"
+            "time": "2018-07-05T12:54:40+00:00"
         },
         {
             "name": "wpackagist-plugin/wp-smushit",
-            "version": "2.8.0",
+            "version": "2.8.0.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-smushit/",
-                "reference": "tags/2.8.0"
+                "reference": "tags/2.8.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-smushit.2.8.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-smushit.2.8.0.1.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -791,9 +790,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "bokkagroup/facetwp": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
