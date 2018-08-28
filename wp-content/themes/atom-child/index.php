@@ -26,8 +26,6 @@
             new \CatalystWP\AtomChild\controllers\QuickMoveInHomesController();
         } elseif (is_page('model-homes')) {
             new \CatalystWP\AtomChild\controllers\ModelHomesController();
-        } elseif (is_page('our-locations')) {
-            new \CatalystWP\AtomChild\controllers\LocationsController();
         } elseif (is_page()) {
             new \CatalystWP\AtomChild\controllers\PageController();
         } elseif (is_post_type_archive('blog-post') ||

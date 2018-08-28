@@ -41,6 +41,7 @@ module.exports = Backbone.View.extend({
             self.parent.map.fitBounds(self.parent.bounds);
 
             self.marker.addListener('click', function () {
+                self.parent.resetInfobox();
                 bokka.events.trigger('changePin', self.marker);
                 self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, true);
                 self.parent.setCenter(self.marker.position);
@@ -48,6 +49,7 @@ module.exports = Backbone.View.extend({
 
             if (bokka.breakpoint.value !== 'mobile') {
                 self.marker.addListener('mouseover', function () {
+                    self.parent.resetInfobox();
                     bokka.events.trigger('changePin', self.marker);
                     self.parent.openInfoWindow(self.mapInfo, self.marker, self.markerIndex, true);
                 });

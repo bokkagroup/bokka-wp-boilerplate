@@ -1,0 +1,10 @@
+<div class="map-wrap">
+    <div class="map google-map-wrapper locations-map">
+        <div class="google-map js-locations-map">
+        </div>
+    </div>
+</div><!--/map-wrap -->
+
+{{#each item}}
+    <div class="location-info" data-map-info='{"position": {"lat": {{latitude}},"lng": {{longitude}}},"title": "{{title}}","secondary": "{{sub_title}}"}'></div>
+{{/each}}

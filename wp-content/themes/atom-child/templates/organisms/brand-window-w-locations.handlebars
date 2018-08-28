@@ -1,0 +1,23 @@
+<div id="{{id}}" class="section brand-window-w-locations">
+    <section>
+        <div class="container">
+            {{>molecules/blocks/locations-map}}
+
+            <div class="image">
+                <figure>
+                    {{{images.responsive}}}
+                </figure>
+            </div><!--/image-->
+
+            <div class="text">
+                <div class="body">
+                    <h1>{{title}}</h1>
+                    {{{description}}}
+                    {{#if button}}
+                    <a href="{{link}}" class="button">{{button_text}}</a>
+                    {{/if}}
+                </div><!--/body-->
+            </div><!--/text-->
+        </div><!--/container-->
+    </section>
+</div><!--/brand-window-w-locations-->

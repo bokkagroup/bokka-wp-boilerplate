@@ -1,0 +1,245 @@
+.section.location-listing {
+    margin: 0 0 40px;
+
+    .infoBox {
+        > img {
+            display: none;
+        }
+    }
+
+    .info-window {
+        background: $white;
+        border-bottom: 10px solid $purple_light;
+        bottom: 62px;
+        box-shadow: 1px 3px 10px 0 rgba(0, 0, 0, 0.5);
+        position: absolute;
+        transform: translateX(-50%);
+        z-index: 2;
+
+        @mixin tablet {
+            border-bottom: 25px solid $purple_light;
+        }
+
+        &::after {
+            bottom: -24px;
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 14px solid $purple_light;
+            left: 50%;
+            margin: 0 0 0 -14px;
+            z-index: 1;
+
+            @mixin tablet {
+                bottom: -39px;
+            }
+        }
+
+        .contents {
+            padding: 20px;
+
+            @mixin desktop {
+                padding: 20px 30px;
+            }
+        }
+    }
+
+    .item {
+        color: $gray_dark2;
+        font-family: 'Open Sans';
+        padding: 20px;
+        width: 100%;
+
+        &:nth-child(odd) {
+            background: $light_gray;
+        }
+
+        @mixin desktop {
+            padding: 30px;
+        }
+
+        .header {
+            margin: 0 0 15px;
+
+            @mixin desktop {
+                align-items: flex-end;
+                border-bottom: 2px solid $purple;
+                display: flex;
+                padding: 0 0 10px;
+            }
+        }
+
+        .title {
+            h2 {
+                border-bottom: 2px solid $purple;
+                font-size: 24px;
+                margin: 0 0 10px;
+                padding: 0 0 3px;
+
+                @mixin desktop {
+                    border: 0 none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                a {
+                    color: $purple;
+                    display: block;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .subtitle {
+            @mixin desktop {
+                margin: 0 0 0 auto;
+            }
+
+            h4 {
+                font-size: 18px;
+            }
+        }
+
+        .content {
+            @mixin tablet {
+                display: flex;
+            }
+        }
+
+        .image {
+            @media only screen and (min-width: 500px) {
+                float: left;
+                width: 45%;
+            }
+
+            @mixin tablet {
+                float: none;
+                width: 40%;
+            }
+
+            @mixin desktop {
+                width: 25%;
+            }
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                object-position: 50% 50%;
+                width: 100%;
+            }
+        }
+
+        .body {
+            @mixin tablet {
+                padding: 0 0 0 20px;
+                width: 60%;
+            }
+
+            @mixin desktop {
+                display: flex;
+                width: 75%;
+            }
+
+            .title {
+                display: block;
+                font-weight: 600;
+                margin: 0 0 8px;
+            }
+        }
+
+        .contact-block {
+            display: flex;
+            margin: 0 0 20px;
+
+            .icon {
+                color: $purple;
+                display: inline-block;
+                flex: 0;
+                font-size: 1.6em;
+                line-height: 1;
+                margin: 0 5px 0 0;
+                vertical-align: top;
+            }
+
+            a {
+                color: $blue;
+                display: inline-block;
+                vertical-align: top;
+            }
+        }
+
+        .contact-info {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            padding: 10px 0 0;
+
+            @media only screen and (min-width: 500px) {
+                float: right;
+                padding: 5px 0 0 20px;
+                width: 55%;
+            }
+
+            @mixin tablet {
+                float: none;
+                padding: 0;
+                width: 100%;
+            }
+
+            @mixin desktop {
+                width: 33%;
+            }
+        }
+
+        .hours {
+            margin: 0 0 30px;
+
+            @mixin desktop {
+                margin: 0;
+                padding: 0 0 0 30px;
+                width: 45%;
+            }
+
+            p {
+                color: $gray_dark2;
+                font-family: 'Open Sans';
+                line-height: 1.4;
+            }
+        }
+
+        .models {
+            ul {
+                color: $blue;
+                font-family: 'Open Sans';
+                list-style-position: inside;
+                padding: 0 0 0 10px;
+            }
+
+            a {
+                color: $blue;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .request-info {
+            display: none;
+
+            @mixin desktop {
+                display: flex;
+            }
+        }
+
+        .button {
+            @mixin desktop {
+                display: none;
+            }
+        }
+    }
+}

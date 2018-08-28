@@ -1,0 +1,136 @@
+.section.brand-window-w-locations {
+    width: 100%;
+
+    @mixin desktop {
+        margin-top: 45px;
+    }
+
+    .container {
+        background-color: $blue;
+        position: relative;
+        max-width: none;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+
+        @mixin desktop {
+            @mixin container;
+
+            background-color: transparent;
+            height: 375px;
+            max-width: 1160px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .map-wrap {
+        display: none;
+
+        @mixin desktop {
+            display: block;
+        }
+    }
+
+    .image {
+        bottom: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        @mixin desktop {
+            display: none;
+        }
+
+        figure {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+        img {
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 50%;
+            width: 100%;
+        }
+
+        /* Image overlay */
+        &::before {
+            content: '';
+            display: block;
+            background-color: $blue;
+            opacity: 0.85;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .text {
+        margin: 0 auto;
+        max-width: 620px;
+        padding: 30px;
+        position: relative;
+        text-align: center;
+
+        @mixin desktop {
+            @mixin column 1,3;
+
+            align-items: center;
+            background-color: $blue;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: none;
+            min-height: 100%;
+            order: 1;
+            padding: 0 15px;
+            position: relative;
+            text-align: left;
+        }
+
+        @mixin desktop-large {
+            padding: 0 30px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 25px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+            @mixin desktop {
+                font-size: 36px;
+                text-shadow: none;
+            }
+        }
+
+        p {
+            color: #fff;
+            font-family: 'Merriweather';
+            font-size: 18px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.4;
+            margin: 0 0 15px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+
+            @mixin desktop {
+                font-size: 16px;
+                text-shadow: none;
+            }
+
+            @mixin desktop-large {
+                font-size: 18px;
+            }
+        }
+    }
+}

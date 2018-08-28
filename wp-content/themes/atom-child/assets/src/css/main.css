@@ -98,6 +98,7 @@
 @import 'organisms/brand-window-testimonial';
 @import 'organisms/brand-window-404';
 @import 'organisms/brand-window-image';
+@import 'organisms/brand-window-w-locations';
 @import 'organisms/cards';
 @import 'organisms/careers-cta';
 @import 'organisms/coming-soon-get-updates';
@@ -122,7 +123,7 @@
 @import 'organisms/intro-text';
 @import 'organisms/join-team';
 @import 'organisms/lp-intro-w-form';
-@import 'organisms/location-listings';
+@import 'organisms/location-listing';
 @import 'organisms/map-with-info';
 @import 'organisms/masonry-gallery';
 @import 'organisms/mega-features';

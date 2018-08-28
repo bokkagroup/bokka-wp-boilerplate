@@ -145,7 +145,7 @@ class Organisms extends \CatalystWP\Nucleus\Model
 
         //get testimonials from array of IDs
         if (isset($organism['testimonial_ids']) && isset($organism['type']) && $organism['type'] === 'testimonial') {
-            $testimonials = array_map(function($testimonial_id) {
+            $testimonials = array_map(function ($testimonial_id) {
                 $name = get_post_meta($testimonial_id, 'name');
                 $excerpt = get_post_meta($testimonial_id, 'excerpt');
                 $image = wp_get_attachment_image_src(get_post_thumbnail_id($testimonial_id), 'full')[0];
@@ -230,10 +230,10 @@ class Organisms extends \CatalystWP\Nucleus\Model
             }
         }
 
-        require('organisms/eventsArchive.php');
-        require('organisms/postGrid.php');
-        require('organisms/postCategories.php');
-
+        require_once('organisms/eventsArchive.php');
+        require_once('organisms/postGrid.php');
+        require_once('organisms/postCategories.php');
+        require_once('organisms/locationListing.php');
         return $organism;
     }
 }

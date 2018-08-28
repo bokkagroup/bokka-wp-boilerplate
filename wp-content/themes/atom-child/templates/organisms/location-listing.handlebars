@@ -1,0 +1,99 @@
+<div class="section location-listing">
+    <section>
+        <div class="container">
+
+            {{>organisms/brand-window-w-locations}}
+
+            {{#each item}}
+                <div class="item">
+                    <div class="header">
+                        <div class="title">
+                            <h2>
+                                {{#if neighborhood_url}}
+                                    <a href="{{neighborhood_url}}">
+                                        {{post_title}}
+                                    </a>
+                                {{else}}
+                                    {{title}}
+                                {{/if}}
+                            </h2>
+                        </div>
+
+                        <div class="subtitle">
+                            <h4>
+                                {{#each types}}
+                                    {{#if @first}}
+                                      {{! formats the list into the following style "x, y & z"}}
+                                      {{this}}{{else}}{{#if @last}}{{#unless @first}} & {{this}}{{/unless}}{{else}}, {{this}}{{/if}}
+                                    {{/if}}
+                                {{/each}}
+                                {{#if base_price}}
+                                    from the ${{base_price}}s
+                                {{/if}}
+                            </h4>
+                        </div>
+                    </div><!--/header-->
+                    <div class="content">
+                        <div class="image">
+                            <img src="{{image}}">
+                        </div>
+                        <div class="body">
+                            <div class="contact-info">
+                                {{#if phone}}
+                                    <div class="contact-block phone">
+                                        <i class="icon icon-footer-phone"></i>
+                                        <a href="tel:{{phone}}">{{phone}}</a>
+                                    </div>
+                                {{/if}}
+
+                                <div class="contact-block address">
+                                    <i class="icon icon-footer-locations"></i>
+                                    <a target="_blank" href="http://www.google.com/maps/place/{{latitude}},{{longitude}}">
+                                        {{address_1}}<br>
+                                        {{#if address_2}}
+                                            {{address_2}}<br>
+                                        {{/if}}
+                                        {{city}}, {{state}} {{zip}}
+                                    </a>
+                                </div><!-- /address -->
+
+                                <div class="contact-block request-info">
+                                    <i class="icon icon-contact-us"></i>
+                                    <a class="fancy-trigger" href="#contact-us" data-wrapclass="contact-us-wrapper" data-width="560" data-neighborhood="{{post_title}}">Request Info</a>
+                                </div><!-- /address -->
+
+                            </div><!-- /contact-info -->
+
+                            <div class="hours">
+                                {{#if hours}}
+                                    <span class="title">Hours:</span>
+                                    {{{hours}}}
+                                {{/if}}
+                            </div>
+
+                            {{#if models}}
+                            <div class="models">
+                                <span class="title">Models:</span>
+                                <ul>
+                                    {{#each models}}
+                                        <li><a href="{{link}}">{{post_title}}</a></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            {{/if}}
+
+                            <a class="fancy-trigger button" href="#contact-us" data-wrapclass="contact-us-wrapper" data-width="560" data-neighborhood="{{post_title}}">Request Info</a>
+                        </div><!-- /body -->
+                    </div><!-- /content -->
+                </div><!-- /item -->
+            {{/each}}
+
+            <div class="modal-content">
+                <div id="contact-us" class="contact-us-form">
+                    {{{form}}}
+                </div>
+            </div>
+
+        </div><!--/container-->
+    </section>
+</div><!--/location-listings-->
