@@ -38,7 +38,6 @@ class Footer extends \CatalystWP\Nucleus\Model
                     $status_label = $status_field['choices'][$status[0]];
                     $menu_object['communities'][$item->ID]['status_label'] = $status_label;
                 }
-
             }
             if ($parent_id == $item->menu_item_parent) {
                 $menu_object['communities'][$item->menu_item_parent]['subnav'][$item->ID]['link'] = $link;

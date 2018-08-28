@@ -39,7 +39,7 @@ Enqueue Styles & Scripts
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('jquery', false, array(), false, false);
     wp_localize_script('bokkawptheme-initialize', 'BokkaWP', array(
-        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'ajaxurl' => admin_url('admin-ajax.php'),
         'themedir' => get_stylesheet_directory_uri()
     ));
     wp_enqueue_script('bokkawptheme-initialize');

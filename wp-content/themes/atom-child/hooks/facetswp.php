@@ -3,7 +3,7 @@
 /**
  * Floorplans list
  */
-add_filter('facetwp_template_html', function($output, $class) {
+add_filter('facetwp_template_html', function ($output, $class) {
     if ($class->template['name'] == 'floorplans') {
         $posts = array();
         $unfiltered = applyFiltersToProducts($class->query->posts);
@@ -24,12 +24,12 @@ add_filter('facetwp_template_html', function($output, $class) {
 /**
  * hide count on dropdowns
  */
-add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
+add_filter('facetwp_facet_dropdown_show_counts', '__return_false');
 
 
 /**
  * only ever show total of current floorplans
  */
-add_filter( 'facetwp_result_count', function( $output, $params ) {
+add_filter('facetwp_result_count', function ($output, $params) {
     return $params['total'];
-}, 10, 2 );
+}, 10, 2);

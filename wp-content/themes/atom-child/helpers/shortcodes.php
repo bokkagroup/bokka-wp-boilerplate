@@ -17,7 +17,8 @@ function button_shortcode($atts, $content = "")
 add_shortcode('button', 'button_shortcode');
 
 // output URL parameters
-function get_parameters($atts) {
+function get_parameters($atts)
+{
     $a = shortcode_atts(array(
         'q' => '',
     ), $atts);

@@ -244,9 +244,7 @@ add_filter('catatlystwp_nucleus_filter_before_render', 'getModelStats');
  */
 function getPlanStats($data)
 {
-    if (isset($data->post_type) &&
-        $data->post_type == 'plans') {
-
+    if (isset($data->post_type) && $data->post_type == 'plans') {
         $data->bathrooms_min = get_field('bathrooms_min', $data->ID);
         $data->bathrooms_max = get_field('bathrooms_max', $data->ID);
         if ($data->bathrooms_min == $data->bathrooms_max || $data->bathrooms_max == null) {
@@ -270,7 +268,6 @@ function getPlanStats($data)
         } else {
             $data->sqr_ft_display = $data->main_sqr_ft . ' – ' . $data->finished_sqr_ft;
         }
-
     }
     return $data;
 }

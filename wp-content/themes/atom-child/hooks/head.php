@@ -32,13 +32,13 @@ function requireBugHerd()
 }
 
 
-add_action('catatlystwp_nucleus_before_display', function(){
+add_action('catatlystwp_nucleus_before_display', function () {
     get_template_part('templates/header');
     do_action('bwt\before_content');
     echo " <div id=\"content\" class=\"content\">";
 });
 
-add_action('catatlystwp_nucleus_after_display', function(){
+add_action('catatlystwp_nucleus_after_display', function () {
     echo "</div>";
     do_action('bwt\after_content');
     new CatalystWP\AtomChild\controllers\FooterController();

@@ -161,13 +161,13 @@ class Hatchbuck
     private function execute($params)
     {
         //format as json
-        $data = json_encode( $params['data'] );
+        $data = json_encode($params['data']);
 
         //retrieve info from options panel
         $url     = $params['url'] . '?api_key=' . $this->api_key;
 
         //make curl connection
-        $ch = curl_init( $url );
+        $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $params['request']);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
