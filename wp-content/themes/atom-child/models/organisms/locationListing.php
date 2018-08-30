@@ -90,6 +90,12 @@ function setNeighborhood($post)
             $post->types = explode(',', $types[0]);
         }
 
+        if ($status = get_post_meta($neighborhood, 'status')) {
+            if ($status[0] == 'sold_out') {
+                $post->sold_out = true;
+            }
+        }
+
         $post->models = getModels($neighborhood);
     }
 }

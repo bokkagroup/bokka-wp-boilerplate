@@ -12,6 +12,9 @@
                                 {{#if neighborhood_url}}
                                     <a href="{{neighborhood_url}}">
                                         {{post_title}}
+                                        {{#if sold_out}}
+                                            &ndash; SOLD OUT
+                                        {{/if}}
                                     </a>
                                 {{else}}
                                     {{title}}
@@ -35,7 +38,9 @@
                     </div><!--/header-->
                     <div class="content">
                         <div class="image">
+                            {{#if neighborhood_url}}<a href="{{neighborhood_url}}">{{/if}}
                             <img src="{{image}}">
+                            {{#if neighborhood_url}}</a>{{/if}}
                         </div>
                         <div class="body">
                             <div class="contact-info">
@@ -49,11 +54,13 @@
                                 <div class="contact-block address">
                                     <i class="icon icon-footer-locations"></i>
                                     <a target="_blank" href="http://www.google.com/maps/place/{{latitude}},{{longitude}}">
-                                        {{address_1}}<br>
-                                        {{#if address_2}}
-                                            {{address_2}}<br>
+                                        {{#if address_1}}
+                                            <span class="address-line">{{address_1}}</span>
                                         {{/if}}
-                                        {{city}}, {{state}} {{zip}}
+                                        {{#if address_2}}
+                                            <span class="address-line">{{address_2}}<span>
+                                        {{/if}}
+                                        <span class="address-line">{{city}}, {{state}} {{zip}}</span>
                                     </a>
                                 </div><!-- /address -->
 
