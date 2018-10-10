@@ -20,6 +20,7 @@ class Neighborhoods extends \CatalystWP\Nucleus\Model
         $this->setModalGalleryForm($post, 37);
         $this->setUpcomingEvent($post);
         $this->setStatus($post);
+        $this->setFormCTAText($post);
         $this->data = $post;
     }
 
@@ -165,6 +166,18 @@ class Neighborhoods extends \CatalystWP\Nucleus\Model
             $field = get_field_object('status', $post->ID);
             $value = $field['value'];
             $post->status_label = $field['choices'][$value];
+        }
+    }
+
+    private function setFormCTAText($post)
+    {
+        if (isset($post->ID)) {
+            // use different CTA text for Brennan by the Lake only
+            if ($post->ID == 80) {
+                $post->form_cta_text = 'Get in Touch';
+            } else {
+                $post->form_cta_text = 'Get Updates';
+            }
         }
     }
 }
