@@ -241,6 +241,9 @@ $('.section').each(function(){
             if(text == 'Get Updates'){
                 label = 'Neighborhood Brand Window-Get Updates'
             }
+            if(text == 'Get in Touch'){
+                label = 'Neighborhood Brand Window-Get in Touch'
+            }
             if(text == 'View Location'){
                 label = 'Neighborhood Brand Window-View Location'
             }
