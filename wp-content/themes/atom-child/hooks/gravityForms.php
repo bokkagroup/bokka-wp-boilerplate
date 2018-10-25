@@ -1,5 +1,13 @@
 <?php
 
+// Give editor role access to Gravity Forms in dashboard
+add_action('admin_init', 'add_grav_forms_editor');
+function add_grav_forms_editor()
+{
+    $role = get_role('editor');
+    $role->add_cap('gform_full_access');
+}
+
 /**
  * Create a combined "plan - neighborhood" tag value that gets added
  * to the additional tags input.
