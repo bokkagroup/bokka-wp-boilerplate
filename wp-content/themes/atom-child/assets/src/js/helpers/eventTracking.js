@@ -343,7 +343,7 @@ $(document).on("gform_confirmation_loaded", function(event, formId){
         page = '/thank-you/QMI-detail-page/coming-soon-get-updates'
     } else if(formId === 3){
         page = '/thank-you/coming-soon-get-updates'
-    } else if(formId === 6){
+    } else if(formId === 6 || formId === 42){
         var neighborhood = '';
         var pathArray = window.location.pathname.split('/');
         if (pathArray.length) {

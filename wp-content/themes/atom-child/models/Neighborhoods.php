@@ -16,7 +16,7 @@ class Neighborhoods extends \CatalystWP\Nucleus\Model
         $this->setTestimonial($post);
         $this->setNeighborhoodFeatures($post);
         $this->setGalleryItems($post);
-        $this->setForm($post, 6);
+        $this->setForm($post);
         $this->setModalGalleryForm($post, 37);
         $this->setUpcomingEvent($post);
         $this->setStatus($post);
@@ -105,9 +105,13 @@ class Neighborhoods extends \CatalystWP\Nucleus\Model
         $post->gallery_items = prepare_masonry_gallery_data($gallery_items);
     }
 
-    private function setForm($post, $id)
+    private function setForm($post)
     {
-        $post->request_info_form = gravity_form($id, false, false, false, null, $ajax = true, 0, false);
+        if ($post->post_title == 'Brennan by the Lake') {
+            $post->request_info_form = gravity_form(42, false, false, false, null, $ajax = true, 0, false);
+        } else {
+            $post->request_info_form = gravity_form(6, false, false, false, null, $ajax = true, 0, false);
+        }
     }
 
     private function setModalGalleryForm($post, $id)
