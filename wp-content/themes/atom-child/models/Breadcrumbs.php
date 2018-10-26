@@ -40,7 +40,7 @@ class Breadcrumbs extends \CatalystWP\Nucleus\Model
             $this->data = $this->neighborhoods();
         } elseif (is_page('ask-a-question') ||
             is_page('our-locations') ||
-            is_page('homeowner-resources')) {
+            is_page('warranty-services')) {
             $this->data = $this->askAQuestion();
         } elseif (is_post_type_archive('blog-post')) {
             $this->data = $this->blogArchive();

@@ -28,7 +28,7 @@ class PrimaryNav extends \CatalystWP\Nucleus\Model
                 $slug = 'map-signs';
             }
 
-            if (strpos($slug, 'homeowner-resources') !== false) {
+            if (strpos($slug, 'warranty-services') !== false) {
                 $slug = 'wrench';
             }
 
