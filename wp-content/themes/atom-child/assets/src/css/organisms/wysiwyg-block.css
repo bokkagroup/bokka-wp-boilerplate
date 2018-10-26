@@ -26,9 +26,14 @@
 
     .text,
     p,
+    li,
     a {
         font-size: 15px;
         line-height: 1.8;
+    }
+
+    li strong {
+        font-weight: bold;
     }
 
     .text {

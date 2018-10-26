@@ -116,12 +116,14 @@ select, select option {
 
     @mixin tablet {
         &.first-name,
-        &.last-name {
+        &.last-name,
+        &.width-50 {
             display: inline-block;
             margin-right: 10px;
             width: calc(50% - 10px);
         }
 
+        &.width-50:nth-child(odd),
         &.last-name {
             margin-right: 0;
             margin-left: 10px;
@@ -130,12 +132,14 @@ select, select option {
 
     @mixin tablet {
         &.first-name,
-        &.last-name {
+        &.last-name,
+        &.width-50 {
             display: inline-block;
             margin-right: 10px;
             width: calc(50% - 10px);
         }
 
+        &.width-50:nth-child(odd),
         &.last-name {
             margin-right: 0;
             margin-left: 10px;

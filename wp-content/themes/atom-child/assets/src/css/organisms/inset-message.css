@@ -1,0 +1,51 @@
+.section.inset-message {
+    margin: 20px 0;
+
+    @mixin tablet {
+        margin: 40px 0;
+    }
+
+    .text {
+        border-bottom: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        background-color: #ebebeb;
+        padding: 25px 15px;
+
+        @mixin tablet {
+            border: 1px solid #ddd;
+            margin: 0 20px;
+            padding: 40px 30px;
+        }
+    }
+
+    h3 {
+        line-height: 1.2;
+    }
+
+    h5 {
+        font-family: 'Merriweather';
+        font-size: 18px;
+        font-weight: normal;
+        margin: 10px 0;
+
+        strong {
+            font-weight: bold;
+        }
+    }
+
+    .text,
+    p,
+    a,
+    li {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    p {
+        margin: 5px 0 15px;
+    }
+
+    a:not(.button) {
+        color: $blue;
+    }
+}

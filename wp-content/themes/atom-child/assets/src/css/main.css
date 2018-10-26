@@ -120,6 +120,7 @@
 @import 'organisms/floorplan-filters';
 @import 'organisms/form-basic';
 @import 'organisms/icon-grid';
+@import 'organisms/inset-message';
 @import 'organisms/intro-text';
 @import 'organisms/join-team';
 @import 'organisms/lp-intro-w-form';
@@ -159,7 +160,8 @@
 /* ------------------------------------ *\
     $PAGES
 \* ------------------------------------ */
-@import 'pages/floorplans-overview.css';
+@import 'pages/floorplans-overview';
+@import 'pages/warranty-request';
 
 /* ------------------------------------ *\
    Vendor

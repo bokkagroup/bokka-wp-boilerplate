@@ -1,0 +1,138 @@
+.page.page-homeowner-resources {
+    .contact-info.section.wysiwyg-block {
+        margin-bottom: 40px;
+
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+            letter-spacing: 0;
+            margin-bottom: 30px;
+            text-transform: none;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 5px 0;
+        }
+
+        p a {
+            font-size: 15px;
+        }
+
+        p strong {
+            font-weight: bold;
+        }
+
+        a:not(.button) {
+            color: $blue;
+        }
+    }
+
+    .section.form-basic {
+        .container {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+
+        .form {
+            max-width: none;
+        }
+
+        .gform_wrapper {
+            margin: 0;
+        }
+
+        a:not(.button) {
+            color: $blue;
+        }
+
+        .gfield_html {
+            h2 {
+                margin-bottom: 15px;
+            }
+
+            .purple {
+                margin: 20px 0 5px;
+            }
+
+            .purple + p {
+                color: $purple;
+                font-family: 'Open Sans';
+            }
+        }
+
+        .gfield .gfield_label {
+            color: $blue;
+            text-transform: none;
+        }
+
+        .warranty-issues {
+            .gfield_description {
+                font-family: 'Open Sans';
+                font-style: italic;
+                padding: 10px 5px;
+            }
+        }
+
+        .warranty-upload {
+            margin-top: 50px;
+
+            @mixin tablet {
+                padding: 0 20px;
+            }
+
+            .gfield_label {
+                color: $blue;
+                text-transform: none;
+                top: -28px;
+
+                @mixin tablet {
+                    left: 16px;
+                }
+            }
+
+            .gform_fileupload_multifile + span {
+                color: $gray_dark1;
+                display: block;
+                font-family: 'Open Sans';
+                font-size: 14px;
+                margin: 10px 0 0;
+            }
+
+            .ginput_container_fileupload {
+                border: 2px dashed #ddd;
+                padding: 15px;
+                text-align: center;
+
+                .gform_button_select_files {
+                    @mixin button $blue;
+
+                    background: $blue;
+                    border: none;
+                    font-size: 15px;
+                    margin: 0 auto 0 10px;
+                    padding: 8px 12px;
+                    text-shadow: none;
+                    width: auto;
+                }
+            }
+
+            div[id^=gform_preview] {
+                margin: 10px 0;
+
+                .ginput_preview {
+                    font-size: 14px;
+                    margin: 0 0 5px;
+                }
+            }
+        }
+
+        hr {
+            background: transparent;
+            border: none;
+            border-top: 2px dashed #ddd;
+            height: 0;
+            margin: 0 0 20px;
+        }
+    }
+}
