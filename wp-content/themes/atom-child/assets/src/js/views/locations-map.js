@@ -47,8 +47,6 @@ var LayoutView = Backbone.View.extend({
 
             setTimeout(function () {
                 self.map.fitBounds(self.bounds);
-                self.map.setZoom(self.map.getZoom() - 1);
-
                 if (bokka.breakpoint.value !== 'desktop') {
                     self.map.setCenter(self.map.getCenter());
                 } else {

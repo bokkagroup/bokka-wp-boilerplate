@@ -234,6 +234,7 @@ class Organisms extends \CatalystWP\Nucleus\Model
         require_once('organisms/postGrid.php');
         require_once('organisms/postCategories.php');
         require_once('organisms/locationListing.php');
+        require_once('organisms/mapWithLocations.php');
         return $organism;
     }
 }
