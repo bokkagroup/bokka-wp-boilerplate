@@ -390,3 +390,32 @@ function getNeighborhoodMinPrice($id)
     $min_price = min($prices);
     return $min_price;
 }
+
+function getNeighborhoodModels($id)
+{
+    $metaQuery = array(
+        array(
+            'key' => 'neighborhood',
+            'value' => "${neighborhood}",
+            'compare' => '='
+        )
+    );
+
+    $models = get_posts(
+        array(
+            'posts_per_page' => 500,
+            'post_type' => 'model',
+            'meta_query' => $metaQuery,
+            'suppress_filters' => false,
+            'orderby' => 'title',
+            'order' => 'ASC'
+        )
+    );
+
+    $models = array_map(function ($model) {
+         $model->link = get_permalink($model->ID);
+         return $model;
+    }, $models);
+
+    return $models;
+}

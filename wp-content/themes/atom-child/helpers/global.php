@@ -73,3 +73,8 @@ function get_video_embed_url($url)
 
     return $url;
 }
+
+function setForm($id)
+{
+    return gravity_form($id, false, false, false, null, $ajax = true, 0, false);
+}

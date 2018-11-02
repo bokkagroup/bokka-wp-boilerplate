@@ -230,11 +230,11 @@ class Organisms extends \CatalystWP\Nucleus\Model
             }
         }
 
-        require_once('organisms/eventsArchive.php');
-        require_once('organisms/postGrid.php');
-        require_once('organisms/postCategories.php');
-        require_once('organisms/locationListing.php');
-        require_once('organisms/mapWithLocations.php');
+        require('organisms/eventsArchive.php');
+        require('organisms/postGrid.php');
+        require('organisms/postCategories.php');
+        require('organisms/locationListing.php');
+        require('organisms/mapWithLocations.php');
         return $organism;
     }
 }
