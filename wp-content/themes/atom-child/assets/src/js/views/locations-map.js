@@ -52,6 +52,7 @@ var LayoutView = Backbone.View.extend({
                 } else {
                     self.map.setCenter(self.map.getCenter(), 0, 0);
                 }
+                self.map.setZoom(self.map.getZoom() - 6);
             }, 250);
         })
         google.maps.event.addDomListener(window, 'resize', function() {
